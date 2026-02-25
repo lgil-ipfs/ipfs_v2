@@ -306,7 +306,7 @@
 .ip-chip {
   border: 1px solid rgba(255, 255, 255, .14);
   background: linear-gradient(180deg, rgba(212, 175, 55, .12), rgba(212, 175, 55, .04));
-  color: #ffeec1;
+  color: #C9A84C;
   padding: 8px 16px;
   border-radius: 99px;
   font-size: 13px;
@@ -657,7 +657,7 @@
   /* Accent */
   --gold-light: #F2C26B;
   --text-white: #FFFFFF;
-  --text-dark: #1A1A1A;
+  --text-dark: #2D2D2D;
   --bg-white: #FFFFFF;
   --header-main-height: 92px;
   --header-top-height: 28px;
@@ -902,7 +902,7 @@
 .ip-header .cta:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
-  background: #E5C358;
+  background: #DCAE47;
 }
 
 .ip-header .cta:hover::before {
@@ -1094,13 +1094,13 @@
   --ip-deep-maroon: #2D2D2D;
   --ip-burgundy: #6B2737;
   --ip-gold: #C9A84C;
-  --ip-cream: #f1e9dd;
+  --ip-cream: #FAF7F2;
   --ip-radius: 18px;
   --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .ip-why-dynamic {
-  background: linear-gradient(180deg, #5b1010 0%, #6b1515 100%);
+  background: linear-gradient(180deg, #6B2737 0%, #2D2D2D 100%);
   color: #fff;
   padding: 72px 0 60px;
   /* Matched to original spacing */
@@ -1130,7 +1130,7 @@
   /* tightened */
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #f4e8c0;
+  color: #C9A84C;
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -1172,7 +1172,7 @@
   font-family: 'Open Sans', system-ui;
   font-size: 18px;
   line-height: 1.6;
-  color: #f1e9dd;
+  color: #FAF7F2;
   max-width: 120ch;
   margin-bottom: 0;
   opacity: 0;
@@ -1191,7 +1191,7 @@
 
 /* --- Card Styles (Original Colors) --- */
 .ip-card {
-  background: linear-gradient(180deg, #762424, #5b1414);
+  background: linear-gradient(180deg, #6B2737, #2D2D2D);
   border: 1px solid rgba(255, 255, 255, .1);
   border-radius: var(--ip-radius);
   overflow: hidden;
@@ -1276,7 +1276,7 @@
   font-family: 'Open Sans', system-ui;
   font-size: 15px;
   line-height: 1.6;
-  color: #f1e9dd;
+  color: #FAF7F2;
   margin: 0;
 }
 
@@ -1328,7 +1328,7 @@
   --radius: 22px;
 
   color: #fff;
-  background: linear-gradient(180deg, #5b1010 0%, #6b1515 100%);
+  background: linear-gradient(180deg, #6B2737 0%, #2D2D2D 100%);
   padding: 72px 0 60px;
   position: relative;
 }
@@ -1346,7 +1346,7 @@
   font: 700 16px/3 "Open Sans", system-ui;
   letter-spacing: .22em;
   text-transform: uppercase;
-  color: #f4e8c0;
+  color: #C9A84C;
   display: inline-flex;
   align-items: center;
   gap: .6rem
@@ -1373,7 +1373,7 @@
 /* Card */
 .ip-cta .card {
   background: #fff;
-  color: #1A1A1A;
+  color: #2D2D2D;
   border-radius: var(--radius);
   padding: clamp(24px, 3vw, 36px);
   box-shadow: 0 18px 44px rgba(0, 0, 0, .25);
@@ -1425,7 +1425,7 @@
 .ip-cta .btn-primary {
   color: #2b0b0b;
   background: linear-gradient(90deg, var(--gold), #f5d878);
-  border: 1px solid #d9b84c;
+  border: 1px solid #DCAE47;
   box-shadow: 0 8px 18px rgba(212, 175, 55, .4)
 }
 
@@ -1723,7 +1723,7 @@
   --gold: #D4AF37;
   --wrap: 1200px;
   --r: 16px;
-  background: linear-gradient(180deg, #551010 0%, #4a0e0e 100%);
+  background: linear-gradient(180deg, #6B2737 0%, #2D2D2D 100%);
   color: #fff;
   padding: 80px 0 72px;
   border-top: 1px solid rgba(255, 255, 255, .12);
@@ -1739,7 +1739,7 @@
   font: 700 14px/1 "Open Sans", system-ui;
   letter-spacing: .22em;
   text-transform: uppercase;
-  color: #f4e8c0;
+  color: #C9A84C;
   display: inline-flex;
   align-items: center;
   gap: .6rem;
@@ -1763,7 +1763,7 @@
 }
 
 .ip-values.pro .lead {
-  color: #f1e9dd;
+  color: #FAF7F2;
   font: 400 16px/1.75 "Open Sans", system-ui;
   margin: 0 0 36px;
   max-width: 80ch;
@@ -1776,7 +1776,7 @@
 }
 
 .ip-values.pro .card {
-  background: linear-gradient(180deg, #762424 0%, #5b1414 100%);
+  background: linear-gradient(180deg, #6B2737 0%, #2D2D2D 100%);
   border: 1px solid rgba(255, 255, 255, .14);
   border-radius: var(--r);
   overflow: hidden;
@@ -1818,12 +1818,12 @@
   font-weight: 800;
   font-size: 18px;
   margin: 0;
-  color: #ffeec1;
+  color: #C9A84C;
 }
 
 .ip-values.pro p {
   font: 400 14px/1.65 "Open Sans", system-ui;
-  color: #f1e9dd;
+  color: #FAF7F2;
   margin: 0;
 }
 
@@ -1851,14 +1851,14 @@
 
 
 .ip-team {
-  --deep: #630F0F;
+  --deep: #6B2737;
   --burg: #823F3F;
   --gold: #D4AF37;
-  --ink: #f1e9dd;
+  --ink: #FAF7F2;
   --hair: rgba(255, 255, 255, .14);
   --wrap: 1200px;
   --r: 18px;
-  background: linear-gradient(180deg, #5b1010 0%, #6b1515 100%);
+  background: linear-gradient(180deg, #6B2737 0%, #2D2D2D 100%);
   color: #fff;
   font-family: "Open Sans", system-ui;
   padding: 72px 0;
@@ -1875,7 +1875,7 @@
   font: 800 13px/1 "Open Sans";
   letter-spacing: .22em;
   text-transform: uppercase;
-  color: #f8e9bf;
+  color: #C9A84C;
   display: inline-flex;
   align-items: center;
   gap: .6rem;
@@ -1963,7 +1963,7 @@
 }
 
 .ip-team .role {
-  color: #ffeec1;
+  color: #C9A84C;
   font-size: 13px;
   margin: 0
 }
@@ -2000,7 +2000,7 @@
 .ip-team .btn-primary {
   background: var(--gold);
   color: var(--deep);
-  border: 1px solid #d9b84c;
+  border: 1px solid #DCAE47;
   box-shadow: 0 10px 24px rgba(212, 175, 55, .34);
 }
 
@@ -2028,9 +2028,9 @@
 
 
 .circleflow-original {
-  --deep-maroon: #630F0F;
-  --bg1: #5b1010;
-  --bg2: #6b1515;
+  --deep-maroon: #6B2737;
+  --bg1: #6B2737;
+  --bg2: #2D2D2D;
   --gold: #D4AF37;
   --ring: 560px;
   /* bigger circle for breathing room */
@@ -2071,7 +2071,7 @@
   font: 700 14px/1.2 "Open Sans";
   letter-spacing: .22em;
   text-transform: uppercase;
-  color: #f4e8c0;
+  color: #C9A84C;
   display: inline-flex;
   align-items: center;
   gap: .6rem
@@ -2092,7 +2092,7 @@
 }
 
 .circleflow-original .intro {
-  color: #f1e9dd;
+  color: #FAF7F2;
   font: 400 16px/1.75 "Open Sans";
   max-width: 40ch;
 }
@@ -2145,12 +2145,12 @@
 
 .circleflow-original .center h3 {
   font: 800 18px/1.25 "Merriweather", serif;
-  color: #ffeec1;
+  color: #C9A84C;
   margin: 0 0 6px
 }
 
 .circleflow-original .center p {
-  color: #f1e9dd;
+  color: #FAF7F2;
   font: 400 14px/1.65 "Open Sans";
   margin: 0;
   max-width: 34ch
@@ -2225,7 +2225,7 @@
   align-items: center;
   gap: 8px;
   font: 800 16px/1.25 "Merriweather", serif;
-  color: #ffeec1;
+  color: #C9A84C;
   margin: 0 0 6px
 }
 
@@ -2242,7 +2242,7 @@
 }
 
 .circleflow-original .desc {
-  color: #f1e9dd;
+  color: #FAF7F2;
   font: 400 13px/1.6 "Open Sans";
   margin: 0
 }
@@ -2298,7 +2298,7 @@
 
   .circleflow-original .mcard .title {
     font-size: 16px;
-    color: #ffeec1;
+    color: #C9A84C;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -2307,7 +2307,7 @@
 
   .circleflow-original .mcard .desc {
     font-size: 13px;
-    color: #f1e9dd;
+    color: #FAF7F2;
     margin: 0
   }
 
@@ -2325,11 +2325,11 @@
 
 
 .about-links {
-  --deep-maroon: #630F0F;
+  --deep-maroon: #6B2737;
   --burgundy: #7a2c2c;
   --gold: #D4AF37;
   --ivory: #F7F3EA;
-  background: linear-gradient(180deg, #630F0F 0%, #300909 100%);
+  background: linear-gradient(180deg, #6B2737 0%, #2D2D2D 100%);
   padding: 100px 0 110px;
   border-top: 1px solid rgba(255, 255, 255, .08);
   color: #fff;
@@ -2346,7 +2346,7 @@
   font: 700 14px/1.2 "Open Sans";
   letter-spacing: .22em;
   text-transform: uppercase;
-  color: #f4e8c0;
+  color: #C9A84C;
   display: inline-flex;
   align-items: left;
   gap: .6rem
@@ -2413,12 +2413,12 @@
 
 .about-links h3 {
   font: 800 20px/1.25 "Merriweather", serif;
-  color: #ffeec1;
+  color: #C9A84C;
   margin: 0 0 10px;
 }
 
 .about-links p {
-  color: #f1e9dd;
+  color: #FAF7F2;
   font: 400 15px/1.7 "Open Sans";
   margin: 0 0 18px;
 }
@@ -2438,7 +2438,7 @@
 }
 
 .about-links .btn:hover {
-  background: #f6d870;
+  background: #DCAE47;
   transform: translateY(-2px);
   box-shadow: 0 10px 22px rgba(212, 175, 55, .35);
 }
