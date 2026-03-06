@@ -62,8 +62,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  background: var(--charcoal);
-  color: var(--ink);
+  background: var(--cream);
+  color: var(--charcoal);
   line-height: 1.7;
   overflow-x: hidden;
 }
@@ -90,7 +90,7 @@ h4 {
   font-family: var(--font-display);
   font-weight: 900;
   line-height: 1.1;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, .25);
+  text-shadow: none;
 }
 
 h1 {
@@ -156,7 +156,7 @@ section {
 .ip-why-lead {
   font-size: 17px;
   line-height: 1.75;
-  color: var(--ink);
+  color: #4A4A4A;
   max-width: 72ch;
   margin-bottom: 1.5rem;
 }
@@ -165,10 +165,10 @@ section {
 .ip-card,
 .ip-serve .card,
 .ip-what .card {
-  background: var(--grad-card);
-  border: 1px solid rgba(255, 255, 255, .1);
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, .08);
   border-radius: var(--radius);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .05);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -179,14 +179,14 @@ section {
 .ip-serve .card:hover,
 .ip-what .card:hover {
   transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 16px 40px rgba(107, 39, 55, .08);
+  border-color: rgba(107, 39, 55, .15);
 }
 
 /* Buttons — shared */
 .btn,
 .ip-btn-white,
 .ip-serve .cta,
-.ip-what .link,
 .ip-cta .btn {
   display: inline-flex;
   align-items: center;
@@ -200,15 +200,7 @@ section {
   cursor: pointer;
 }
 
-.btn:hover,
-.ip-btn-white:hover,
-.ip-serve .cta:hover,
-.ip-what .link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, .22);
-}
-
-/* ── 6. ANIMATIONS (single definition, reused everywhere) ── */
+/* ── 6. ANIMATIONS ───────────────────────────────────────── */
 [data-ip-animate] .kicker,
 [data-ip-animate] .ip-kicker,
 [data-ip-animate] h2,
@@ -259,7 +251,6 @@ section {
   transition-delay: .44s;
 }
 
-/* Grid stagger */
 .in-view .grid .card:nth-child(1),
 .in-view .ip-why-grid .ip-card:nth-child(1) {
   opacity: 1;
@@ -306,7 +297,6 @@ section {
   width: 100%;
 }
 
-/* Topbar */
 .ip-header .topbar {
   background: var(--maroon);
   height: var(--nav-top-h);
@@ -335,7 +325,6 @@ section {
   color: var(--gold);
 }
 
-/* Mainbar */
 .ip-header .mainbar {
   background: var(--charcoal);
   height: var(--nav-h);
@@ -350,11 +339,27 @@ section {
 }
 
 .ip-header .mainbar.scrolled {
-  background: rgba(45, 8, 14, .96);
+  background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, .18);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .05);
   height: 78px;
+}
+
+.ip-header .mainbar.scrolled .nav > li > a {
+  color: var(--charcoal);
+}
+
+.ip-header .mainbar.scrolled .brand span {
+  color: var(--maroon);
+}
+
+.ip-header .mainbar.scrolled .hamburger span.text {
+  color: var(--charcoal);
+}
+
+.ip-header .mainbar.scrolled .burger-icon span {
+  background: var(--charcoal);
 }
 
 .ip-header .mainbar .row {
@@ -365,7 +370,6 @@ section {
   gap: 16px;
 }
 
-/* Brand */
 .ip-header .brand {
   display: flex;
   align-items: center;
@@ -390,7 +394,6 @@ section {
   letter-spacing: -.01em;
 }
 
-/* Desktop nav */
 .ip-header .nav {
   display: flex;
   gap: 28px;
@@ -399,12 +402,12 @@ section {
   justify-content: center;
 }
 
-.ip-header .nav>li {
+.ip-header .nav > li {
   position: relative;
   padding: 28px 0;
 }
 
-.ip-header .nav>li>a {
+.ip-header .nav > li > a {
   color: rgba(255, 255, 255, .88);
   font-size: 14px;
   font-weight: 500;
@@ -415,7 +418,7 @@ section {
   position: relative;
 }
 
-.ip-header .nav>li>a::after {
+.ip-header .nav > li > a::after {
   content: '';
   position: absolute;
   bottom: -4px;
@@ -426,26 +429,25 @@ section {
   transition: width .28s ease;
 }
 
-.ip-header .nav>li:hover>a {
+.ip-header .nav > li:hover > a {
   color: var(--white);
 }
 
-.ip-header .nav>li:hover>a::after {
+.ip-header .nav > li:hover > a::after {
   width: 100%;
 }
 
-.ip-header .nav>li>a i {
+.ip-header .nav > li > a i {
   font-size: 9px;
   opacity: .6;
   transition: transform .25s ease;
 }
 
-.ip-header .nav>li:hover>a i {
+.ip-header .nav > li:hover > a i {
   transform: rotate(180deg);
   opacity: 1;
 }
 
-/* Dropdown */
 .ip-header .dropdown {
   position: absolute;
   top: 100%;
@@ -464,8 +466,8 @@ section {
   z-index: 100;
 }
 
-.ip-header .nav>li:hover .dropdown,
-.ip-header .nav>li:focus-within .dropdown {
+.ip-header .nav > li:hover .dropdown,
+.ip-header .nav > li:focus-within .dropdown {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
@@ -487,7 +489,6 @@ section {
   border-left-color: var(--gold);
 }
 
-/* Header CTAs */
 .ip-header .header-actions {
   display: flex;
   gap: 10px;
@@ -505,7 +506,6 @@ section {
   display: inline-block;
 }
 
-/* "Get Coverage Now" — gold outline */
 .ip-header .cta-coverage {
   background: transparent;
   border: 1.5px solid var(--gold);
@@ -518,7 +518,6 @@ section {
   transform: translateY(-1px);
 }
 
-/* "Book Consultation" — white fill */
 .ip-header .cta-book {
   background: var(--white);
   color: var(--charcoal) !important;
@@ -531,7 +530,6 @@ section {
   box-shadow: 0 6px 18px rgba(0, 0, 0, .12);
 }
 
-/* Hamburger */
 .ip-header .hamburger {
   display: none;
   background: transparent;
@@ -571,17 +569,9 @@ section {
   transition: .25s ease-in-out;
 }
 
-.ip-header .burger-icon span:nth-child(1) {
-  top: 0;
-}
-
-.ip-header .burger-icon span:nth-child(2) {
-  top: 6px;
-}
-
-.ip-header .burger-icon span:nth-child(3) {
-  top: 12px;
-}
+.ip-header .burger-icon span:nth-child(1) { top: 0; }
+.ip-header .burger-icon span:nth-child(2) { top: 6px; }
+.ip-header .burger-icon span:nth-child(3) { top: 12px; }
 
 .ip-header.open .burger-icon span:nth-child(1) {
   top: 6px;
@@ -598,7 +588,6 @@ section {
   transform: rotate(-135deg);
 }
 
-/* Drawer */
 .ip-drawer {
   position: fixed;
   top: 0;
@@ -673,8 +662,8 @@ section {
   width: 100%;
   text-align: center;
   padding: 15px;
-  background: var(--gold);
-  color: var(--charcoal);
+  background: linear-gradient(90deg, #DCAE47 0%, #C9A84C 100%);
+  color: #FFFFFF;
   border-radius: 8px;
   font-weight: 700;
   display: block;
@@ -682,11 +671,10 @@ section {
 }
 
 .ip-drawer .cta-mobile:hover {
-  background: var(--gold-light);
+  background: linear-gradient(90deg, #E2C880 0%, #DCAE47 100%);
 }
 
-@media (max-width:1024px) {
-
+@media (max-width: 1024px) {
   .ip-header .nav,
   .ip-header .header-actions {
     display: none;
@@ -708,11 +696,24 @@ section {
 
 /* ── 8. HERO ─────────────────────────────────────────────── */
 .ip-hero.cinematic {
-  background: var(--grad-bg);
+  background: linear-gradient(180deg, #6B2737 0%, #2D2D2D 100%);
   padding: 130px 0 110px;
   border-top: 1px solid rgba(255, 255, 255, .1);
   font-family: var(--font-body);
   color: var(--white);
+}
+
+.ip-hero.cinematic,
+.ip-hero.cinematic * {
+  color: #FFFFFF;
+}
+
+.ip-hero.cinematic .kicker {
+  color: #C9A84C !important;
+}
+
+.ip-hero.cinematic .sub {
+  color: rgba(255, 255, 255, 0.95) !important;
 }
 
 .ip-hero.cinematic .bg-video {
@@ -732,9 +733,7 @@ section {
 }
 
 @keyframes fadeInVideo {
-  to {
-    opacity: 1;
-  }
+  to { opacity: 1; }
 }
 
 .ip-hero.cinematic::before {
@@ -762,14 +761,15 @@ section {
 .ip-hero h1 {
   font-size: clamp(2.4rem, 5.5vw, 3.6rem);
   margin-bottom: 12px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
 .ip-hero .sub {
   max-width: 680px;
   font-size: 17px;
   line-height: 1.75;
-  color: var(--ink);
   margin: 14px 0 26px;
+  text-shadow: none;
 }
 
 .ip-hero .cta-row {
@@ -786,14 +786,18 @@ section {
 }
 
 .ip-hero .btn.primary {
-  background: linear-gradient(90deg, var(--gold), var(--gold-light));
-  color: #2b0b0b;
+  background: linear-gradient(90deg, #DCAE47 0%, #C9A84C 100%);
+  color: #FFFFFF;
   border: 1px solid var(--gold);
   box-shadow: 0 8px 22px rgba(201, 168, 76, .28);
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.15);
 }
 
 .ip-hero .btn.primary:hover {
+  background: linear-gradient(90deg, #E2C880 0%, #DCAE47 100%);
   box-shadow: 0 12px 28px rgba(201, 168, 76, .42);
+  transform: translateY(-2px);
 }
 
 .ip-hero .btn.secondary {
@@ -804,24 +808,21 @@ section {
 
 .ip-hero .btn.secondary:hover {
   background: rgba(255, 255, 255, .14);
+  transform: translateY(-2px);
 }
 
-@media (max-width:760px) {
-  .ip-hero h1 {
-    font-size: 2.1rem;
-  }
-
-  .ip-hero.cinematic {
-    padding: 90px 0 72px;
-  }
+@media (max-width: 760px) {
+  .ip-hero h1 { font-size: 2.1rem; }
+  .ip-hero.cinematic { padding: 90px 0 72px; }
 }
 
 /* ── 9. WHO WE ARE ───────────────────────────────────────── */
 .ip-who-dynamic {
-  background: var(--grad-bg);
+  background: #FFFFFF;
   padding: 80px 0;
   font-family: var(--font-body);
-  color: var(--white);
+  color: var(--charcoal);
+  border-bottom: 1px solid rgba(0, 0, 0, .05);
 }
 
 .ip-grid {
@@ -836,6 +837,11 @@ section {
   font-size: clamp(1.8rem, 3vw, 2.4rem);
   font-weight: 900;
   margin: 0 0 1rem;
+  color: var(--maroon);
+}
+
+.ip-lead {
+  color: #4A4A4A;
 }
 
 .ip-chips {
@@ -846,9 +852,9 @@ section {
 }
 
 .ip-chip {
-  border: 1px solid rgba(255, 255, 255, .14);
-  background: linear-gradient(180deg, rgba(201, 168, 76, .14), rgba(201, 168, 76, .05));
-  color: var(--gold);
+  border: 1px solid rgba(0, 0, 0, .1);
+  background: #FFFFFF;
+  color: var(--charcoal);
   padding: 7px 15px;
   border-radius: 99px;
   font-size: 12px;
@@ -857,21 +863,26 @@ section {
 
 .ip-btn-white {
   padding: 11px 26px;
-  border: 2px solid #fff;
+  background: var(--maroon);
   color: #fff;
   font-size: 13px;
   border-radius: 999px;
+  border: none;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
 }
 
 .ip-btn-white:hover {
-  background: rgba(255, 255, 255, .1);
+  background: var(--maroon-deep);
+  transform: translateY(-2px);
 }
 
 .ip-image-wrapper {
   position: relative;
   border-radius: var(--radius);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, .1);
+  border: 1px solid rgba(0, 0, 0, .08);
   height: 380px;
   box-shadow: var(--shadow-lg);
 }
@@ -897,24 +908,22 @@ section {
   z-index: 5;
 }
 
-@media (max-width:900px) {
+@media (max-width: 900px) {
   .ip-grid {
     grid-template-columns: 1fr;
     gap: 36px;
   }
-
-  .ip-image-wrapper {
-    height: 280px;
-  }
+  .ip-image-wrapper { height: 280px; }
 }
 
 /* ── 10. WHY CHOOSE US ───────────────────────────────────── */
 .ip-why-dynamic {
-  background: var(--grad-bg);
+  background: #FAF7F2;
   padding: 72px 0 60px;
-  border-top: 1px solid rgba(255, 255, 255, .06);
+  border-top: 1px solid rgba(0, 0, 0, .05);
+  border-bottom: 1px solid rgba(0, 0, 0, .05);
   font-family: var(--font-body);
-  color: var(--white);
+  color: var(--charcoal);
 }
 
 .ip-why-header {
@@ -926,7 +935,11 @@ section {
   font-size: clamp(1.7rem, 3vw, 2.3rem);
   font-weight: 900;
   margin: 12px 0 16px;
-  color: #fff;
+  color: var(--maroon);
+}
+
+.ip-why-lead {
+  color: #4A4A4A;
 }
 
 .ip-why-grid {
@@ -938,7 +951,7 @@ section {
 .ip-card-media {
   height: 210px;
   overflow: hidden;
-  border-bottom: 1px solid rgba(255, 255, 255, .08);
+  border-bottom: 1px solid rgba(0, 0, 0, .08);
 }
 
 .ip-card-media img {
@@ -987,35 +1000,40 @@ section {
   font-size: 1.15rem;
   font-weight: 900;
   margin: 0 0 9px;
-  color: #fff;
+  color: var(--maroon);
 }
 
 .ip-card-text {
   font-size: 14px;
   line-height: 1.65;
-  color: var(--ink);
+  color: #555555;
   margin: 0;
+  text-shadow: none;
 }
 
-@media (max-width:1024px) {
-  .ip-why-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+@media (max-width: 1024px) {
+  .ip-why-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width:700px) {
-  .ip-why-grid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 700px) {
+  .ip-why-grid { grid-template-columns: 1fr; }
 }
 
 /* ── 11. WHO WE SERVE ────────────────────────────────────── */
 .ip-serve {
-  background: var(--grad-bg);
+  background: #FFFFFF;
   padding: 72px 0 60px;
-  border-top: 1px solid rgba(255, 255, 255, .06);
+  border-top: 1px solid rgba(0, 0, 0, .05);
   font-family: var(--font-body);
-  color: var(--white);
+  color: var(--charcoal);
+}
+
+.ip-serve h2 {
+  color: var(--maroon);
+}
+
+.ip-serve .lead {
+  color: #4A4A4A;
 }
 
 .ip-serve .grid {
@@ -1029,7 +1047,7 @@ section {
   width: 100%;
   height: 210px;
   object-fit: cover;
-  border-bottom: 1px solid rgba(255, 255, 255, .08);
+  border-bottom: 1px solid rgba(0, 0, 0, .08);
   transition: transform .6s ease;
 }
 
@@ -1049,13 +1067,15 @@ section {
   font-size: 1.2rem;
   font-weight: 900;
   margin: 0 0 9px;
+  color: var(--maroon);
 }
 
 .ip-serve .desc {
   font-size: 14px;
   line-height: 1.65;
-  color: var(--ink);
+  color: #555555;
   margin-bottom: 12px;
+  text-shadow: none;
 }
 
 .ip-serve ul {
@@ -1067,7 +1087,8 @@ section {
   padding-left: 18px;
   margin: 5px 0;
   font-size: 13px;
-  color: var(--ink);
+  color: #555555;
+  text-shadow: none;
 }
 
 .ip-serve li::before {
@@ -1081,31 +1102,56 @@ section {
 .ip-serve .cta {
   margin-top: auto;
   align-self: flex-start;
-  padding: 9px 20px;
-  border: 2px solid #fff;
+  padding: 12px 24px;
+  background: linear-gradient(90deg, #DCAE47 0%, #C9A84C 100%);
+  color: #FFFFFF;
+  border: 1px solid #C9A84C;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 800;
   border-radius: 999px;
-  color: #fff;
+  box-shadow: 0 4px 14px rgba(201, 168, 76, 0.4);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
 }
 
 .ip-serve .cta:hover {
-  background: rgba(255, 255, 255, .12);
+  background: linear-gradient(90deg, #E2C880 0%, #DCAE47 100%);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(201, 168, 76, 0.6);
 }
 
-@media (max-width:900px) {
-  .ip-serve .grid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 900px) {
+  .ip-serve .grid { grid-template-columns: 1fr; }
 }
 
 /* ── 12. WHAT WE DO ──────────────────────────────────────── */
-.ip-what {
-  background: var(--grad-bg);
+.ip-what,
+.ip-what.v4 {
+  background: #FAF7F2;
   padding: 72px 0 60px;
-  border-top: 1px solid rgba(255, 255, 255, .06);
+  border-top: 1px solid rgba(0, 0, 0, .05);
   font-family: var(--font-body);
-  color: var(--white);
+  color: var(--charcoal);
+}
+
+.ip-what h2,
+.ip-what #what-title {
+  color: var(--maroon);
+  text-shadow: none;
+}
+
+.ip-what .kicker {
+  color: var(--gold);
+}
+
+.ip-what .lead {
+  color: #4A4A4A;
+  text-shadow: none;
 }
 
 .ip-what .grid {
@@ -1119,7 +1165,7 @@ section {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-bottom: 1px solid rgba(255, 255, 255, .08);
+  border-bottom: 1px solid rgba(0, 0, 0, .08);
 }
 
 .ip-what .card-content {
@@ -1134,13 +1180,15 @@ section {
   font-size: 1.1rem;
   font-weight: 900;
   margin: 0 0 8px;
+  color: var(--maroon);
 }
 
 .ip-what .desc {
   font-size: 13px;
   line-height: 1.65;
-  color: var(--ink);
+  color: #555555;
   margin-bottom: 12px;
+  text-shadow: none;
 }
 
 .ip-what ul {
@@ -1152,7 +1200,8 @@ section {
   padding-left: 18px;
   margin: 5px 0;
   font-size: 12px;
-  color: var(--ink);
+  color: #555555;
+  text-shadow: none;
 }
 
 .ip-what li::before {
@@ -1163,53 +1212,62 @@ section {
   font-weight: 700;
 }
 
+/* ── KEY FIX: Explore buttons — gold outline on white cards ── */
+.ip-what .card .link,
 .ip-what .link {
   margin-top: auto;
   align-self: flex-start;
-  padding: 8px 18px;
-  border: 2px solid #fff;
+  padding: 9px 22px;
+  background: transparent;
+  color: #C9A84C;
+  border: 2px solid #C9A84C;
   font-size: 12px;
   font-weight: 700;
   border-radius: 999px;
-  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: none;
+  text-shadow: none;
+  transition: background .2s ease, color .2s ease, box-shadow .2s ease, transform .2s ease;
 }
 
+.ip-what .card .link:hover,
 .ip-what .link:hover {
-  background: rgba(255, 255, 255, .12);
+  background: #C9A84C;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(201, 168, 76, 0.35);
 }
 
 .ip-what .disclaimer {
   margin-top: 44px;
   text-align: center;
   font-size: 11px;
-  color: rgba(255, 255, 255, .5);
+  color: #888888;
   line-height: 1.6;
+  text-shadow: none;
 }
 
-@media (max-width:1100px) {
-  .ip-what .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+@media (max-width: 1100px) {
+  .ip-what .grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width:900px) {
-  .ip-what .grid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 900px) {
+  .ip-what .grid { grid-template-columns: 1fr; }
 }
 
 /* ── 13. CTA SECTION ─────────────────────────────────────── */
 .ip-cta {
-  background: var(--grad-bg);
+  background: linear-gradient(180deg, #6B2737 0%, #2D2D2D 100%);
   padding: 72px 0 60px;
   border-top: 1px solid rgba(255, 255, 255, .06);
   font-family: var(--font-body);
   color: var(--white);
 }
 
-.ip-cta .wrap {
-  display: grid;
-  gap: 22px;
+.ip-cta .kicker {
+  color: #C9A84C;
 }
 
 .ip-cta h2#cta-title {
@@ -1217,10 +1275,17 @@ section {
   font-size: clamp(1.9rem, 4.5vw, 3rem);
   font-weight: 900;
   margin: .2rem 0 1rem;
+  color: #FFFFFF;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.ip-cta .wrap {
+  display: grid;
+  gap: 22px;
 }
 
 .ip-cta .card {
-  background: #fff;
+  background: #FFFFFF;
   color: var(--charcoal);
   border-radius: var(--radius);
   padding: clamp(22px, 3vw, 36px);
@@ -1237,16 +1302,18 @@ section {
   font-family: var(--font-display);
   font-size: clamp(1.2rem, 2.4vw, 1.6rem);
   font-weight: 900;
-  color: var(--charcoal);
+  color: var(--maroon);
   margin: 0;
+  text-shadow: none;
 }
 
 .ip-cta .card p {
   font-size: 15px;
   line-height: 1.75;
-  color: #444;
+  color: #4A4A4A;
   max-width: 680px;
   margin: 0;
+  text-shadow: none;
 }
 
 .ip-cta .actions {
@@ -1265,24 +1332,31 @@ section {
 }
 
 .ip-cta .btn-primary {
-  color: #2b0b0b;
-  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  color: #FFFFFF;
+  background: linear-gradient(90deg, #DCAE47 0%, #C9A84C 100%);
   border: 1px solid var(--gold);
   box-shadow: 0 8px 18px rgba(201, 168, 76, .38);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.15);
 }
 
 .ip-cta .btn-primary:hover {
+  background: linear-gradient(90deg, #E2C880 0%, #DCAE47 100%);
+  color: #FFFFFF;
   box-shadow: 0 12px 26px rgba(201, 168, 76, .48);
+  transform: translateY(-2px);
 }
 
 .ip-cta .btn-secondary {
-  color: var(--charcoal);
+  color: var(--maroon);
   background: #fff;
   border: 1px solid rgba(107, 39, 55, .2);
+  text-shadow: none;
 }
 
 .ip-cta .btn-secondary:hover {
   background: rgba(107, 39, 55, .06);
+  border-color: var(--maroon);
+  transform: translateY(-2px);
 }
 
 .ip-cta .chips {
@@ -1297,7 +1371,7 @@ section {
   font-weight: 700;
   letter-spacing: .08em;
   text-transform: uppercase;
-  color: var(--charcoal);
+  color: var(--maroon);
   background: #fff;
   border: 1px dashed rgba(107, 39, 55, .28);
   border-radius: 999px;
@@ -1315,7 +1389,7 @@ section {
   font-family: var(--font-display);
   font-size: 1.2rem;
   font-weight: 900;
-  color: var(--charcoal);
+  color: var(--maroon);
   margin: 0 0 14px;
   text-align: center;
 }
@@ -1330,33 +1404,10 @@ section {
   padding: 18px;
 }
 
-.ip-cta .cal-frame::-webkit-scrollbar {
-  width: 9px;
-}
-
-.ip-cta .cal-frame::-webkit-scrollbar-track {
-  background: #f0f0f0;
-  border-radius: 9px;
-}
-
-.ip-cta .cal-frame::-webkit-scrollbar-thumb {
-  background: var(--gold);
-  border-radius: 9px;
-}
-
-@media (max-width:768px) {
-  .ip-cta .actions {
-    flex-direction: column;
-  }
-
-  .ip-cta .btn {
-    justify-content: center;
-    width: 100%;
-  }
-
-  .ip-cta .cal-frame {
-    min-height: 680px;
-  }
+@media (max-width: 768px) {
+  .ip-cta .actions { flex-direction: column; }
+  .ip-cta .btn { justify-content: center; width: 100%; }
+  .ip-cta .cal-frame { min-height: 680px; }
 }
 
 /* ── 14. FOOTER ──────────────────────────────────────────── */
@@ -1512,256 +1563,109 @@ section {
   color: var(--gold);
 }
 
-@media (max-width:980px) {
-  .ip-footer .row {
-    grid-template-columns: 1fr;
-  }
-
-  .ip-footer .aff-grid {
-    justify-items: start;
-  }
-}
-/* ==========================================================
-   GLOBAL LIGHT THEME OVERRIDE INTEGRATION
-   ========================================================== */
-body {
-  background: var(--cream, #FAF7F2);
-  color: var(--charcoal, #2D2D2D);
+@media (max-width: 980px) {
+  .ip-footer .row { grid-template-columns: 1fr; }
+  .ip-footer .aff-grid { justify-items: start; }
 }
 
-/* Remove universal text-shadows from dark mode */
-h1, h2, h3, h4 { text-shadow: none !important; }
-.ip-hero h1, .ip-hero h2, .ip-cta h2, .ip-cta h3 { text-shadow: 0 1px 2px rgba(0,0,0,0.3) !important; }
-
-/* Scrolled Nav (Light Background) */
-.mainbar.scrolled {
-  background: rgba(255,255,255,0.98) !important;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05) !important;
-}
-.mainbar.scrolled .nav > li > a { color: var(--charcoal, #2D2D2D) !important; }
-.mainbar.scrolled .brand span { color: var(--maroon, #6B2737) !important; }
-.mainbar.scrolled .hamburger span.text { color: var(--charcoal) !important; }
-.mainbar.scrolled .burger-icon span { background: var(--charcoal) !important; }
-
-/* Our Approach / Who We Are */
-.ip-who-dynamic { background: var(--cream, #FAF7F2) !important; border-bottom: 1px solid rgba(0,0,0,0.05); }
-.ip-who-dynamic .ip-heading { color: var(--maroon, #6B2737) !important; }
-.ip-who-dynamic .ip-lead { color: #4A4A4A !important; }
-.ip-who-dynamic .ip-chip { background: #FFFFFF !important; border-color: rgba(0,0,0,0.1) !important; color: var(--charcoal) !important; }
-.ip-who-dynamic .ip-btn-white { background: var(--maroon) !important; color: #fff !important; }
-
-/* Why Choose Us & Who We Serve */
-.ip-why-dynamic, .ip-serve { background: #FFFFFF !important; border-bottom: 1px solid rgba(0,0,0,0.05); }
-.ip-why-dynamic h2, .ip-serve h2 { color: var(--maroon) !important; }
-.ip-why-dynamic .ip-why-lead, .ip-serve .lead { color: #4A4A4A !important; }
-
-/* Cards (Global) */
-.ip-card, .card, .vcard, .mcard, .step, .node .card {
-  background: #FFFFFF !important;
-  border: 1px solid rgba(0,0,0,0.08) !important;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.04) !important;
-}
-.ip-card:hover, .card:hover, .vcard:hover, .node .card:hover {
-  box-shadow: 0 16px 40px rgba(107,39,55,0.08) !important;
-  border-color: rgba(107,39,55,0.15) !important;
-  transform: translateY(-4px);
-}
-.ip-card h3, .card h3, .vcard h3, .mcard .title { color: var(--maroon) !important; }
-.ip-card p, .card p, .vcard p, .mcard .desc, .node .desc { color: #555555 !important; }
-.card ul li { color: #555555 !important; }
-
-/* About Page & Our Story Tweaks */
-.origin, .milestones, .circleflow-original, .timeline, .values, .approach {
-    background: #FFFFFF !important;
-}
-.milestones { background: #FAF7F2 !important; border-top: none !important; }
-.circleflow-original { background: #FAF7F2 !important; }
-.origin h2, .milestones h2, .values h2, .circleflow-original h2, .timeline h2 { color: var(--maroon) !important; }
-.origin .lead, .milestones p, .values p, .circleflow-original .intro, .timeline p { color: #4A4A4A !important; }
-
-.timeline-copy h3 { color: var(--maroon) !important; }
-.timeline-copy p { color: #4A4A4A !important; }
-
-.origin .quote { color: var(--maroon) !important; }
-.circleflow-original .kicker { color: var(--charcoal) !important; }
-
-.circleflow-original .center h3 { color: var(--maroon) !important; }
-.circleflow-original .center p { color: #4A4A4A !important; }
-.circleflow-original .ring { border-color: rgba(0,0,0,0.05) !important; background: radial-gradient(circle at center, rgba(107,39,55,.05) 0%, transparent 65%) !important; box-shadow: none !important; }
-.circleflow-original .chip { border-color: rgba(0,0,0,0.1) !important; color: var(--charcoal) !important; }
-
-/* Keep Sub-sections within CTA proper */
-.ip-cta .card { background: #FFFFFF !important; }
-.ip-cta .card h3 { color: var(--maroon) !important; }
-.ip-cta .card p { color: #4A4A4A !important; }
-
-/* ==========================================================
-   MASTER CONSISTENCY PATCH
-   ========================================================== */
-
-/* 1. Universal Button Styling (Gold with White Text) */
-.btn, .btn-primary, .cta, .header-actions .cta:first-child, .ip-drawer .cta-mobile, .ip-serve .cta, .ip-cta .btn-primary, .team-footer-cta .btn-primary {
-  background: linear-gradient(90deg, #DCAE47 0%, #C9A84C 100%) !important;
-  color: #FFFFFF !important;
-  border: 1px solid #C9A84C !important;
-  box-shadow: 0 4px 14px rgba(201, 168, 76, 0.35) !important;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.15) !important;
-  font-weight: 700 !important;
-}
-.btn:hover, .btn-primary:hover, .cta:hover, .header-actions .cta:first-child:hover, .ip-drawer .cta-mobile:hover, .ip-serve .cta:hover, .ip-cta .btn-primary:hover, .team-footer-cta .btn-primary:hover {
-  background: linear-gradient(90deg, #E2C880 0%, #DCAE47 100%) !important;
-  color: #FFFFFF !important;
-  box-shadow: 0 6px 20px rgba(201, 168, 76, 0.5) !important;
-  transform: translateY(-2px) !important;
+/* ── 15. ABOUT / MISC PAGES ──────────────────────────────── */
+.origin,
+.milestones,
+.circleflow-original,
+.timeline,
+.values,
+.approach,
+.ip-why-dynamic,
+.team-grid-section,
+.shared-statement {
+  background: #FAF7F2;
 }
 
-/* Secondary/Ghost buttons */
-.btn-secondary, .btn-ghost, .header-actions .cta:last-child {
-  background: #FFFFFF !important;
-  color: #6B2737 !important; /* Maroon text for secondary */
-  border: 1px solid rgba(107,39,55,0.2) !important;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.05) !important;
-  text-shadow: none !important;
-}
-.btn-secondary:hover, .btn-ghost:hover, .header-actions .cta:last-child:hover {
-  background: #FAF7F2 !important;
-  border-color: #6B2737 !important;
-  transform: translateY(-2px) !important;
-}
-
-/* 2. Protect Hero text globally from light body colors */
-.ip-hero, .ip-hero *, .hero, .hero *, .team-intro, .team-intro * {
-  color: #FFFFFF;
-}
-.ip-hero .kicker, .team-intro .kicker {
-  color: #C9A84C !important; 
-}
-
-/* Ensure no text-shadow on body text */
-p, .sub, .lead, .desc, .bio, li {
-    text-shadow: none !important;
-}
-.ip-hero .sub, .hero .lead, .team-intro .intro-blurb {
-    color: rgba(255,255,255,0.95) !important;
-}
-
-/* 3. Global Card Consistency */
-.ip-card, .card, .vcard, .panel, .mcard, .node .card, .step, .team-card {
-  background: #FFFFFF !important;
-  border: 1px solid rgba(0,0,0,0.08) !important;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;
-}
-/* Ensure text inside cards stays readable dark */
-.ip-card h3, .card h3, .vcard h3, .panel h2, .mcard .title, .team-card h3 {
-  color: #6B2737 !important; /* Maroon Headers */
-}
-.ip-card p, .card p, .vcard p, .panel p, .mcard .desc, .team-card .bio, .card ul li {
-  color: #4A4A4A !important; /* Dark Grey Body */
-}
-
-/* BUT restore specific Dark areas */
-.ip-cta {
-  background: linear-gradient(180deg, #6B2737 0%, #2D2D2D 100%) !important;
-}
-.ip-cta .kicker { color: #C9A84C !important; }
-.ip-cta h2#cta-title, .ip-cta p, .ip-cta .chip {
-   color: #FFFFFF !important; 
-}
-.ip-cta .card { background: #FFFFFF !important; }
-.ip-cta .card h3 { color: #6B2737 !important; }
-.ip-cta .card p { color: #4A4A4A !important; }
-.ip-cta .chip {
-  background: #FFFFFF !important;
-  color: #6B2737 !important;
-}
-.ip-cta .btn-primary {
-  color: #FFFFFF !important;
-}
-
-/* Clearer borders */
-.origin, .milestones, .circleflow-original, .timeline, .values, .approach, .ip-why-dynamic, .ip-serve, .team-grid-section, .shared-statement {
-  background: #FAF7F2 !important; /* Unified Ivory layout */
-}
 .ip-who-dynamic {
-  background: #FFFFFF !important; 
+  background: #FFFFFF;
 }
 
-
-/* ==========================================================
-   FINAL OVERRIDE: ABOUT BACKGROUNDS & WHAT WE DO BUTTONS
-   ========================================================== */
-
-/* 1. Fix About Page White/Cream Backgrounds */
-body .ip-about, 
-body .about-process, 
-body .ip-team, 
-body .ip-values,
-body .about-links,
-body .origin,
-body .milestones,
-body .timeline,
-body .approach,
-body .values {
-    background: #FAF7F2 !important;
+.origin h2,
+.milestones h2,
+.values h2,
+.circleflow-original h2,
+.timeline h2,
+.ip-about h2,
+.ip-about h3,
+.about-process h2,
+.about-process h3,
+.ip-team h2,
+.ip-team h3,
+.ip-values h2,
+.ip-values h3,
+.about-links h2,
+.about-links h3 {
+  color: var(--maroon);
+  text-shadow: none;
 }
 
-/* Ensure headings inside these sections are dark maroon */
-body .ip-about h2, body .ip-about h3,
-body .about-process h2, body .about-process h3,
-body .ip-team h2, body .ip-team h3,
-body .ip-values h2, body .ip-values h3,
-body .about-links h2, body .about-links h3 {
-    color: #6B2737 !important;
-    text-shadow: none !important;
+.origin .lead,
+.milestones p,
+.values p,
+.circleflow-original .intro,
+.timeline p,
+.ip-about p,
+.about-process p,
+.ip-team p,
+.ip-values p,
+.about-links p {
+  color: #4A4A4A;
+  text-shadow: none;
 }
 
-body .ip-about p, 
-body .about-process p, 
-body .ip-team p, 
-body .ip-values p,
-body .about-links p {
-    color: #4A4A4A !important;
-    text-shadow: none !important;
+.timeline-copy h3 { color: var(--maroon); }
+.timeline-copy p  { color: #4A4A4A; }
+.origin .quote    { color: var(--maroon); }
+
+.circleflow-original .kicker        { color: var(--gold); }
+.circleflow-original .center h3     { color: var(--maroon); }
+.circleflow-original .center p      { color: #4A4A4A; }
+.circleflow-original .ring          { border-color: rgba(0,0,0,.05); background: radial-gradient(circle at center, rgba(107,39,55,.05) 0%, transparent 65%); box-shadow: none; }
+.circleflow-original .chip          { border-color: rgba(0,0,0,.1); color: var(--charcoal); }
+.circleflow-original .node .card    { background: #FFFFFF; border: 1px solid rgba(0,0,0,.1); }
+.circleflow-original .node .card h3,
+.circleflow-original .node .card .title { color: var(--maroon); }
+.circleflow-original .node .card p,
+.circleflow-original .node .card .desc  { color: #4A4A4A; }
+
+/* ── 16. GLOBAL UTILITY OVERRIDES ────────────────────────── */
+
+/* Ensure no rogue text-shadow on body copy */
+p, .sub, .lead, .desc, .bio, li {
+  text-shadow: none;
 }
 
-/* Fix Circle Flow text */
-.circleflow-original .center h3 { color: #6B2737 !important; }
-.circleflow-original .center p { color: #4A4A4A !important; }
-.circleflow-original .kicker { color: #C9A84C !important; }
-.circleflow-original .node .card { background: #FFFFFF !important; border: 1px solid rgba(0,0,0,0.1) !important; }
-.circleflow-original .node .card h3, .circleflow-original .node .card .title { color: #6B2737 !important; }
-.circleflow-original .node .card p, .circleflow-original .node .card .desc { color: #4A4A4A !important; }
-
-
-/* 2. Fix 'What We Do' (ip-serve) CTA Buttons explicitly */
-body .ip-serve .card .cta,
-body .ip-serve .card a.cta,
-.ip-serve .cta {
-    background: linear-gradient(90deg, #DCAE47 0%, #C9A84C 100%) !important;
-    color: #FFFFFF !important;
-    border: 1px solid #C9A84C !important;
-    border-radius: 999px !important;
-    padding: 12px 24px !important;
-    font-weight: 800 !important;
-    box-shadow: 0 4px 14px rgba(201, 168, 76, 0.4) !important;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.15) !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-decoration: none !important;
+/* Global card text safety */
+.ip-card h3, .card h3, .vcard h3, .panel h2, .mcard .title, .team-card h3 {
+  color: var(--maroon);
+  text-shadow: none;
 }
 
-body .ip-serve .card .cta:hover,
-body .ip-serve .card a.cta:hover,
-.ip-serve .cta:hover {
-    background: linear-gradient(90deg, #E2C880 0%, #DCAE47 100%) !important;
-    color: #FFFFFF !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 8px 20px rgba(201, 168, 76, 0.6) !important;
+.ip-card p, .card p, .vcard p, .panel p, .mcard .desc, .team-card .bio, .card ul li {
+  color: #4A4A4A;
+  text-shadow: none;
 }
 
-/* Ensure Team Hero is visibly distinct */
-.ip-hero.cinematic {
-    background: linear-gradient(180deg, #6B2737 0%, #2D2D2D 100%) !important;
+/* Secondary/Ghost buttons global */
+.btn-secondary,
+.btn-ghost,
+.header-actions .cta:last-child {
+  background: #FFFFFF;
+  color: var(--maroon);
+  border: 1px solid rgba(107, 39, 55, .2);
+  box-shadow: 0 4px 14px rgba(0,0,0,.05);
+  text-shadow: none;
 }
 
+.btn-secondary:hover,
+.btn-ghost:hover,
+.header-actions .cta:last-child:hover {
+  background: #FAF7F2;
+  border-color: var(--maroon);
+  transform: translateY(-2px);
+}
