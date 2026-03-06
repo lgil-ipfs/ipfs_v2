@@ -426,3 +426,205 @@ section { isolation: isolate; overflow: hidden; position: relative; }
 .circleflow-original .node .card .title { color: var(--maroon); }
 .circleflow-original .node .card p,
 .circleflow-original .node .card .desc  { color: #4A4A4A; }
+
+
+/* ══════════════════════════════════════════════════════════
+   ABOUT.CSS MASTER PATCH — ported to style.css
+   Ensures header, cards, and all sections render correctly
+   on all pages without relying on about.css being loaded.
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Scrolled nav (light bg) ─────────────────────────────── */
+.mainbar.scrolled {
+  background: rgba(255,255,255,0.98) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05) !important;
+}
+.mainbar.scrolled .nav > li > a        { color: #2D2D2D !important; }
+.mainbar.scrolled .brand span          { color: #6B2737 !important; }
+.mainbar.scrolled .hamburger span.text { color: #2D2D2D !important; }
+.mainbar.scrolled .burger-icon span    { background: #2D2D2D !important; }
+
+/* ── Header CTA buttons (inline-style-safe fallbacks) ──────
+   The live header uses inline styles which always win.
+   These rules back them up for any page without inline styles. */
+.header-actions .cta:first-child {
+  background: transparent !important;
+  border: 1.5px solid #C9A84C !important;
+  color: #FFFFFF !important;
+  box-shadow: none !important;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 10px 20px;
+  transition: all .25s ease;
+}
+.header-actions .cta:first-child:hover {
+  background: #C9A84C !important;
+  color: #FFFFFF !important;
+}
+.header-actions .cta:last-child {
+  background: #FFFFFF !important;
+  color: #2D2D2D !important;
+  border: 1.5px solid transparent !important;
+  box-shadow: none !important;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 10px 20px;
+  transition: all .25s ease;
+}
+.header-actions .cta:last-child:hover {
+  background: #F5EDD4 !important;
+  color: #2D2D2D !important;
+}
+
+/* ── Global button master rule ───────────────────────────── */
+.btn,
+.btn-primary,
+.ip-serve .cta,
+.ip-drawer .cta-mobile,
+.ip-cta .btn-primary,
+.team-footer-cta .btn-primary,
+.about-links .btn {
+  background: linear-gradient(90deg, #DCAE47 0%, #C9A84C 100%) !important;
+  color: #FFFFFF !important;
+  border: 1px solid #C9A84C !important;
+  box-shadow: 0 4px 14px rgba(201,168,76,0.35) !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.15) !important;
+  font-weight: 700 !important;
+}
+.btn:hover,
+.btn-primary:hover,
+.ip-serve .cta:hover,
+.ip-drawer .cta-mobile:hover,
+.ip-cta .btn-primary:hover,
+.team-footer-cta .btn-primary:hover,
+.about-links .btn:hover {
+  background: linear-gradient(90deg, #E2C880 0%, #DCAE47 100%) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 6px 20px rgba(201,168,76,0.5) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Secondary / ghost */
+.btn-secondary,
+.btn-ghost {
+  background: #FFFFFF !important;
+  color: #6B2737 !important;
+  border: 1px solid rgba(107,39,55,0.2) !important;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05) !important;
+  text-shadow: none !important;
+}
+.btn-secondary:hover,
+.btn-ghost:hover {
+  background: #FAF7F2 !important;
+  border-color: #6B2737 !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ── Section backgrounds ─────────────────────────────────── */
+.ip-who-dynamic                  { background: #FFFFFF !important; }
+.ip-why-dynamic, .ip-serve       { background: #FFFFFF !important; }
+.ip-what, .ip-what.v4            { background: #FAF7F2 !important; }
+.origin, .milestones, .circleflow-original, .timeline,
+.values, .approach, .team-grid-section, .shared-statement,
+.ip-about, .about-process, .ip-team, .ip-values, .about-links { background: #FAF7F2 !important; }
+
+/* ── Section headings & body text ───────────────────────── */
+.ip-about h2, .ip-about h3,
+.about-process h2, .about-process h3,
+.ip-team h2, .ip-team h3,
+.ip-values h2, .ip-values h3,
+.about-links h2, .about-links h3,
+.origin h2, .milestones h2, .values h2,
+.circleflow-original h2, .timeline h2 {
+  color: #6B2737 !important;
+  text-shadow: none !important;
+}
+.ip-about p, .about-process p, .ip-team p, .ip-values p, .about-links p,
+.origin .lead, .milestones p, .values p,
+.circleflow-original .intro, .timeline p {
+  color: #4A4A4A !important;
+  text-shadow: none !important;
+}
+
+/* ── Cards global ───────────────────────────────────────── */
+.ip-card, .card, .vcard, .panel, .mcard, .node .card, .step, .team-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(0,0,0,0.08) !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;
+}
+.ip-card h3, .card h3, .vcard h3, .panel h2, .mcard .title, .team-card h3 { color: #6B2737 !important; }
+.ip-card p, .card p, .vcard p, .panel p, .mcard .desc, .team-card .bio, .card ul li { color: #4A4A4A !important; }
+
+/* ── CTA section stays dark ─────────────────────────────── */
+.ip-cta { background: linear-gradient(180deg, #6B2737 0%, #2D2D2D 100%) !important; }
+.ip-cta .kicker      { color: #C9A84C !important; }
+.ip-cta h2#cta-title { color: #FFFFFF !important; }
+.ip-cta .card        { background: #FFFFFF !important; }
+.ip-cta .card h3     { color: #6B2737 !important; }
+.ip-cta .card p      { color: #4A4A4A !important; }
+.ip-cta .chip        { background: #FFFFFF !important; color: #6B2737 !important; }
+.ip-cta .btn-primary { color: #FFFFFF !important; }
+
+/* ── CircleFlow light overrides ─────────────────────────── */
+.circleflow-original .center h3     { color: #6B2737 !important; }
+.circleflow-original .center p      { color: #4A4A4A !important; }
+.circleflow-original .kicker        { color: #C9A84C !important; }
+.circleflow-original .ring          { border-color: rgba(0,0,0,0.05) !important; box-shadow: none !important; }
+.circleflow-original .chip          { border-color: rgba(0,0,0,0.1) !important; color: #2D2D2D !important; }
+.circleflow-original .node .card    { background: #FFFFFF !important; border: 1px solid rgba(0,0,0,0.1) !important; }
+.circleflow-original .node .card h3,
+.circleflow-original .node .card .title { color: #6B2737 !important; }
+.circleflow-original .node .card p,
+.circleflow-original .node .card .desc  { color: #4A4A4A !important; }
+
+/* ── ip-what "Explore" buttons — gold, bottom-aligned ───── */
+.ip-what .card        { display: flex !important; flex-direction: column !important; }
+.ip-what .card-content { display: flex !important; flex-direction: column !important; flex: 1 !important; }
+.ip-what .link,
+.ip-what .card .link  {
+  margin-top: auto !important;
+  align-self: stretch !important;
+  text-align: center !important;
+  display: flex !important;
+  background: linear-gradient(90deg, #DCAE47 0%, #C9A84C 100%) !important;
+  color: #FFFFFF !important;
+  border: 1px solid #C9A84C !important;
+  box-shadow: 0 4px 14px rgba(201,168,76,0.35) !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.15) !important;
+  font-weight: 700 !important;
+  border-radius: 999px !important;
+  padding: 12px 24px !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-decoration: none !important;
+}
+.ip-what .link:hover,
+.ip-what .card .link:hover {
+  background: linear-gradient(90deg, #E2C880 0%, #DCAE47 100%) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 20px rgba(201,168,76,0.55) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ── ip-btn-white (Our Approach "Our Story") — gold ─────── */
+.ip-btn-white {
+  background: linear-gradient(90deg, #DCAE47 0%, #C9A84C 100%) !important;
+  color: #FFFFFF !important;
+  border: 1px solid #C9A84C !important;
+  box-shadow: 0 4px 14px rgba(201,168,76,0.35) !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.15) !important;
+}
+.ip-btn-white:hover {
+  background: linear-gradient(90deg, #E2C880 0%, #DCAE47 100%) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 20px rgba(201,168,76,0.55) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ── Hero text protection ───────────────────────────────── */
+.ip-hero *, .hero * { color: #FFFFFF; }
+.ip-hero .kicker, .hero .kicker { color: #C9A84C !important; }
+.ip-hero .sub, .hero .lead { color: rgba(255,255,255,0.95) !important; text-shadow: none !important; }
+p, .sub, .lead, .desc, .bio, li { text-shadow: none !important; }
