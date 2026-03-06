@@ -1047,11 +1047,10 @@
 
 .ip-cta .cal-frame {
   width: 100%;
-  height: 800px;
+  min-height: 800px;
   border: 2px solid rgba(99, 15, 15, .12);
   border-radius: 16px;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: visible;
   background: #FAFAFA;
   padding: 20px
 }
@@ -1087,7 +1086,7 @@
   }
 
   .ip-cta .cal-frame {
-    height: 700px
+    min-height: 700px
   }
 
   .ip-cta h2#cta-title {
