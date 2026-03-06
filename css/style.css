@@ -1686,3 +1686,82 @@ p, .sub, .lead, .desc, .bio, li {
   background: #FFFFFF !important; 
 }
 
+
+/* ==========================================================
+   FINAL OVERRIDE: ABOUT BACKGROUNDS & WHAT WE DO BUTTONS
+   ========================================================== */
+
+/* 1. Fix About Page White/Cream Backgrounds */
+body .ip-about, 
+body .about-process, 
+body .ip-team, 
+body .ip-values,
+body .about-links,
+body .origin,
+body .milestones,
+body .timeline,
+body .approach,
+body .values {
+    background: #FAF7F2 !important;
+}
+
+/* Ensure headings inside these sections are dark maroon */
+body .ip-about h2, body .ip-about h3,
+body .about-process h2, body .about-process h3,
+body .ip-team h2, body .ip-team h3,
+body .ip-values h2, body .ip-values h3,
+body .about-links h2, body .about-links h3 {
+    color: #6B2737 !important;
+    text-shadow: none !important;
+}
+
+body .ip-about p, 
+body .about-process p, 
+body .ip-team p, 
+body .ip-values p,
+body .about-links p {
+    color: #4A4A4A !important;
+    text-shadow: none !important;
+}
+
+/* Fix Circle Flow text */
+.circleflow-original .center h3 { color: #6B2737 !important; }
+.circleflow-original .center p { color: #4A4A4A !important; }
+.circleflow-original .kicker { color: #C9A84C !important; }
+.circleflow-original .node .card { background: #FFFFFF !important; border: 1px solid rgba(0,0,0,0.1) !important; }
+.circleflow-original .node .card h3, .circleflow-original .node .card .title { color: #6B2737 !important; }
+.circleflow-original .node .card p, .circleflow-original .node .card .desc { color: #4A4A4A !important; }
+
+
+/* 2. Fix 'What We Do' (ip-serve) CTA Buttons explicitly */
+body .ip-serve .card .cta,
+body .ip-serve .card a.cta,
+.ip-serve .cta {
+    background: linear-gradient(90deg, #DCAE47 0%, #C9A84C 100%) !important;
+    color: #FFFFFF !important;
+    border: 1px solid #C9A84C !important;
+    border-radius: 999px !important;
+    padding: 12px 24px !important;
+    font-weight: 800 !important;
+    box-shadow: 0 4px 14px rgba(201, 168, 76, 0.4) !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.15) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+}
+
+body .ip-serve .card .cta:hover,
+body .ip-serve .card a.cta:hover,
+.ip-serve .cta:hover {
+    background: linear-gradient(90deg, #E2C880 0%, #DCAE47 100%) !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(201, 168, 76, 0.6) !important;
+}
+
+/* Ensure Team Hero is visibly distinct */
+.ip-hero.cinematic {
+    background: linear-gradient(180deg, #6B2737 0%, #2D2D2D 100%) !important;
+}
+
