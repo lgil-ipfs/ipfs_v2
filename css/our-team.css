@@ -1,0 +1,263 @@
+
+    /* TEAM PAGE ARCHITECTURE */
+    .team-wrapper {
+        background: #FAF7F2; /* Soft ivory background for the whole page */
+        color: var(--charcoal);
+        font-family: var(--font-body);
+    }
+
+    /* 1. SECTION INTRO */
+    .team-intro {
+        padding: 100px 20px 60px;
+        text-align: center;
+        background: linear-gradient(180deg, var(--maroon) 0%, var(--charcoal) 100%);
+        color: var(--white);
+    }
+    .team-intro .wrap {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .team-intro .kicker {
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        color: var(--gold);
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+    .team-intro .kicker::before, .team-intro .kicker::after {
+        content: "";
+        height: 1px;
+        width: 30px;
+        background: var(--gold);
+    }
+    .team-intro h1 {
+        font-family: var(--font-display);
+        font-size: clamp(32px, 4vw, 44px);
+        font-weight: 900;
+        line-height: 1.2;
+        margin: 0 0 20px;
+    }
+    .team-intro .intro-blurb {
+        font-size: 18px;
+        line-height: 1.7;
+        color: rgba(255,255,255,0.9);
+        font-weight: 400;
+        margin: 0;
+    }
+
+    /* 2. TEAM GRID */
+    .team-grid-section {
+        padding: 80px 20px;
+        background: #FAF7F2;
+    }
+    .team-grid-section .wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .grid-3-col {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+    @media (max-width: 900px) {
+        .grid-3-col {
+            grid-template-columns: 1fr;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+    }
+
+    .team-card {
+        background: #FFFFFF;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid rgba(0,0,0,0.06);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .team-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 15px 40px rgba(107,39,55,0.08);
+    }
+
+    .card-img-wrap {
+        width: 100%;
+        aspect-ratio: 4 / 5; /* Professional portrait crop */
+        overflow: hidden;
+        background: #EAE6DF;
+    }
+    .card-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        transition: transform 0.6s ease;
+    }
+    .team-card:hover .card-img-wrap img {
+        transform: scale(1.03);
+    }
+
+    .card-content {
+        padding: 30px 24px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    .card-content h3 {
+        font-family: var(--font-display);
+        font-size: 24px;
+        font-weight: 800;
+        color: var(--maroon);
+        margin: 0 0 4px;
+    }
+    .card-content .role {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--charcoal);
+        margin: 0 0 2px;
+    }
+    .card-content .creds {
+        font-size: 12px;
+        font-weight: 600;
+        color: #7A7A7A;
+        letter-spacing: 0.05em;
+        margin-bottom: 16px;
+    }
+    .card-content .bio {
+        font-size: 15px;
+        line-height: 1.65;
+        color: #4A4A4A;
+        margin: 0 0 24px;
+        flex-grow: 1;
+    }
+    
+    .linkedin-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        font-weight: 700;
+        color: #0A66C2; /* LinkedIn Blue */
+        text-decoration: none;
+        padding: 8px 14px;
+        border-radius: 6px;
+        background: rgba(10, 102, 194, 0.08); /* Subtle blue BG */
+        align-self: flex-start;
+        transition: background 0.2s, color 0.2s;
+    }
+    .linkedin-link:hover {
+        background: #0A66C2;
+        color: #FFFFFF;
+    }
+
+    /* 3A. REGULATORY BAR */
+    .regulatory-bar {
+        background: #EAE6DF;
+        padding: 16px 20px;
+        text-align: center;
+        border-top: 1px solid rgba(0,0,0,0.06);
+        border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .regulatory-bar p {
+        margin: 0;
+        font-size: 12px;
+        color: #555;
+    }
+    .regulatory-bar p span {
+        margin: 0 10px;
+        color: #AAA;
+    }
+    @media (max-width: 600px) {
+        .regulatory-bar p span { display: block; margin: 4px 0; color: transparent; height: 0; }
+    }
+
+    /* 3B & 3D. SHARED STATEMENT & PHOTO */
+    .shared-statement {
+        padding: 80px 20px;
+        background: var(--white);
+    }
+    .shared-statement .wrap {
+        max-width: 1000px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+    }
+    @media (max-width: 800px) {
+        .shared-statement .wrap {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+    }
+    .statement-content h2 {
+        font-family: var(--font-display);
+        font-size: clamp(28px, 3vw, 36px);
+        font-weight: 800;
+        color: var(--maroon);
+        margin: 0 0 20px;
+        line-height: 1.2;
+    }
+    .statement-content p {
+        font-size: 17px;
+        line-height: 1.7;
+        color: #4A4A4A;
+        margin: 0;
+    }
+    .candid-photo {
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    .candid-photo img {
+        width: 100%;
+        height: auto;
+        display: block;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+    }
+
+    /* 3C. TEAM FOOTER CTA */
+    .team-footer-cta {
+        padding: 80px 20px;
+        background: linear-gradient(135deg, var(--gold) 0%, #DCAE47 100%);
+        text-align: center;
+        color: var(--charcoal);
+    }
+    .team-footer-cta .wrap {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .team-footer-cta h2 {
+        font-family: var(--font-display);
+        font-size: 36px;
+        font-weight: 900;
+        margin: 0 0 16px;
+    }
+    .team-footer-cta p {
+        font-size: 18px;
+        margin: 0 0 30px;
+        font-weight: 500;
+    }
+    .team-footer-cta .btn-primary {
+        display: inline-block;
+        background: var(--charcoal);
+        color: var(--white);
+        font-weight: 800;
+        font-size: 16px;
+        padding: 16px 32px;
+        border-radius: 12px;
+        text-decoration: none;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .team-footer-cta .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(45,45,45,0.3);
+    }
+    
