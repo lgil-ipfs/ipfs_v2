@@ -25,82 +25,14 @@
   <link href="/css/style.css" rel="stylesheet" />
 </head>
 <body>
-  <!-- HEADER -->
-  <div class="w-nav" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease"
-    data-easing2="ease" role="banner">
-    <div class="w-embed w-script">
-      <!-- Fonts -->
-      <link href="https://fonts.googleapis.com" rel="preconnect" />
-      <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Outfit:wght@400;500;600&display=swap"
-        rel="stylesheet" />
-      <header class="ip-header" id="ip-header">
-        <div class="topbar">
-          <div class="container">
-            <div class="topbar-left">
-              <a href="https://iberianpacific.ca/student-wellness">Student Financial Wellness Program</a>
-              <span class="divider">|</span>
-              <a href="https://iberianpacific.ca/headsupguys">HeadsUpGuys Program</a>
-            </div>
-            <ul class="topbar-right">
-              <li><a href="https://iberianpacific.ca/resources">Resources</a></li>
-              <li><a href="https://www.monarchsystems.online/myportfolio/" target="_blank">Monarch Client Login</a></li>
-              <li><a href="#">FAQ</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="mainbar" id="mainbar">
-          <div class="container">
-            <div class="row">
-              <a aria-label="Home" class="brand" href="https://iberianpacific.ca/">
-                <img alt="Iberian Pacific Logo"
-                  src="https://cdn.prod.website-files.com/68ed2588f300fc2737bceebf/68ed30864b7c7327a36e3c8b_IPFS-Logo-c.svg" />
-                <span style="font-family: 'Cormorant Garamond', serif; font-weight:700;">IBERIAN PACIFIC</span>
-              </a>
-              <ul class="nav">
-                <li>
-                  <a href="https://iberianpacific.ca/about">About <i>▾</i></a>
-                  <div class="dropdown">
-                    <a href="https://iberianpacific.ca/our-story">Our Story</a>
-                    <a href="https://iberianpacific.ca/our-team">Our Team</a>
-                  </div>
-                </li>
-                <li>
-                  <a href="https://iberianpacific.ca/who-we-serve">Who We Serve <i>▾</i></a>
-                  <div class="dropdown">
-                    <a href="https://iberianpacific.ca/individuals-families">Families &amp; Individuals</a>
-                    <a href="https://iberianpacific.ca/business-owners">Business Owners</a>
-                    <a href="https://iberianpacific.ca/incorporated-professionals">Incorporated Professionals</a>
-                    <a href="https://iberianpacific.ca/difficult-to-insure-cases">Difficult to Insure</a>
-                  </div>
-                </li>
-                <li>
-                  <a href="#">What We Do <i>▾</i></a>
-                  <div class="dropdown">
-                    <a href="https://iberianpacific.ca/investment-management">Wealth &amp; Investment Management</a>
-                    <a href="https://iberianpacific.ca/insurance-and-benefits">Insurance &amp; Individual Benefits</a>
-                    <a href="https://iberianpacific.ca/employee-benefits-executive-compensation">Corporate &amp;
-                      Employee Benefits</a>
-                    <a href="https://iberianpacific.ca/estate-legacy-planning">Estate &amp; Legacy Planning</a>
-                  </div>
-                </li>
-                <li><a href="https://iberianpacific.ca/insights">Insights</a></li>
-                <li><a href="https://iberianpacific.ca/contact">Contact</a></li>
-              </ul>
-              <div class="header-actions" style="display:flex; gap:12px; align-items:center;">
-                <a class="cta" href="https://amore.riskdx.ca/sales/quote/personal?agent=Lucas%20RodriguesoOjo&ln=en">Get
-                  Coverage Now</a>
-                <a class="cta" href="https://cal.com/iberian-pacific" target="_blank">Book Consultation</a>
-              </div>
-              <button aria-label="Menu" class="hamburger" id="hamburger-btn">
-                <div class="burger-icon"><span></span><span></span><span></span></div>
-                <span class="text">Menu</span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="ip-scrim" id="ip-scrim"></div>
+  
+<div id="header-mount"></div>
+<script>
+  fetch('/components/header.html')
+    .then(res => res.text())
+    .then(html => document.getElementById('header-mount').innerHTML = html);
+</script>
+  
         <aside class="ip-drawer">
           <div class="ip-drawer-header">
             <span style="font-weight:700; font-family:'Merriweather'; font-size:18px;">Navigation</span>
