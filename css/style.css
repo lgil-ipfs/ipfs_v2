@@ -423,14 +423,14 @@ section {
 
 .ip-header .topbar {
   background: var(--maroon);
-  height: var(--nav-top-h);
+  min-height: var(--nav-top-h);
   display: flex;
   align-items: center;
-  font-size: 15px;
+  font-size: 14px;
   color: rgba(255, 255, 255, .9);
   position: relative;
   z-index: 1002;
-  padding-top: 2px;
+  transition: all 0.3s ease;
 }
 
 .ip-header .topbar .container {
@@ -444,10 +444,14 @@ section {
   display: flex;
   align-items: center;
   gap: 16px;
+  flex-wrap: wrap;
 }
 
 .topbar-left a {
   text-shadow: none;
+  font-size: 13px;
+  /* Slightly smaller for density */
+  white-space: nowrap;
 }
 
 .topbar-left .divider {
@@ -472,6 +476,20 @@ section {
 
 .ip-header .topbar a:hover {
   color: var(--gold);
+}
+
+@media (max-width: 900px) {
+  .topbar-left {
+    display: none;
+    /* Hide programs on mobile topbar, keep in drawer */
+  }
+}
+
+@media (max-width: 600px) {
+  .ip-header .topbar {
+    display: none;
+    /* Hide entire topbar on very small screens to save space */
+  }
 }
 
 .ip-header .mainbar {
@@ -510,6 +528,12 @@ section {
   background: var(--charcoal);
 }
 
+@media (max-width: 1200px) {
+  .ip-header .nav {
+    gap: 15px;
+  }
+}
+
 .ip-header .mainbar .row {
   display: flex;
   align-items: center;
@@ -539,7 +563,37 @@ section {
   font-family: var(--font-display);
   font-size: 22px;
   font-weight: 700;
-  letter-spacing: -.01em;
+  letter-spacing: 0.04em;
+  /* Premium feel */
+  white-space: nowrap;
+}
+
+@media (max-width: 1100px) {
+  .ip-header .brand span {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ip-header .brand span {
+    font-size: 16px;
+  }
+
+  .ip-header .brand img {
+    height: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ip-header .brand span {
+    font-size: 13px;
+    /* Prevent wrapping on smallest phones */
+  }
+
+  .ip-header .brand img {
+    height: 24px;
+    gap: 8px;
+  }
 }
 
 .ip-header .nav {
@@ -642,6 +696,13 @@ section {
   gap: 10px;
   align-items: center;
   flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .ip-header .header-actions {
+    display: none !important;
+    /* Force hide on mobile to prevent logjam, keep in drawer */
+  }
 }
 
 .ip-header .cta {
