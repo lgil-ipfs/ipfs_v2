@@ -15,131 +15,214 @@
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 
-  <!-- Page-specific styles -->
   <style>
 
-    /* ── Concern cards ───────────────────────────────────── */
+    /* ─────────────────────────────────────────────────────
+       CONCERNS SECTION
+    ───────────────────────────────────────────────────── */
     .concerns {
-      background: #FFFFFF;
-      padding: 80px 0 72px;
-      border-bottom: 1px solid rgba(0,0,0,.05);
+      background: #F3EFE9;
+      padding: 88px 0 80px;
     }
 
     .concerns-intro {
-      max-width: 680px;
-      margin-bottom: 52px;
+      max-width: 640px;
+      margin-bottom: 56px;
+    }
+
+    .concerns-intro h2 {
+      margin-bottom: 16px;
     }
 
     .concerns-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      gap: 20px;
     }
 
     .concern-card {
-      background: var(--cream);
+      background: #FFFFFF;
       border: 1px solid rgba(0,0,0,.07);
-      border-radius: var(--radius);
-      padding: 32px 28px;
+      border-top: 3px solid var(--gold);
+      border-radius: 10px;
+      padding: 36px 32px 30px;
       position: relative;
-      transition: transform .28s var(--ease), box-shadow .28s var(--ease), border-color .28s var(--ease);
-      overflow: hidden;
-    }
-
-    .concern-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(180deg, var(--gold), var(--maroon));
-      border-radius: 4px 0 0 4px;
+      transition: transform .25s ease, box-shadow .25s ease;
+      box-shadow: 0 4px 16px rgba(0,0,0,.05);
     }
 
     .concern-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 16px 40px rgba(107,39,55,.08);
-      border-color: rgba(107,39,55,.15);
+      transform: translateY(-4px);
+      box-shadow: 0 14px 36px rgba(107,39,55,.09);
     }
 
-    .concern-number {
-      font-family: var(--font-display);
-      font-size: 3rem;
-      font-weight: 900;
-      color: rgba(201,168,76,.18);
-      line-height: 1;
-      margin-bottom: 12px;
+    .concern-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      background: rgba(201,168,76,.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .concern-icon i {
+      color: var(--gold);
+      font-size: 17px;
     }
 
     .concern-card h3 {
       font-family: var(--font-display);
-      font-size: 1.2rem;
-      font-weight: 900;
+      font-size: 1.1rem;
+      font-weight: 700;
       color: var(--maroon);
       margin-bottom: 10px;
-      line-height: 1.25;
+      line-height: 1.3;
     }
 
     .concern-card p {
       font-size: 14px;
-      line-height: 1.7;
-      color: #555;
+      line-height: 1.75;
+      color: #5A5A5A;
       margin: 0;
     }
 
     .concern-card .concern-tag {
       display: inline-block;
-      margin-top: 16px;
-      font-size: 11px;
+      margin-top: 18px;
+      font-size: 10.5px;
       font-weight: 700;
-      letter-spacing: .1em;
+      letter-spacing: .08em;
       text-transform: uppercase;
-      color: var(--gold);
-      background: rgba(201,168,76,.1);
-      border: 1px solid rgba(201,168,76,.25);
+      color: var(--maroon);
+      background: rgba(107,39,55,.07);
       border-radius: 99px;
       padding: 4px 12px;
     }
 
-    @media (max-width: 1024px) { .concerns-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 640px)  { .concerns-grid { grid-template-columns: 1fr; } }
+    /* Card 6 — full width highlight */
+    .concern-card.card-highlight {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      align-items: center;
+      background: var(--maroon);
+      border-top-color: var(--gold);
+      padding: 0;
+      overflow: hidden;
+    }
 
-    /* ── Services section ────────────────────────────────── */
+    .highlight-left {
+      padding: 44px 48px;
+    }
+
+    .concern-card.card-highlight h3 {
+      font-size: 1.45rem;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+
+    .concern-card.card-highlight p {
+      color: rgba(255,255,255,.8);
+      font-size: 14px;
+    }
+
+    .concern-card.card-highlight .concern-tag {
+      color: var(--gold);
+      background: rgba(201,168,76,.15);
+    }
+
+    .concern-card.card-highlight .concern-icon {
+      background: rgba(201,168,76,.15);
+    }
+
+    .concern-card.card-highlight .concern-icon i {
+      color: var(--gold);
+    }
+
+    .highlight-right {
+      background: rgba(0,0,0,.15);
+      padding: 44px 48px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .highlight-quote {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #FFFFFF;
+      line-height: 1.65;
+      margin-bottom: 16px;
+      border-left: 3px solid var(--gold);
+      padding-left: 20px;
+    }
+
+    .highlight-sub {
+      font-size: 13.5px;
+      color: rgba(255,255,255,.65);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 1024px) {
+      .concerns-grid { grid-template-columns: repeat(2, 1fr); }
+      .concern-card.card-highlight { grid-template-columns: 1fr; }
+      .highlight-right { height: auto; }
+    }
+    @media (max-width: 640px) {
+      .concerns-grid { grid-template-columns: 1fr; }
+      .highlight-left, .highlight-right { padding: 32px 28px; }
+    }
+
+
+    /* ─────────────────────────────────────────────────────
+       SERVICES SECTION
+    ───────────────────────────────────────────────────── */
     .fam-services {
-      background: #FAF7F2;
-      padding: 80px 0 72px;
-      border-top: 1px solid rgba(0,0,0,.05);
+      background: #FFFFFF;
+      padding: 88px 0 80px;
+      border-top: 1px solid rgba(0,0,0,.06);
     }
 
     .services-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 28px;
-      margin-top: 44px;
+      gap: 24px;
+      margin-top: 48px;
     }
 
     .service-card {
-      background: #FFFFFF;
-      border: 1px solid rgba(0,0,0,.08);
-      border-radius: var(--radius);
+      background: #FAFAFA;
+      border: 1px solid rgba(0,0,0,.07);
+      border-radius: 10px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: transform .28s var(--ease), box-shadow .28s var(--ease);
-      box-shadow: 0 8px 28px rgba(0,0,0,.05);
+      transition: transform .25s ease, box-shadow .25s ease;
+      box-shadow: 0 4px 16px rgba(0,0,0,.04);
     }
 
     .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 48px rgba(107,39,55,.1);
+      transform: translateY(-4px);
+      box-shadow: 0 18px 44px rgba(107,39,55,.09);
+    }
+
+    .service-card-img-wrap {
+      overflow: hidden;
+      height: 210px;
+      flex-shrink: 0;
     }
 
     .service-card-img {
       width: 100%;
-      height: 220px;
+      height: 100%;
       object-fit: cover;
-      border-bottom: 1px solid rgba(0,0,0,.06);
       transition: transform .6s ease;
+      display: block;
     }
 
     .service-card:hover .service-card-img {
@@ -147,56 +230,58 @@
     }
 
     .service-card-body {
-      padding: 28px;
+      padding: 28px 28px 32px;
       display: flex;
       flex-direction: column;
       flex: 1;
+      border-top: 3px solid var(--gold);
     }
 
     .service-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--gold), #a8873c);
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: rgba(201,168,76,.12);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       flex-shrink: 0;
     }
 
     .service-icon i {
-      color: #fff;
-      font-size: 18px;
+      color: var(--gold);
+      font-size: 16px;
     }
 
     .service-card h3 {
       font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 900;
+      font-size: 1.2rem;
+      font-weight: 700;
       color: var(--maroon);
       margin-bottom: 10px;
     }
 
     .service-card p {
       font-size: 14px;
-      line-height: 1.7;
-      color: #555;
+      line-height: 1.75;
+      color: #5A5A5A;
       margin-bottom: 16px;
     }
 
     .service-card ul {
-      margin: 0 0 20px;
+      margin: 0 0 22px;
       list-style: none;
       padding: 0;
     }
 
     .service-card ul li {
       position: relative;
-      padding-left: 20px;
+      padding-left: 18px;
       font-size: 13px;
       color: #555;
-      margin: 6px 0;
+      margin: 7px 0;
+      line-height: 1.5;
     }
 
     .service-card ul li::before {
@@ -207,31 +292,61 @@
       font-weight: 700;
     }
 
-    @media (max-width: 900px)  { .services-grid { grid-template-columns: 1fr; } }
+    .service-card.wide {
+      grid-column: 1 / -1;
+      flex-direction: row;
+    }
 
-    /* ── How it works ────────────────────────────────────── */
+    .service-card.wide .service-card-img-wrap {
+      width: 340px;
+      height: auto;
+      flex-shrink: 0;
+    }
+
+    .service-card.wide .service-card-body {
+      justify-content: center;
+      border-top: none;
+      border-left: 3px solid var(--gold);
+    }
+
+    .service-card.wide ul {
+      columns: 2;
+      gap: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card.wide { flex-direction: column; }
+      .service-card.wide .service-card-img-wrap { width: 100%; height: 210px; }
+      .service-card.wide .service-card-body { border-left: none; border-top: 3px solid var(--gold); }
+      .service-card.wide ul { columns: 1; }
+    }
+
+
+    /* ─────────────────────────────────────────────────────
+       HOW IT WORKS
+    ───────────────────────────────────────────────────── */
     .how-it-works {
-      background: #FFFFFF;
-      padding: 80px 0 72px;
-      border-top: 1px solid rgba(0,0,0,.05);
+      background: #F3EFE9;
+      padding: 88px 0 80px;
     }
 
     .steps-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 0;
-      margin-top: 52px;
+      margin-top: 56px;
       position: relative;
     }
 
     .steps-row::before {
       content: '';
       position: absolute;
-      top: 36px;
-      left: calc(16.66% + 12px);
-      right: calc(16.66% + 12px);
-      height: 2px;
-      background: linear-gradient(90deg, var(--gold), var(--maroon), var(--gold));
+      top: 35px;
+      left: calc(16.66% + 16px);
+      right: calc(16.66% + 16px);
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), rgba(107,39,55,.4), var(--gold));
       z-index: 0;
     }
 
@@ -240,53 +355,60 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 0 24px;
+      padding: 0 28px;
       position: relative;
       z-index: 1;
     }
 
     .step-circle {
-      width: 72px;
-      height: 72px;
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--gold), #a8873c);
+      background: #FFFFFF;
+      border: 2px solid var(--gold);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
-      box-shadow: 0 8px 24px rgba(201,168,76,.35);
+      margin-bottom: 22px;
+      box-shadow: 0 6px 20px rgba(201,168,76,.2);
       flex-shrink: 0;
     }
 
     .step-circle i {
-      color: #fff;
-      font-size: 24px;
+      color: var(--gold);
+      font-size: 22px;
     }
 
     .step-item h3 {
       font-family: var(--font-display);
-      font-size: 1.2rem;
-      font-weight: 900;
+      font-size: 1.15rem;
+      font-weight: 700;
       color: var(--maroon);
       margin-bottom: 10px;
     }
 
     .step-item p {
       font-size: 14px;
-      line-height: 1.7;
-      color: #555;
-      max-width: 260px;
+      line-height: 1.75;
+      color: #5A5A5A;
+      max-width: 240px;
     }
 
     @media (max-width: 768px) {
-      .steps-row { grid-template-columns: 1fr; gap: 40px; }
+      .steps-row { grid-template-columns: 1fr; gap: 36px; }
       .steps-row::before { display: none; }
+      .step-item { align-items: flex-start; text-align: left; flex-direction: row; gap: 20px; }
+      .step-circle { flex-shrink: 0; margin-bottom: 0; }
+      .step-item p { max-width: 100%; }
     }
 
-    /* ── Education-first strip ───────────────────────────── */
+
+    /* ─────────────────────────────────────────────────────
+       EDUCATION STRIP
+    ───────────────────────────────────────────────────── */
     .education-strip {
-      background: linear-gradient(110deg, var(--maroon-deep) 0%, var(--maroon) 50%, #8B3A4A 100%);
-      padding: 64px 0;
+      background: linear-gradient(110deg, #3D0A14 0%, var(--maroon) 60%, #7A2535 100%);
+      padding: 72px 0;
       position: relative;
       overflow: hidden;
     }
@@ -295,29 +417,31 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 80% 50%, rgba(201,168,76,.15) 0%, transparent 60%);
+      background: radial-gradient(ellipse at 85% 50%, rgba(201,168,76,.12) 0%, transparent 55%);
+      pointer-events: none;
     }
 
     .education-strip .wrap {
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 40px;
+      gap: 48px;
       align-items: center;
+      position: relative;
     }
 
     .education-strip h2 {
       font-family: var(--font-display);
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 900;
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      font-weight: 700;
       color: #FFFFFF;
       margin-bottom: 12px;
     }
 
     .education-strip p {
-      font-size: 16px;
-      color: rgba(255,255,255,.85);
-      max-width: 560px;
-      line-height: 1.7;
+      font-size: 15px;
+      color: rgba(255,255,255,.8);
+      max-width: 520px;
+      line-height: 1.75;
       margin: 0;
     }
 
@@ -329,28 +453,26 @@
     }
 
     @media (max-width: 768px) {
-      .education-strip .wrap {
-        grid-template-columns: 1fr;
-      }
-      .education-strip .strip-actions {
-        flex-direction: row;
-        flex-wrap: wrap;
-      }
+      .education-strip .wrap { grid-template-columns: 1fr; gap: 28px; }
+      .education-strip .strip-actions { flex-direction: row; flex-wrap: wrap; }
     }
 
-    /* ── Disclaimer bar ──────────────────────────────────── */
+
+    /* ─────────────────────────────────────────────────────
+       REGULATORY BAR
+    ───────────────────────────────────────────────────── */
     .regulatory-bar {
-      background: #FAF7F2;
+      background: #F3EFE9;
       border-top: 1px solid rgba(0,0,0,.07);
-      border-bottom: 1px solid rgba(0,0,0,.07);
-      padding: 14px 0;
+      padding: 16px 0;
       text-align: center;
     }
 
     .regulatory-bar p {
-      font-size: 12px;
+      font-size: 11.5px;
       color: #999;
       margin: 0;
+      line-height: 1.6;
     }
 
   </style>
@@ -358,9 +480,7 @@
 
 <body>
 
-<!-- ═══════════════════════════════════════════════════════
-     HEADER — dynamic component
-════════════════════════════════════════════════════════ -->
+<!-- Header -->
 <div id="header-mount"></div>
 <script>
   fetch('/components/header.html')
@@ -396,53 +516,62 @@
 ════════════════════════════════════════════════════════ -->
 <section class="concerns" data-ip-animate="">
   <div class="wrap">
+
     <div class="concerns-intro">
       <span class="kicker">What Keeps Families Up at Night</span>
-      <h2>You don't worry about products. You worry about people.</h2>
-      <p class="lead">Most families have some pieces in place — but no one has ever looked at the whole picture together. That's exactly what we do.</p>
+      <h2>Most families have pieces in place. What's missing is someone who looks at everything together.</h2>
+      <p class="lead">These are the conversations we have every week. If any of these sound familiar, you're in the right place.</p>
     </div>
+
     <div class="concerns-grid">
 
       <div class="concern-card">
-        <div class="concern-number">01</div>
+        <div class="concern-icon"><i class="fas fa-shield-alt"></i></div>
         <h3>What happens to my family if I die or get sick?</h3>
         <p>Income disappears, mortgages don't. We make sure your family can stay in their home, maintain their lifestyle, and move forward — regardless of what happens to you.</p>
         <span class="concern-tag">Protection</span>
       </div>
 
       <div class="concern-card">
-        <div class="concern-number">02</div>
+        <div class="concern-icon"><i class="fas fa-chart-line"></i></div>
         <h3>Are we actually saving enough? Will we be okay?</h3>
-        <p>Most families are saving — they're just not sure if it's enough, or if it's in the right places. We make the math real and build a strategy you can actually see working.</p>
+        <p>Most families are saving — they're just not sure if it's enough, or in the right places. We make the math real and build a strategy you can see working over time.</p>
         <span class="concern-tag">Wealth Growth</span>
       </div>
 
       <div class="concern-card">
-        <div class="concern-number">03</div>
-        <h3>How do we pay for the kids' education without wrecking retirement?</h3>
-        <p>RESP strategy, grant maximization, and timing withdrawals alongside your other income — so you're not choosing between your future and theirs.</p>
+        <div class="concern-icon"><i class="fas fa-graduation-cap"></i></div>
+        <h3>How do we pay for education without wrecking retirement?</h3>
+        <p>RESP strategy, grant maximization, and coordinated withdrawal timing — so you're not choosing between your future and theirs.</p>
         <span class="concern-tag">Education</span>
       </div>
 
       <div class="concern-card">
-        <div class="concern-number">04</div>
+        <div class="concern-icon"><i class="fas fa-landmark"></i></div>
         <h3>What happens to everything we've built when we're gone?</h3>
         <p>Beneficiary designations, insurance as an estate tool, minimizing probate — making sure what you've worked for goes to your family, not a government bill.</p>
         <span class="concern-tag">Legacy</span>
       </div>
 
       <div class="concern-card">
-        <div class="concern-number">05</div>
+        <div class="concern-icon"><i class="fas fa-search"></i></div>
         <h3>We're doing okay — but are we missing something?</h3>
-        <p>You might have RRSPs, a policy, maybe some investments. But does it all work together? A comprehensive review often reveals gaps that cost families tens of thousands.</p>
+        <p>You might have an RRSP, a policy, some investments. But do they work together? A coordinated review often reveals gaps that cost families tens of thousands over time.</p>
         <span class="concern-tag">Strategy Review</span>
       </div>
 
-      <div class="concern-card" style="background: linear-gradient(135deg, var(--maroon-deep), var(--maroon)); border-color: transparent;">
-        <div class="concern-number" style="color: rgba(201,168,76,.3);">06</div>
-        <h3 style="color: #FFFFFF;">I don't understand any of this — and I'm embarrassed to ask.</h3>
-        <p style="color: rgba(255,255,255,.85);">This one nobody says out loud. But it's the most common. We don't use jargon. We explain everything clearly. You leave every meeting feeling capable, not confused.</p>
-        <span class="concern-tag" style="background: rgba(201,168,76,.2); border-color: rgba(201,168,76,.4); color: var(--gold);">Education First</span>
+      <!-- Card 6 — full width, your real differentiator -->
+      <div class="concern-card card-highlight">
+        <div class="highlight-left">
+          <div class="concern-icon"><i class="fas fa-comments"></i></div>
+          <h3>I don't understand any of this — and I'm embarrassed to ask.</h3>
+          <p>This one nobody says out loud. But it's the most common thing we hear. Families often feel like they should already know this stuff. They don't come in — and the gap grows.</p>
+          <span class="concern-tag">Education First</span>
+        </div>
+        <div class="highlight-right">
+          <p class="highlight-quote">"You leave every meeting understanding exactly what you have, why you have it, and what it does for your family."</p>
+          <p class="highlight-sub">We don't use jargon. We don't rush you. We explain everything clearly — because an informed client is always an empowered one. That's not a tagline. It's how we work.</p>
+        </div>
       </div>
 
     </div>
@@ -457,13 +586,14 @@
   <div class="wrap">
     <span class="kicker">What We Do For You</span>
     <h2>Five pillars. One integrated strategy.</h2>
-    <p class="lead">Every service we offer connects to the others. Protection enables growth. Growth funds legacy. Legacy starts with a plan. We see the whole picture so you don't have to.</p>
+    <p class="lead">Every service we offer connects to the others. Protection enables growth. Growth funds legacy. Legacy starts with a conversation. We see the whole picture so you don't have to carry it alone.</p>
 
     <div class="services-grid">
 
-      <!-- Protection -->
       <article class="service-card">
-        <img class="service-card-img" src="https://images.pexels.com/photos/7491178/pexels-photo-7491178.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Family protection insurance"/>
+        <div class="service-card-img-wrap">
+          <img class="service-card-img" src="https://images.pexels.com/photos/7491178/pexels-photo-7491178.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Family protection insurance"/>
+        </div>
         <div class="service-card-body">
           <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
           <h3>Income &amp; Family Protection</h3>
@@ -478,9 +608,10 @@
         </div>
       </article>
 
-      <!-- Wealth & Investments -->
       <article class="service-card">
-        <img class="service-card-img" src="https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Wealth and investment management"/>
+        <div class="service-card-img-wrap">
+          <img class="service-card-img" src="https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Wealth and investment management"/>
+        </div>
         <div class="service-card-body">
           <div class="service-icon"><i class="fas fa-chart-line"></i></div>
           <h3>Wealth &amp; Investment Management</h3>
@@ -495,9 +626,10 @@
         </div>
       </article>
 
-      <!-- Education -->
       <article class="service-card">
-        <img class="service-card-img" src="https://images.pexels.com/photos/8363028/pexels-photo-8363028.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Education savings RESP"/>
+        <div class="service-card-img-wrap">
+          <img class="service-card-img" src="https://images.pexels.com/photos/8363028/pexels-photo-8363028.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Education savings RESP"/>
+        </div>
         <div class="service-card-body">
           <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
           <h3>Education Savings Strategy</h3>
@@ -512,9 +644,10 @@
         </div>
       </article>
 
-      <!-- Estate & Legacy -->
       <article class="service-card">
-        <img class="service-card-img" src="https://images.pexels.com/photos/8730353/pexels-photo-8730353.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Estate and legacy planning"/>
+        <div class="service-card-img-wrap">
+          <img class="service-card-img" src="https://images.pexels.com/photos/8730353/pexels-photo-8730353.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Estate and legacy planning"/>
+        </div>
         <div class="service-card-body">
           <div class="service-icon"><i class="fas fa-landmark"></i></div>
           <h3>Estate &amp; Legacy Planning</h3>
@@ -529,14 +662,15 @@
         </div>
       </article>
 
-      <!-- Comprehensive Review — full width -->
-      <article class="service-card" style="grid-column: 1 / -1; flex-direction: row; align-items: stretch;">
-        <img style="width:340px; min-height:100%; object-fit:cover; flex-shrink:0; border-bottom:none; border-right:1px solid rgba(0,0,0,.06);" src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Comprehensive wealth review"/>
-        <div class="service-card-body" style="justify-content:center;">
+      <article class="service-card wide">
+        <div class="service-card-img-wrap">
+          <img class="service-card-img" src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Comprehensive wealth review"/>
+        </div>
+        <div class="service-card-body">
           <div class="service-icon"><i class="fas fa-binoculars"></i></div>
           <h3>The Comprehensive Wealth Review</h3>
           <p>Most families have pieces — an RRSP here, a policy there. But do they work together? Our comprehensive review maps everything you have against everything you need, identifies the gaps, and builds a coordinated strategy across all five pillars.</p>
-          <ul style="columns: 2; gap: 20px;">
+          <ul>
             <li>Full insurance &amp; coverage audit</li>
             <li>Investment allocation review</li>
             <li>Registered account gap analysis</li>
@@ -559,33 +693,33 @@
 <section class="how-it-works" data-ip-animate="">
   <div class="wrap">
     <span class="kicker">Our Process</span>
-    <h2>Simple. Clear. Always in your corner.</h2>
-    <p class="lead">Three conversations — that's all it takes to go from uncertainty to clarity. No pressure, no jargon, no obligation.</p>
+    <h2>Three steps from uncertainty to clarity.</h2>
+    <p class="lead">No pressure. No jargon. No obligation. Just a clear path forward for your family.</p>
 
     <div class="steps-row">
 
       <div class="step-item">
-        <div class="step-circle">
-          <i class="fas fa-comments"></i>
+        <div class="step-circle"><i class="fas fa-comments"></i></div>
+        <div>
+          <h3>1. Discover</h3>
+          <p>A 20-minute conversation where we listen. We learn what matters to you, what you already have, and where the gaps might be.</p>
         </div>
-        <h3>1. Discover</h3>
-        <p>A 20-minute conversation where we listen. We learn what matters to you, what you already have, and where the gaps might be. No forms. No pressure.</p>
       </div>
 
       <div class="step-item">
-        <div class="step-circle">
-          <i class="fas fa-drafting-compass"></i>
+        <div class="step-circle"><i class="fas fa-drafting-compass"></i></div>
+        <div>
+          <h3>2. Design</h3>
+          <p>We build a coordinated strategy across protection, growth, and legacy — presented in plain language so you understand exactly what you have and why.</p>
         </div>
-        <h3>2. Design</h3>
-        <p>We build a coordinated strategy across protection, growth, and legacy — presented in plain language so you understand exactly what you have and why.</p>
       </div>
 
       <div class="step-item">
-        <div class="step-circle">
-          <i class="fas fa-hands-helping"></i>
+        <div class="step-circle"><i class="fas fa-hands-helping"></i></div>
+        <div>
+          <h3>3. Deliver</h3>
+          <p>We implement, monitor, and stay connected. Life changes — your strategy should too. We're a call away, every step of the way.</p>
         </div>
-        <h3>3. Deliver</h3>
-        <p>We implement, monitor, and stay connected. Life changes — your strategy should too. We're a call away, every step of the way.</p>
       </div>
 
     </div>
@@ -601,7 +735,7 @@
     <div>
       <span class="kicker">Our Promise</span>
       <h2>An informed client is always an empowered one.</h2>
-      <p>We don't just manage your wealth — we help you understand it. Every recommendation comes with a clear explanation. Every meeting ends with you feeling more capable, not more dependent.</p>
+      <p>We don't just manage your wealth — we help you understand it. Every recommendation comes with a clear explanation. Every meeting ends with you feeling more capable, not more dependent on us.</p>
     </div>
     <div class="strip-actions">
       <a class="btn btn-primary" href="https://cal.com/iberian-pacific" target="_blank">Book a Consultation</a>
