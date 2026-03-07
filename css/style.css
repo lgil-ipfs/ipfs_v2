@@ -767,20 +767,30 @@ section {
     display: flex;
   }
 
-  /* Logo only — hide text to prevent wrapping */
+  /* Show brand name on mobile — smaller size, no wrap */
   .ip-header .brand-name {
-    display: none;
+    display: block;
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
   }
 
   .ip-header .brand img {
-    height: 34px;
+    height: 30px;
   }
 }
 
 @media (max-width: 480px) {
 
   .ip-header .brand img {
-    height: 30px;
+    height: 26px;
+  }
+
+  .ip-header .brand-name {
+    font-size: 13px;
+    max-width: 130px;
   }
 
   .ip-drawer {
