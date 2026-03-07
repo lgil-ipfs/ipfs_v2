@@ -1,0 +1,396 @@
+/* ─────────────────────────────────────────────────────
+   INDIVIDUALS & FAMILIES PAGE STYLES
+───────────────────────────────────────────────────── */
+
+/* 1. CONCERNS SECTION (The "Keep up at night" section) */
+.concerns {
+    background: #FAF7F2;
+    padding: 100px 0;
+}
+
+.concerns-intro {
+    max-width: 800px;
+    margin-bottom: 64px;
+}
+
+.concerns-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.concern-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(107, 39, 55, 0.08);
+    border-radius: 16px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.concern-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(107, 39, 55, 0.08);
+    border-color: var(--gold);
+}
+
+.concern-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: rgba(201, 168, 76, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    transition: all 0.3s ease;
+}
+
+.concern-card:hover .concern-icon {
+    background: var(--gold);
+}
+
+.concern-icon i {
+    color: var(--gold);
+    font-size: 20px;
+}
+
+.concern-card:hover .concern-icon i {
+    color: #FFF;
+}
+
+.concern-card h3 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--maroon);
+    margin-bottom: 15px;
+}
+
+.concern-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.concern-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(201, 168, 76, 0.1);
+    padding: 6px 14px;
+    border-radius: 99px;
+    align-self: flex-start;
+}
+
+/* Highlight Card (Final Card) */
+.concern-card.card-highlight {
+    grid-column: span 3;
+    background: linear-gradient(135deg, var(--maroon) 0%, #4A1A24 100%);
+    border: none;
+    padding: 0;
+    overflow: hidden;
+    color: #FFF;
+}
+
+.highlight-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    min-height: 320px;
+}
+
+.highlight-main {
+    padding: 60px;
+}
+
+.highlight-main h3 {
+    color: #FFF;
+    font-size: 28px;
+}
+
+.highlight-main p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.highlight-quote-box {
+    background: rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    padding: 60px;
+    position: relative;
+}
+
+.highlight-quote {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--gold);
+    position: relative;
+}
+
+.highlight-quote::before {
+    content: '"';
+    position: absolute;
+    top: -40px;
+    left: -20px;
+    font-size: 80px;
+    opacity: 0.2;
+    font-family: serif;
+}
+
+/* 2. SERVICES SECTION */
+.fam-services {
+    padding: 100px 0;
+    background: #FFF;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.service-card {
+    border-radius: 20px;
+    overflow: hidden;
+    background: #F9F9F9;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card-img-wrap {
+    height: 250px;
+    overflow: hidden;
+}
+
+.service-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.service-card:hover .service-card-img {
+    transform: scale(1.05);
+}
+
+.service-card-body {
+    padding: 40px;
+}
+
+.service-card h3 {
+    color: var(--maroon);
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.service-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+}
+
+.service-card ul li {
+    padding: 8px 0 8px 25px;
+    position: relative;
+    font-size: 15px;
+    color: #666;
+}
+
+.service-card ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.service-card.wide {
+    grid-column: span 2;
+    flex-direction: row;
+}
+
+.service-card.wide .service-card-img-wrap {
+    width: 40%;
+    height: auto;
+}
+
+.service-card.wide .service-card-body {
+    width: 60%;
+}
+
+/* 3. HOW IT WORKS */
+.how-it-works {
+    padding: 100px 0;
+    background: #FAF7F2;
+    text-align: center;
+}
+
+.steps-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 80px;
+    position: relative;
+}
+
+.step-line {
+    position: absolute;
+    top: 40px;
+    left: 15%;
+    right: 15%;
+    height: 2px;
+    background: rgba(201, 168, 76, 0.2);
+    z-index: 0;
+}
+
+.step-item {
+    position: relative;
+    z-index: 1;
+}
+
+.step-circle {
+    width: 80px;
+    height: 80px;
+    background: #FFF;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+    box-shadow: 0 10px 30px rgba(201, 168, 76, 0.15);
+}
+
+.step-circle i {
+    color: var(--gold);
+    font-size: 28px;
+}
+
+/* 4. EDUCATION STRIP */
+.education-strip {
+    padding: 80px 0;
+    background: var(--maroon);
+    color: #FFF;
+}
+
+.education-strip .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.strip-content {
+    max-width: 60%;
+}
+
+.education-strip h2 {
+    color: #FFF;
+    margin-bottom: 10px;
+}
+
+.education-strip p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.strip-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-white {
+    background: #FFF;
+    color: var(--maroon);
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-white {
+    border: 1px solid #FFF;
+    color: #FFF;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-white:hover {
+    background: var(--gold);
+    color: #FFF;
+}
+
+.btn-outline-white:hover {
+    background: #FFF;
+    color: var(--maroon);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .concerns-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .concern-card.card-highlight {
+        grid-column: span 2;
+    }
+
+    .highlight-content {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card.wide {
+        flex-direction: column;
+    }
+
+    .service-card.wide .service-card-img-wrap,
+    .service-card.wide .service-card-body {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .concerns-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .concern-card.card-highlight {
+        grid-column: span 1;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card.wide {
+        grid-column: span 1;
+    }
+
+    .steps-row {
+        grid-template-columns: 1fr;
+    }
+
+    .step-line {
+        display: none;
+    }
+
+    .education-strip .wrap {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .strip-content {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+}
