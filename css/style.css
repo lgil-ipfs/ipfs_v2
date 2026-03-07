@@ -1981,3 +1981,59 @@ p,
 li {
   text-shadow: none !important;
 }
+
+/* ── MOBILE HEADER ───────────────────────────────────────── */
+@media (max-width: 1024px) {
+
+  /* Topbar: stack or hide on small screens */
+  .ip-header .topbar {
+    display: none;
+  }
+
+  /* Mainbar: stick to top since topbar is gone */
+  .ip-header .mainbar {
+    top: 0;
+    height: 68px;
+  }
+
+  /* Brand: slightly smaller */
+  .ip-header .brand img {
+    height: 30px;
+  }
+
+  .ip-header .brand span {
+    font-size: 18px;
+  }
+
+  /* Row: logo left, hamburger right, no overflow */
+  .ip-header .mainbar .row {
+    padding: 0;
+    gap: 0;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .ip-header .brand span {
+    font-size: 15px;
+  }
+
+  .ip-header .brand img {
+    height: 26px;
+  }
+
+  /* Drawer full-width on very small screens */
+  .ip-drawer {
+    width: 100%;
+  }
+
+  /* Hamburger label hidden on tiny screens */
+  .ip-header .hamburger span.text {
+    display: none;
+  }
+
+  .ip-header .hamburger {
+    padding: 8px 10px;
+  }
+}
