@@ -1574,6 +1574,21 @@ section {
 .ip-hero .kicker, .hero .kicker { color: #C9A84C !important; }
 .ip-hero .sub, .hero .lead { color: rgba(255, 255, 255, 0.95) !important; text-shadow: none !important; }
 
+/* Secondary button text must survive the hero wildcard */
+.ip-hero .btn-secondary,
+.ip-hero .btn.secondary {
+  color: var(--maroon) !important;
+  background: #FFFFFF !important;
+  border: 1.5px solid rgba(107, 39, 55, .3) !important;
+}
+
+.ip-hero .btn-secondary:hover,
+.ip-hero .btn.secondary:hover {
+  color: var(--maroon) !important;
+  background: var(--cream) !important;
+  border-color: var(--maroon) !important;
+}
+
 p, .sub, .lead, .desc, .bio, li { text-shadow: none !important; }
 
 /* Licensed tag */
