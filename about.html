@@ -10,9 +10,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&amp;family=Cormorant+Garamond:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 <link href="/css/style.css" rel="stylesheet"/><link href="/css/about.css" rel="stylesheet"/></head><body><div class="w-nav" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner"><div class="w-embed w-script"><!-- 
+
   DYNAMIC HEADER COMPONENT
   Copy this to your Webflow project (e.g., in a Symbol or Embed).
 -->
+<div id="header-mount"></div>
+<script>
+  fetch('/components/header.html')
+    .then(res => res.text())
+    .then(html => document.getElementById('header-mount').innerHTML = html);
+</script>
+  
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
