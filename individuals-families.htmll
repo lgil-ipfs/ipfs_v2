@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en" data-wf-domain="www.iberianpacific.ca">
+<head>
+  <meta charset="utf-8"/>
+  <title>Individuals &amp; Families | Iberian Pacific Financial Services</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="https://iberianpacific.ca" rel="canonical"/>
+
+  <!-- Shared site CSS -->
+  <link href="/css/style.css" rel="stylesheet"/>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+  <!-- Page-specific styles -->
+  <style>
+
+    /* ── Concern cards ───────────────────────────────────── */
+    .concerns {
+      background: #FFFFFF;
+      padding: 80px 0 72px;
+      border-bottom: 1px solid rgba(0,0,0,.05);
+    }
+
+    .concerns-intro {
+      max-width: 680px;
+      margin-bottom: 52px;
+    }
+
+    .concerns-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .concern-card {
+      background: var(--cream);
+      border: 1px solid rgba(0,0,0,.07);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      position: relative;
+      transition: transform .28s var(--ease), box-shadow .28s var(--ease), border-color .28s var(--ease);
+      overflow: hidden;
+    }
+
+    .concern-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--gold), var(--maroon));
+      border-radius: 4px 0 0 4px;
+    }
+
+    .concern-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(107,39,55,.08);
+      border-color: rgba(107,39,55,.15);
+    }
+
+    .concern-number {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 900;
+      color: rgba(201,168,76,.18);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .concern-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--maroon);
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+
+    .concern-card p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #555;
+      margin: 0;
+    }
+
+    .concern-card .concern-tag {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(201,168,76,.1);
+      border: 1px solid rgba(201,168,76,.25);
+      border-radius: 99px;
+      padding: 4px 12px;
+    }
+
+    @media (max-width: 1024px) { .concerns-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px)  { .concerns-grid { grid-template-columns: 1fr; } }
+
+    /* ── Services section ────────────────────────────────── */
+    .fam-services {
+      background: #FAF7F2;
+      padding: 80px 0 72px;
+      border-top: 1px solid rgba(0,0,0,.05);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-top: 44px;
+    }
+
+    .service-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(0,0,0,.08);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform .28s var(--ease), box-shadow .28s var(--ease);
+      box-shadow: 0 8px 28px rgba(0,0,0,.05);
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 48px rgba(107,39,55,.1);
+    }
+
+    .service-card-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-bottom: 1px solid rgba(0,0,0,.06);
+      transition: transform .6s ease;
+    }
+
+    .service-card:hover .service-card-img {
+      transform: scale(1.04);
+    }
+
+    .service-card-body {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--gold), #a8873c);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      flex-shrink: 0;
+    }
+
+    .service-icon i {
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--maroon);
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #555;
+      margin-bottom: 16px;
+    }
+
+    .service-card ul {
+      margin: 0 0 20px;
+      list-style: none;
+      padding: 0;
+    }
+
+    .service-card ul li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 13px;
+      color: #555;
+      margin: 6px 0;
+    }
+
+    .service-card ul li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    @media (max-width: 900px)  { .services-grid { grid-template-columns: 1fr; } }
+
+    /* ── How it works ────────────────────────────────────── */
+    .how-it-works {
+      background: #FFFFFF;
+      padding: 80px 0 72px;
+      border-top: 1px solid rgba(0,0,0,.05);
+    }
+
+    .steps-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 52px;
+      position: relative;
+    }
+
+    .steps-row::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: calc(16.66% + 12px);
+      right: calc(16.66% + 12px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--maroon), var(--gold));
+      z-index: 0;
+    }
+
+    .step-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-circle {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), #a8873c);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(201,168,76,.35);
+      flex-shrink: 0;
+    }
+
+    .step-circle i {
+      color: #fff;
+      font-size: 24px;
+    }
+
+    .step-item h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--maroon);
+      margin-bottom: 10px;
+    }
+
+    .step-item p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #555;
+      max-width: 260px;
+    }
+
+    @media (max-width: 768px) {
+      .steps-row { grid-template-columns: 1fr; gap: 40px; }
+      .steps-row::before { display: none; }
+    }
+
+    /* ── Education-first strip ───────────────────────────── */
+    .education-strip {
+      background: linear-gradient(110deg, var(--maroon-deep) 0%, var(--maroon) 50%, #8B3A4A 100%);
+      padding: 64px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .education-strip::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 80% 50%, rgba(201,168,76,.15) 0%, transparent 60%);
+    }
+
+    .education-strip .wrap {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .education-strip h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 900;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+
+    .education-strip p {
+      font-size: 16px;
+      color: rgba(255,255,255,.85);
+      max-width: 560px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .education-strip .strip-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+      .education-strip .wrap {
+        grid-template-columns: 1fr;
+      }
+      .education-strip .strip-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+    }
+
+    /* ── Disclaimer bar ──────────────────────────────────── */
+    .regulatory-bar {
+      background: #FAF7F2;
+      border-top: 1px solid rgba(0,0,0,.07);
+      border-bottom: 1px solid rgba(0,0,0,.07);
+      padding: 14px 0;
+      text-align: center;
+    }
+
+    .regulatory-bar p {
+      font-size: 12px;
+      color: #999;
+      margin: 0;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     HEADER — dynamic component
+════════════════════════════════════════════════════════ -->
+<div class="w-nav" role="banner">
+  <div class="w-embed w-script">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <header class="ip-header" id="ip-header">
+
+      <div class="topbar">
+        <div class="container">
+          <ul>
+            <li><a href="https://iberianpacific.ca/resources">Resources</a></li>
+            <li><a href="https://www.monarchsystems.online/myportfolio/" target="_blank">Monarch Client Login</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mainbar" id="mainbar">
+        <div class="container">
+          <div class="row">
+            <a aria-label="Home" class="brand" href="https://iberianpacific.ca/">
+              <img alt="Iberian Pacific Logo" src="https://cdn.prod.website-files.com/68ed2588f300fc2737bceebf/68ed30864b7c7327a36e3c8b_IPFS-Logo-c.svg"/>
+              <span class="brand-name">IBERIAN PACIFIC</span>
+            </a>
+            <ul class="nav">
+              <li>
+                <a href="https://iberianpacific.ca/about">About <i>▾</i></a>
+                <div class="dropdown">
+                  <a href="https://iberianpacific.ca/our-story">Our Story</a>
+                  <a href="https://iberianpacific.ca/our-team">Our Team</a>
+                </div>
+              </li>
+              <li>
+                <a href="https://iberianpacific.ca/who-we-serve">Who We Serve <i>▾</i></a>
+                <div class="dropdown">
+                  <a href="https://iberianpacific.ca/individuals-families">Families &amp; Individuals</a>
+                  <a href="https://iberianpacific.ca/business-owners">Business Owners</a>
+                  <a href="https://iberianpacific.ca/incorporated-professionals">Incorporated Professionals</a>
+                  <a href="https://iberianpacific.ca/difficult-to-insure-cases">Difficult to Insure</a>
+                </div>
+              </li>
+              <li>
+                <a href="#">What We Do <i>▾</i></a>
+                <div class="dropdown">
+                  <a href="https://iberianpacific.ca/investment-management">Wealth &amp; Investment Management</a>
+                  <a href="https://iberianpacific.ca/insurance-and-benefits">Insurance &amp; Individual Benefits</a>
+                  <a href="https://iberianpacific.ca/employee-benefits-executive-compensation">Corporate &amp; Employee Benefits</a>
+                  <a href="https://iberianpacific.ca/estate-legacy-planning">Estate &amp; Legacy Planning</a>
+                </div>
+              </li>
+              <li><a href="https://iberianpacific.ca/insights">Insights</a></li>
+              <li><a href="https://iberianpacific.ca/contact">Contact</a></li>
+            </ul>
+            <div class="header-actions">
+              <a class="cta cta-coverage" href="https://amore.riskdx.ca/sales/quote/personal?agent=Lucas%20RodriguesoOjo&ln=en">Get Coverage Now</a>
+              <a class="cta cta-book" href="https://cal.com/iberian-pacific" target="_blank">Book Consultation</a>
+            </div>
+            <button aria-label="Menu" class="hamburger" id="hamburger-btn">
+              <div class="burger-icon"><span></span><span></span><span></span></div>
+              <span class="text">Menu</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="ip-scrim" id="ip-scrim"></div>
+
+      <aside class="ip-drawer">
+        <div class="ip-drawer-header">
+          <span style="font-weight:700; font-family:'Merriweather'; font-size:18px;">Navigation</span>
+          <button onclick="toggleMenu()" style="background:none; border:none; font-size:24px; cursor:pointer;">×</button>
+        </div>
+        <h4>Main Menu</h4>
+        <a class="nav-link" href="https://iberianpacific.ca/about">About</a>
+        <a class="nav-link" href="https://iberianpacific.ca/who-we-serve">Who We Serve</a>
+        <a class="nav-link" href="https://iberianpacific.ca/what-we-do">What We Do</a>
+        <a class="nav-link" href="https://iberianpacific.ca/insights">Insights</a>
+        <a class="nav-link" href="https://iberianpacific.ca/contact">Contact</a>
+        <h4 style="margin-top:24px;">Resources</h4>
+        <a class="nav-link" href="https://iberianpacific.ca/resources">Client Resources</a>
+        <a class="nav-link" href="https://www.monarchsystems.online/myportfolio/">Monarch Login</a>
+        <div style="margin-top:auto; display:grid; gap:12px;">
+          <a class="cta-mobile" href="https://amore.riskdx.ca/sales/quote/personal?agent=Lucas%20RodriguesoOjo&ln=en">Get Coverage Now</a>
+          <a class="cta-mobile" href="https://cal.com/iberian-pacific" target="_blank" style="background:#f4f4f4 !important; color:#333 !important; box-shadow:none !important;">Book Consultation</a>
+        </div>
+      </aside>
+
+    </header>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     1. HERO
+════════════════════════════════════════════════════════ -->
+<section aria-label="Individuals and Families hero" class="ip-hero cinematic" data-ip-animate="">
+  <div aria-hidden="true" class="bg-video">
+    <video autoplay loop muted playsinline preload="auto">
+      <source src="https://cdn.coverr.co/videos/coverr-a-family-sitting-on-a-couch-together-1609/1080p.mp4" type="video/mp4"/>
+    </video>
+  </div>
+  <div aria-hidden="true" class="ring"></div>
+  <div class="wrap">
+    <div class="kicker">Individuals &amp; Families</div>
+    <h1>Built for the people who matter most.</h1>
+    <p class="sub">Your family's financial security deserves more than generic advice. We build wealth strategies around your life — protecting what you have today, growing what you'll need tomorrow, and preserving what you'll pass on.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://cal.com/iberian-pacific" target="_blank">Book a Conversation</a>
+      <a class="btn btn-secondary" href="#fam-services">See What We Offer</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     2. WHAT FAMILIES WORRY ABOUT
+════════════════════════════════════════════════════════ -->
+<section class="concerns" data-ip-animate="">
+  <div class="wrap">
+    <div class="concerns-intro">
+      <span class="kicker">What Keeps Families Up at Night</span>
+      <h2>You don't worry about products. You worry about people.</h2>
+      <p class="lead">Most families have some pieces in place — but no one has ever looked at the whole picture together. That's exactly what we do.</p>
+    </div>
+    <div class="concerns-grid">
+
+      <div class="concern-card">
+        <div class="concern-number">01</div>
+        <h3>What happens to my family if I die or get sick?</h3>
+        <p>Income disappears, mortgages don't. We make sure your family can stay in their home, maintain their lifestyle, and move forward — regardless of what happens to you.</p>
+        <span class="concern-tag">Protection</span>
+      </div>
+
+      <div class="concern-card">
+        <div class="concern-number">02</div>
+        <h3>Are we actually saving enough? Will we be okay?</h3>
+        <p>Most families are saving — they're just not sure if it's enough, or if it's in the right places. We make the math real and build a strategy you can actually see working.</p>
+        <span class="concern-tag">Wealth Growth</span>
+      </div>
+
+      <div class="concern-card">
+        <div class="concern-number">03</div>
+        <h3>How do we pay for the kids' education without wrecking retirement?</h3>
+        <p>RESP strategy, grant maximization, and timing withdrawals alongside your other income — so you're not choosing between your future and theirs.</p>
+        <span class="concern-tag">Education</span>
+      </div>
+
+      <div class="concern-card">
+        <div class="concern-number">04</div>
+        <h3>What happens to everything we've built when we're gone?</h3>
+        <p>Beneficiary designations, insurance as an estate tool, minimizing probate — making sure what you've worked for goes to your family, not a government bill.</p>
+        <span class="concern-tag">Legacy</span>
+      </div>
+
+      <div class="concern-card">
+        <div class="concern-number">05</div>
+        <h3>We're doing okay — but are we missing something?</h3>
+        <p>You might have RRSPs, a policy, maybe some investments. But does it all work together? A comprehensive review often reveals gaps that cost families tens of thousands.</p>
+        <span class="concern-tag">Strategy Review</span>
+      </div>
+
+      <div class="concern-card" style="background: linear-gradient(135deg, var(--maroon-deep), var(--maroon)); border-color: transparent;">
+        <div class="concern-number" style="color: rgba(201,168,76,.3);">06</div>
+        <h3 style="color: #FFFFFF;">I don't understand any of this — and I'm embarrassed to ask.</h3>
+        <p style="color: rgba(255,255,255,.85);">This one nobody says out loud. But it's the most common. We don't use jargon. We explain everything clearly. You leave every meeting feeling capable, not confused.</p>
+        <span class="concern-tag" style="background: rgba(201,168,76,.2); border-color: rgba(201,168,76,.4); color: var(--gold);">Education First</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     3. SERVICES
+════════════════════════════════════════════════════════ -->
+<section class="fam-services" id="fam-services" data-ip-animate="">
+  <div class="wrap">
+    <span class="kicker">What We Do For You</span>
+    <h2>Five pillars. One integrated strategy.</h2>
+    <p class="lead">Every service we offer connects to the others. Protection enables growth. Growth funds legacy. Legacy starts with a plan. We see the whole picture so you don't have to.</p>
+
+    <div class="services-grid">
+
+      <!-- Protection -->
+      <article class="service-card">
+        <img class="service-card-img" src="https://images.pexels.com/photos/7491178/pexels-photo-7491178.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Family protection insurance"/>
+        <div class="service-card-body">
+          <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+          <h3>Income &amp; Family Protection</h3>
+          <p>Your income is your most valuable asset. We design protection strategies that keep your family financially whole if you can't work — whether from death, illness, or disability.</p>
+          <ul>
+            <li>Life insurance — term and permanent</li>
+            <li>Critical illness coverage</li>
+            <li>Disability income protection</li>
+            <li>Mortgage protection strategies</li>
+          </ul>
+          <a class="btn btn-primary" href="https://iberianpacific.ca/insurance-and-benefits">Learn More</a>
+        </div>
+      </article>
+
+      <!-- Wealth & Investments -->
+      <article class="service-card">
+        <img class="service-card-img" src="https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Wealth and investment management"/>
+        <div class="service-card-body">
+          <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Wealth &amp; Investment Management</h3>
+          <p>We manage your investment portfolio with a long-term lens — building and protecting wealth across market cycles, with strategies suited to your goals and risk tolerance.</p>
+          <ul>
+            <li>RRSP, TFSA &amp; FHSA strategy</li>
+            <li>Segregated fund portfolios</li>
+            <li>Registered account optimization</li>
+            <li>Retirement income design</li>
+          </ul>
+          <a class="btn btn-primary" href="https://iberianpacific.ca/investment-management">Learn More</a>
+        </div>
+      </article>
+
+      <!-- Education -->
+      <article class="service-card">
+        <img class="service-card-img" src="https://images.pexels.com/photos/8363028/pexels-photo-8363028.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Education savings RESP"/>
+        <div class="service-card-body">
+          <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3>Education Savings Strategy</h3>
+          <p>A well-structured RESP does more than save — it captures government grants, grows tax-sheltered, and withdraws efficiently alongside your other income sources.</p>
+          <ul>
+            <li>RESP setup &amp; grant maximization</li>
+            <li>Canada Education Savings Grant (CESG)</li>
+            <li>Coordinated withdrawal timing</li>
+            <li>Planning alongside RRSP &amp; TFSA</li>
+          </ul>
+          <a class="btn btn-primary" href="https://cal.com/iberian-pacific" target="_blank">Book a Review</a>
+        </div>
+      </article>
+
+      <!-- Estate & Legacy -->
+      <article class="service-card">
+        <img class="service-card-img" src="https://images.pexels.com/photos/8730353/pexels-photo-8730353.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Estate and legacy planning"/>
+        <div class="service-card-body">
+          <div class="service-icon"><i class="fas fa-landmark"></i></div>
+          <h3>Estate &amp; Legacy Planning</h3>
+          <p>What you've built deserves to go to the people you love — not to taxes, probate fees, or administrative delays. We help structure your estate to transfer efficiently and with intention.</p>
+          <ul>
+            <li>Beneficiary designation review</li>
+            <li>Insurance as an estate transfer tool</li>
+            <li>Probate minimization strategies</li>
+            <li>Coordination with your legal advisors</li>
+          </ul>
+          <a class="btn btn-primary" href="https://iberianpacific.ca/estate-legacy-planning">Learn More</a>
+        </div>
+      </article>
+
+      <!-- Comprehensive Review — full width -->
+      <article class="service-card" style="grid-column: 1 / -1; flex-direction: row; align-items: stretch;">
+        <img style="width:340px; min-height:100%; object-fit:cover; flex-shrink:0; border-bottom:none; border-right:1px solid rgba(0,0,0,.06);" src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Comprehensive wealth review"/>
+        <div class="service-card-body" style="justify-content:center;">
+          <div class="service-icon"><i class="fas fa-binoculars"></i></div>
+          <h3>The Comprehensive Wealth Review</h3>
+          <p>Most families have pieces — an RRSP here, a policy there. But do they work together? Our comprehensive review maps everything you have against everything you need, identifies the gaps, and builds a coordinated strategy across all five pillars.</p>
+          <ul style="columns: 2; gap: 20px;">
+            <li>Full insurance &amp; coverage audit</li>
+            <li>Investment allocation review</li>
+            <li>Registered account gap analysis</li>
+            <li>Estate &amp; beneficiary check</li>
+            <li>Cash flow &amp; savings rate review</li>
+            <li>Education funding assessment</li>
+          </ul>
+          <a class="btn btn-primary" style="align-self:flex-start;" href="https://cal.com/iberian-pacific" target="_blank">Start Your Review</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     4. HOW IT WORKS
+════════════════════════════════════════════════════════ -->
+<section class="how-it-works" data-ip-animate="">
+  <div class="wrap">
+    <span class="kicker">Our Process</span>
+    <h2>Simple. Clear. Always in your corner.</h2>
+    <p class="lead">Three conversations — that's all it takes to go from uncertainty to clarity. No pressure, no jargon, no obligation.</p>
+
+    <div class="steps-row">
+
+      <div class="step-item">
+        <div class="step-circle">
+          <i class="fas fa-comments"></i>
+        </div>
+        <h3>1. Discover</h3>
+        <p>A 20-minute conversation where we listen. We learn what matters to you, what you already have, and where the gaps might be. No forms. No pressure.</p>
+      </div>
+
+      <div class="step-item">
+        <div class="step-circle">
+          <i class="fas fa-drafting-compass"></i>
+        </div>
+        <h3>2. Design</h3>
+        <p>We build a coordinated strategy across protection, growth, and legacy — presented in plain language so you understand exactly what you have and why.</p>
+      </div>
+
+      <div class="step-item">
+        <div class="step-circle">
+          <i class="fas fa-hands-helping"></i>
+        </div>
+        <h3>3. Deliver</h3>
+        <p>We implement, monitor, and stay connected. Life changes — your strategy should too. We're a call away, every step of the way.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     5. EDUCATION-FIRST STRIP
+════════════════════════════════════════════════════════ -->
+<section class="education-strip">
+  <div class="wrap">
+    <div>
+      <span class="kicker">Our Promise</span>
+      <h2>An informed client is always an empowered one.</h2>
+      <p>We don't just manage your wealth — we help you understand it. Every recommendation comes with a clear explanation. Every meeting ends with you feeling more capable, not more dependent.</p>
+    </div>
+    <div class="strip-actions">
+      <a class="btn btn-primary" href="https://cal.com/iberian-pacific" target="_blank">Book a Consultation</a>
+      <a class="btn btn-secondary" href="https://iberianpacific.ca/our-team">Meet Our Team</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     6. REGULATORY BAR
+════════════════════════════════════════════════════════ -->
+<section class="regulatory-bar">
+  <div class="wrap">
+    <p><em>Mutual funds are offered through Monarch Wealth Corporation. Insurance products distributed through Customplan Financial Advisors Inc. Commissions, trailing commissions, management fees and expenses may be associated with mutual fund investments. Mutual funds are not guaranteed, their values change frequently, and past performance may not be repeated.</em></p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     7. CTA
+════════════════════════════════════════════════════════ -->
+<section aria-labelledby="cta-title" class="ip-cta v4">
+  <div class="wrap">
+    <span class="kicker">Your Next Step</span>
+    <h2 id="cta-title">Your family deserves a complete picture.</h2>
+    <div class="card">
+      <h3>Let's start with a conversation.</h3>
+      <p>Book a complimentary 20-minute consultation. We'll learn what matters most to you, identify any gaps, and outline what a coordinated strategy could look like for your family.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://cal.com/iberian-pacific" target="_blank">Book Consultation</a>
+        <a class="btn btn-secondary" href="https://amore.riskdx.ca/sales/quote/personal?agent=Lucas%20RodriguesoOjo&ln=en">Get an Instant Quote</a>
+      </div>
+      <div class="chips">
+        <span class="chip">No Cost</span>
+        <span class="chip">No Obligation</span>
+        <span class="chip">Education First</span>
+        <span class="chip">Privacy-First</span>
+      </div>
+      <div class="cal-wrap" id="ip-booking">
+        <h4 class="cal-title">Book Your Consultation</h4>
+        <div class="cal-frame" id="my-cal-inline-let-s-connect"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════════ -->
+<div class="w-embed w-script">
+<footer aria-labelledby="ip-footer-title" class="ip-footer" role="contentinfo">
+  <h2 class="sr-only" id="ip-footer-title" style="position:absolute;left:-9999px">Site footer</h2>
+  <div class="wrap">
+    <div class="row">
+      <div class="brandnav">
+        <div class="brand">
+          <img alt="Iberian Pacific logo" src="https://cdn.prod.website-files.com/68ed2588f300fc2737bceebf/68ed30864b7c7327a36e3c8b_IPFS-Logo-c.svg"/>
+          <span class="name">Iberian Pacific</span>
+        </div>
+        <nav aria-label="Footer">
+          <a href="https://iberianpacific.ca/about">About</a>
+          <a href="https://iberianpacific.ca/services">Services</a>
+          <a href="https://iberianpacific.ca/contact">Contact</a>
+        </nav>
+        <div class="contact">
+          <div class="contact-item">
+            <svg aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 16.92V21a2 2 0 0 1-2.18 2A19.72 19.72 0 0 1 3 5.18 2 2 0 0 1 5 3h4a2 2 0 0 1 2 1.72c.1.81.33 1.61.66 2.35a2 2 0 0 1-.44 2.11L10 10a16 16 0 0 0 6 6l.81-.82a2 2 0 0 1 2.11-.44c.74.33 1.54.56 2.35.68A2 2 0 0 1 22 16.92Z" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <a href="tel:6049168819">604-916-8819</a>
+          </div>
+          <div class="contact-item">
+            <svg aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 22h18M3 10h18M10 6V2h4v4M12 22V10" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <span>1090 West Georgia Street, Suite 1160<br/>Vancouver, BC V6E 3V7</span>
+          </div>
+        </div>
+      </div>
+      <div class="aff-grid">
+        <div class="aff">
+          <a href="https://www.customplanfinancial.com/" rel="noopener noreferrer" target="_blank">
+            <img alt="Customplan Financial Advisors Inc." src="https://cdn.prod.website-files.com/68ed2588f300fc2737bceebf/68ed997f44ff3bb50a1a7252_Customplan%20Logo.avif"/>
+          </a>
+          <p>Authorized distributor of insurance products through Customplan Financial Advisors Inc.</p>
+        </div>
+        <div class="aff">
+          <a href="https://www.monarchwealth.ca/" rel="noopener noreferrer" target="_blank">
+            <img alt="Monarch Wealth Corporation" src="https://cdn.prod.website-files.com/68ed2588f300fc2737bceebf/68ed997fe0e4392604a745ff_Monarch%20Logo.avif"/>
+          </a>
+          <p>Mutual funds are sold through Monarch Wealth Corporation. Please read the prospectus/fund facts before investing.</p>
+        </div>
+      </div>
+    </div>
+    <div aria-hidden="true" class="rule"></div>
+    <div class="legal">
+      <span>© <span id="ip-year"></span> Iberian Pacific Financial Services. All rights reserved.</span>
+      <span>
+        <a href="https://iberianpacific.ca/disclaimers">Disclaimers</a> ·
+        <a href="https://iberianpacific.ca/privacy">Privacy</a> ·
+        <a href="https://iberianpacific.ca/terms">Terms</a>
+      </span>
+    </div>
+  </div>
+</footer>
+</div>
+
+<!-- Scripts -->
+<script src="/js/script.js"></script>
+
+</body>
+</html>
