@@ -10,6 +10,11 @@
     text-align: left;
 }
 
+.insights-hero .wrap {
+    margin: 0 auto;
+    /* Keep it in the same grid as the rest of the site */
+}
+
 .insights-hero h1 {
     font-size: clamp(3rem, 8vw, 5rem);
     margin-bottom: 20px;
@@ -26,21 +31,20 @@
 /* 2. SEARCH & FILTERS */
 .insights-controls {
     position: sticky;
-    top: 92px;
-    /* Explicit top match for header height */
-    background: rgba(255, 255, 255, 1);
-    /* Solid background to prevent overlap transparency issues */
-    z-index: 999;
-    /* Ensure it stays above article images */
-    padding: 20px 0;
+    top: 52px;
+    /* Sticks precisely below the sticky mainbar */
+    background: #FFF;
+    z-index: 1000;
+    padding: 15px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .controls-wrap {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    /* Left-aligned */
     align-items: center;
-    gap: 40px;
+    gap: 30px;
 }
 
 .search-bar {
