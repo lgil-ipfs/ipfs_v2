@@ -43,7 +43,7 @@
     <section class="insure-hero" data-ip-animate="">
         <div class="wrap">
             <span class="kicker">Specialized Coverage</span>
-            <h1>Declined before. Not done yet.</h1>
+            <h1>Specialized Underwriting for Complex Health Histories</h1>
             <p class="sub">A health history doesn't have to be the end of the conversation. We specialize in finding
                 coverage for people the standard market struggles to place — and we know how to make the strongest
                 possible
@@ -54,18 +54,7 @@
         </div>
     </section>
 
-    <!-- 2. TENSION SECTION -->
-    <section class="tension-band" data-ip-animate="">
-        <div class="wrap">
-            <p>"Being declined for life insurance feels like a door closing. In some cases, the standard market
-                genuinely
-                isn't the right fit — but that rarely means there are no options. It means you need someone who knows
-                where
-                to look, how to package your application, and which insurers are most likely to say yes."</p>
-        </div>
-    </section>
-
-    <!-- 3. CHECKLIST SECTION -->
+    <!-- 2. CHECKLIST SECTION -->
     <section class="checklist-section" data-ip-animate="">
         <div class="wrap">
             <div class="section-header">
@@ -85,16 +74,6 @@
                         <li>Coronary artery disease or bypass surgery</li>
                         <li>Stroke or TIA (transient ischemic attack)</li>
                         <li>Uncontrolled hypertension</li>
-                    </ul>
-                </div>
-
-                <!-- Card 2: Cancer History -->
-                <div class="medical-cat">
-                    <h3>Cancer History</h3>
-                    <ul>
-                        <li>Any cancer diagnosis within the past 5–10 years</li>
-                        <li>Certain cancers regardless of time elapsed</li>
-                        <li>Currently in treatment or remission</li>
                     </ul>
                 </div>
 
@@ -154,16 +133,6 @@
                     </ul>
                 </div>
 
-                <!-- Card 8: Other -->
-                <div class="medical-cat">
-                    <h3>Other</h3>
-                    <ul>
-                        <li>HIV positive status</li>
-                        <li>Organ transplant recipient</li>
-                        <li>Autoimmune conditions (Lupus, RA, etc.)</li>
-                        <li>Multiple prior insurance declines</li>
-                    </ul>
-                </div>
             </div>
 
             <p class="checklist-footer">"This list is not exhaustive. If your situation isn't here but you've had
@@ -203,21 +172,45 @@
     <section class="options-section" data-ip-animate="">
         <div class="wrap">
             <div class="options-content">
-                <span class="kicker">The Possibilities</span>
-                <h2>There is usually more available than you think.</h2>
-                <p class="lead">Depending on your situation, the solution might be a standard policy with a specific
-                    exclusion, a rated policy at a higher premium, a simplified or guaranteed issue product, or a
-                    combination
-                    of coverage types that together give your family real protection.</p>
+                <span class="kicker">Medical History Review</span>
+                <h2>Request a no-obligation review.</h2>
+                <p class="lead">Submit a brief summary of your health history, and we'll let you know what coverage
+                    options
+                    might be available to you before we even approach an insurer.</p>
 
-                <div class="options-list">
-                    <div class="opt-item">Rated policies with premium adjustment</div>
-                    <div class="opt-item">Policies with specific condition exclusions</div>
-                    <div class="opt-item">Simplified issue life insurance (no medical exam)</div>
-                    <div class="opt-item">Guaranteed issue life insurance (no health questions)</div>
-                    <div class="opt-item">Group coverage through association plans</div>
-                    <div class="opt-item">Creditor insurance as a supplementary layer</div>
-                    <div class="opt-item">Graded benefit policies for serious conditions</div>
+                <div class="review-form-card">
+                    <div id="review-status-success" class="form-status success">
+                        <strong>Review Request Received.</strong> We will analyze your situation and get back to you
+                        within one business day.
+                    </div>
+                    <div id="review-status-error" class="form-status error">
+                        Something went wrong. Please try again or email us directly at <a
+                            href="mailto:info@iberianpacific.ca">info@iberianpacific.ca</a>.
+                    </div>
+
+                    <form id="review-form" action="https://formspree.io/f/mvzwgjkd" method="POST" class="review-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="review-name">Full Name</label>
+                                <input type="text" id="review-name" name="name" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="review-email">Email Address</label>
+                                <input type="email" id="review-email" name="email" placeholder="john@company.com"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="review-history">Brief Health History & Previous Declines (if any)</label>
+                            <textarea id="review-history" name="history" rows="6"
+                                placeholder="Please list any conditions, dates, and what you've been told by other insurers..."
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="review-submit-btn">
+                            <span class="btn-spinner"></span>
+                            <span class="btn-label">Request Review</span>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -308,6 +301,47 @@
 
     <!-- Scripts -->
     <script src="js/script.js"></script>
+    <script>
+        // Handle Review Form
+        const reviewForm = document.getElementById('review-form');
+        const reviewSubmitBtn = document.getElementById('review-submit-btn');
+        const reviewSuccess = document.getElementById('review-status-success');
+        const reviewError = document.getElementById('review-status-error');
+
+        if (reviewForm) {
+            reviewForm.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                reviewSuccess.classList.remove('visible');
+                reviewError.classList.remove('visible');
+
+                reviewSubmitBtn.disabled = true;
+                reviewSubmitBtn.classList.add('loading');
+                reviewSubmitBtn.querySelector('.btn-label').textContent = 'Sending...';
+
+                const data = new FormData(reviewForm);
+                try {
+                    const response = await fetch(reviewForm.action, {
+                        method: 'POST',
+                        body: data,
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (response.ok) {
+                        reviewSuccess.classList.add('visible');
+                        reviewForm.reset();
+                        reviewSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    } else {
+                        reviewError.classList.add('visible');
+                    }
+                } catch (err) {
+                    reviewError.classList.add('visible');
+                } finally {
+                    reviewSubmitBtn.disabled = false;
+                    reviewSubmitBtn.classList.remove('loading');
+                    reviewSubmitBtn.querySelector('.btn-label').textContent = 'Request Review';
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
