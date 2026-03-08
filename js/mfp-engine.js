@@ -734,126 +734,160 @@
     //  FLOW DIAGRAM
     // ═══════════════════════════════════════════════════════════════════════
 
-    function renderFlowNav(data) {
-        const nav = $("flowYearNav");
-        nav.innerHTML = "";
-        const keyYears = [1, 2, 5, 10, 15, 20, 25];
-        keyYears.forEach((y, i) => {
-            const btn = document.createElement("button");
-            btn.className = "flow-year-btn" + (i === 0 ? " active" : "");
-            btn.textContent = `Year ${y}`;
-            btn.dataset.year = y;
-            btn.addEventListener("click", () => {
-                nav.querySelectorAll(".flow-year-btn").forEach((b) => b.classList.remove("active"));
-                btn.classList.add("active");
-                renderFlowDiagram(data.flowData[y - 1], data);
+    function initFlowSlider(data) {
+        const slider = $("flowYearSlider");
+        if (slider && !slider.hasAttribute('data-bound')) {
+            slider.addEventListener("input", (e) => {
+                const y = parseInt(e.target.value);
+                $("sliderYearLabel").textContent = y === 0 ? "Start of Year 1: The Initial Set-up" : `End of Year ${y}`;
+                renderFlowDiagram(data.flowData[Math.max(0, y - 1)], data, y);
             });
-            nav.appendChild(btn);
-        });
-        renderFlowDiagram(data.flowData[0], data);
+            slider.setAttribute('data-bound', 'true');
+        }
+        if (slider) {
+            slider.value = 0;
+            $("sliderYearLabel").textContent = "Start of Year 1: The Initial Set-up";
+        }
+        renderFlowDiagram(data.flowData[0], data, 0);
     }
 
-    function renderFlowDiagram(fd, data) {
+    function renderFlowDiagram(fd, data, yearValue) {
         const diag = $("flowDiagram");
 
-        const badPct = fd.badDebt / fd.houseValue * 100;
-        const goodPct = fd.goodDebt / fd.houseValue * 100;
-        const roomPct = Math.max(0, (fd.m1Limit - fd.badDebt - fd.goodDebt)) / fd.houseValue * 100;
-        const eqPct = Math.max(0, 100 - badPct - goodPct - roomPct);
+        let isStart = yearValue === 0;
+
+        // Base Initial Setup values
+        let m1Start = data.flowData[0].houseValue - data.flowData[0].creditRoom - data.flowData[0].goodDebt;
+        if (isStart) m1Start = data.m1Limit - (data.flowData[0].goodDebt - data.monthlyInvestmentContrib) - (data.m1Limit - data.flowData[0].badDebt - data.flowData[0].goodDebt);
+        // Rough approx for initial bad debt:
+        let initialBadDebt = data.flowData[0].badDebt + fd.principalToBadDebt;
+        let initialGoodDebt = data.flowData[0].goodDebt - data.monthlyInvestmentContrib;
+
+        let bd_disp = isStart ? initialBadDebt : fd.badDebt;
+        let gd_disp = isStart ? initialGoodDebt : fd.goodDebt;
+        let iv_disp = isStart ? initialGoodDebt : fd.investValue;
+        let rr_disp = Math.max(0, fd.m1Limit - bd_disp - gd_disp);
+        let refund_disp = isStart ? 0 : fd.taxRefund;
+
+        const totalInt = fd.goodInterest + fd.badInterest;
+        const monthlyInv = fd.monthlyInvestContrib;
+        const swpInc = fd.investIncome / 12;
+
+        let totalPmt = data.totalDebtPayment + swpInc;
 
         diag.innerHTML = `
-      <!-- LEFT: Real Estate -->
-      <div class="flow-column">
-        <div class="flow-column-label">Real Estate / M1 Account</div>
-        <div style="width:100%; font-size:0.85rem; text-align:center; color:var(--text-secondary); margin-bottom:0.25rem;">
-          Appraised House Value: ${fmt(fd.houseValue)}
-        </div>
-        <div class="house-value-bar">
-          <div class="seg-bad" style="width:${badPct}%" title="Bad Debt"></div>
-          <div class="seg-good" style="width:${goodPct}%" title="Good Debt"></div>
-          <div class="seg-room" style="width:${roomPct}%" title="Available Room"></div>
-          <div class="seg-equity" style="width:${eqPct}%" title="Equity"></div>
-        </div>
-        <div class="bar-legend">
-          <span class="leg-bad">Bad ${fmtK(fd.badDebt)}</span>
-          <span class="leg-good">Good ${fmtK(fd.goodDebt)}</span>
-          <span class="leg-room">Room ${fmtK(Math.max(0, fd.m1Limit - fd.badDebt - fd.goodDebt))}</span>
-        </div>
-        <div style="margin-top:0.75rem; width:100%;">
-          ${fd.badDebt > 0 ? `
-          <div class="flow-box flow-bad-debt" style="margin-bottom:0.5rem; border-left: 4px solid #c0392b;">
-            <div class="flow-box-label">Non-Deductible Debt</div>
-            <div class="flow-box-value">${fmt(fd.badDebt)}</div>
-          </div>` : `
-          <div class="flow-box" style="background:#d4edda; margin-bottom:0.5rem; border-left: 4px solid #2a9d4e;">
-            <div class="flow-box-label" style="color:#155724;">Debt Free!</div>
-            <div class="flow-box-value" style="color:#155724;">$0</div>
-          </div>`}
-          <div class="flow-box flow-good-debt" style="border-left: 4px solid #2a9d4e;">
-            <div class="flow-box-label">Investment Loan</div>
-            <div class="flow-box-value">${fmt(fd.goodDebt)}</div>
-          </div>
-        </div>
-      </div>
+          <div class="exact-flow">
+            <!-- LEFT COL: REAL ESTATE -->
+            <div class="ef-col ef-real-estate">
+                <h4>Real Estate</h4>
+                <div class="ef-dashed-box" style="height: 120px;">
+                    <div class="ef-dash-line">${fmt(fd.houseValue)}</div>
+                    <div class="ef-dash-line" style="margin-top:20px;">${fmt(fd.m1Limit)}</div>
+                    <div class="ef-dash-line" style="margin-top:20px;">${fmt(rr_disp)}</div>
+                    <div class="ef-label-side">75%</div>
+                </div>
+                ${bd_disp > 0 ? `
+                <div class="ef-good-debt">
+                    Good Debt:<br>${fmt(gd_disp)}
+                </div>
+                <div class="ef-bad-debt">
+                    Bad Debt:<br>${fmt(bd_disp)}
+                </div>` : `
+                <div class="ef-good-debt" style="padding: 60px 0; border-radius: 0 0 10px 10px;">
+                    Good Debt:<br>${fmt(gd_disp)}
+                </div>`}
+                <div class="ef-bank-account-label">Bank Account</div>
+            </div>
 
-      <!-- CENTER: Cash Flow Engine -->
-      <div class="flow-column">
-        <div class="flow-column-label">Cash Flow Engine</div>
-        <div class="flow-box flow-income-box">
-          <div class="flow-box-label">Income</div>
-          <div class="flow-box-value">${fmt(data.totalDebtPayment)}</div>
-          <div style="font-size:0.75rem; color:#888; margin-top:0.25rem;">Total debt servicing from paycheque</div>
-        </div>
-        <div class="flow-arrow"><i class="fa-solid fa-arrow-down"></i></div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; width:100%;">
-          <div class="flow-box flow-interest-box" style="padding: 10px;">
-            <div class="flow-box-label" style="font-size: 0.75rem;">Total Interest</div>
-            <div class="flow-box-value" style="font-size:1rem;">${fmt(fd.totalInterest * 12)}/yr</div>
-          </div>
-          <div class="flow-box flow-refund-box" style="padding: 10px; background: rgba(108,52,131,0.05); border-color: #6c3483;">
-            <div class="flow-box-label" style="font-size: 0.75rem;">Tax Refund</div>
-            <div class="flow-box-value" style="font-size:1rem; color: #6c3483;">${fmt(fd.taxRefund)}/yr</div>
-          </div>
-        </div>
-        <div class="flow-arrow"><i class="fa-solid fa-arrow-down"></i></div>
-        ${fd.badDebt > 0 ? `
-        <div class="flow-box flow-principal-box">
-          <div class="flow-box-label">To Bad Debt Principal</div>
-          <div class="flow-box-value" style="font-size:1.15rem;">${fmt(fd.principalToBadDebt)}/mo</div>
-        </div>` : `
-        <div class="flow-box" style="background:#d4efdf; border:2px dashed #2a9d4e;">
-          <div class="flow-box-label" style="color:#2a9d4e;">Paying Down Good Debt</div>
-          <div class="flow-box-value" style="color:#2a9d4e; font-size:1.15rem;">${fmt(fd.principalToGoodDebt)}/mo</div>
-        </div>`}
-        <div class="flow-arrow"><i class="fa-solid fa-arrow-down"></i></div>
-        <div class="flow-box flow-invest-contrib-box" style="background: rgba(37,99,235,0.05); border-color: #2563eb;">
-          <div class="flow-box-label" style="color: #2563eb;">To Investment Account</div>
-          <div class="flow-box-value" style="font-size:1.15rem; color: #2563eb;">${fmt(data.monthlyInvestmentContrib)}/mo</div>
-        </div>
-      </div>
+            <!-- RIGHT COL: INVESTMENT -->
+            <div class="ef-col ef-investment">
+                <h4>Investment</h4>
+                <div class="ef-dashed-box" style="height: 220px;"></div>
+                <div class="ef-investment-growth">
+                    Investment<br>${fmt(iv_disp)}
+                </div>
+            </div>
 
-      <!-- RIGHT: Investment -->
-      <div class="flow-column">
-        <div class="flow-column-label">Investment Account</div>
-        <div class="flow-box flow-investment" style="padding:1.5rem; background: var(--charcoal); color: #fff; border: none;">
-          <div class="flow-box-label" style="color: rgba(255,255,255,0.7);">Portfolio Value</div>
-          <div class="flow-box-value" style="font-size:2rem; color: var(--gold);">${fmt(fd.investValue)}</div>
-        </div>
-        <div class="flow-arrow"><i class="fa-solid fa-arrow-up"></i></div>
-        <div class="flow-box" style="background:#e8f4fd; border:1px solid #bdd7ee;">
-          <div class="flow-box-label" style="color:#2980b9;">Monthly Income (SWP)</div>
-          <div class="flow-box-value" style="color:#2980b9; font-size:1.2rem;">${fmt(fd.investIncome)}</div>
-          <div style="font-size:0.75rem; color:#666; margin-top:0.2rem;">feeds back into debt paydown</div>
-        </div>
-        <div style="margin-top: 15px; width: 100%;">
-          <div class="flow-box" style="background:#fef9e7; border:1px solid #f7dc6f;">
-            <div class="flow-box-label" style="color:#b7950b;">Net Equity</div>
-            <div class="flow-box-value" style="color:#b7950b; font-size:1.2rem;">${fmt(fd.investValue - fd.goodDebt)}</div>
-            <div style="font-size:0.75rem; color:#666; margin-top:0.15rem;">portfolio value minus investment loan</div>
+            <!-- CENTER & FLOATING ELEMENTS -->
+            ${!isStart ? `
+            <div class="ef-tax-refund">
+                <div style="font-size:0.8rem;">Estimated Tax Refund</div>
+                ${fmt(refund_disp)}
+            </div>` : ''}
+
+            <!-- Interest Box -->
+            <div class="ef-interest-box">
+                <div style="background:#6bcc68; width:100%; height:25px; position:absolute; top:-25px; left:0; line-height:25px; font-weight:bold; color:#fff;">
+                    ${fmt(fd.goodInterest * 12)}
+                </div>
+                ${fmt(fd.badInterest * 12)}
+            </div>
+            <div class="ef-total-interest">
+                Total Interest:<br>${fmt(totalInt * 12)}
+            </div>
+
+            <!-- Income Flow Box -->
+            <div class="ef-blue-box">
+                ${fmt(totalPmt)}
+            </div>
+            <div style="position:absolute; bottom:143px; left:50%; transform:translateX(-50%); font-weight:bold; color:#000;">
+                ${fmt(data.totalDebtPayment)}
+            </div>
+
+            <!-- Bucket Base -->
+            <div class="ef-income-bucket">
+                <div class="ef-bucket-shape">
+                    <span>Income</span>
+                </div>
+            </div>
+
+            <!-- Dynamic Labels Floating on Canvas -->
+            <div class="ef-arrow-label ef-label-red" style="left: 270px; bottom: 155px; transform: rotate(-25deg);">
+               ${fmt(bd_disp > 0 ? (fd.principalToBadDebt * 12) : (fd.principalToGoodDebt * 12))} to Principal
+            </div>
+
+            <div class="ef-arrow-label ef-label-yellow" style="left: 450px; bottom: 225px; transform: rotate(-65deg); font-size: 0.95rem;">
+               ${fmt(totalInt * 12)}
+            </div>
+
+            <div class="ef-arrow-label ef-label-yellow" style="left: 480px; top: 180px;">
+               ${fmt(monthlyInv * 12)} to Investment Account
+            </div>
+
+            <div style="position:absolute; right: 260px; bottom: 180px; font-weight:bold; color:#000; font-size: 0.9rem;">
+               ${fmt(swpInc)}
+            </div>
+
+            <!-- SVG Background Arrows -->
+            <svg class="ef-arrow-svg" viewBox="0 0 900 600" preserveAspectRatio="none">
+               <defs>
+                   <marker id="arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                       <path d="M 0 0 L 10 5 L 0 10 z" fill="#6bcc68" />
+                   </marker>
+                   <marker id="arrow-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                       <path d="M 0 0 L 10 5 L 0 10 z" fill="#ff5e5e" />
+                   </marker>
+                   <marker id="arrow-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                       <path d="M 0 0 L 10 5 L 0 10 z" fill="#757575" />
+                   </marker>
+               </defs>
+
+               <line x1="450" y1="500" x2="450" y2="445" stroke="#757575" stroke-width="5" marker-end="url(#arrow-gray)" />
+
+               <line x1="400" y1="420" x2="250" y2="480" stroke="#ff5e5e" stroke-width="5" marker-end="url(#arrow-red)" />
+
+               <line x1="480" y1="420" x2="520" y2="280" stroke="#757575" stroke-width="5" marker-end="url(#arrow-gray)" />
+               <line x1="480" y1="420" x2="520" y2="280" stroke="#757575" stroke-width="5" marker-start="url(#arrow-gray)" />
+
+               <line x1="250" y1="360" x2="420" y2="280" stroke="#6bcc68" stroke-width="5" marker-end="url(#arrow-green)" />
+               
+               <line x1="580" y1="190" x2="680" y2="400" stroke="#6bcc68" stroke-width="5" marker-end="url(#arrow-green)" />
+
+               <line x1="680" y1="480" x2="510" y2="425" stroke="#6bcc68" stroke-width="5" marker-end="url(#arrow-green)" />
+            </svg>
+
           </div>
-        </div>
-      </div>
-    `;
+        `;
     }
 
     // ═══════════════════════════════════════════════════════════════════════
@@ -874,7 +908,7 @@
         renderTaxRefundsChart(data);
         renderDeductibleChart(data);
         renderBreakevenChart(data);
-        renderFlowNav(data);
+        initFlowSlider(data);
 
         // Scroll to results
         $("results").scrollIntoView({ behavior: "smooth", block: "start" });
