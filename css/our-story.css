@@ -111,51 +111,12 @@
   text-shadow: 0 1px 0 rgba(0, 0, 0, .25);
 }
 
-/* CTA BUTTONS (premium pair) */
+/* Hero Buttons - Relying on global .btn and .btn-primary from style.css */
 .ip-hero.story .actions {
   display: flex;
-  gap: 12px;
+  gap: 16px;
   flex-wrap: wrap;
-  margin-top: 4px
-}
-
-.ip-hero.story .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font: 800 13px/1 "Open Sans";
-  border-radius: 999px;
-  padding: 12px 20px;
-  border: 2px solid transparent;
-  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease, background .18s ease;
-}
-
-.ip-hero.story .btn:hover {
-  transform: translateY(-1px)
-}
-
-.ip-hero.story .btn-primary {
-  background: linear-gradient(90deg, var(--gold), #f5d878);
-  color: #2b0b0b;
-  border-color: var(--gold);
-  box-shadow: 0 10px 26px rgba(212, 175, 55, .25);
-}
-
-.ip-hero.story .btn-primary:hover {
-  box-shadow: 0 12px 32px rgba(212, 175, 55, .35);
-  filter: saturate(1.05)
-}
-
-.ip-hero.story .btn-ghost {
-  background: transparent;
-  color: #fff;
-  border-color: rgba(255, 255, 255, .65);
-}
-
-.ip-hero.story .btn-ghost:hover {
-  background: rgba(255, 255, 255, .10);
-  box-shadow: 0 10px 26px rgba(0, 0, 0, .25)
+  margin-top: 32px;
 }
 
 /* DIVIDER LINE */
