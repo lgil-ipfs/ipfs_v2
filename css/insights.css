@@ -31,8 +31,8 @@
 /* 2. SEARCH & FILTERS */
 .insights-controls {
     position: sticky;
-    top: 52px;
-    /* Sticks precisely below the sticky mainbar */
+    top: 92px;
+    /* Sticks precisely below the sticky fixed header */
     background: #FFF;
     z-index: 1000;
     padding: 15px 0;

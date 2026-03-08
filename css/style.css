@@ -422,8 +422,10 @@ section {
 /* ── 10. HEADER ──────────────────────────────────────────── */
 .ip-header {
   width: 100%;
-  position: relative;
-  z-index: 1000;
+  position: sticky;
+  top: calc(-1 * var(--nav-top-h));
+  z-index: 2000;
+  /* High enough to stay above everything */
   font-family: var(--font-body);
 }
 
@@ -515,8 +517,7 @@ section {
   display: flex;
   align-items: center;
   width: 100%;
-  position: sticky;
-  top: calc(-1 * var(--nav-top-h));
+  position: relative;
   z-index: 1001;
   border-bottom: 1px solid rgba(255, 255, 255, .06);
   transition: background .3s ease, height .3s ease, box-shadow .3s ease;
