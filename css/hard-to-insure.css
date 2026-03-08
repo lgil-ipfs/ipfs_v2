@@ -1,39 +1,6 @@
-/* ─────────────────────────────────────────────────────
-   HARD-TO-INSURE PAGE STYLES
-   Direct, solution-oriented, and high-end feel.
-   ───────────────────────────────────────────────────── */
-
-/* 1. HERO */
-.insure-hero {
-    background: #FFF;
-    padding: 160px 0 100px;
-    text-align: left;
-}
-
-.insure-hero .kicker {
-    display: inline-block;
-    color: var(--gold);
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    font-size: 13px;
-    margin-bottom: 24px;
-}
-
-.insure-hero h1 {
-    font-size: clamp(3rem, 8vw, 5rem);
-    margin-bottom: 24px;
-    color: var(--charcoal);
-    line-height: 1.1;
-    max-width: 900px;
-}
-
-.insure-hero .sub {
-    font-size: 22px;
-    color: #666;
-    max-width: 750px;
-    line-height: 1.6;
-    margin-bottom: 40px;
+/* 1. HERO OVERRIDES (if needed, otherwise uses global) */
+.ip-hero.cinematic .sub {
+    max-width: 800px;
 }
 
 /* 2. TENSION SECTION (DARK BAND) */
