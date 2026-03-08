@@ -192,45 +192,7 @@
 
     <!-- Scripts -->
     <script src="js/script.js"></script>
-    <script>
-        // CLIENT-SIDE FILTERING & SEARCH
-        document.addEventListener('DOMContentLoaded', () => {
-            const searchInput = document.getElementById('article-search');
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const articles = document.querySelectorAll('.article-card');
-
-            function filterArticles() {
-                const searchTerm = searchInput.value.toLowerCase();
-                const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
-
-                articles.forEach(article => {
-                    const title = article.querySelector('h3, h2').textContent.toLowerCase();
-                    const desc = article.querySelector('p').textContent.toLowerCase();
-                    const category = article.dataset.category;
-
-                    const matchesSearch = title.includes(searchTerm) || desc.includes(searchTerm);
-                    const matchesFilter = activeFilter === 'all' || category === activeFilter;
-
-                    if (matchesSearch && matchesFilter) {
-                        article.style.display = article.classList.contains('featured') ? 'flex' : 'flex';
-                        // Re-trigger layout if needed
-                    } else {
-                        article.style.display = 'none';
-                    }
-                });
-            }
-
-            searchInput.addEventListener('input', filterArticles);
-
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    filterArticles();
-                });
-            });
-        });
-    </script>
+    <script src="js/insights.js"></script>
 </body>
 
 </html>
