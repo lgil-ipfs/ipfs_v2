@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" data-wf-domain="www.iberianpacific.ca">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Mortgage Freedom Program | Iberian Pacific Financial Services</title>
+    <meta name="description" content="We can help you pay your mortgage faster — without changing your payments." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://iberianpacific.ca/mortgage-freedom-program" rel="canonical" />
+    <link
+        href="https://cdn.prod.website-files.com/68ed2588f300fc2737bceebf/691e028abea330bc2c1d8358_IPFS-Logo-c%20(1).png"
+        rel="shortcut icon" type="image/x-icon" />
+
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/mfp.css" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div id="header-mount"></div>
+    <script>
+        fetch('components/header.html')
+            .then(r => r.text())
+            .then(h => { document.getElementById('header-mount').innerHTML = h; });
+    </script>
+
+    <!-- 1. HERO -->
+    <section class="mfp-hero" data-ip-animate="">
+        <div class="wrap">
+            <span class="kicker">The Mortgage Freedom Program</span>
+            <h1>We can help you pay your mortgage faster — without changing your payments.</h1>
+
+            <div class="disclaimer-box">
+                This tool is for illustration purposes only and does not constitute personalized investment, tax,
+                mortgage, or legal advice. Investment returns are not guaranteed and will fluctuate. Leveraged investing
+                involves additional risk. Consult a qualified advisor.
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. INPUT PANEL -->
+    <section class="mfp-inputs" data-ip-animate="">
+        <div class="wrap">
+            <form id="mfpForm" onsubmit="event.preventDefault();">
+                <div class="mfp-inputs-grid">
+
+                    <!-- Group A: Property & Debt -->
+                    <div class="input-group">
+                        <h3>Property &amp; Debt</h3>
+                        <div class="field-row">
+                            <label for="houseValue">Appraised Home Value</label>
+                            <input type="text" id="houseValue" value="950,000" />
+                        </div>
+                        <div class="field-row">
+                            <label for="creditLimit">Credit Limit (LTV %)</label>
+                            <select id="creditLimit">
+                                <option value="0.65">65%</option>
+                                <option value="0.75" selected>75%</option>
+                                <option value="0.80">80%</option>
+                            </select>
+                        </div>
+                        <div class="field-row computed">
+                            <label for="m1Limit">M1 Account Limit</label>
+                            <input type="text" id="m1Limit" value="712,500" readonly />
+                        </div>
+                        <div class="field-row">
+                            <label for="mortgageOutstanding">Mortgage Outstanding</label>
+                            <input type="text" id="mortgageOutstanding" value="475,000" />
+                        </div>
+                        <div class="field-row">
+                            <label for="consumerDebts">Consolidated Consumer Debts</label>
+                            <input type="text" id="consumerDebts" value="25,000" />
+                        </div>
+                        <div class="field-row">
+                            <label for="leveragedAmount">Leveraged Investment Amount</label>
+                            <input type="text" id="leveragedAmount" value="200,000" />
+                        </div>
+                    </div>
+
+                    <!-- Group B: Monthly Cash Flow -->
+                    <div class="input-group">
+                        <h3>Monthly Cash Flow</h3>
+                        <div class="field-row">
+                            <label for="monthlyIncome">Combined Net Monthly Income</label>
+                            <input type="text" id="monthlyIncome" value="13,750" />
+                        </div>
+                        <div class="field-row">
+                            <label for="mortgagePayment">Current Mortgage Payment</label>
+                            <input type="text" id="mortgagePayment" value="2,950" />
+                        </div>
+                        <div class="field-row">
+                            <label for="debtPayment">Current Consumer Debt Payments</label>
+                            <input type="text" id="debtPayment" value="420" />
+                        </div>
+                        <div class="field-row computed">
+                            <label for="totalDebtService">Total Debt Servicing</label>
+                            <input type="text" id="totalDebtService" value="3,370" readonly />
+                        </div>
+                        <div class="field-row computed">
+                            <label for="monthlyInvestment">Monthly Investment Contribution</label>
+                            <input type="text" id="monthlyInvestment" value="1,953.33" readonly />
+                        </div>
+                    </div>
+
+                    <!-- Group C: Rates & Assumptions -->
+                    <div class="input-group">
+                        <h3>Rates &amp; Assumptions</h3>
+                        <div class="field-row">
+                            <label for="mortgageRate">Current Mortgage Rate</label>
+                            <input type="text" id="mortgageRate" value="3.50%" />
+                        </div>
+                        <div class="field-row">
+                            <label for="badDebtRate">Interest on Non-Deductible Debt</label>
+                            <input type="text" id="badDebtRate" value="3.00%" />
+                        </div>
+                        <div class="field-row">
+                            <label for="goodDebtRate">Interest on Investment Loan</label>
+                            <input type="text" id="goodDebtRate" value="6.00%" />
+                        </div>
+                        <div class="field-row">
+                            <label for="growthRate">Annual Investment Growth</label>
+                            <input type="text" id="growthRate" value="6.00%" />
+                        </div>
+                        <div class="field-row">
+                            <label for="swpRate">Annual SWP (Withdrawal)</label>
+                            <input type="text" id="swpRate" value="5.00%" />
+                        </div>
+                        <div class="field-row">
+                            <label for="taxRate">Marginal Tax Rate</label>
+                            <input type="text" id="taxRate" value="40.00%" />
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="btn-calculate-wrap">
+                    <button type="button" class="btn btn-primary btn-xl" id="btnCalculate">Generate Mortgage Freedom
+                        Illustration <i class="fa-solid fa-arrow-right" style="margin-left:8px;"></i></button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- 3. RESULTS AREA -->
+    <section id="results">
+        <div class="wrap">
+
+            <!-- KPI SUMMARY STRIP -->
+            <div class="kpi-strip">
+                <div class="kpi-card highlight">
+                    <div class="kpi-label">Bad Debt Eliminated</div>
+                    <div class="kpi-value" id="kpiBadDebtYears">Year 17</div>
+                    <div class="kpi-sub" id="kpiBadDebtSub">3 years ahead of traditional</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Investment Portfolio (Year 25)</div>
+                    <div class="kpi-value" id="kpiPortfolio">$715K</div>
+                    <div class="kpi-sub">investment account value</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Total Tax Refunds (25 yrs)</div>
+                    <div class="kpi-value" id="kpiTaxRefunds">$237K</div>
+                    <div class="kpi-sub">over 25 years</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Annual Cash Flow (Year 25)</div>
+                    <div class="kpi-value" id="kpiCashflow">$35.6K</div>
+                    <div class="kpi-sub">from investment income</div>
+                </div>
+            </div>
+
+            <!-- CHART: BALANCES -->
+            <div class="chart-section">
+                <h3>Account Balances Over 25 Years</h3>
+                <p class="sub">Tracking the shift from non-deductible debt to investment wealth</p>
+                <div class="chart-container">
+                    <canvas id="chartBalances"></canvas>
+                </div>
+                <div id="legendBalances"></div>
+            </div>
+
+        </div> <!-- Close wrap for breakout flow diagram -->
+
+        <!-- FLOW DIAGRAM -->
+        <div class="flow-diagram-section">
+            <div class="wrap">
+                <h3>How the Money Flows</h3>
+                <p class="sub">Select a year to see how income, debt, and investments interact</p>
+
+                <div id="flowYearNav">
+                    <!-- Populated via JS -->
+                </div>
+
+                <div id="flowDiagram">
+                    <!-- Populated via JS -->
+                </div>
+            </div>
+        </div>
+
+        <div class="wrap">
+
+            <div class="chart-grid">
+                <!-- CHART: CASH FLOW -->
+                <div class="chart-section" style="margin-bottom:0;">
+                    <h3>Annual Investment Cash Flow</h3>
+                    <p class="sub">Income generated from your growing portfolio each year</p>
+                    <div class="chart-container" style="height:350px;">
+                        <canvas id="chartCashflow"></canvas>
+                    </div>
+                </div>
+
+                <!-- CHART: TAX REFUNDS -->
+                <div class="chart-section" style="margin-bottom:0;">
+                    <h3>Annual Tax Refunds</h3>
+                    <p class="sub">Estimated refunds from deductible investment loan interest</p>
+                    <div class="chart-container" style="height:350px;">
+                        <canvas id="chartTaxRefunds"></canvas>
+                    </div>
+                    <div id="totalRefundLabel">Total Estimated Tax Refunds: $0.00</div>
+                    <p class="disclaimer-small">The amount of tax refunds will differ depending on your tax situation
+                        each year. Amounts shown are estimates only.</p>
+                </div>
+
+                <!-- CHART: DEDUCTIBLE INTEREST -->
+                <div class="chart-section" style="margin-bottom:0;">
+                    <h3>Deductible Interest Growth</h3>
+                    <p class="sub">Annual tax-deductible interest on investment loan vs. estimated tax savings</p>
+                    <div class="chart-container" style="height:350px;">
+                        <canvas id="chartDeductible"></canvas>
+                    </div>
+                </div>
+
+                <!-- CHART: BREAKEVEN -->
+                <div class="chart-section" style="margin-bottom:0;">
+                    <h3>Net Debt Position: MFP vs. Traditional Mortgage</h3>
+                    <p class="sub">When your investment portfolio exceeds remaining debt, net position turns positive
+                    </p>
+                    <div class="chart-container" style="height:350px;">
+                        <canvas id="chartBreakeven"></canvas>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER DISCLAIMER -->
+    <div class="wrap">
+        <div class="mfp-footer-disclaimer">
+            <strong>Iberian Pacific Financial Services</strong> — 1090 West Georgia Street, Suite 1160, Vancouver,
+            BC<br><br>
+            This illustration is for educational purposes only. Investment values are not guaranteed and may fluctuate
+            with market conditions. Past performance is not indicative of future results. Leveraged investing involves
+            additional risk including the possibility that investment returns may not exceed borrowing costs, investment
+            losses may occur while loan obligations remain, and rising interest rates may increase borrowing costs.
+            Clients must continue servicing debt regardless of market performance. Interest deductibility depends on
+            proper loan structuring and use of borrowed funds for income-producing investments. Tax treatment is subject
+            to current CRA interpretation and may change. Consult a qualified professional.
+            <br><br>
+            &copy; 2026 Iberian Pacific Financial Services. All rights reserved.
+        </div>
+    </div>
+
+    <div style="height: 60px;"></div>
+
+    <!-- STANDARD MOUNT FOOTER -->
+    <div id="footer-mount"></div>
+    <script>
+        fetch('components/footer.html')
+            .then(r => r.text())
+            .then(h => document.getElementById('footer-mount').innerHTML = h);
+    </script>
+
+    <script src="js/script.js"></script>
+    <script src="js/mfp-engine.js"></script>
+</body>
+
+</html>
