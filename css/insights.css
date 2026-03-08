@@ -1,0 +1,270 @@
+/* ─────────────────────────────────────────────────────
+   INSIGHTS PAGE STYLES
+   Minimalist, publication-style layout
+   ───────────────────────────────────────────────────── */
+
+/* 1. HERO SECTION */
+.insights-hero {
+    background: #FFF;
+    padding: 120px 0 60px;
+    text-align: center;
+}
+
+.insights-hero h1 {
+    font-size: clamp(3rem, 8vw, 5rem);
+    margin-bottom: 20px;
+    color: var(--charcoal);
+}
+
+.insights-hero p {
+    font-size: 20px;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+/* 2. SEARCH & FILTERS */
+.insights-controls {
+    position: sticky;
+    top: var(--nav-h);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.controls-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.search-bar {
+    position: relative;
+    flex: 1;
+    max-width: 400px;
+}
+
+.search-bar i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #AAA;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 99px;
+    font-family: var(--font-body);
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.search-bar input:focus {
+    outline: none;
+    border-color: var(--maroon);
+    box-shadow: 0 0 0 4px rgba(107, 39, 55, 0.05);
+}
+
+.category-filters {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+}
+
+.filter-btn {
+    padding: 8px 18px;
+    border-radius: 99px;
+    background: #F5F5F7;
+    border: 1px solid transparent;
+    color: #555;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    background: #EEE;
+}
+
+.filter-btn.active {
+    background: var(--maroon);
+    color: #FFF;
+}
+
+/* 3. INSIGHTS GRID */
+.insights-feed {
+    padding: 60px 0 100px;
+}
+
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+/* 4. FEATURED CARD (Spans multiple columns/rows) */
+.article-card.featured {
+    grid-column: span 2;
+    grid-row: span 1;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    background: #FFF;
+}
+
+.article-card.featured .card-image {
+    flex: 1.2;
+    height: 100%;
+}
+
+.article-card.featured .card-content {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.article-card.featured h2 {
+    font-size: 32px;
+    margin: 15px 0 20px;
+}
+
+/* 5. REGULAR CARD */
+.article-card {
+    background: #FFF;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+    display: flex;
+    flex-direction: column;
+}
+
+.article-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+}
+
+.card-image {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.article-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-tag {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+}
+
+.card-content h3 {
+    font-size: 22px;
+    line-height: 1.3;
+    margin-bottom: 15px;
+    color: var(--charcoal);
+}
+
+.card-content p {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.card-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #999;
+}
+
+.read-more {
+    color: var(--maroon);
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.read-more i {
+    transition: transform 0.2s ease;
+}
+
+.read-more:hover i {
+    transform: translateX(4px);
+}
+
+/* 6. RESPONSIVE */
+@media (max-width: 1100px) {
+    .insights-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .article-card.featured {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 850px) {
+    .controls-wrap {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    .search-bar {
+        max-width: none;
+    }
+
+    .article-card.featured {
+        flex-direction: column;
+        grid-column: span 2;
+    }
+
+    .article-card.featured .card-image {
+        height: 280px;
+    }
+}
+
+@media (max-width: 600px) {
+    .insights-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .article-card.featured {
+        grid-column: span 1;
+    }
+}

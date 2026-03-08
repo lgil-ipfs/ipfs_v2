@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" data-wf-domain="www.iberianpacific.ca">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Insights | Iberian Pacific Financial Services</title>
+    <meta content="Strategic perspectives on wealth, tax, and life design." name="description" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="https://iberianpacific.ca/insights" rel="canonical" />
+    <link
+        href="https://cdn.prod.website-files.com/68ed2588f300fc2737bceebf/691e028abea330bc2c1d8358_IPFS-Logo-c%20(1).png"
+        rel="shortcut icon" type="image/x-icon" />
+    <link
+        href="https://cdn.prod.website-files.com/68ed2588f300fc2737bceebf/691e02b24f21bb5821d5f887_IPFS-Logo-c%20(1).png"
+        rel="apple-touch-icon" />
+    <!-- Shared site CSS -->
+    <link href="/css/style.css" rel="stylesheet" />
+    <link href="/css/insights.css" rel="stylesheet" />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Header Mount -->
+    <div id="header-mount"></div>
+    <script>
+        fetch('/components/header.html')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('header-mount').innerHTML = html;
+                if (window.Webflow && window.Webflow.ready) window.Webflow.ready();
+            });
+    </script>
+
+    <!-- 1. HERO -->
+    <section class="insights-hero" data-ip-animate="">
+        <div class="wrap">
+            <span class="kicker">Perspective</span>
+            <h1>Knowledge is your most valuable asset.</h1>
+            <p>Clear analysis on corporate strategy, tax efficiency, and the architecture of a well-lived life.</p>
+        </div>
+    </section>
+
+    <!-- 2. CONTROLS (Sticky) -->
+    <div class="insights-controls">
+        <div class="wrap">
+            <div class="controls-wrap">
+                <div class="search-bar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="article-search" placeholder="Search by topic, keyword, or asset class..." />
+                </div>
+                <div class="category-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="corporate">Corporate</button>
+                    <button class="filter-btn" data-filter="tax">Tax</button>
+                    <button class="filter-btn" data-filter="personal">Personal</button>
+                    <button class="filter-btn" data-filter="market">Market</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. ARTICLE FEED -->
+    <section class="insights-feed">
+        <div class="wrap">
+            <div class="insights-grid" id="insights-grid">
+
+                <!-- FEATURED ARTICLE -->
+                <article class="article-card featured" data-category="corporate">
+                    <div class="card-image">
+                        <img src="https://images.pexels.com/photos/3182811/pexels-photo-3182811.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                            alt="Corporate Strategy" />
+                    </div>
+                    <div class="card-content">
+                        <span class="card-tag">Corporate Strategy</span>
+                        <h2>The Unseen Risks of Idle Corporate Capital</h2>
+                        <p>Learn how retained earnings sitting in traditional accounts might be exposing you to the
+                            "Passive Income Tax Trap" and what to do about it.</p>
+                        <div class="card-footer">
+                            <span>March 2026</span>
+                            <a href="#" class="read-more">Read Insight <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="article-card" data-category="tax">
+                    <div class="card-image">
+                        <img src="https://images.pexels.com/photos/6863251/pexels-photo-6863251.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Tax Planning" />
+                    </div>
+                    <div class="card-content">
+                        <span class="card-tag">Tax Planning</span>
+                        <h3>CDA: The Business Owner's Secret Weapon</h3>
+                        <p>A deep dive into the Capital Dividend Account and how specialized insurance can facilitate
+                            tax-free wealth extraction.</p>
+                        <div class="card-footer">
+                            <span>February 2026</span>
+                            <a href="#" class="read-more">Read Insight <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="article-card" data-category="personal">
+                    <div class="card-image">
+                        <img src="https://images.pexels.com/photos/4553277/pexels-photo-4553277.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Personal Finance" />
+                    </div>
+                    <div class="card-content">
+                        <span class="card-tag">Personal Wealth</span>
+                        <h3>Beyond the RRSP: Multi-Layered Retirement</h3>
+                        <p>Why relying solely on government-registered plans often falls short for high-income
+                            professionals and what layers you should add.</p>
+                        <div class="card-footer">
+                            <span>February 2026</span>
+                            <a href="#" class="read-more">Read Insight <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="article-card" data-category="tax">
+                    <div class="card-image">
+                        <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Estate Planning" />
+                    </div>
+                    <div class="card-content">
+                        <span class="card-tag">Estate Planning</span>
+                        <h3>The Anatomy of a Modern Estate Freeze</h3>
+                        <p>Locking in current values to protect future growth from excessive terminal tax liabilities. A
+                            guide for family businesses.</p>
+                        <div class="card-footer">
+                            <span>January 2026</span>
+                            <a href="#" class="read-more">Read Insight <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 5 -->
+                <article class="article-card" data-category="market">
+                    <div class="card-image">
+                        <img src="https://images.pexels.com/photos/7567443/pexels-photo-7567443.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Market Commentary" />
+                    </div>
+                    <div class="card-content">
+                        <span class="card-tag">Market Insights</span>
+                        <h3>2026 Outlook: Volatility vs. Value</h3>
+                        <p>Our perspectives on the current macroeconomic landscape and why "Evidence-Based Investing"
+                            matters more than ever.</p>
+                        <div class="card-footer">
+                            <span>January 2026</span>
+                            <a href="#" class="read-more">Read Insight <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 6 -->
+                <article class="article-card" data-category="corporate">
+                    <div class="card-image">
+                        <img src="https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Medical Practice" />
+                    </div>
+                    <div class="card-content">
+                        <span class="card-tag">Corporate Protection</span>
+                        <h3>Clinic Continuity in Health Emergencies</h3>
+                        <p>How Business Overhead Expense insurance acts as a safeguard for medical and legal practices
+                            during physician disability.</p>
+                        <div class="card-footer">
+                            <span>December 2025</span>
+                            <a href="#" class="read-more">Read Insight <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. FOOTER -->
+    <div id="footer-mount"></div>
+    <script>
+        fetch('/components/footer.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('footer-mount').innerHTML = html);
+    </script>
+
+    <!-- Scripts -->
+    <script src="/js/script.js"></script>
+    <script>
+        // CLIENT-SIDE FILTERING & SEARCH
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('article-search');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const articles = document.querySelectorAll('.article-card');
+
+            function filterArticles() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+
+                articles.forEach(article => {
+                    const title = article.querySelector('h3, h2').textContent.toLowerCase();
+                    const desc = article.querySelector('p').textContent.toLowerCase();
+                    const category = article.dataset.category;
+
+                    const matchesSearch = title.includes(searchTerm) || desc.includes(searchTerm);
+                    const matchesFilter = activeFilter === 'all' || category === activeFilter;
+
+                    if (matchesSearch && matchesFilter) {
+                        article.style.display = article.classList.contains('featured') ? 'flex' : 'flex';
+                        // Re-trigger layout if needed
+                    } else {
+                        article.style.display = 'none';
+                    }
+                });
+            }
+
+            searchInput.addEventListener('input', filterArticles);
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    filterArticles();
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
