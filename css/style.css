@@ -79,22 +79,39 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: var(--font-display);
+  font-family: var(--font-display) !important;
   font-weight: 900;
   line-height: 1.1;
   text-shadow: none;
 }
 
 h1 {
-  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-size: clamp(2.4rem, 6vw, 4.2rem) !important;
+  letter-spacing: -0.01em;
 }
 
 h2 {
-  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-size: clamp(1.8rem, 4vw, 2.8rem) !important;
+  letter-spacing: -0.01em;
 }
 
 h3 {
-  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem) !important;
+}
+
+h4 {
+  font-size: clamp(1rem, 2vw, 1.4rem) !important;
+}
+
+/* Helper titles for heroes vs sections */
+.hero-title {
+  font-size: clamp(2.6rem, 7vw, 4.8rem) !important;
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 4.5vw, 3rem) !important;
+  margin-bottom: 20px;
 }
 
 /* ── 4. LAYOUT HELPERS ───────────────────────────────────── */

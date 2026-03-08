@@ -9,8 +9,6 @@
 }
 
 .wws-hero h1 {
-    font-family: var(--font-display);
-    font-size: clamp(32px, 4.5vw, 54px);
     font-weight: 900;
     margin: 0 0 16px;
     color: #fff !important;
@@ -39,8 +37,6 @@
 }
 
 .wws-intro h2 {
-    font-family: var(--font-display);
-    font-size: clamp(28px, 3.5vw, 38px);
     font-weight: 900;
     color: var(--maroon);
     margin: 12px 0 18px;
@@ -111,9 +107,6 @@
 }
 
 .wws-card-body h3 {
-    font-family: var(--font-display);
-    font-size: 24px;
-    font-weight: 800;
     color: var(--maroon) !important;
     margin: 0 0 12px;
 }
