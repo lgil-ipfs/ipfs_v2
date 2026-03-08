@@ -7,7 +7,7 @@
 .insights-hero {
     background: #FFF;
     padding: 120px 0 60px;
-    text-align: center;
+    text-align: left;
 }
 
 .insights-hero h1 {
@@ -19,17 +19,19 @@
 .insights-hero p {
     font-size: 20px;
     color: #666;
-    max-width: 600px;
-    margin: 0 auto 40px;
+    max-width: 800px;
+    margin: 0 0 40px;
 }
 
 /* 2. SEARCH & FILTERS */
 .insights-controls {
     position: sticky;
-    top: var(--nav-h);
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 100;
+    top: 92px;
+    /* Explicit top match for header height */
+    background: rgba(255, 255, 255, 1);
+    /* Solid background to prevent overlap transparency issues */
+    z-index: 999;
+    /* Ensure it stays above article images */
     padding: 20px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
