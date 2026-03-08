@@ -1,51 +1,44 @@
 /**
- * RENT VS BUY ILLUSTRATOR — WOWA Redesign Calculation Logic
+ * RENT VS BUY & MORTGAGE ILLUSTRATOR — Enhanced Logic
  */
 
 document.addEventListener('DOMContentLoaded', () => {
     // ─── 1. SELECTORS ──────────────────────────────────────────────────────────
     const inputs = document.querySelectorAll('.rvb-field__input, select');
-
-    // Core inputs
     const elCondoPrice = document.getElementById('purchasePrice');
     const elDPValue = document.getElementById('downPaymentValue');
     const elDPMode = document.getElementById('dpMode');
-    const elCurrentRent = document.getElementById('currentRent');
-    const elHorizon = document.getElementById('horizonYears');
+    const elMinDPLabel = document.getElementById('min-dp-label');
     const elMortgageRate = document.getElementById('mortgageRate');
-    const elRenewalTerm = document.getElementById('renewalTerm');
-    const elRenewalRate = document.getElementById('renewalRate');
+    const elAmortization = document.getElementById('amortization');
+    const elFrequency = document.getElementById('paymentFrequency');
 
-    // Advanced inputs
+    const elGrossIncome = document.getElementById('grossIncome');
+    const elMonthlyDebts = document.getElementById('monthlyDebts');
+    const elStressTestRate = document.getElementById('stressTestRate');
+
     const elPropTaxRate = document.getElementById('propertyTaxRate');
     const elStrataCondo = document.getElementById('strataCondo');
+    const elHeating = document.getElementById('heatingUtilities');
     const elHomeInsurance = document.getElementById('homeInsurance');
+    const elCMHCOverride = document.getElementById('cmhcOverride');
+
+    const elCurrentRent = document.getElementById('currentRent');
     const elGrowthCondo = document.getElementById('growthCondo');
     const elRentIncrease = document.getElementById('rentIncrease');
     const elInvestReturn = document.getElementById('investmentReturn');
 
     // Display elements
+    const elStatusGDS = document.getElementById('status-gds');
+    const elStatusTDS = document.getElementById('status-tds');
+    const elStatusAfford = document.getElementById('status-affordability');
+    const elLabelMortgagePmt = document.getElementById('label-mortgage-pmt');
+    const elLabelQualifyingPmt = document.getElementById('label-qualifying-pmt');
+    const elLabelTotalInterest = document.getElementById('label-total-interest');
     const elBuyNetTotal = document.getElementById('buy-net-total');
     const elRentNetTotal = document.getElementById('rent-net-total');
-    const elBuyMonthlyAvg = document.getElementById('buy-monthly-avg');
-    const elRentMonthlyAvg = document.getElementById('rent-monthly-avg');
-    const elLabelMortgagePmt = document.getElementById('label-mortgage-pmt');
-    const elLabelRentIncrease = document.getElementById('label-rent-increase-note');
-
-    // Table elements
-    const elBuyCashOut = document.getElementById('buy-cash-out');
-    const elRentCashOut = document.getElementById('rent-cash-out');
-    const elBuyEntryCosts = document.getElementById('buy-entry-costs');
-    const elRentEntryCosts = document.getElementById('rent-entry-costs');
-    const elBuyEquityEnd = document.getElementById('buy-equity-end');
-    const elRentSavingsEnd = document.getElementById('rent-savings-end');
-    const elBuyNetCostRow = document.getElementById('buy-net-cost-row');
-    const elRentNetCostRow = document.getElementById('rent-net-cost-row');
-
-    // Verdict & Labels
-    const elVerdictSummary = document.getElementById('verdict-summary');
-    const elLabelHorizon = document.getElementById('label-horizon');
     const elNarrativeBox = document.getElementById('narrative-box');
+    const elVerdictSummary = document.getElementById('verdict-summary');
     const elVerdictCard = document.getElementById('rvb-verdict-card');
 
     let costChart = null;
@@ -55,28 +48,184 @@ document.addEventListener('DOMContentLoaded', () => {
     const num = (id) => parseFloat(document.getElementById(id).value) || 0;
 
     // Canadian mortgage payment (semi-annual compounding)
-    function calcMonthlyPayment(principal, annualRate, years) {
+    function calcPeriodicPayment(principal, annualRate, years, freq) {
         if (principal <= 0) return 0;
         const r = annualRate / 100;
-        const monthlyRate = Math.pow(1 + r / 2, 2 / 12) - 1;
-        const totalPayments = years * 12;
-        if (monthlyRate === 0) return principal / totalPayments;
-        return principal * (monthlyRate * Math.pow(1 + monthlyRate, totalPayments)) / (Math.pow(1 + monthlyRate, totalPayments) - 1);
+        // Canadian rule: Interest is compounded semi-annually
+        const effectiveRatePerFreq = Math.pow(Math.pow(1 + r / 2, 2), 1 / freq) - 1;
+        const totalPayments = years * freq;
+        if (effectiveRatePerFreq === 0) return principal / totalPayments;
+        return principal * (effectiveRatePerFreq * Math.pow(1 + effectiveRatePerFreq, totalPayments)) / (Math.pow(1 + effectiveRatePerFreq, totalPayments) - 1);
     }
 
-    // Mortgage balance after X months
-    function calcRemainingBalance(principal, annualRate, years, monthsElapsed) {
+    // Mortgage balance after X periods
+    function calcRemainingBalance(principal, annualRate, years, freq, periodsElapsed) {
         if (principal <= 0) return 0;
         const r = annualRate / 100;
-        const monthlyRate = Math.pow(1 + r / 2, 2 / 12) - 1;
-        const totalPayments = years * 12;
-        const pmt = principal * (monthlyRate * Math.pow(1 + monthlyRate, totalPayments)) / (Math.pow(1 + monthlyRate, totalPayments) - 1);
-        if (monthlyRate === 0) return Math.max(0, principal - (pmt * monthsElapsed));
-        const balance = principal * Math.pow(1 + monthlyRate, monthsElapsed) - (pmt * (Math.pow(1 + monthlyRate, monthsElapsed) - 1) / monthlyRate);
+        const effectiveRatePerFreq = Math.pow(Math.pow(1 + r / 2, 2), 1 / freq) - 1;
+        const totalPayments = years * freq;
+        const pmt = principal * (effectiveRatePerFreq * Math.pow(1 + effectiveRatePerFreq, totalPayments)) / (Math.pow(1 + effectiveRatePerFreq, totalPayments) - 1);
+        if (effectiveRatePerFreq === 0) return Math.max(0, principal - (pmt * periodsElapsed));
+        const balance = principal * Math.pow(1 + effectiveRatePerFreq, periodsElapsed) - (pmt * (Math.pow(1 + effectiveRatePerFreq, periodsElapsed) - 1) / effectiveRatePerFreq);
         return Math.max(0, balance);
     }
 
-    // Future Value of investment
+    function getMinDownPayment(price) {
+        if (price <= 500000) return price * 0.05;
+        if (price <= 1000000) return (500000 * 0.05) + ((price - 500000) * 0.10);
+        return price * 0.20;
+    }
+
+    function getCMHCPremium(principal, downPayment, price) {
+        const override = elCMHCOverride.value;
+        if (override !== "" && !isNaN(override)) return parseFloat(override);
+
+        const dpPercent = (downPayment / price) * 100;
+        if (dpPercent >= 20) return 0;
+        if (dpPercent >= 15) return principal * 0.028;
+        if (dpPercent >= 10) return principal * 0.031;
+        return principal * 0.04;
+    }
+
+    // ─── 3. MAIN CALCULATION ──────────────────────────────────────────────────
+    function calculate() {
+        const price = num('purchasePrice');
+        const minDP = getMinDownPayment(price);
+        elMinDPLabel.textContent = `Minimum Down Payment: ${fmt(minDP)}`;
+
+        const dpMode = elDPMode.value;
+        const dpInputVal = num('downPaymentValue');
+        let downPayment = dpMode === 'percent' ? (dpInputVal / 100) * price : dpInputVal;
+
+        // Validation: Ensure DP >= Minimum
+        if (downPayment < minDP) {
+            downPayment = minDP;
+            elDPValue.classList.add('u-error'); // Placeholder for UI hint
+        } else {
+            elDPValue.classList.remove('u-error');
+        }
+
+        const mortgagePrincipalRaw = price - downPayment;
+        const cmhcPremium = getCMHCPremium(mortgagePrincipalRaw, downPayment, price);
+        const totalMortgage = mortgagePrincipalRaw + cmhcPremium;
+
+        // Update CMHC Label in table
+        document.getElementById('label-cmhc-total').textContent = fmt(cmhcPremium);
+
+        const rate = num('mortgageRate');
+        const amort = parseInt(elAmortization.value);
+        const freq = parseInt(elFrequency.value);
+
+        // Payment calculations
+        const periodicPmt = calcPeriodicPayment(totalMortgage, rate, amort, freq);
+        const monthlyEquivalentPmt = (periodicPmt * freq) / 12;
+        elLabelMortgagePmt.textContent = fmt(periodicPmt);
+
+        // Stress test
+        const stressRate = Math.max(5.25, rate + 2.0);
+        elStressTestRate.value = stressRate.toFixed(2);
+        const qualifyingPmt = calcPeriodicPayment(totalMortgage, stressRate, amort, freq);
+        elLabelQualifyingPmt.textContent = fmt(qualifyingPmt);
+
+        // Interest stats
+        const totalInterest = (periodicPmt * amort * freq) - totalMortgage;
+        elLabelTotalInterest.textContent = fmt(totalInterest);
+
+        // Ongoing Costs (Monthly)
+        const propTaxMonth = (num('propertyTaxRate') / 100 * price) / 12;
+        const strataMonth = num('strataCondo');
+        const heatingMonth = num('heatingUtilities');
+        const insuranceMonth = num('homeInsurance') / 12;
+        const totalMortgageMonthly = monthlyEquivalentPmt;
+        const totalCarryingMonthly = totalMortgageMonthly + propTaxMonth + strataMonth + heatingMonth + insuranceMonth;
+
+        document.getElementById('buy-monthly-avg').textContent = fmt(totalCarryingMonthly);
+
+        // Qualification Ratios
+        const grossIncome = num('grossIncome');
+        const monthlyGross = grossIncome / 12;
+        const otherDebts = num('monthlyDebts');
+
+        // GDS: (PIT + Heat + Strata/2) / Income
+        const gdsPIT = monthlyEquivalentPmt + propTaxMonth + heatingMonth + (strataMonth / 2);
+        const gdsRatio = (gdsPIT / monthlyGross) * 100;
+
+        // TDS: (PIT + Heat + Strata/2 + Debts) / Income
+        const tdsRatio = ((gdsPIT + otherDebts) / monthlyGross) * 100;
+
+        updateQualificationCard(elStatusGDS, gdsRatio, 39);
+        updateQualificationCard(elStatusTDS, tdsRatio, 44);
+
+        // Max Affordability (Simple iteration)
+        const maxAffordablePrice = estimateMaxPrice(monthlyGross, otherDebts, stressRate, amort, propTaxMonth / price);
+        elStatusAfford.querySelector('.rvb-status-card__val').textContent = fmt(maxAffordablePrice);
+
+        // Buy vs Rent Comparisons (25 Year Horizon)
+        const horizon = 25;
+        const growth = num('growthCondo') / 100;
+        const rentRate = num('currentRent');
+        const rentIncrease = num('rentIncrease') / 100;
+        const investReturn = num('investmentReturn');
+
+        // Buy results after 25 years
+        const futureValue = price * Math.pow(1 + growth, horizon);
+        const remainingLoan = calcRemainingBalance(totalMortgage, rate, amort, freq, horizon * freq);
+        const sellingCosts = futureValue * 0.05;
+        const netEquityBuy = futureValue - remainingLoan - sellingCosts;
+
+        const entryCosts = (price * 0.015); // Fixed 1.5% for CAD entry
+        const cashFlowBuy = entryCosts + downPayment + (totalCarryingMonthly * horizon * 12);
+        const netCostBuy = cashFlowBuy - netEquityBuy;
+
+        // Rent results after 25 years
+        let totalRentPaid = 0;
+        for (let y = 0; y < horizon; y++) {
+            totalRentPaid += (rentRate * Math.pow(1 + rentIncrease, y)) * 12;
+        }
+
+        // Opportunity cost: investing the DP + Entry + Monthly Diff
+        const avgBuyOutflow = (cashFlowBuy - (entryCosts + downPayment)) / (horizon * 12);
+        const avgRentOutflow = totalRentPaid / (horizon * 12);
+        const netCostDiff = avgBuyOutflow - avgRentOutflow;
+        const rentSavingsEnd = calcFV(downPayment + entryCosts, netCostDiff, investReturn, horizon);
+        const netCostRent = totalRentPaid - (rentSavingsEnd - (downPayment + entryCosts));
+
+        // UI Updates
+        elBuyNetTotal.textContent = fmt(netCostBuy);
+        elRentNetTotal.textContent = fmt(netCostRent);
+        document.getElementById('buy-equity-end').textContent = fmt(netEquityBuy);
+        document.getElementById('rent-savings-end').textContent = fmt(rentSavingsEnd);
+        document.getElementById('label-monthly-diff').textContent = fmt(netCostDiff);
+
+        updateVerdict(netCostBuy, netCostRent, horizon);
+        updateChartData(price, downPayment, entryCosts, totalMortgage, rate, amort, freq, totalCarryingMonthly, rentRate, rentIncrease, investReturn);
+    }
+
+    function updateQualificationCard(el, ratio, limit) {
+        const valEl = el.querySelector('.rvb-status-card__val');
+        valEl.textContent = ratio.toFixed(1) + '%';
+        if (ratio <= limit) {
+            el.className = 'rvb-status-card rvb-status-card--pass';
+        } else {
+            el.className = 'rvb-status-card rvb-status-card--fail';
+        }
+    }
+
+    function estimateMaxPrice(monthlyGross, otherDebts, rate, amort, taxRate) {
+        // Target: (PIT + Heat + Strata/2 + Debts) = 0.44 * monthlyGross
+        const targetPmt = (0.44 * monthlyGross) - otherDebts - 150 - 200; // Minus heat and half strata estimates
+        if (targetPmt <= 0) return 0;
+
+        // Reverse payment formula for periodic payment to get principal
+        const r = rate / 100;
+        const monthlyRate = Math.pow(Math.pow(1 + r / 2, 2), 1 / 12) - 1;
+        const totalMonths = amort * 12;
+        const principal = targetPmt * (Math.pow(1 + monthlyRate, totalMonths) - 1) / (monthlyRate * Math.pow(1 + monthlyRate, totalMonths));
+
+        // Assuming 20% down for max affordability illustration
+        return principal / 0.8;
+    }
+
     function calcFV(principal, monthlyContrib, annualReturn, years) {
         const r = annualReturn / 100 / 12;
         const months = years * 12;
@@ -90,222 +239,72 @@ document.addEventListener('DOMContentLoaded', () => {
         return fvLump + fvContrib;
     }
 
-    // ─── 3. MAIN CALCULATION ──────────────────────────────────────────────────
-    function calculate() {
-        const horizonYears = parseInt(elHorizon.value);
-        const months = horizonYears * 12;
-        elLabelHorizon.textContent = horizonYears;
-
-        // Basics
-        const condoPrice = num('purchasePrice');
-        const dpMode = elDPMode.value;
-        const dpVal = num('downPaymentValue');
-        const downPayment = dpMode === 'percent' ? (dpVal / 100) * condoPrice : dpVal;
-
-        // Mortgage
-        const entryCostsRate = 1.5;
-        const closingEntryCosts = (entryCostsRate / 100) * condoPrice;
-        const buyUpfrontNeeded = downPayment + closingEntryCosts;
-
-        // CMHC Insurance
-        let cmhcInsurance = 0;
-        const dpPercent = (downPayment / condoPrice) * 100;
-        if (dpPercent < 20) {
-            if (dpPercent >= 15) cmhcInsurance = (condoPrice - downPayment) * 0.028;
-            else if (dpPercent >= 10) cmhcInsurance = (condoPrice - downPayment) * 0.031;
-            else cmhcInsurance = (condoPrice - downPayment) * 0.04;
-        }
-
-        const mortgagePrincipal = Math.max(0, condoPrice - downPayment + cmhcInsurance);
-        const initialRate = num('mortgageRate');
-        const renewalRate = num('renewalRate');
-        const renewalTerm = parseInt(elRenewalTerm.value);
-        const amortYears = 25;
-
-        const initialPayment = calcMonthlyPayment(mortgagePrincipal, initialRate, amortYears);
-
-        // Ongoing Costs (monthly)
-        const propTaxMonth = (num('propertyTaxRate') / 100 * condoPrice) / 12;
-        const strataMonth = num('strataCondo');
-        const insuranceMonth = num('homeInsurance') / 12;
-
-        const growthRate = num('growthCondo') / 100;
-        const rentIncrease = num('rentIncrease') / 100;
-        const investReturn = num('investmentReturn');
-        const startRent = num('currentRent');
-
-        // BUY SCENARIO: Calculate cumulative cash flow with renewal
-        let totalCashPaidBuy = buyUpfrontNeeded;
-        let runningMortgagePrincipal = mortgagePrincipal;
-        let currentPmt = initialPayment;
-
-        for (let m = 1; m <= months; m++) {
-            // Check for renewal
-            if (m === renewalTerm * 12 + 1) {
-                const remainingBalance = calcRemainingBalance(mortgagePrincipal, initialRate, amortYears, renewalTerm * 12);
-                currentPmt = calcMonthlyPayment(remainingBalance, renewalRate, amortYears - renewalTerm);
-            }
-            totalCashPaidBuy += currentPmt + propTaxMonth + strataMonth + insuranceMonth;
-        }
-
-        const futureValue = condoPrice * Math.pow(1 + growthRate, horizonYears);
-        const currentMonthsHorizon = horizonYears * 12;
-        let remainingLoan;
-        if (horizonYears <= renewalTerm) {
-            remainingLoan = calcRemainingBalance(mortgagePrincipal, initialRate, amortYears, currentMonthsHorizon);
+    function updateVerdict(buyCost, rentCost, horizon) {
+        const diff = Math.abs(buyCost - rentCost);
+        if (buyCost < rentCost) {
+            elVerdictCard.className = 'rvb-verdict rvb-verdict--better-buy';
+            elVerdictSummary.textContent = `Homeownership builds ${fmt(Math.abs(buyCost))} in net wealth over 25 years.`;
+            elNarrativeBox.innerHTML = `Over <strong>25 years</strong>, the equity accumulation and market appreciation of your home far outweigh the interest and carrying costs. Even with conservative growth, you end up with a fully paid asset.`;
         } else {
-            const balanceAtRenewal = calcRemainingBalance(mortgagePrincipal, initialRate, amortYears, renewalTerm * 12);
-            remainingLoan = calcRemainingBalance(balanceAtRenewal, renewalRate, amortYears - renewalTerm, (horizonYears - renewalTerm) * 12);
+            elVerdictCard.className = 'rvb-verdict rvb-verdict--better-rent';
+            elVerdictSummary.textContent = `Renting saves ${fmt(diff)} compared to buying over 25 years.`;
+            elNarrativeBox.innerHTML = `In this scenario, high carrying costs and market stagnation make renting more efficient. By investing your down payment and monthly savings at <strong>${num('investmentReturn')}%</strong>, you build a liquid portfolio that exceeds home equity.`;
         }
-        const sellingCosts = futureValue * 0.05;
-        const netEquityAtEnd = futureValue - remainingLoan - sellingCosts;
-        const netCostBuy = totalCashPaidBuy - netEquityAtEnd;
+    }
 
-        // RENT SCENARIO
-        let totalRentPaid = 0;
-        for (let y = 0; y < horizonYears; y++) {
-            totalRentPaid += (startRent * Math.pow(1 + rentIncrease, y)) * 12;
-        }
-        const avgBuyOutflow = (totalCashPaidBuy - buyUpfrontNeeded) / months;
-        const avgRentMonthly = totalRentPaid / months;
-        const monthlySaving = avgBuyOutflow - avgRentMonthly;
-        const rentSavingsAtEnd = calcFV(buyUpfrontNeeded, monthlySaving, investReturn, horizonYears);
-        const netCostRent = totalRentPaid - (rentSavingsAtEnd - buyUpfrontNeeded);
-
-        // ─── 4. CHART DATA GENERATION (1-25 YEARS) ──────────────────────────
-        const chartLabels = [];
+    function updateChartData(price, downPayment, entry, mortgage, rate, amort, freq, carrying, rent, rentInc, invest) {
+        const labels = [];
         const buyData = [];
         const rentData = [];
 
+        const growthVal = num('growthCondo') / 100;
+
         for (let y = 1; y <= 25; y++) {
-            chartLabels.push(`Year ${y}`);
+            labels.push(`Year ${y}`);
+
+            // Buy year y
             const monthsY = y * 12;
+            const cashBuyY = entry + downPayment + (carrying * monthsY);
+            const FV_y = price * Math.pow(1 + growthVal, y);
+            const loan_y = calcRemainingBalance(mortgage, rate, amort, freq, y * freq);
+            const eq_y = FV_y - loan_y - (FV_y * 0.05);
+            buyData.push(cashBuyY - eq_y);
 
-            // Buy stats for year Y
-            let cashBuy_y = buyUpfrontNeeded;
-            let tempPmt = initialPayment;
-            for (let m = 1; m <= monthsY; m++) {
-                if (m === renewalTerm * 12 + 1) {
-                    const balAtRen = calcRemainingBalance(mortgagePrincipal, initialRate, amortYears, renewalTerm * 12);
-                    tempPmt = calcMonthlyPayment(balAtRen, renewalRate, amortYears - renewalTerm);
-                }
-                cashBuy_y += tempPmt + propTaxMonth + strataMonth + insuranceMonth;
-            }
-
-            const FV_y = condoPrice * Math.pow(1 + growthRate, y);
-            let loan_y;
-            if (y <= renewalTerm) {
-                loan_y = calcRemainingBalance(mortgagePrincipal, initialRate, amortYears, monthsY);
-            } else {
-                const balAtRen = calcRemainingBalance(mortgagePrincipal, initialRate, amortYears, renewalTerm * 12);
-                loan_y = calcRemainingBalance(balAtRen, renewalRate, amortYears - renewalTerm, (y - renewalTerm) * 12);
-            }
-            const sell_y = FV_y * 0.05;
-            const eq_y = FV_y - loan_y - sell_y;
-            buyData.push(cashBuy_y - eq_y);
-
-            // Rent stats for year Y
-            let rentPaid_y = 0;
-            for (let i = 0; i < y; i++) rentPaid_y += (startRent * Math.pow(1 + rentIncrease, i)) * 12;
-            const avgOutflowY = (cashBuy_y - buyUpfrontNeeded) / monthsY;
-            const avgRentY = rentPaid_y / monthsY;
-            const save_y = calcFV(buyUpfrontNeeded, avgOutflowY - avgRentY, investReturn, y);
-            rentData.push(rentPaid_y - (save_y - buyUpfrontNeeded));
+            // Rent year y
+            let rentPaidY = 0;
+            for (let i = 0; i < y; i++) rentPaidY += (rent * Math.pow(1 + rentInc, i)) * 12;
+            const diffY = carrying - (rentPaidY / monthsY);
+            const saveY = calcFV(downPayment + entry, diffY, invest, y);
+            rentData.push(rentPaidY - (saveY - (downPayment + entry)));
         }
 
-        updateChart(chartLabels, buyData, rentData);
-
-        // ─── 5. UI UPDATES ──────────────────────────────────────────────────
-        elBuyNetTotal.textContent = fmt(netCostBuy);
-        elRentNetTotal.textContent = fmt(netCostRent);
-        elBuyMonthlyAvg.textContent = fmt(avgBuyOutflow);
-        elRentMonthlyAvg.textContent = fmt(avgRentMonthly);
-        elLabelMortgagePmt.textContent = fmt(initialPayment);
-        elLabelRentIncrease.textContent = num('rentIncrease') + '%';
-
-        elBuyCashOut.textContent = fmt(totalCashPaidBuy);
-        elRentCashOut.textContent = fmt(totalRentPaid);
-        elBuyEntryCosts.textContent = fmt(closingEntryCosts);
-        elRentEntryCosts.textContent = "$0";
-        elBuyEquityEnd.textContent = fmt(netEquityAtEnd);
-        elRentSavingsEnd.textContent = fmt(rentSavingsAtEnd);
-        elBuyNetCostRow.textContent = fmt(netCostBuy);
-        elRentNetCostRow.textContent = fmt(netCostRent);
-
-        const diff = Math.abs(netCostBuy - netCostRent);
-        let verdictText = "";
-        if (netCostBuy < netCostRent) {
-            elVerdictCard.className = 'rvb-verdict rvb-verdict--better-buy';
-            verdictText = `Buying is better by ${fmt(diff)} over ${horizonYears} years.`;
-            elNarrativeBox.innerHTML = `By staying for <strong>${horizonYears} years</strong>, you build <strong>${fmt(netEquityAtEnd)}</strong> in home equity. At renewal in year ${renewalTerm}, your rate shifts to ${renewalRate}%, affecting your cash flow but preserving the long-term equity advantage.`;
-        } else {
-            elVerdictCard.className = 'rvb-verdict rvb-verdict--better-rent';
-            verdictText = `Renting is better by ${fmt(diff)} over ${horizonYears} years.`;
-            elNarrativeBox.innerHTML = `In a <strong>${horizonYears}-year</strong> horizon, transaction costs and current market rates make renting more efficient. Even with a projected rate of ${renewalRate}% later, renting and investing at ${num('investmentReturn')}% yields <strong>${fmt(rentSavingsAtEnd)}</strong> in total savings.`;
-        }
-
-        // Break-even
-        let crossoverYear = -1;
-        for (let i = 0; i < buyData.length; i++) {
-            if (buyData[i] < rentData[i]) {
-                crossoverYear = i + 1;
-                break;
-            }
-        }
-        if (crossoverYear !== -1) {
-            verdictText += ` (Break-even at year ${crossoverYear})`;
-        }
-        elVerdictSummary.textContent = verdictText;
-    }
-
-    function updateChart(labels, buyData, rentData) {
-        const ctx = document.getElementById('costChart').getContext('2d');
         if (costChart) {
             costChart.data.labels = labels;
             costChart.data.datasets[0].data = buyData;
             costChart.data.datasets[1].data = rentData;
-            costChart.update('none');
-            return;
-        }
-        costChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: labels,
-                datasets: [
-                    {
-                        label: 'Net Cost: Buy',
-                        data: buyData,
-                        borderColor: '#6B2737',
-                        backgroundColor: 'rgba(107, 39, 55, 0.1)',
-                        fill: true, tension: 0.3
-                    },
-                    {
-                        label: 'Net Cost: Rent',
-                        data: rentData,
-                        borderColor: '#C9A84C',
-                        backgroundColor: 'rgba(201, 168, 76, 0.1)',
-                        fill: true, tension: 0.3
-                    }
-                ]
-            },
-            options: {
-                responsive: true, maintainAspectRatio: false,
-                interaction: { mode: 'index', intersect: false },
-                scales: {
-                    y: { ticks: { callback: (val) => fmt(val) } }
+            costChart.update();
+        } else {
+            const ctx = document.getElementById('costChart').getContext('2d');
+            costChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        { label: 'Net Cost: Buy', data: buyData, borderColor: '#6B2737', backgroundColor: 'rgba(107, 39, 55, 0.1)', fill: true, tension: 0.3 },
+                        { label: 'Net Cost: Rent', data: rentData, borderColor: '#C9A84C', backgroundColor: 'rgba(201, 168, 76, 0.1)', fill: true, tension: 0.3 }
+                    ]
                 },
-                plugins: {
-                    tooltip: {
-                        callbacks: {
-                            label: (ctx) => `${ctx.dataset.label}: ${fmt(ctx.parsed.y)}`
-                        }
-                    }
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
+                    scales: { y: { ticks: { callback: (val) => fmt(val) } } },
+                    plugins: { tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${fmt(ctx.parsed.y)}` } } }
                 }
-            }
-        });
+            });
+        }
     }
 
-    // ─── 6. EVENTS ─────────────────────────────────────────────────────────
+    // ─── 4. EVENTS ─────────────────────────────────────────────────────────
     inputs.forEach(input => input.addEventListener('input', calculate));
     calculate();
 });
