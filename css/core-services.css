@@ -192,6 +192,33 @@
     margin: 0;
 }
 
+/* ── PHILOSOPHY (light variant) ──────────────────── */
+.philosophy-section.philosophy-light {
+    background: #FDFBF7;
+    border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.philosophy-section.philosophy-light .philosophy-left h2 {
+    color: var(--maroon);
+}
+
+.philosophy-section.philosophy-light .philosophy-left p {
+    color: #555;
+}
+
+.philosophy-section.philosophy-light .principle-card {
+    background: #FFF;
+    border-left-color: var(--gold);
+}
+
+.philosophy-section.philosophy-light .principle-card h3 {
+    color: var(--maroon);
+}
+
+.philosophy-section.philosophy-light .principle-card p {
+    color: #555;
+}
+
 /* ── VEHICLE / PRODUCT CARDS ─────────────────────── */
 .vehicles-section {
     background: #FDFBF7;

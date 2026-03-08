@@ -1451,7 +1451,8 @@ section {
   color: var(--gold);
 }
 
-.ip-cta h2#cta-title {
+.ip-cta h2#cta-title,
+.ip-cta h2 {
   font-family: var(--font-display);
   font-size: clamp(1.9rem, 4.5vw, 3rem);
   font-weight: 900;
