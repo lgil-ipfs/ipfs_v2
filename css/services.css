@@ -1,0 +1,150 @@
+/* ─────────────────────────────────────────────────────
+   SERVICES HUB PAGE STYLES
+   ───────────────────────────────────────────────────── */
+
+/* 1. SERVICES GRID */
+.services-hub {
+    padding: 100px 0;
+    background: var(--white);
+}
+
+.services-group {
+    margin-bottom: 120px;
+}
+
+.services-group:last-child {
+    margin-bottom: 0;
+}
+
+.services-group .group-header {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.services-group .group-header h2 {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.services-group .group-header p {
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.service-hub-card {
+    background: #FFF;
+    border-radius: 20px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    transition: all 0.4s var(--ease-smooth);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-hub-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--gold);
+    transform: scaleY(0);
+    transition: transform 0.4s var(--ease-smooth);
+}
+
+.service-hub-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+}
+
+.service-hub-card:hover::before {
+    transform: scaleY(1);
+}
+
+.service-hub-card .icon-box {
+    width: 60px;
+    height: 60px;
+    background: var(--gold-pale);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--maroon);
+    font-size: 24px;
+}
+
+.service-hub-card h3 {
+    font-size: 24px;
+    color: var(--charcoal);
+    margin: 0;
+}
+
+.service-hub-card p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.service-hub-card .link-label {
+    margin-top: auto;
+    font-weight: 700;
+    color: var(--gold);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: gap 0.3s ease;
+}
+
+.service-hub-card:hover .link-label {
+    gap: 12px;
+}
+
+/* 2. SPECIALIZATIONS (3 cols) */
+.special-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.special-card {
+    background: #FDFCFA;
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+}
+
+.special-card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.special-card p {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 24px;
+}
+
+/* 3. RESPONSIVE */
+@media (max-width: 900px) {
+
+    .service-grid,
+    .special-grid {
+        grid-template-columns: 1fr;
+    }
+}
