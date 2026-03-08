@@ -420,12 +420,15 @@ section {
 }
 
 /* ── 10. HEADER ──────────────────────────────────────────── */
-.ip-header {
-  width: 100%;
+#header-mount {
   position: sticky;
   top: calc(-1 * var(--nav-top-h));
   z-index: 2000;
-  /* High enough to stay above everything */
+  width: 100%;
+}
+
+.ip-header {
+  width: 100%;
   font-family: var(--font-body);
 }
 

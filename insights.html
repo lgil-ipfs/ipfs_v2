@@ -14,8 +14,8 @@
         href="https://cdn.prod.website-files.com/68ed2588f300fc2737bceebf/691e02b24f21bb5821d5f887_IPFS-Logo-c%20(1).png"
         rel="apple-touch-icon" />
     <!-- Shared site CSS -->
-    <link href="/css/style.css" rel="stylesheet" />
-    <link href="/css/insights.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/insights.css" rel="stylesheet" />
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
@@ -29,7 +29,7 @@
     <!-- Header Mount -->
     <div id="header-mount"></div>
     <script>
-        fetch('/components/header.html')
+        fetch('components/header.html')
             .then(res => res.text())
             .then(html => {
                 document.getElementById('header-mount').innerHTML = html;
@@ -185,13 +185,13 @@
     <!-- 4. FOOTER -->
     <div id="footer-mount"></div>
     <script>
-        fetch('/components/footer.html')
+        fetch('components/footer.html')
             .then(res => res.text())
             .then(html => document.getElementById('footer-mount').innerHTML = html);
     </script>
 
     <!-- Scripts -->
-    <script src="/js/script.js"></script>
+    <script src="js/script.js"></script>
     <script>
         // CLIENT-SIDE FILTERING & SEARCH
         document.addEventListener('DOMContentLoaded', () => {
