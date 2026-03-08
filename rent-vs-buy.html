@@ -84,8 +84,23 @@
                     </div>
 
                     <div class="rvb-field">
-                        <label for="mortgageRate" class="rvb-field__label">Mortgage rate (%)</label>
+                        <label for="mortgageRate" class="rvb-field__label">Initial Mortgage rate (%)</label>
                         <input id="mortgageRate" type="number" step="0.01" value="5.25" class="rvb-field__input" />
+                    </div>
+
+                    <div class="rvb-field">
+                        <label for="renewalTerm" class="rvb-field__label">Renewal after (Years)</label>
+                        <select id="renewalTerm" class="rvb-field__select">
+                            <option value="1">1 Year</option>
+                            <option value="3">3 Years</option>
+                            <option value="5" selected>5 Years</option>
+                            <option value="10">10 Years</option>
+                        </select>
+                    </div>
+
+                    <div class="rvb-field">
+                        <label for="renewalRate" class="rvb-field__label">Projected Renewal rate (%)</label>
+                        <input id="renewalRate" type="number" step="0.01" value="4.75" class="rvb-field__input" />
                     </div>
                 </div>
 
@@ -172,15 +187,30 @@
                     <div class="rvb-comparison-card rvb-comparison-card--buy">
                         <div class="rvb-comparison-card__header">Total Cost If You Buy</div>
                         <div class="rvb-comparison-card__amount" id="buy-net-total">$0</div>
-                        <div class="rvb-comparison-card__monthly">Avg. Monthly: <span id="buy-monthly-avg">$0</span>
+                        <div class="rvb-comparison-card__monthly">Avg. Monthly Outflow: <span
+                                id="buy-monthly-avg">$0</span>
+                        </div>
+                        <div class="rvb-mortgage-disclosure">
+                            Includes <span id="label-mortgage-pmt" style="font-weight: 700;">$0</span> monthly mortgage
+                            payment*
                         </div>
                     </div>
                     <div class="rvb-comparison-card rvb-comparison-card--rent">
                         <div class="rvb-comparison-card__header">Total Cost If You Rent</div>
                         <div class="rvb-comparison-card__amount" id="rent-net-total">$0</div>
-                        <div class="rvb-comparison-card__monthly">Avg. Monthly: <span id="rent-monthly-avg">$0</span>
+                        <div class="rvb-comparison-card__monthly">Avg. Monthly Rent: <span
+                                id="rent-monthly-avg">$0</span>
+                        </div>
+                        <div class="rvb-mortgage-disclosure">
+                            Includes <span id="label-rent-increase-note" style="font-weight: 700;">2.5%</span> annual
+                            increase
                         </div>
                     </div>
+                </div>
+
+                <div class="rvb-disclaimer rvb-disclaimer--small">
+                    *Calculated using the standard Canadian mortgage amortization formula (semi-annual compounding)
+                    assuming a 25-year total amortization.
                 </div>
 
                 <!-- CHART SECTION -->

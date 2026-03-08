@@ -324,6 +324,21 @@
     font-size: 1.1rem;
 }
 
+.rvb-mortgage-disclosure {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #888;
+    padding-top: 0.75rem;
+    border-top: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+.rvb-disclaimer--small {
+    margin: -1rem 0 0.5rem;
+    font-size: 0.75rem;
+    color: #aaa;
+    text-align: center;
+}
+
 /* CHART CONTAINER */
 .rvb-chart-container {
     background: #fff;
