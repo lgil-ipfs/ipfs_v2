@@ -296,12 +296,14 @@
 
     </main>
 
-    <footer class="rvb-footer">
-        <div class="ip-container">
-            <p>&copy; 2026 Iberian Pacific Financial Services. Canadian Market Renting vs Buying Real Estate
-                Illustrator.</p>
-        </div>
-    </footer>
+    <div id="footer-mount"></div>
+    <script>
+        fetch('/components/footer.html')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('footer-mount').innerHTML = html;
+            });
+    </script>
 
     <script src="/js/rent-vs-buy.js"></script>
 </body>
