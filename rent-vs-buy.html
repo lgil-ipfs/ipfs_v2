@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Rent vs Buy – 2‑Year Decision Tool | Iberian Pacific</title>
+    <title>Rent vs Buy Calculator | Iberian Pacific</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link crossorigin="anonymous"
         href="https://cdn.prod.website-files.com/68ed2588f300fc2737bceebf/css/iberianpacific.webflow.shared.254e3923a.min.css"
@@ -27,289 +27,206 @@
 
 <body class="rvb-body">
 
-    <!-- HEADER MOUNT (Dynamic) -->
+    <!-- HEADER MOUNT -->
     <div id="header-mount"></div>
     <script>
         fetch('/components/header.html')
             .then(res => res.text())
             .then(html => {
                 document.getElementById('header-mount').innerHTML = html;
-                // Re-run any header scripts if needed
                 const script = document.createElement('script');
                 script.src = '/js/script.js';
                 document.body.appendChild(script);
             });
     </script>
 
-    <header class="rvb-header">
+    <header class="rvb-hero">
         <div class="ip-container">
-            <div class="rvb-header__brand">
-                <!-- Brand CSS will hook into this if needed, but we also have the logo in the dynamic header -->
-            </div>
-            <div class="rvb-header__text">
-                <div class="kicker">Strategic illustrator</div>
-                <h1 class="rvb-header__title">Rent vs Buy – <span id="label-horizon-title">2</span>‑Year Decision Tool
-                </h1>
-                <p class="rvb-header__subtitle">
-                    Compare buying a starter condo now vs renting for <span id="label-horizon-sub">2</span> years in the
-                    Canadian housing market.
-                </p>
-                <p class="rvb-header__disclaimer">
-                    For illustration only. Not advice. All amounts in Canadian dollars.
-                </p>
+            <div class="rvb-hero__content">
+                <div class="kicker">Market Comparison</div>
+                <h1 class="rvb-hero__title">Rent vs Buy – Canadian Decision Tool</h1>
+                <p class="rvb-hero__lead">A professional-grade illustrator to compare homeownership costs against
+                    renting in the current Canadian market.</p>
             </div>
         </div>
     </header>
 
-    <main class="rvb-main ip-container">
-        <section class="rvb-main__inputs">
+    <main class="rvb-container ip-container">
+        <div class="rvb-layout">
 
-            <!-- 1. Client & Property Basics -->
-            <section class="rvb-card rvb-card--basics">
-                <h2 class="rvb-card__title">Client & property basics</h2>
-                <p class="rvb-card__help">
-                    Start with how long you'll be in the first place and the prices you’re considering.
-                </p>
+            <!-- LEFT COLUMN: INPUTS -->
+            <aside class="rvb-sidebar">
 
-                <div class="rvb-field">
-                    <label for="horizonYears" class="rvb-field__label">Time in first place (years)</label>
-                    <input id="horizonYears" type="number" min="1" max="25" value="2" class="rvb-field__input" />
-                    <div class="rvb-field__hint">Most clients will use 2 years for this comparison.</div>
-                </div>
+                <div class="rvb-input-group">
+                    <h2 class="rvb-input-group__title">Basic Assumptions</h2>
 
-                <div class="rvb-field">
-                    <label for="purchasePrice" class="rvb-field__label">Purchase price: Condo ($)</label>
-                    <input id="purchasePrice" type="number" step="1000" value="600000" class="rvb-field__input" />
-                </div>
-
-                <div class="rvb-field">
-                    <label for="townhousePrice" class="rvb-field__label">Target townhouse price ($)</label>
-                    <input id="townhousePrice" type="number" step="1000" value="950000" class="rvb-field__input" />
-                    <div class="rvb-field__hint">What you expect to buy after this period.</div>
-                </div>
-
-                <div class="rvb-field">
-                    <label class="rvb-field__label">Down payment</label>
-                    <div class="rvb-field__toggle-group">
-                        <label class="rvb-toggle"><input type="radio" name="dpMode" value="percent" checked> %</label>
-                        <label class="rvb-toggle"><input type="radio" name="dpMode" value="dollar"> $</label>
+                    <div class="rvb-field">
+                        <label for="purchasePrice" class="rvb-field__label">Purchase price ($)</label>
+                        <input id="purchasePrice" type="number" step="1000" value="650000" class="rvb-field__input" />
                     </div>
-                    <input id="downPaymentValue" type="number" value="20" class="rvb-field__input" />
-                </div>
 
-                <div class="rvb-field">
-                    <label for="currentRent" class="rvb-field__label">Current monthly rent ($)</label>
-                    <input id="currentRent" type="number" value="2800" class="rvb-field__input" />
-                </div>
-            </section>
-
-            <!-- 2. Mortgage Assumptions -->
-            <section class="rvb-card">
-                <h2 class="rvb-card__title">Mortgage assumptions</h2>
-                <p class="rvb-card__help">Canadian mortgage standards.</p>
-
-                <div class="rvb-field">
-                    <label for="mortgageRate" class="rvb-field__label">Mortgage rate (%)</label>
-                    <input id="mortgageRate" type="number" step="0.01" value="5.25" class="rvb-field__input" />
-                    <div class="rvb-field__hint">Annual %, compounded semi-annually.</div>
-                </div>
-
-                <div class="rvb-field">
-                    <label for="amortization" class="rvb-field__label">Amortization period (years)</label>
-                    <input id="amortization" type="number" value="25" class="rvb-field__input" />
-                    <div class="rvb-field__hint">Typical Canadian insured amortization is 25 years.</div>
-                </div>
-
-                <div class="rvb-field">
-                    <label for="frequency" class="rvb-field__label">Payment frequency</label>
-                    <select id="frequency" class="rvb-field__input">
-                        <option value="12" selected>Monthly</option>
-                        <option value="26">Bi-Weekly</option>
-                        <option value="52">Weekly</option>
-                    </select>
-                </div>
-            </section>
-
-            <!-- 3. Ownership Costs -->
-            <section class="rvb-card">
-                <h2 class="rvb-card__title">Ownership costs</h2>
-
-                <div class="rvb-field">
-                    <label for="propertyTaxRate" class="rvb-field__label">Property tax (%/year)</label>
-                    <input id="propertyTaxRate" type="number" step="0.01" value="0.5" class="rvb-field__input" />
-                </div>
-
-                <div class="rvb-field">
-                    <label for="strataCondo" class="rvb-field__label">Strata fees – Condo ($/mo)</label>
-                    <input id="strataCondo" type="number" value="450" class="rvb-field__input" />
-                </div>
-
-                <div class="rvb-field">
-                    <label for="maintenanceRate" class="rvb-field__label">Maintenance/Repairs (%/year)</label>
-                    <input id="maintenanceRate" type="number" step="0.1" value="0.5" class="rvb-field__input" />
-                </div>
-
-                <div class="rvb-field">
-                    <label for="homeInsurance" class="rvb-field__label">Home insurance (Annual $)</label>
-                    <input id="homeInsurance" type="number" value="900" class="rvb-field__input" />
-                </div>
-
-                <div class="rvb-field">
-                    <label for="closingCostsRate" class="rvb-field__label">Purchase closing costs (%)</label>
-                    <input id="closingCostsRate" type="number" step="0.1" value="1.5" class="rvb-field__input" />
-                </div>
-
-                <div class="rvb-field">
-                    <label for="sellingCostsRate" class="rvb-field__label">Selling costs (%)</label>
-                    <input id="sellingCostsRate" type="number" step="0.1" value="5.0" class="rvb-field__input" />
-                    <div class="rvb-field__hint">Commissions, legal, etc.</div>
-                </div>
-            </section>
-
-            <!-- 4. Renting Assumptions -->
-            <section class="rvb-card">
-                <h2 class="rvb-card__title">Renting assumptions</h2>
-
-                <div class="rvb-field">
-                    <label for="rentIncrease" class="rvb-field__label">Annual rent increase (%)</label>
-                    <input id="rentIncrease" type="number" step="0.1" value="2.5" class="rvb-field__input" />
-                </div>
-
-                <div class="rvb-field">
-                    <label for="renterInsurance" class="rvb-field__label">Renter’s insurance (Annual $)</label>
-                    <input id="renterInsurance" type="number" value="300" class="rvb-field__input" />
-                </div>
-
-                <div class="rvb-field">
-                    <label for="rentUtilities" class="rvb-field__label">Utilities/Parking ($/mo)</label>
-                    <input id="rentUtilities" type="number" value="150" class="rvb-field__input" />
-                </div>
-            </section>
-
-            <!-- 5. Market & Growth -->
-            <section class="rvb-card">
-                <h2 class="rvb-card__title">Market & growth</h2>
-
-                <div class="rvb-field">
-                    <label for="growthCondo" class="rvb-field__label">Condo growth rate (%/year)</label>
-                    <input id="growthCondo" type="number" step="0.1" value="3.0" class="rvb-field__input" />
-                </div>
-
-                <div class="rvb-field">
-                    <label for="growthTownhouse" class="rvb-field__label">Townhouse growth rate (%/year)</label>
-                    <input id="growthTownhouse" type="number" step="0.1" value="3.0" class="rvb-field__input" />
-                </div>
-
-                <div class="rvb-field">
-                    <label for="investmentReturn" class="rvb-field__label">Investment return on savings (%)</label>
-                    <input id="investmentReturn" type="number" step="0.1" value="5.0" class="rvb-field__input" />
-                    <div class="rvb-field__hint">Return on DP and monthly cash savings.</div>
-                </div>
-            </section>
-
-            <!-- 6. Tax & Rules -->
-            <section class="rvb-card">
-                <h2 class="rvb-card__title">Tax & rules</h2>
-                <div class="rvb-field rvb-field--checkbox">
-                    <input type="checkbox" id="principalRes" checked />
-                    <label for="principalRes">Treat as Canadian principal residence (No tax on capital gains)</label>
-                </div>
-                <div class="rvb-static-note">
-                    <p><i class="fas fa-info-circle"></i> Mortgage interest is not tax‑deductible for owner‑occupied
-                        homes in Canada.</p>
-                    <p><i class="fas fa-info-circle"></i> Estimates of closing costs are generic; refer to your
-                        province’s property transfer tax rules.</p>
-                </div>
-            </section>
-
-        </section>
-
-        <section class="rvb-main__results">
-            <div class="rvb-scenarios">
-                <button class="rvb-scenarios__tab rvb-scenarios__tab--active" data-scenario="buy">
-                    Buy condo now
-                </button>
-                <button class="rvb-scenarios__tab" data-scenario="rent">
-                    Rent for <span class="label-horizon">2</span> years
-                </button>
-            </div>
-
-            <div class="rvb-summary-cards">
-                <div class="rvb-summary-card" id="summary-card-buy">
-                    <h3 class="rvb-summary-card__title">Total net cost – Buy condo</h3>
-                    <div class="rvb-summary-card__number" id="buy-net-total">$0</div>
-                    <p class="rvb-summary-card__caption">Includes all cash flows minus your equity at end.</p>
-                </div>
-                <div class="rvb-summary-card" id="summary-card-rent">
-                    <h3 class="rvb-summary-card__title">Total net cost – Rent for <span class="label-horizon">2</span>y
-                    </h3>
-                    <div class="rvb-summary-card__number" id="rent-net-total">$0</div>
-                    <p class="rvb-summary-card__caption">Includes all costs minus your savings at end.</p>
-                </div>
-            </div>
-
-            <section class="rvb-breakdown">
-                <div class="rvb-breakdown__scenario" id="rvb-breakdown-buy">
-                    <div class="rvb-breakdown__header">
-                        <i class="fas fa-home"></i>
-                        <h3 class="rvb-breakdown__title">Buy condo now</h3>
+                    <div class="rvb-field">
+                        <label class="rvb-field__label">Down payment</label>
+                        <div class="rvb-field__row">
+                            <input id="downPaymentValue" type="number" value="20"
+                                class="rvb-field__input rvb-field__input--flex" />
+                            <select id="dpMode" class="rvb-field__input rvb-field__input--unit">
+                                <option value="percent">%</option>
+                                <option value="dollar">$</option>
+                            </select>
+                        </div>
                     </div>
-                    <ul class="rvb-breakdown__list">
-                        <li class="rvb-breakdown__item">
-                            <span>Upfront cash needed</span>
-                            <span class="rvb-value" id="buyUpfront"></span>
-                        </li>
-                        <li class="rvb-breakdown__item">
-                            <span>Average monthly cash out</span>
-                            <span class="rvb-value" id="buyMonthly"></span>
-                        </li>
-                        <li class="rvb-breakdown__item">
-                            <span>Estimated equity after <span class="label-horizon">2</span>y</span>
-                            <span class="rvb-value rvb-value--positive" id="buyEquity"></span>
-                        </li>
-                    </ul>
-                </div>
 
-                <div class="rvb-breakdown__scenario" id="rvb-breakdown-rent">
-                    <div class="rvb-breakdown__header">
-                        <i class="fas fa-key"></i>
-                        <h3 class="rvb-breakdown__title">Rent for <span class="label-horizon">2</span> years</h3>
+                    <div class="rvb-field">
+                        <label for="currentRent" class="rvb-field__label">Monthly Rent ($)</label>
+                        <input id="currentRent" type="number" value="2800" class="rvb-field__input" />
                     </div>
-                    <ul class="rvb-breakdown__list">
-                        <li class="rvb-breakdown__item">
-                            <span>Upfront cash needed</span>
-                            <span class="rvb-value" id="rentUpfront"></span>
-                        </li>
-                        <li class="rvb-breakdown__item">
-                            <span>Average monthly payment</span>
-                            <span class="rvb-value" id="rentMonthly"></span>
-                        </li>
-                        <li class="rvb-breakdown__item">
-                            <span>Investments after <span class="label-horizon">2</span>y</span>
-                            <span class="rvb-value rvb-value--positive" id="rentSavings"></span>
-                        </li>
-                    </ul>
+
+                    <div class="rvb-field">
+                        <label for="mortgageRate" class="rvb-field__label">Mortgage rate (%)</label>
+                        <input id="mortgageRate" type="number" step="0.01" value="5.25" class="rvb-field__input" />
+                    </div>
                 </div>
-            </section>
 
-            <div class="rvb-narrative" id="rvb-narrative">
-                <!-- Narrative generated by JS -->
-            </div>
+                <!-- ACCORDION: HOMEOWNERSHIP COSTS -->
+                <details class="rvb-accordion" open>
+                    <summary class="rvb-accordion__summary">Homeownership Costs <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="rvb-accordion__content">
+                        <div class="rvb-field">
+                            <label for="propertyTaxRate" class="rvb-field__label">Property tax (%/year)</label>
+                            <input id="propertyTaxRate" type="number" step="0.1" value="0.7" class="rvb-field__input" />
+                        </div>
+                        <div class="rvb-field">
+                            <label for="strataCondo" class="rvb-field__label">Strata/Maintenance ($/mo)</label>
+                            <input id="strataCondo" type="number" value="450" class="rvb-field__input" />
+                        </div>
+                        <div class="rvb-field">
+                            <label for="homeInsurance" class="rvb-field__label">Insurance (Annual $)</label>
+                            <input id="homeInsurance" type="number" value="1200" class="rvb-field__input" />
+                        </div>
+                    </div>
+                </details>
 
-            <div class="rvb-future-shot">
-                <h3>The "Next Step" Context</h3>
-                <p>In <span class="label-horizon">2</span> years, the target townhouse is estimated to cost <strong
-                        id="future-townhouse-price">$0</strong>.</p>
-                <p>Buying now gives you a <span id="buy-percentage-covered">0%</span> "foot in the door" towards that
-                    future purchase.</p>
-            </div>
+                <!-- ACCORDION: GROWTH & INVESTMENTS -->
+                <details class="rvb-accordion">
+                    <summary class="rvb-accordion__summary">Growth Assumptions <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="rvb-accordion__content">
+                        <div class="rvb-field">
+                            <label for="growthCondo" class="rvb-field__label">Home price growth (%/year)</label>
+                            <input id="growthCondo" type="number" step="0.1" value="3.5" class="rvb-field__input" />
+                        </div>
+                        <div class="rvb-field">
+                            <label for="rentIncrease" class="rvb-field__label">Rent increase (%/year)</label>
+                            <input id="rentIncrease" type="number" step="0.1" value="2.5" class="rvb-field__input" />
+                        </div>
+                        <div class="rvb-field">
+                            <label for="investmentReturn" class="rvb-field__label">Investment return (%)</label>
+                            <input id="investmentReturn" type="number" step="0.1" value="5.0"
+                                class="rvb-field__input" />
+                        </div>
+                    </div>
+                </details>
 
-        </section>
+                <div class="rvb-disclaimer">
+                    <p>For illustration only. Not advice. All amounts in CAD. Mortgage interest is not tax-deductible
+                        for primary residences in Canada.</p>
+                </div>
+
+            </aside>
+
+            <!-- RIGHT COLUMN: RESULTS -->
+            <article class="rvb-results">
+
+                <!-- VERDICT CARD -->
+                <div class="rvb-verdict" id="rvb-verdict-card">
+                    <div class="rvb-verdict__icon"><i class="fas fa-check-circle"></i></div>
+                    <div class="rvb-verdict__body">
+                        <h3 class="rvb-verdict__title">Verdict</h3>
+                        <p class="rvb-verdict__text" id="verdict-summary">Buying is better if you stay for 2 years or
+                            longer.</p>
+                    </div>
+                </div>
+
+                <!-- COMPARISON TOP BAR -->
+                <div class="rvb-results-header">
+                    <h2 class="rvb-results-header__title">After <span id="label-horizon">5</span> Years</h2>
+                    <div class="rvb-field rvb-field--inline">
+                        <label for="horizonYears">Timeline:</label>
+                        <select id="horizonYears" class="rvb-field__select">
+                            <option value="1">1 Year</option>
+                            <option value="2">2 Years</option>
+                            <option value="3">3 Years</option>
+                            <option value="5" selected>5 Years</option>
+                            <option value="10">10 Years</option>
+                            <option value="15">15 Years</option>
+                            <option value="25">25 Years</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- COST WIDGETS -->
+                <div class="rvb-comparison-row">
+                    <div class="rvb-comparison-card rvb-comparison-card--buy">
+                        <div class="rvb-comparison-card__header">Total Cost If You Buy</div>
+                        <div class="rvb-comparison-card__amount" id="buy-net-total">$0</div>
+                        <div class="rvb-comparison-card__monthly">Avg. Monthly: <span id="buy-monthly-avg">$0</span>
+                        </div>
+                    </div>
+                    <div class="rvb-comparison-card rvb-comparison-card--rent">
+                        <div class="rvb-comparison-card__header">Total Cost If You Rent</div>
+                        <div class="rvb-comparison-card__amount" id="rent-net-total">$0</div>
+                        <div class="rvb-comparison-card__monthly">Avg. Monthly: <span id="rent-monthly-avg">$0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BREAKDOWN TABLE -->
+                <div class="rvb-breakdown-table">
+                    <h3 class="rvb-breakdown-table__title">Detailed Breakdown</h3>
+                    <div class="rvb-table">
+                        <div class="rvb-table__row rvb-table__row--header">
+                            <div>Component</div>
+                            <div class="u-text-right">Buying</div>
+                            <div class="u-text-right">Renting</div>
+                        </div>
+                        <div class="rvb-table__row">
+                            <div>Total Cash Outflow</div>
+                            <div class="u-text-right" id="buy-cash-out">$0</div>
+                            <div class="u-text-right" id="rent-cash-out">$0</div>
+                        </div>
+                        <div class="rvb-table__row">
+                            <div>Closing/Entry Costs</div>
+                            <div class="u-text-right" id="buy-entry-costs">$0</div>
+                            <div class="u-text-right" id="rent-entry-costs">$0</div>
+                        </div>
+                        <div class="rvb-table__row">
+                            <div>Equity / Invested Savings</div>
+                            <div class="u-text-right u-positive" id="buy-equity-end">$0</div>
+                            <div class="u-text-right u-positive" id="rent-savings-end">$0</div>
+                        </div>
+                        <div class="rvb-table__row rvb-table__row--footer">
+                            <div>Net Total Cost</div>
+                            <div class="u-text-right" id="buy-net-cost-row">$0</div>
+                            <div class="u-text-right" id="rent-net-cost-row">$0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NARRATIVE -->
+                <div class="rvb-summary-note" id="narrative-box">
+                    <!-- JS Inserted Narrative -->
+                </div>
+
+            </article>
+
+        </div>
     </main>
 
     <footer class="rvb-footer">
         <div class="ip-container">
-            <p>&copy; 2024 Iberian Pacific Financial Services. All amounts in CAD.</p>
+            <p>&copy; 2024 Iberian Pacific Financial Services. Canadian Market Real Estate Illustrator.</p>
         </div>
     </footer>
 
