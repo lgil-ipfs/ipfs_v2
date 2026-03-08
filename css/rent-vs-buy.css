@@ -1,0 +1,379 @@
+/* 
+   RENT VS BUY ILLUSTRATOR — Layout & Utilities
+   Inherits core brand tokens from style.css
+*/
+
+.rvb-body {
+    background: var(--cream);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.rvb-header {
+    padding: 4rem 0 2rem;
+    background: var(--white);
+    border-bottom: 1px solid var(--cream-mid);
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.rvb-header__title {
+    color: var(--maroon);
+    font-family: var(--font-display);
+    margin-bottom: 1rem;
+}
+
+.rvb-header__subtitle {
+    font-size: 1.25rem;
+    color: var(--charcoal);
+    max-width: 800px;
+    margin: 0 auto 1rem;
+}
+
+.rvb-header__disclaimer {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #888;
+}
+
+/* MAIN LAYOUT */
+.rvb-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 3rem;
+    padding-bottom: 6rem;
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .rvb-main {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+/* INPUTS SECTION */
+.rvb-main__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.rvb-card {
+    padding: 2rem;
+    background: #fff;
+    border-radius: var(--radius);
+    border: 1px solid rgba(107, 39, 55, 0.08);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease;
+}
+
+.rvb-card__title {
+    color: var(--maroon);
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid var(--gold-pale);
+    padding-bottom: 0.5rem;
+}
+
+.rvb-card__help {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.rvb-field {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.rvb-field--checkbox {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+}
+
+.rvb-field--checkbox input {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.rvb-field__label {
+    font-weight: 600;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--charcoal);
+}
+
+.rvb-field__input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid #E1E1E1;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: var(--font-body);
+    transition: border-color 0.2s;
+    background-color: var(--white);
+}
+
+.rvb-field__input:focus {
+    outline: none;
+    border-color: var(--gold);
+}
+
+.rvb-field__hint {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.rvb-field__toggle-group {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.rvb-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.rvb-static-note {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--cream);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.rvb-static-note p {
+    margin-bottom: 0.5rem;
+    display: flex;
+    gap: 0.6rem;
+}
+
+.rvb-static-note p:last-child {
+    margin-bottom: 0;
+}
+
+.rvb-static-note i {
+    color: var(--maroon);
+    padding-top: 0.2rem;
+}
+
+/* RESULTS SECTION */
+.rvb-main__results {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+}
+
+@media (max-width: 1024px) {
+    .rvb-main__results {
+        position: static;
+    }
+}
+
+/* SCENARIO TABS */
+.rvb-scenarios {
+    display: flex;
+    background: var(--white);
+    padding: 6px;
+    border-radius: 99px;
+    border: 1.5px solid var(--cream-mid);
+    gap: 6px;
+}
+
+.rvb-scenarios__tab {
+    flex: 1;
+    border: none;
+    background: none;
+    padding: 14px;
+    border-radius: 99px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    color: #666;
+}
+
+.rvb-scenarios__tab--active {
+    background: var(--maroon);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(107, 39, 55, 0.25);
+}
+
+/* SUMMARY CARDS */
+.rvb-summary-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 600px) {
+    .rvb-summary-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+.rvb-summary-card {
+    padding: 2rem;
+    background: #fff;
+    border-radius: var(--radius);
+    border: 1.5px solid var(--cream-mid);
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+}
+
+.rvb-summary-card--highlight {
+    border-color: var(--gold);
+    box-shadow: 0 12px 30px rgba(201, 168, 76, 0.15);
+    transform: translateY(-4px);
+}
+
+.rvb-summary-card__title {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.rvb-summary-card__number {
+    font-size: 2.8rem;
+    font-family: var(--font-display);
+    color: var(--maroon);
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+}
+
+.rvb-summary-card__caption {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+/* BREAKDOWN SECTION */
+.rvb-breakdown {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 600px) {
+    .rvb-breakdown {
+        grid-template-columns: 1fr;
+    }
+}
+
+.rvb-breakdown__scenario {
+    padding: 1.5rem;
+    background: var(--white);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--cream-mid);
+}
+
+.rvb-breakdown__header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--maroon);
+}
+
+.rvb-breakdown__header i {
+    font-size: 1.2rem;
+    color: var(--gold);
+}
+
+.rvb-breakdown__title {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.rvb-breakdown__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.rvb-breakdown__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 0.95rem;
+    color: #555;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 0.6rem;
+}
+
+.rvb-breakdown__item span:first-child {
+    max-width: 60%;
+}
+
+.rvb-value {
+    font-weight: 700;
+    color: var(--charcoal);
+    white-space: nowrap;
+}
+
+.rvb-value--positive {
+    color: #2D5A27;
+}
+
+/* NARRATIVE */
+.rvb-narrative {
+    padding: 1.5rem;
+    background: var(--gold-pale);
+    border-radius: var(--radius-sm);
+    color: var(--maroon-deep);
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.rvb-future-shot {
+    padding: 1.5rem;
+    background: var(--maroon);
+    color: #fff;
+    border-radius: var(--radius);
+    text-align: center;
+}
+
+.rvb-future-shot h3 {
+    color: var(--gold-light) !important;
+    margin-bottom: 0.8rem;
+}
+
+.rvb-future-shot p {
+    margin: 0.4rem 0;
+    font-size: 1.1rem;
+    opacity: 0.95;
+}
+
+.rvb-future-shot strong {
+    color: var(--gold-light);
+    font-size: 1.3rem;
+}
+
+/* FOOTER */
+.rvb-footer {
+    margin-top: auto;
+    padding: 3rem 0;
+    background: var(--white);
+    border-top: 1px solid var(--cream-mid);
+    text-align: center;
+    color: #888;
+    font-size: 0.9rem;
+}
