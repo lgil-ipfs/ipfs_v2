@@ -751,7 +751,7 @@
         charts.netWorth = new Chart(ctx, {
             type: "line",
             data: {
-                labels: range(1, 25),
+                labels: yearLabels,
                 datasets: [
                     {
                         label: "MFP Net Worth",
@@ -772,7 +772,19 @@
                 ]
             },
             options: {
-                ...commonChartOpts,
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { mode: "index", intersect: false },
+                plugins: {
+                    legend: {
+                        position: "top",
+                        labels: {
+                            font: { family: "'Jost'", size: 11 },
+                            usePointStyle: true,
+                        },
+                    },
+                    tooltip: commonTooltip,
+                },
                 scales: {
                     x: {
                         ...commonScaleOpts,
@@ -837,10 +849,9 @@
         }
 
         diag.innerHTML = `
-        diag.innerHTML = `
-            < div class="exact-flow" >
-                ${ debtFreeMsg }
-            < !--LEFT COL: REAL ESTATE-- >
+            <div class="exact-flow">
+                ${debtFreeMsg}
+            <!--LEFT COL: REAL ESTATE-->
             <div class="ef-col ef-real-estate">
                 <h4>Real Estate</h4>
                 <div class="ef-dashed-box" style="height: 120px;">
@@ -868,7 +879,7 @@
             </div>
 
 
-            <!--RIGHT COL: INVESTMENT-- >
+            <!--RIGHT COL: INVESTMENT-->
             <div class="ef-col ef-investment">
                 <h4>Investment</h4>
                 <div class="ef-dashed-box" style="height: 220px;"></div>
@@ -877,7 +888,7 @@
                 </div>
             </div>
 
-            <!--CENTER & FLOATING ELEMENTS-- >
+            <!--CENTER & FLOATING ELEMENTS-->
             ${
                 !isStart ? `
             <div class="ef-tax-refund">
@@ -886,7 +897,7 @@
             </div>` : ''
         }
 
-            < !--Interest Box-- >
+            <!--Interest Box-->
             <div class="ef-interest-box">
                 <div class="interest-split">
                     <div class="good-int">${fmt(fd.goodInterest * 12)}</div>
@@ -895,19 +906,19 @@
                 <div style="color:var(--charcoal); font-weight:bold;">Total Interest:<br>${fmt(totalInt * 12)}</div>
             </div>
 
-            <!--Income Flow Box-- >
+            <!--Income Flow Box-->
             <div class="ef-blue-box">
                 ${fmt(totalPmt)}
             </div>
 
-            <!--Bucket Base-- >
+            <!--Bucket Base-->
             <div class="ef-income-bucket">
                 <div class="ef-bucket-shape">
                     <span>Income</span>
                 </div>
             </div>
 
-            <!--Dynamic Labels Floating on Canvas-- >
+            <!--Dynamic Labels Floating on Canvas-->
             <div class="ef-arrow-label ef-label-red" style="left: 270px; bottom: 165px; transform: rotate(-25deg);">
                ${fmt(bd_disp > 0 ? (fd.principalToBadDebt * 12) : (fd.principalToGoodDebt * 12))} to Principal
             </div>
@@ -927,7 +938,7 @@
             </div>` : ''
         }
 
-            < !--SVG ARROWS-- >
+            <!--SVG ARROWS-->
             <svg class="ef-arrow-svg" viewBox="0 0 900 600" preserveAspectRatio="none">
                 <defs>
                     <marker id="arrowHeadGrey" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
@@ -973,7 +984,7 @@
                 ` : ''}
 
             </svg>
-          </div >
+          </div>
             `;
     }
 
