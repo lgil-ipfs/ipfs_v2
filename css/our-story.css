@@ -649,7 +649,8 @@
 }
 
 .ip-cta .btn-secondary:hover {
-  background: rgba(99, 15, 15, .06)
+  background: rgba(99, 15, 15, .06);
+  color: #2D2D2D !important;
 }
 
 /* Chips */

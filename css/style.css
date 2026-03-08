@@ -1832,6 +1832,7 @@ section {
 .btn-secondary:hover,
 .btn-ghost:hover {
   background: #FFFFFF !important;
+  color: #6B2737 !important;
   border-color: #6B2737 !important;
   transform: translateY(-2px) !important;
 }
