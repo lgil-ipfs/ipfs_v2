@@ -87,6 +87,16 @@
                         <label for="mortgageRate" class="rvb-field__label">Mortgage rate (%)</label>
                         <input id="mortgageRate" type="number" step="0.01" value="5.25" class="rvb-field__input" />
                     </div>
+
+                    <div class="rvb-field">
+                        <label for="amortization" class="rvb-field__label">Amortization period</label>
+                        <select id="amortization" class="rvb-field__select">
+                            <option value="15">15 Years</option>
+                            <option value="20">20 Years</option>
+                            <option value="25" selected>25 Years</option>
+                            <option value="30">30 Years</option>
+                        </select>
+                    </div>
                 </div>
 
                 <!-- ACCORDION: ONGOING COSTS -->
@@ -110,7 +120,7 @@
                 </details>
 
                 <!-- ACCORDION: GROWTH ASSUMPTIONS -->
-                <details class="rvb-accordion">
+                <details class="rvb-accordion" open>
                     <summary class="rvb-accordion__summary">Growth Assumptions <i class="fas fa-chevron-down"></i>
                     </summary>
                     <div class="rvb-accordion__content">
@@ -152,8 +162,8 @@
                 <!-- RESULTS HEADER -->
                 <div class="rvb-results-header">
                     <h2 class="rvb-results-header__title">After <span id="label-horizon">5</span> Years</h2>
-                    <div class="rvb-field rvb-field--inline">
-                        <label for="horizonYears">Timeline:</label>
+                    <div class="rvb-results-header__timeline">
+                        <span class="rvb-results-header__timeline-label">Timeline:</span>
                         <select id="horizonYears" class="rvb-field__select">
                             <option value="1">1 Year</option>
                             <option value="2">2 Years</option>

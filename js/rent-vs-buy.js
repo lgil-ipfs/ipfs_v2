@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const elCurrentRent = document.getElementById('currentRent');
     const elHorizon = document.getElementById('horizonYears');
     const elMortgageRate = document.getElementById('mortgageRate');
+    const elAmortization = document.getElementById('amortization');
 
     const elPropTaxRate = document.getElementById('propertyTaxRate');
     const elStrataCondo = document.getElementById('strataCondo');
@@ -105,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Simple Canadian fixed rate assumption
         const mortgagePrincipal = Math.max(0, condoPrice - downPayment);
         const rate = num('mortgageRate');
-        const amortYears = 25;
+        const amortYears = parseInt(elAmortization.value);
         const monthlyPayment = calcMonthlyPayment(mortgagePrincipal, rate, amortYears);
 
         // Ongoing Costs (monthly)
