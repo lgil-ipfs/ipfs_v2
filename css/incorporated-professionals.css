@@ -34,8 +34,8 @@
 
 .resource-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
 }
 
 .resource-card {
@@ -432,6 +432,10 @@
 
 /* RESPONSIVE */
 @media (max-width: 1200px) {
+    .resource-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
     .biz-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -446,8 +450,10 @@
 }
 
 @media (max-width: 900px) {
+    .resource-grid {
+        grid-template-columns: 1fr;
+    }
 
-    .resource-grid,
     .concerns-grid {
         grid-template-columns: 1fr;
     }
