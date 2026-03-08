@@ -246,6 +246,7 @@
         let annualAvgGoodDebt = [];
         let annualDeductibleInterest = [];
         let annualBreakeven = [];
+        let annualNetWorth = [];
 
         for (let y = 0; y < YEARS; y++) {
             const endMonth = y * 12 + 11;
@@ -275,10 +276,16 @@
             annualBreakeven.push(
                 badDebt[endMonth] + goodDebt[endMonth] - investValue[endMonth]
             );
+
+            // Net Worth
+            annualNetWorth.push(
+                inp.houseValue + investValue[endMonth] - (badDebt[endMonth] + goodDebt[endMonth])
+            );
         }
 
         // ── Current mortgage (no MFP) for comparison ──
         let currentMortgage = [];
+        let currentNetWorth = [];
         let cmBalance = totalConsolidated;
         const cmRate = inp.mortgageRate / 12;
         const cmPayment = inp.mortgagePayment;
@@ -290,6 +297,7 @@
                 cmBalance = Math.max(0, cmBalance - principal);
             }
             currentMortgage.push(cmBalance);
+            currentNetWorth.push(inp.houseValue - cmBalance);
         }
 
         // Find year bad debt hits zero
@@ -351,7 +359,9 @@
             annualDeductibleInterest,
             annualTaxRefund,
             annualBreakeven,
+            annualNetWorth,
             currentMortgage,
+            currentNetWorth,
             badDebtFreeYear,
             currentMortgageFreeYear,
             flowData,
@@ -734,6 +744,49 @@
     //  FLOW DIAGRAM
     // ═══════════════════════════════════════════════════════════════════════
 
+    function renderNetWorthChart(data) {
+        const ctx = $("chartNetWorth").getContext("2d");
+        if (charts.netWorth) charts.netWorth.destroy();
+
+        charts.netWorth = new Chart(ctx, {
+            type: "line",
+            data: {
+                labels: range(1, 25),
+                datasets: [
+                    {
+                        label: "MFP Net Worth",
+                        data: data.annualNetWorth,
+                        borderColor: CHART_COLORS.good,
+                        backgroundColor: CHART_COLORS.goodFill,
+                        fill: true,
+                        tension: 0.2
+                    },
+                    {
+                        label: "Traditional Net Worth",
+                        data: data.currentNetWorth,
+                        borderColor: "#757575",
+                        backgroundColor: "rgba(117,117,117,0.2)",
+                        fill: true,
+                        tension: 0.2
+                    }
+                ]
+            },
+            options: {
+                ...commonChartOpts,
+                scales: {
+                    x: {
+                        ...commonScaleOpts,
+                        title: { display: true, text: "Year", font: { size: 11, family: "'Jost'" }, color: "#aaa" },
+                    },
+                    y: {
+                        ...commonScaleOpts,
+                        ticks: { ...commonScaleOpts.ticks, callback: (v) => fmtK(v) },
+                    },
+                },
+            },
+        });
+    }
+
     function initFlowSlider(data) {
         const slider = $("flowYearSlider");
         if (slider && !slider.hasAttribute('data-bound')) {
@@ -775,9 +828,17 @@
 
         let totalPmt = data.totalDebtPayment + swpInc;
 
+        let debtFreeMsg = "";
+        if (bd_disp <= 0 && yearValue >= data.badDebtFreeYear && !isStart) {
+            debtFreeMsg = `
+            <div style="grid-column: 1 / -1; margin-bottom: 5px; background: #e8f5e9; border: 2px solid #6bcc68; color: #2e7d32; padding: 15px; border-radius: 8px; text-align: center; font-size: 1.2rem; font-family: var(--font-display); font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                🎉 You could be debt free now! The bad debt has been entirely eliminated.
+            </div>`;
+        }
+
         diag.innerHTML = `
           <div class="ef-modern-grid">
-            
+            ${debtFreeMsg}
             <!-- COLUMN 1: Real Estate & Bank -->
             <div class="ef-modern-col">
                 <div class="ef-modern-card" style="border-top: 5px solid var(--charcoal);">
@@ -798,7 +859,7 @@
                     </div>
                 </div>
 
-                <div class="ef-arrow-down"><i class="fa-solid fa-arrow-down"></i></div>
+                <div class="ef-arrow-down" style="color:#aaa;"><i class="fa-solid fa-arrow-down"></i></div>
 
                 <div class="ef-modern-card" style="border-top: 5px solid #888; background:#f4f4f4;">
                     <h4 class="ef-card-title">Bank Account</h4>
@@ -826,12 +887,14 @@
                 </div>
                 ` : ''}
 
-                <div class="ef-flow-box principal-box">
+                <div class="ef-flow-box principal-box" style="position:relative;">
+                    <div style="position:absolute; top:50%; left:-35px; transform:translateY(-50%); font-size:1.5rem; color:#c0392b;"><i class="fa-solid fa-arrow-left"></i></div>
                     <i class="fa-solid fa-money-bill-transfer"></i> <strong>To Debt Principal:</strong><br>
                     ${fmt(bd_disp > 0 ? (fd.principalToBadDebt * 12) : (fd.principalToGoodDebt * 12))} / yr
                 </div>
 
-                <div class="ef-flow-box invest-box">
+                <div class="ef-flow-box invest-box" style="position:relative;">
+                    <div style="position:absolute; top:50%; right:-35px; transform:translateY(-50%); font-size:1.5rem; color:#2980b9;"><i class="fa-solid fa-arrow-right"></i></div>
                     <i class="fa-solid fa-chart-line"></i> <strong>To Investments:</strong><br>
                     ${fmt(monthlyInv * 12)} / yr
                 </div>
@@ -847,7 +910,8 @@
                     </div>
                     
                     ${!isStart ? `
-                    <div class="ef-invest-swp">
+                    <div class="ef-invest-swp" style="position:relative;">
+                        <div style="position:absolute; top:50%; left:-35px; transform:translateY(-50%); font-size:1.5rem; color:var(--gold);"><i class="fa-solid fa-arrow-left"></i></div>
                         <i class="fa-solid fa-reply"></i> <strong>Income (SWP):</strong> ${fmt(swpInc)} / mo
                         <div style="font-size:0.75rem; color:#666; margin-top:5px;">Feeds back to bank account</div>
                     </div>
@@ -917,6 +981,7 @@
         renderBalancesChart(data);
         renderCashflowChart(data);
         renderTaxRefundsChart(data);
+        renderNetWorthChart(data);
         initFlowSlider(data);
 
         // Scroll to results
