@@ -193,64 +193,28 @@
     <!-- 3. CTA & BOOKING -->
     <section aria-labelledby="cta-title" class="ip-cta v4" id="book">
         <div class="wrap">
-            <span class="kicker" data-ip-animate="">Direct Access</span>
-            <h2 id="cta-title" data-ip-animate="">Is your future architected for freedom?</h2>
-            <div class="card" data-ip-animate="">
-                <h3>Skip the back-and-forth.</h3>
-                <p>Book a complimentary 20-minute Diagnostic Call. We'll identify the gaps and outline what a
-                    coordinated
-                    strategy looks like for your situation. No sales pitch, just strategy.</p>
+            <span class="kicker">Your Next Step</span>
+            <h2 id="cta-title">Financial freedom starts here.</h2>
+            <div class="card">
+                <h3>Ready when you are.</h3>
+                <p>Book a complimentary 20-minute consultation. We'll map immediate priorities and outline a strategic
+                    plan
+                    tailored to you.</p>
 
                 <div class="actions">
-                    <a class="btn btn-primary" href="https://cal.com/iberian-pacific" target="_blank">Book Your
-                        Diagnostic</a>
+                    <a class="btn btn-primary" href="#ip-booking">Book Consultation</a>
+                    <a class="btn btn-secondary" href="#ip-assessment">Take Financial Wellness Assessment</a>
                 </div>
 
                 <div class="chips">
-                    <span class="chip">Strategic Audit</span>
-                    <span class="chip">Independent</span>
+                    <span class="chip">No Cost</span>
                     <span class="chip">No Obligation</span>
+                    <span class="chip">Privacy-First</span>
                 </div>
 
                 <div class="cal-wrap" id="ip-booking">
-                    <h4 class="cal-title">Book Your Diagnostic</h4>
-                    <!-- Cal.com embed -->
-                    <div class="cal-frame" id="my-cal-inline-contact-booking"></div>
-                    <script type="text/javascript">
-                        (function (C, A, L) {
-                            let p = function (a, ar) { a.q.push(ar); };
-                            let d = C.document;
-                            C.Cal = C.Cal || function () {
-                                let cal = C.Cal;
-                                let ar = arguments;
-                                if (!cal.loaded) {
-                                    cal.q = cal.q || [];
-                                    cal.loaded = true;
-                                    let s = d.createElement("script");
-                                    s.src = "https://app.cal.com/embed/embed.js";
-                                    d.head.appendChild(s);
-                                }
-                                if (ar[0] === L) {
-                                    let api = function () { p(api, arguments); };
-                                    const cand = ar[1];
-                                    api.q = api.q || [];
-                                    typeof cand === "function" ? cand(api) : p(api, ar);
-                                    return api;
-                                }
-                                p(cal, ar);
-                            };
-                        })(window, "https://app.cal.com/embed/embed.js", "init");
-
-                        Cal("init", { origin: "https://app.cal.com" });
-
-                        Cal("inline", {
-                            elementOrSelector: "#my-cal-inline-contact-booking",
-                            calLink: "iberian-pacific",
-                            layout: "month_view"
-                        });
-
-                        Cal("ui", { "styles": { "branding": { "brandColor": "#6B2737" } }, "hideEventTypeDetails": false, "layout": "month_view" });
-                    </script>
+                    <h4 class="cal-title">Book Your Consultation</h4>
+                    <div class="cal-frame" id="my-cal-inline-let-s-connect"></div>
                 </div>
             </div>
         </div>
