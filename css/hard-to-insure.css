@@ -1,0 +1,282 @@
+/* ─────────────────────────────────────────────────────
+   HARD-TO-INSURE PAGE STYLES
+   Direct, solution-oriented, and high-end feel.
+   ───────────────────────────────────────────────────── */
+
+/* 1. HERO */
+.insure-hero {
+    background: #FFF;
+    padding: 160px 0 100px;
+    text-align: left;
+}
+
+.insure-hero .kicker {
+    display: inline-block;
+    color: var(--gold);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-size: 13px;
+    margin-bottom: 24px;
+}
+
+.insure-hero h1 {
+    font-size: clamp(3rem, 8vw, 5rem);
+    margin-bottom: 24px;
+    color: var(--charcoal);
+    line-height: 1.1;
+    max-width: 900px;
+}
+
+.insure-hero .sub {
+    font-size: 22px;
+    color: #666;
+    max-width: 750px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* 2. TENSION SECTION (DARK BAND) */
+.tension-band {
+    background: var(--charcoal);
+    color: #FFF;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.tension-band p {
+    font-size: 24px;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto;
+    font-family: var(--font-display);
+    font-style: italic;
+    color: #EAEAEA;
+}
+
+/* 3. CHECKLIST SECTION */
+.checklist-section {
+    padding: 120px 0;
+    background: #FDFCFA;
+}
+
+.section-header {
+    max-width: 800px;
+    margin-bottom: 80px;
+}
+
+.section-header h2 {
+    font-size: 42px;
+    margin-bottom: 16px;
+    color: var(--maroon);
+}
+
+.section-header p {
+    font-size: 20px;
+    color: #666;
+}
+
+.medical-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.medical-cat h3 {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.medical-cat ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.medical-cat ul li {
+    padding: 8px 0 8px 28px;
+    position: relative;
+    font-size: 16px;
+    color: #444;
+    line-height: 1.4;
+}
+
+.medical-cat ul li::before {
+    content: '\f00c';
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: #A3D9B1;
+    /* Subtle green for checklist */
+    font-size: 14px;
+}
+
+.checklist-footer {
+    margin-top: 60px;
+    font-size: 18px;
+    font-style: italic;
+    color: #888;
+    text-align: center;
+}
+
+/* 4. WHAT WE DO DIFFERENTLY (COLUMNS) */
+.diff-cols-section {
+    padding: 120px 0;
+    background: #FFF;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.diff-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+}
+
+.diff-col h3 {
+    font-size: 24px;
+    color: var(--maroon);
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.diff-col p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* 5. OPTIONS SECTION */
+.options-section {
+    padding: 120px 0;
+    background: #FDFBF7;
+}
+
+.options-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.options-content .lead {
+    font-size: 20px;
+    margin-bottom: 40px;
+    color: #444;
+}
+
+.options-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 60px;
+}
+
+.opt-item {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--charcoal);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.opt-item::after {
+    content: '→';
+    color: var(--gold);
+    font-weight: 700;
+}
+
+/* 6. PROCESS SECTION */
+.process-section {
+    padding: 120px 0;
+    background: #FFF;
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 60px;
+    position: relative;
+}
+
+.process-step {
+    position: relative;
+}
+
+.step-num {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.process-step h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: var(--maroon);
+}
+
+.process-step p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* 7. PRIVACY NOTE */
+.privacy-note-section {
+    padding: 0 0 120px;
+}
+
+.privacy-box {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    background: #F8F9FA;
+    border-left: 4px solid var(--maroon);
+    border-radius: 0 16px 16px 0;
+}
+
+.privacy-box p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #555;
+    margin: 0;
+}
+
+/* 8. RESPONSIVE */
+@media (max-width: 1100px) {
+    .diff-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 900px) {
+    .process-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .options-list {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .insure-hero h1 {
+        font-size: 3.2rem;
+    }
+
+    .tension-band p {
+        font-size: 20px;
+    }
+}
