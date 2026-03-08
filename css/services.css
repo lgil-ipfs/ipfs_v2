@@ -2,10 +2,11 @@
    SERVICES HUB PAGE STYLES
    ───────────────────────────────────────────────────── */
 
-/* 1. SERVICES GRID */
+/* 1. SERVICES HUB SECTION */
 .services-hub {
-    padding: 100px 0;
-    background: var(--white);
+    padding: 120px 0;
+    background: #FDFBF7;
+    /* Cream background to match image */
 }
 
 .services-group {
@@ -16,135 +17,196 @@
     margin-bottom: 0;
 }
 
+/* 2. GROUP HEADER (Matches the "OUR FOCUS" style) */
 .services-group .group-header {
-    margin-bottom: 50px;
-    text-align: center;
+    margin-bottom: 60px;
+    text-align: left;
+    /* Image shows left-aligned header stuff */
+    max-width: 800px;
+}
+
+.services-group .group-header .kicker {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--gold);
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.services-group .group-header .kicker::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
 }
 
 .services-group .group-header h2 {
-    font-size: 32px;
-    margin-bottom: 12px;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: var(--maroon-mid);
+    line-height: 1.1;
+    margin-bottom: 24px;
 }
 
 .services-group .group-header p {
+    font-size: 18px;
     color: #666;
-    max-width: 600px;
-    margin: 0 auto;
+    line-height: 1.7;
+    margin: 0;
 }
 
+/* 3. SERVICE GRID (2 Columns as per image) */
 .service-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 40px;
 }
 
+/* 4. SERVICE HUB CARD (Matches the "Families & Individuals" card) */
 .service-hub-card {
     background: #FFF;
     border-radius: 20px;
-    padding: 50px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    border: 1px solid rgba(0, 0, 0, 0.03);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
-    transition: all 0.4s var(--ease-smooth);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    transition: transform 0.4s var(--ease-smooth), box-shadow 0.4s var(--ease-smooth);
     text-decoration: none;
-    position: relative;
-    overflow: hidden;
-}
-
-.service-hub-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
     height: 100%;
-    background: var(--gold);
-    transform: scaleY(0);
-    transition: transform 0.4s var(--ease-smooth);
 }
 
 .service-hub-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
 }
 
-.service-hub-card:hover::before {
-    transform: scaleY(1);
+.service-hub-card .card-image {
+    height: 280px;
+    overflow: hidden;
 }
 
-.service-hub-card .icon-box {
-    width: 60px;
-    height: 60px;
-    background: var(--gold-pale);
-    border-radius: 14px;
+.service-hub-card .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.service-hub-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.service-hub-card .card-content {
+    padding: 40px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--maroon);
-    font-size: 24px;
+    flex-direction: column;
+    flex: 1;
+    gap: 20px;
 }
 
 .service-hub-card h3 {
-    font-size: 24px;
-    color: var(--charcoal);
+    font-family: var(--font-display) !important;
+    font-size: 26px;
+    color: var(--maroon-mid);
     margin: 0;
 }
 
 .service-hub-card p {
     font-size: 16px;
     color: #555;
-    line-height: 1.6;
+    line-height: 1.7;
     margin: 0;
 }
 
-.service-hub-card .link-label {
+/* Button in card */
+.service-hub-card .card-link {
     margin-top: auto;
-    font-weight: 700;
-    color: var(--gold);
-    font-size: 14px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 8px;
-    transition: gap 0.3s ease;
+    justify-content: center;
+    padding: 14px 28px;
+    background: var(--gold-light);
+    color: #FFF;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 14px;
+    transition: background 0.3s ease;
+    width: fit-content;
 }
 
-.service-hub-card:hover .link-label {
-    gap: 12px;
+/* Darker gold on hover */
+.service-hub-card:hover .card-link {
+    background: var(--gold);
 }
 
-/* 2. SPECIALIZATIONS (3 cols) */
+/* 5. SPECIALIZATIONS (3 cols) */
 .special-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+    gap: 30px;
 }
 
 .special-card {
-    background: #FDFCFA;
+    background: #FFF;
     padding: 40px;
-    border-radius: 16px;
+    border-radius: 18px;
     border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .special-card h3 {
-    font-size: 20px;
-    margin-bottom: 12px;
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--maroon-mid);
+    margin: 0;
 }
 
 .special-card p {
     font-size: 15px;
     color: #666;
-    margin-bottom: 24px;
+    line-height: 1.6;
+    margin: 0;
 }
 
-/* 3. RESPONSIVE */
-@media (max-width: 900px) {
+.special-card .ip-btn-white {
+    margin-top: auto;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
 
-    .service-grid,
+/* 6. RESPONSIVE */
+@media (max-width: 1100px) {
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 900px) {
     .special-grid {
         grid-template-columns: 1fr;
+    }
+
+    .services-group .group-header {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .services-group .group-header .kicker {
+        justify-content: center;
     }
 }
