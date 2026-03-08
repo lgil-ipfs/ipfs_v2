@@ -491,7 +491,9 @@
 
 /* FAQ SECTION */
 .rvb-faq-section {
-    margin-top: 3rem;
+    margin: 3rem auto 4rem;
+    max-width: 860px;
+    padding: 0 1rem;
 }
 
 .rvb-faq-title {
