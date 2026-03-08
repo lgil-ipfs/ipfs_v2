@@ -472,28 +472,28 @@
 }
 
 /* Footer addition */
-/* New specific modern diagram styles for MFP */
-.ef-modern-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr 1fr;
-    gap: 30px;
+/* New Specific Exact Diagram Styles with Modern UI Aesthetics */
+.exact-flow {
+    position: relative;
     width: 100%;
-    max-width: 1050px;
+    max-width: 900px;
     margin: 0 auto;
+    min-height: 600px;
+    font-family: var(--font-base);
+    color: #555;
+    background: transparent;
 }
 
-.ef-modern-col {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.exact-flow *,
+.exact-flow *::before,
+.exact-flow *::after {
+    box-sizing: border-box;
 }
 
-.ef-col-center {
-    justify-content: center;
-    align-items: center;
-}
-
-.ef-modern-card {
+.ef-col {
+    position: absolute;
+    width: 240px;
+    text-align: center;
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -501,119 +501,161 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
 }
 
-.ef-card-title {
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    margin-bottom: 15px;
+.ef-real-estate {
+    left: 10px;
+    top: 0px;
+    border-top: 5px solid var(--charcoal);
+}
+
+.ef-investment {
+    right: 10px;
+    top: 0px;
+    border-top: 5px solid #6bcc68;
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ef-col h4 {
     color: var(--charcoal);
-    text-align: center;
-}
-
-.ef-re-stats {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    margin-top: 0;
     margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
 }
 
-.ef-re-label {
-    color: #666;
-}
-
-.ef-re-val {
-    font-weight: bold;
-}
-
-.ef-re-bar-container {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    overflow: hidden;
-    height: 300px;
-}
-
-.ef-re-bar {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    font-size: 0.85rem;
-    transition: height 0.3s ease;
-}
-
-.ef-re-bar.room {
-    background: #fdfdfd;
-    color: #555;
-    border-bottom: 1px dashed #ccc;
-}
-
-.ef-re-bar.good {
-    background: #2a9d4e;
-}
-
-.ef-re-bar.bad {
-    background: #c0392b;
-}
-
-.ef-bank-flow {
-    text-align: center;
-}
-
-.ef-bank-label {
-    display: block;
-    font-size: 0.85rem;
-    color: #666;
-    margin-bottom: 5px;
-}
-
-.ef-bank-val {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: var(--gold);
-}
-
-.ef-arrow-down {
-    text-align: center;
-    color: #ccc;
-    font-size: 1.5rem;
-}
-
-.ef-flow-box {
-    width: 100%;
-    background: #fff;
-    border-radius: 8px;
-    padding: 15px;
-    text-align: center;
-    font-size: 0.95rem;
-    color: #333;
-    border: 1px solid #ddd;
+.ef-dashed-box {
+    border: 2px dashed #ccc;
+    border-bottom: none;
     position: relative;
+    width: 100%;
 }
 
-.ef-flow-box i {
+.ef-dash-line {
+    border-bottom: 2px dashed #ccc;
+    padding: 8px 0;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #555;
+    background: #fdfdfd;
+}
+
+.ef-label-side {
+    position: absolute;
+    left: -35px;
+    bottom: 5px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #888;
+}
+
+.ef-good-debt {
+    background: #2a9d4e;
+    color: #fff;
+    padding: 30px 0;
+    font-weight: bold;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.ef-bad-debt {
+    background: #c0392b;
+    color: #fff;
+    padding: 50px 0;
+    font-weight: bold;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.ef-bank-account-label {
+    margin-top: 25px;
+    font-weight: bold;
+    color: var(--charcoal);
+    font-size: 1.1rem;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.ef-investment-growth {
+    background: #6bcc68;
+    color: #fff;
+    padding: 40px 0;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-top: auto;
+    font-size: 1.4rem;
+}
+
+.ef-income-bucket {
+    position: absolute;
+    bottom: 10px;
+    left: 450px;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.ef-bucket-shape {
+    width: 140px;
+    border-top: 60px solid #666;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    position: relative;
+    margin: 0 auto;
+}
+
+.ef-bucket-shape span {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.15rem;
+}
+
+.ef-blue-box {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-left: 4px solid #4ab7f7;
+    color: #4ab7f7;
+    padding: 10px 15px;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+    font-weight: bold;
     font-size: 1.2rem;
-    margin-bottom: 8px;
-    display: block;
-    color: var(--maroon);
+    position: absolute;
+    bottom: 120px;
+    left: 450px;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 2;
+    min-width: 140px;
+    background: #e1f5fe;
 }
 
-.ef-flow-box.interest-box {
-    border-left: 4px solid #f39c12;
+.ef-interest-box {
+    background: #fff;
+    border: 1px solid #f39c12;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 160px;
+    position: absolute;
+    top: 220px;
+    left: 450px;
+    transform: translateX(-50%);
+    z-index: 2;
+    text-align: center;
 }
 
 .interest-split {
     display: flex;
-    margin-bottom: 10px;
     border-radius: 4px;
     overflow: hidden;
     color: #fff;
     font-weight: bold;
     font-size: 0.85rem;
+    margin-bottom: 8px;
 }
 
 .interest-split>div {
@@ -629,63 +671,79 @@
     background: #c0392b;
 }
 
-.ef-flow-box.refund-box {
-    background: rgba(108, 52, 131, 0.05);
-    border-left: 4px solid #6c3483;
-    color: #6c3483;
-}
-
-.ef-flow-box.refund-box i {
-    color: #6c3483;
-    display: inline-block;
-    margin: 0 5px 0 0;
-}
-
-.ef-flow-box.principal-box {
-    border-left: 4px solid var(--maroon);
-    background: rgba(192, 57, 43, 0.03);
-}
-
-.ef-flow-box.invest-box {
-    border-left: 4px solid #2980b9;
-    background: rgba(41, 128, 185, 0.03);
-}
-
-.ef-flow-box.invest-box i {
-    color: #2980b9;
-    display: inline-block;
-    margin: 0 5px 0 0;
-}
-
-.ef-flow-box.principal-box i {
-    color: var(--maroon);
-    display: inline-block;
-    margin: 0 5px 0 0;
-}
-
-.ef-invest-val {
-    font-size: 2.2rem;
-    font-family: var(--font-display);
+.ef-total-interest {
+    position: absolute;
+    top: 195px;
+    left: calc(450px + 90px);
     font-weight: bold;
-    color: var(--gold);
-    text-align: center;
-    padding: 30px 0;
-}
-
-.ef-invest-swp {
-    background: #fdfbf7;
-    border: 1px solid var(--gold);
-    border-radius: 6px;
-    padding: 15px;
-    text-align: center;
-    font-size: 0.95rem;
     color: var(--charcoal);
-    width: 100%;
+    font-size: 0.95rem;
 }
 
-.ef-invest-swp i {
-    color: var(--gold);
-    margin-right: 5px;
+.ef-tax-refund {
+    position: absolute;
+    top: -30px;
+    left: 450px;
+    transform: translateX(-50%);
+    background: #f3e5f5;
+    color: #6c3483;
+    border: 1px solid #ce93d8;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.ef-tax-refund-val {
+    color: #6c3483;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.ef-arrow-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.ef-arrow-label {
+    position: absolute;
+    font-weight: bold;
+    font-size: 0.85rem;
+    z-index: 3;
+    padding: 6px 12px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.ef-label-yellow {
+    background: #fff8e1;
+    border: 1px solid #ffca28;
+    color: #f57f17;
+}
+
+.ef-label-red {
+    background: #ffebee;
+    border: 1px solid #ef5350;
+    color: #c0392b;
+}
+
+.ef-bottom-bank {
+    position: absolute;
+    bottom: -60px;
+    left: 10px;
+    width: 240px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
 }
 
 /* FAQ Styles */
@@ -757,8 +815,16 @@
         grid-template-columns: 1fr 1fr;
     }
 
-    .ef-modern-grid {
-        grid-template-columns: 1fr;
+    .exact-flow {
+        display: none;
+    }
+
+    .flow-diagram-section::after {
+        content: "Flow illustration requires a larger screen.";
+        display: block;
+        text-align: center;
+        padding: 40px;
+        color: #888;
     }
 
     .chart-grid {
