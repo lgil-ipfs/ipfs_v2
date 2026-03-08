@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" data-wf-domain="www.iberianpacific.ca">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Contact Us | Iberian Pacific Financial Services</title>
+    <meta content="Connect with Iberian Pacific to simplify your financial complexity." name="description" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="https://iberianpacific.ca/contact" rel="canonical" />
+    <link
+        href="https://cdn.prod.website-files.com/68ed2588f300fc2737bceebf/691e028abea330bc2c1d8358_IPFS-Logo-c%20(1).png"
+        rel="shortcut icon" type="image/x-icon" />
+    <link
+        href="https://cdn.prod.website-files.com/68ed2588f300fc2737bceebf/691e02b24f21bb5821d5f887_IPFS-Logo-c%20(1).png"
+        rel="apple-touch-icon" />
+    <!-- Shared site CSS -->
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/contact.css" rel="stylesheet" />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Header Mount -->
+    <div id="header-mount"></div>
+    <script>
+        fetch('components/header.html')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('header-mount').innerHTML = html;
+                if (window.Webflow && window.Webflow.ready) window.Webflow.ready();
+            });
+    </script>
+
+    <!-- 1. HERO -->
+    <section class="contact-hero" data-ip-animate="">
+        <div class="wrap">
+            <span class="kicker">Get in Touch</span>
+            <h1>Let's start the conversation.</h1>
+            <p>Whether you’re ready to optimize your corporate structure or just have a question about your portfolio,
+                we’re here to help.</p>
+        </div>
+    </section>
+
+    <!-- 2. CONTACT MAIN -->
+    <section class="contact-main">
+        <div class="wrap">
+            <div class="contact-grid">
+
+                <!-- Left: Info -->
+                <div class="contact-info" data-ip-animate="">
+                    <div class="contact-item">
+                        <div class="icon"><i class="fa-solid fa-phone"></i></div>
+                        <div>
+                            <h3>Call Us</h3>
+                            <a href="tel:+16045550199">(604) 555-0199</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div>
+                            <h3>Email Us</h3>
+                            <a href="mailto:info@iberianpacific.ca">info@iberianpacific.ca</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div>
+                            <h3>Location</h3>
+                            <p>Vancouver, BC<br>Canada</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon"><i class="fa-solid fa-hashtag"></i></div>
+                        <div>
+                            <h3>Folow Us</h3>
+                            <div class="social-links">
+                                <a href="https://www.linkedin.com/company/iberian-pacific/" class="social-btn"
+                                    target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Form -->
+                <div class="contact-form-card" data-ip-animate="">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="E.g. John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="E.g. john@company.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">How can we help?</label>
+                            <select id="category" name="category">
+                                <option value="general">General Inquiry</option>
+                                <option value="business">Business Owner Strategy</option>
+                                <option value="professional">Incorporated Professional</option>
+                                <option value="family">Individual & Family Planning</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" rows="5"
+                                placeholder="Tell us a bit about your situation..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. BOOKING SECTION -->
+    <section class="contact-booking" id="book">
+        <div class="wrap">
+            <div class="booking-header" data-ip-animate="">
+                <span class="kicker">Direct Access</span>
+                <h2>Book a 20-minute Diagnostic Call</h2>
+                <p>Skip the back-and-forth. Pick a time that works for you and we'll dive straight into your strategy.
+                </p>
+            </div>
+            <!-- Cal.com embed -->
+            <div class="cal-inline" id="cal-frame-container">
+                <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline"></div>
+                <script type="text/javascript">
+                    (function (C, A, L) {
+                        let p = function (a, ar) { a.q.push(ar); };
+                        let d = C.document;
+                        C.Cal = C.Cal || function () {
+                            let cal = C.Cal;
+                            let ar = arguments;
+                            if (!cal.loaded) {
+                                cal.q = cal.q || [];
+                                cal.loaded = true;
+                                let s = d.createElement("script");
+                                s.src = "https://app.cal.com/embed/embed.js";
+                                d.head.appendChild(s);
+                            }
+                            if (ar[0] === L) {
+                                let api = function () { p(api, arguments); };
+                                const cand = ar[1];
+                                api.q = api.q || [];
+                                typeof cand === "function" ? cand(api) : p(api, ar);
+                                return api;
+                            }
+                            p(cal, ar);
+                        };
+                    })(window, "https://app.cal.com/embed/embed.js", "init");
+
+                    Cal("init", { origin: "https://app.cal.com" });
+
+                    Cal("inline", {
+                        elementOrSelector: "#my-cal-inline",
+                        calLink: "iberian-pacific",
+                        layout: "month_view"
+                    });
+
+                    Cal("ui", { "styles": { "branding": { "brandColor": "#6B2737" } }, "hideEventTypeDetails": false, "layout": "month_view" });
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Mount -->
+    <div id="footer-mount"></div>
+    <script>
+        fetch('components/footer.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('footer-mount').innerHTML = html);
+    </script>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
