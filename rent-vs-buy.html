@@ -21,6 +21,7 @@
         href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap"
         rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="/css/style.css" rel="stylesheet" />
     <link href="/css/rent-vs-buy.css" rel="stylesheet" />
 </head>
@@ -182,6 +183,12 @@
                     </div>
                 </div>
 
+                <!-- CHART SECTION -->
+                <div class="rvb-chart-container">
+                    <h3 class="rvb-chart-title">Net Cost Over Time</h3>
+                    <canvas id="costChart"></canvas>
+                </div>
+
                 <!-- BREAKDOWN TABLE -->
                 <div class="rvb-breakdown-table">
                     <h3 class="rvb-breakdown-table__title">Detailed Breakdown</h3>
@@ -226,7 +233,8 @@
 
     <footer class="rvb-footer">
         <div class="ip-container">
-            <p>&copy; 2024 Iberian Pacific Financial Services. Canadian Market Real Estate Illustrator.</p>
+            <p>&copy; 2026 Iberian Pacific Financial Services. Canadian Market Renting vs Buying Real Estate
+                Illustrator.</p>
         </div>
     </footer>
 
