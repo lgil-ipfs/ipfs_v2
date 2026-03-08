@@ -287,11 +287,11 @@
   --hair: rgba(255, 255, 255, .14);
   --wrap: 1200px;
   --r: 18px;
-  background: linear-gradient(180deg, #6B2737 0%, #2D2D2D 100%);
-  color: #fff;
+  background: #FFFFFF;
+  color: #2D2D2D;
   font-family: var(--font-body), system-ui;
   padding: 72px 0;
-  border-top: 1px solid var(--hair);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .ip-team .wrap {
@@ -423,27 +423,11 @@
   font-size: 14px;
 }
 
-.ip-team .btn-primary {
-  background: var(--gold);
-  color: var(--deep);
-  border: 1px solid #DCAE47;
-  box-shadow: 0 10px 24px rgba(212, 175, 55, .34);
-}
-
 .ip-team .btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 14px 28px rgba(212, 175, 55, .42)
+  transform: translateY(-2px);
 }
 
-.ip-team .btn-secondary {
-  background: transparent;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, .8);
-}
-
-.ip-team .btn-secondary:hover {
-  background: rgba(255, 255, 255, .10)
-}
+/* Secondary button inherits from global style.css for light theme consistency */
 
 /* Make buttons full-width on mobile for tap targets */
 @media (max-width:640px) {
@@ -1223,7 +1207,8 @@ h4 {
 .circleflow-original,
 .timeline,
 .values,
-.approach {
+.approach,
+.ip-team {
   background: #FFFFFF !important;
 }
 
