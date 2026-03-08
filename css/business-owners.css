@@ -171,6 +171,19 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.concern-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(107, 39, 55, 0.05);
+    color: var(--maroon);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 24px;
+}
+
 .concern-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 30px 60px rgba(107, 39, 55, 0.08);
@@ -314,14 +327,47 @@
 }
 
 .solution-card {
-    background: #F9F9F9;
+    background: #FFF;
     border-radius: 20px;
-    padding: 50px 40px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.06);
     position: relative;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    transition: all 0.4s var(--ease);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
+}
+
+.solution-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+}
+
+.solution-card-img-wrap {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+.solution-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease);
+}
+
+.solution-card:hover .solution-card-img {
+    transform: scale(1.08);
+}
+
+.solution-card .service-card-body {
+    padding: 40px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
 }
 
 .card-bg-num {
@@ -450,4 +496,93 @@
 .ip-hero .sub {
     font-size: 20px;
     max-width: 800px;
+}
+
+/* 5. IPFS DIFFERENCE SECTION */
+.ipfs-difference {
+    padding: 120px 0;
+    background: #FDFBF7;
+}
+
+.diff-container {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    background: #FFF;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.diff-image {
+    flex: 1;
+    height: 600px;
+}
+
+.diff-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.diff-content {
+    flex: 1;
+    padding: 60px 80px 60px 0;
+}
+
+.diff-content h2 {
+    font-size: 42px;
+    margin: 15px 0 25px;
+    line-height: 1.1;
+    color: var(--charcoal);
+}
+
+.diff-content p {
+    font-size: 19px;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.diff-stats {
+    display: flex;
+    gap: 40px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    padding-top: 40px;
+}
+
+.stat-item {
+    flex: 1;
+}
+
+.stat-num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--maroon);
+    margin-bottom: 8px;
+}
+
+.stat-item p {
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.5;
+}
+
+@media (max-width: 1100px) {
+    .diff-container {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .diff-image {
+        width: 100%;
+        height: 400px;
+    }
+
+    .diff-content {
+        padding: 50px 40px;
+    }
 }
