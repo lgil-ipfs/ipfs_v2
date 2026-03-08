@@ -159,32 +159,7 @@
     justify-content: center;
 }
 
-/* 3. CAL.COM INTEGRATION */
-.contact-booking {
-    padding: 100px 0;
-    background: #FFF;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.booking-header {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 60px;
-}
-
-.booking-header h2 {
-    font-size: 42px;
-    margin-bottom: 20px;
-}
-
-.cal-inline {
-    width: 100%;
-    min-height: 800px;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-/* 4. RESPONSIVE */
+/* 3. RESPONSIVE */
 @media (max-width: 1100px) {
     .contact-grid {
         grid-template-columns: 1fr;

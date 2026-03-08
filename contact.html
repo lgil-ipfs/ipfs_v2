@@ -190,52 +190,68 @@
         </div>
     </section>
 
-    <!-- 3. BOOKING SECTION -->
-    <section class="contact-booking" id="book">
+    <!-- 3. CTA & BOOKING -->
+    <section aria-labelledby="cta-title" class="ip-cta v4" id="book">
         <div class="wrap">
-            <div class="booking-header" data-ip-animate="">
-                <span class="kicker">Direct Access</span>
-                <h2>Book a 20-minute Diagnostic Call</h2>
-                <p>Skip the back-and-forth. Pick a time that works for you and we'll dive straight into your strategy.
-                </p>
-            </div>
-            <div class="cal-inline" id="cal-frame-container">
-                <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline"></div>
-                <script type="text/javascript">
-                    (function (C, A, L) {
-                        let p = function (a, ar) { a.q.push(ar); };
-                        let d = C.document;
-                        C.Cal = C.Cal || function () {
-                            let cal = C.Cal;
-                            let ar = arguments;
-                            if (!cal.loaded) {
-                                cal.q = cal.q || [];
-                                cal.loaded = true;
-                                let s = d.createElement("script");
-                                s.src = "https://app.cal.com/embed/embed.js";
-                                d.head.appendChild(s);
-                            }
-                            if (ar[0] === L) {
-                                let api = function () { p(api, arguments); };
-                                const cand = ar[1];
-                                api.q = api.q || [];
-                                typeof cand === "function" ? cand(api) : p(api, ar);
-                                return api;
-                            }
-                            p(cal, ar);
-                        };
-                    })(window, "https://app.cal.com/embed/embed.js", "init");
+            <span class="kicker" data-ip-animate="">Direct Access</span>
+            <h2 id="cta-title" data-ip-animate="">Is your future architected for freedom?</h2>
+            <div class="card" data-ip-animate="">
+                <h3>Skip the back-and-forth.</h3>
+                <p>Book a complimentary 20-minute Diagnostic Call. We'll identify the gaps and outline what a
+                    coordinated
+                    strategy looks like for your situation. No sales pitch, just strategy.</p>
 
-                    Cal("init", { origin: "https://app.cal.com" });
+                <div class="actions">
+                    <a class="btn btn-primary" href="https://cal.com/iberian-pacific" target="_blank">Book Your
+                        Diagnostic</a>
+                </div>
 
-                    Cal("inline", {
-                        elementOrSelector: "#my-cal-inline",
-                        calLink: "iberian-pacific",
-                        layout: "month_view"
-                    });
+                <div class="chips">
+                    <span class="chip">Strategic Audit</span>
+                    <span class="chip">Independent</span>
+                    <span class="chip">No Obligation</span>
+                </div>
 
-                    Cal("ui", { "styles": { "branding": { "brandColor": "#6B2737" } }, "hideEventTypeDetails": false, "layout": "month_view" });
-                </script>
+                <div class="cal-wrap" id="ip-booking">
+                    <h4 class="cal-title">Book Your Diagnostic</h4>
+                    <!-- Cal.com embed -->
+                    <div class="cal-frame" id="my-cal-inline-contact-booking"></div>
+                    <script type="text/javascript">
+                        (function (C, A, L) {
+                            let p = function (a, ar) { a.q.push(ar); };
+                            let d = C.document;
+                            C.Cal = C.Cal || function () {
+                                let cal = C.Cal;
+                                let ar = arguments;
+                                if (!cal.loaded) {
+                                    cal.q = cal.q || [];
+                                    cal.loaded = true;
+                                    let s = d.createElement("script");
+                                    s.src = "https://app.cal.com/embed/embed.js";
+                                    d.head.appendChild(s);
+                                }
+                                if (ar[0] === L) {
+                                    let api = function () { p(api, arguments); };
+                                    const cand = ar[1];
+                                    api.q = api.q || [];
+                                    typeof cand === "function" ? cand(api) : p(api, ar);
+                                    return api;
+                                }
+                                p(cal, ar);
+                            };
+                        })(window, "https://app.cal.com/embed/embed.js", "init");
+
+                        Cal("init", { origin: "https://app.cal.com" });
+
+                        Cal("inline", {
+                            elementOrSelector: "#my-cal-inline-contact-booking",
+                            calLink: "iberian-pacific",
+                            layout: "month_view"
+                        });
+
+                        Cal("ui", { "styles": { "branding": { "brandColor": "#6B2737" } }, "hideEventTypeDetails": false, "layout": "month_view" });
+                    </script>
+                </div>
             </div>
         </div>
     </section>
