@@ -208,12 +208,63 @@
                                     required>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="review-history">Brief Health History & Previous Declines (if any)</label>
-                            <textarea id="review-history" name="history" rows="6"
-                                placeholder="Please list any conditions, dates, and what you've been told by other insurers..."
-                                required></textarea>
+
+                        <div class="form-row secondary-details">
+                            <div class="form-group">
+                                <label for="review-dob">Date of Birth</label>
+                                <input type="date" id="review-dob" name="dob" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="review-sex">Biological Sex</label>
+                                <select id="review-sex" name="sex" required>
+                                    <option value="" disabled selected>Select...</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="review-smoking">Smoking Status</label>
+                                <select id="review-smoking" name="smoking" required>
+                                    <option value="" disabled selected>Select...</option>
+                                    <option value="non-smoker">Non-Smoker</option>
+                                    <option value="smoker">Smoker</option>
+                                    <option value="previous-smoker">Former Smoker</option>
+                                </select>
+                            </div>
                         </div>
+
+                        <div class="form-group">
+                            <label>Common Conditions & Factors (Check all that apply)</label>
+                            <div class="checklist-grid">
+                                <label class="check-item"><input type="checkbox" name="conditions"
+                                        value="heart-condition"> Heart Condition / Cardiac Event</label>
+                                <label class="check-item"><input type="checkbox" name="conditions" value="cancer">
+                                    Cancer History (Last 10 Years)</label>
+                                <label class="check-item"><input type="checkbox" name="conditions" value="diabetes">
+                                    Diabetes (Type 1 or 2)</label>
+                                <label class="check-item"><input type="checkbox" name="conditions" value="stroke">
+                                    Stroke or TIA</label>
+                                <label class="check-item"><input type="checkbox" name="conditions"
+                                        value="mental-health"> Mental Health (Severe/Hospitalized)</label>
+                                <label class="check-item"><input type="checkbox" name="conditions" value="hypertension">
+                                    Hypertension (Uncontrolled)</label>
+                                <label class="check-item"><input type="checkbox" name="conditions" value="respiratory">
+                                    Respiratory (COPD/Sleep Apnea)</label>
+                                <label class="check-item"><input type="checkbox" name="conditions" value="neurological">
+                                    Neurological (MS/Epilepsy)</label>
+                                <label class="check-item"><input type="checkbox" name="conditions" value="decline">
+                                    Previous Insurance Decline</label>
+                                <label class="check-item"><input type="checkbox" name="conditions" value="lifestyle">
+                                    High-Risk Hobby / Private Pilot</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="review-history">Further Details (optional)</label>
+                            <textarea id="review-history" name="history" rows="4"
+                                placeholder="Please provide more details on the items checked above or any other history we should know..."></textarea>
+                        </div>
+
                         <button type="submit" class="btn btn-primary" id="review-submit-btn">
                             <span class="btn-spinner"></span>
                             <span class="btn-label">Request Review</span>
