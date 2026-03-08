@@ -13,16 +13,73 @@
     <link
         href="https://cdn.prod.website-files.com/68ed2588f300fc2737bceebf/691e02b24f21bb5821d5f887_IPFS-Logo-c%20(1).png"
         rel="apple-touch-icon" />
-    <!-- Shared site CSS -->
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/contact.css" rel="stylesheet" />
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link
         href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap"
         rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+    <style>
+        /* ── Form state styles ── */
+        .form-success,
+        .form-error {
+            display: none;
+            padding: 1rem 1.4rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.5;
+        }
+
+        .form-success {
+            background: #f0faf4;
+            border: 1px solid #a3d9b1;
+            color: #1e5c34;
+        }
+
+        .form-error {
+            background: #fdf3f3;
+            border: 1px solid #e8a9a9;
+            color: #7a1414;
+        }
+
+        .form-success.visible,
+        .form-error.visible {
+            display: block;
+        }
+
+        /* Button loading state */
+        .btn-primary[disabled] {
+            opacity: 0.65;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .btn-primary .btn-spinner {
+            display: none;
+            width: 14px;
+            height: 14px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+        }
+
+        .btn-primary.loading .btn-spinner {
+            display: inline-block;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -42,8 +99,8 @@
         <div class="wrap">
             <span class="kicker">Get in Touch</span>
             <h1>Let's start the conversation.</h1>
-            <p>Whether you’re ready to optimize your corporate structure or just have a question about your portfolio,
-                we’re here to help.</p>
+            <p>Whether you're ready to optimize your corporate structure or just have a question about your portfolio,
+                we're here to help.</p>
         </div>
     </section>
 
@@ -58,7 +115,7 @@
                         <div class="icon"><i class="fa-solid fa-phone"></i></div>
                         <div>
                             <h3>Call Us</h3>
-                            <a href="tel:+16045550199">(604) 555-0199</a>
+                            <a href="tel:+16049168819">(604) 916-8819</a>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -72,17 +129,16 @@
                         <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
                         <div>
                             <h3>Location</h3>
-                            <p>Vancouver, BC<br>Canada</p>
+                            <p>1090 West Georgia, Suite 1160<br>Vancouver, BC V6E 3V7</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="icon"><i class="fa-solid fa-hashtag"></i></div>
                         <div>
-                            <h3>Folow Us</h3>
+                            <h3>Follow Us</h3>
                             <div class="social-links">
                                 <a href="https://www.linkedin.com/company/iberian-pacific/" class="social-btn"
                                     target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-                                <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -90,7 +146,16 @@
 
                 <!-- Right: Form -->
                 <div class="contact-form-card" data-ip-animate="">
-                    <form id="contact-form" action="https://formspree.io/f/mojkvzry" method="POST">
+
+                    <div class="form-success" id="form-success">
+                        <strong>Message received.</strong> We'll be in touch within one business day.
+                    </div>
+                    <div class="form-error" id="form-error">
+                        Something went wrong. Please try again or email us directly at <a
+                            href="mailto:info@iberianpacific.ca">info@iberianpacific.ca</a>.
+                    </div>
+
+                    <form id="contact-form" action="https://formspree.io/f/mojkvzry" method="POST" novalidate>
                         <div class="form-group">
                             <label for="name">Full Name</label>
                             <input type="text" id="name" name="name" placeholder="E.g. John Doe" required>
@@ -114,7 +179,10 @@
                             <textarea id="message" name="message" rows="5"
                                 placeholder="Tell us a bit about your situation..." required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <button type="submit" class="btn btn-primary" id="submit-btn">
+                            <span class="btn-spinner"></span>
+                            <span class="btn-label">Send Message</span>
+                        </button>
                     </form>
                 </div>
 
@@ -131,7 +199,6 @@
                 <p>Skip the back-and-forth. Pick a time that works for you and we'll dive straight into your strategy.
                 </p>
             </div>
-            <!-- Cal.com embed -->
             <div class="cal-inline" id="cal-frame-container">
                 <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline"></div>
                 <script type="text/javascript">
@@ -181,8 +248,53 @@
             .then(html => document.getElementById('footer-mount').innerHTML = html);
     </script>
 
-    <!-- Scripts -->
     <script src="js/script.js"></script>
+
+    <script>
+        const form = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const successMsg = document.getElementById('form-success');
+        const errorMsg = document.getElementById('form-error');
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            // Reset messages
+            successMsg.classList.remove('visible');
+            errorMsg.classList.remove('visible');
+
+            // Loading state
+            submitBtn.disabled = true;
+            submitBtn.classList.add('loading');
+            submitBtn.querySelector('.btn-label').textContent = 'Sending...';
+
+            const data = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    successMsg.classList.add('visible');
+                    form.reset();
+                    // Scroll success message into view
+                    successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                } else {
+                    errorMsg.classList.add('visible');
+                }
+            } catch (err) {
+                errorMsg.classList.add('visible');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('loading');
+                submitBtn.querySelector('.btn-label').textContent = 'Send Message';
+            }
+        });
+    </script>
+
 </body>
 
 </html>
