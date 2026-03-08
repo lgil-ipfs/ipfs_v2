@@ -776,115 +776,84 @@
         let totalPmt = data.totalDebtPayment + swpInc;
 
         diag.innerHTML = `
-          <div class="exact-flow">
-            <!-- LEFT COL: REAL ESTATE -->
-            <div class="ef-col ef-real-estate">
-                <h4>Real Estate</h4>
-                <div class="ef-dashed-box" style="height: 120px;">
-                    <div class="ef-dash-line">${fmt(fd.houseValue)}</div>
-                    <div class="ef-dash-line" style="margin-top:20px;">${fmt(fd.m1Limit)}</div>
-                    <div class="ef-dash-line" style="margin-top:20px;">${fmt(rr_disp)}</div>
-                    <div class="ef-label-side">75%</div>
+          <div class="ef-modern-grid">
+            
+            <!-- COLUMN 1: Real Estate & Bank -->
+            <div class="ef-modern-col">
+                <div class="ef-modern-card" style="border-top: 5px solid var(--charcoal);">
+                    <h4 class="ef-card-title">Real Estate</h4>
+                    <div class="ef-re-stats">
+                        <span class="ef-re-label">Appraised Value:</span> <span class="ef-re-val">${fmt(fd.houseValue)}</span>
+                    </div>
+                    <div class="ef-re-bar-container">
+                        <div class="ef-re-bar room" style="height:${Math.max(5, (rr_disp / fd.houseValue) * 100)}%;">
+                            <strong>Available Limit</strong><br>${fmt(rr_disp)}
+                        </div>
+                        <div class="ef-re-bar good" style="height:${Math.max(5, (gd_disp / fd.houseValue) * 100)}%;">
+                            <strong>Good Debt</strong><br>${fmt(gd_disp)}
+                        </div>
+                        <div class="ef-re-bar bad" style="height:${Math.max(5, (bd_disp / fd.houseValue) * 100)}%;">
+                            <strong>Bad Debt</strong><br>${fmt(bd_disp)}
+                        </div>
+                    </div>
                 </div>
-                ${bd_disp > 0 ? `
-                <div class="ef-good-debt">
-                    Good Debt:<br>${fmt(gd_disp)}
-                </div>
-                <div class="ef-bad-debt">
-                    Bad Debt:<br>${fmt(bd_disp)}
-                </div>` : `
-                <div class="ef-good-debt" style="padding: 60px 0; border-radius: 0 0 10px 10px;">
-                    Good Debt:<br>${fmt(gd_disp)}
-                </div>`}
-                <div class="ef-bank-account-label">Bank Account</div>
-            </div>
 
-            <!-- RIGHT COL: INVESTMENT -->
-            <div class="ef-col ef-investment">
-                <h4>Investment</h4>
-                <div class="ef-dashed-box" style="height: 220px;"></div>
-                <div class="ef-investment-growth">
-                    Investment<br>${fmt(iv_disp)}
-                </div>
-            </div>
+                <div class="ef-arrow-down"><i class="fa-solid fa-arrow-down"></i></div>
 
-            <!-- CENTER & FLOATING ELEMENTS -->
-            ${!isStart ? `
-            <div class="ef-tax-refund">
-                <div style="font-size:0.8rem;">Estimated Tax Refund</div>
-                ${fmt(refund_disp)}
-            </div>` : ''}
-
-            <!-- Interest Box -->
-            <div class="ef-interest-box">
-                <div style="background:#6bcc68; width:100%; height:25px; position:absolute; top:-25px; left:0; line-height:25px; font-weight:bold; color:#fff;">
-                    ${fmt(fd.goodInterest * 12)}
-                </div>
-                ${fmt(fd.badInterest * 12)}
-            </div>
-            <div class="ef-total-interest">
-                Total Interest:<br>${fmt(totalInt * 12)}
-            </div>
-
-            <!-- Income Flow Box -->
-            <div class="ef-blue-box">
-                ${fmt(totalPmt)}
-            </div>
-            <div style="position:absolute; bottom:143px; left:50%; transform:translateX(-50%); font-weight:bold; color:#000;">
-                ${fmt(data.totalDebtPayment)}
-            </div>
-
-            <!-- Bucket Base -->
-            <div class="ef-income-bucket">
-                <div class="ef-bucket-shape">
-                    <span>Income</span>
+                <div class="ef-modern-card" style="border-top: 5px solid #888; background:#f4f4f4;">
+                    <h4 class="ef-card-title">Bank Account</h4>
+                    <div class="ef-bank-flow">
+                        <span class="ef-bank-label">Monthly Income</span>
+                        <span class="ef-bank-val">${fmt(totalPmt)}</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Dynamic Labels Floating on Canvas -->
-            <div class="ef-arrow-label ef-label-red" style="left: 270px; bottom: 155px; transform: rotate(-25deg);">
-               ${fmt(bd_disp > 0 ? (fd.principalToBadDebt * 12) : (fd.principalToGoodDebt * 12))} to Principal
+            <!-- COLUMN 2: Cash Flow Engine (The Middle Man) -->
+            <div class="ef-modern-col ef-col-center">
+                
+                <div class="ef-flow-box interest-box">
+                    <div class="interest-split">
+                        <div class="good-int">${fmt(fd.goodInterest * 12)}</div>
+                        <div class="bad-int">${fmt(fd.badInterest * 12)}</div>
+                    </div>
+                    <strong>Total Annual Interest:</strong> ${fmt(totalInt * 12)}
+                </div>
+                
+                ${!isStart ? `
+                <div class="ef-flow-box refund-box">
+                    <i class="fa-solid fa-coins"></i> <strong>Est. Tax Refund:</strong> ${fmt(refund_disp)} / yr
+                </div>
+                ` : ''}
+
+                <div class="ef-flow-box principal-box">
+                    <i class="fa-solid fa-money-bill-transfer"></i> <strong>To Debt Principal:</strong><br>
+                    ${fmt(bd_disp > 0 ? (fd.principalToBadDebt * 12) : (fd.principalToGoodDebt * 12))} / yr
+                </div>
+
+                <div class="ef-flow-box invest-box">
+                    <i class="fa-solid fa-chart-line"></i> <strong>To Investments:</strong><br>
+                    ${fmt(monthlyInv * 12)} / yr
+                </div>
+
             </div>
 
-            <div class="ef-arrow-label ef-label-yellow" style="left: 450px; bottom: 225px; transform: rotate(-65deg); font-size: 0.95rem;">
-               ${fmt(totalInt * 12)}
+            <!-- COLUMN 3: Investment Account -->
+            <div class="ef-modern-col">
+                <div class="ef-modern-card" style="border-top: 5px solid #6bcc68; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+                    <h4 class="ef-card-title">Investment Account</h4>
+                    <div class="ef-invest-val">
+                        ${fmt(iv_disp)}
+                    </div>
+                    
+                    ${!isStart ? `
+                    <div class="ef-invest-swp">
+                        <i class="fa-solid fa-reply"></i> <strong>Income (SWP):</strong> ${fmt(swpInc)} / mo
+                        <div style="font-size:0.75rem; color:#666; margin-top:5px;">Feeds back to bank account</div>
+                    </div>
+                    ` : ''}
+                </div>
             </div>
-
-            <div class="ef-arrow-label ef-label-yellow" style="left: 480px; top: 180px;">
-               ${fmt(monthlyInv * 12)} to Investment Account
-            </div>
-
-            <div style="position:absolute; right: 260px; bottom: 180px; font-weight:bold; color:#000; font-size: 0.9rem;">
-               ${fmt(swpInc)}
-            </div>
-
-            <!-- SVG Background Arrows -->
-            <svg class="ef-arrow-svg" viewBox="0 0 900 600" preserveAspectRatio="none">
-               <defs>
-                   <marker id="arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                       <path d="M 0 0 L 10 5 L 0 10 z" fill="#6bcc68" />
-                   </marker>
-                   <marker id="arrow-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                       <path d="M 0 0 L 10 5 L 0 10 z" fill="#ff5e5e" />
-                   </marker>
-                   <marker id="arrow-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                       <path d="M 0 0 L 10 5 L 0 10 z" fill="#757575" />
-                   </marker>
-               </defs>
-
-               <line x1="450" y1="500" x2="450" y2="445" stroke="#757575" stroke-width="5" marker-end="url(#arrow-gray)" />
-
-               <line x1="400" y1="420" x2="250" y2="480" stroke="#ff5e5e" stroke-width="5" marker-end="url(#arrow-red)" />
-
-               <line x1="480" y1="420" x2="520" y2="280" stroke="#757575" stroke-width="5" marker-end="url(#arrow-gray)" />
-               <line x1="480" y1="420" x2="520" y2="280" stroke="#757575" stroke-width="5" marker-start="url(#arrow-gray)" />
-
-               <line x1="250" y1="360" x2="420" y2="280" stroke="#6bcc68" stroke-width="5" marker-end="url(#arrow-green)" />
-               
-               <line x1="580" y1="190" x2="680" y2="400" stroke="#6bcc68" stroke-width="5" marker-end="url(#arrow-green)" />
-
-               <line x1="680" y1="480" x2="510" y2="425" stroke="#6bcc68" stroke-width="5" marker-end="url(#arrow-green)" />
-            </svg>
 
           </div>
         `;
@@ -896,6 +865,48 @@
 
     function runAndRender() {
         const inp = gatherInputs();
+        const errorBox = $("mfpErrorBox");
+        let errors = [];
+
+        // 1. Check 40% Equity
+        const totalConsolidated = inp.mortgageOutstanding + inp.consumerDebts;
+        const equity = (inp.houseValue - totalConsolidated) / inp.houseValue;
+        if (equity < 0.40) {
+            errors.push("You must have at least 40% equity in your home for this strategy to be viable. Your current equity is " + (equity * 100).toFixed(1) + "%.");
+        }
+
+        // 2. Check traditional payoff takes > 25 years
+        const cmRate = inp.mortgageRate / 12;
+        const totalDebtPayment = inp.mortgagePayment + inp.debtPayment;
+        let cmBalanceExact = totalConsolidated;
+        let cmMonthsExact = 0;
+
+        if (totalDebtPayment <= cmBalanceExact * cmRate) {
+            cmMonthsExact = 9999;
+        } else {
+            // Predict out to max 60 years
+            while (cmBalanceExact > 0 && cmMonthsExact < 720) {
+                const interest = cmBalanceExact * cmRate;
+                const principal = totalDebtPayment - interest;
+                cmBalanceExact = Math.max(0, cmBalanceExact - principal);
+                cmMonthsExact++;
+            }
+        }
+
+        const cmYearsExact = cmMonthsExact / 12;
+        if (cmYearsExact > 25) {
+            errors.push("With your current payment amounts, it will take an estimated " + (cmYearsExact > 50 ? "50+" : Math.ceil(cmYearsExact)) + " years to pay off your debt. Since this exceeds our 25-year modeling period, the Mortgage Freedom Program cannot be illustrated properly. Please consider increasing your ongoing debt payments before applying this strategy.");
+        }
+
+        if (errors.length > 0) {
+            errorBox.innerHTML = errors.join("<br><br>");
+            errorBox.style.display = "block";
+            $("results").classList.remove("visible");
+            return;
+        } else {
+            errorBox.style.display = "none";
+        }
+
         const data = runCalculations(inp);
 
         // Show results
@@ -906,8 +917,6 @@
         renderBalancesChart(data);
         renderCashflowChart(data);
         renderTaxRefundsChart(data);
-        renderDeductibleChart(data);
-        renderBreakevenChart(data);
         initFlowSlider(data);
 
         // Scroll to results

@@ -197,6 +197,10 @@
 
                 </div>
 
+                <div id="mfpErrorBox"
+                    style="display:none; text-align:center; color:#c0392b; background:#fdf2f2; border:1px solid #c0392b; padding:15px; border-radius:8px; margin-bottom: 30px; margin-top: 10px; font-weight:600;">
+                </div>
+
                 <div class="btn-calculate-wrap">
                     <button type="button" class="btn btn-primary btn-xl" id="btnCalculate">See how fast I can pay off my
                         mortgage <i class="fa-solid fa-arrow-right" style="margin-left:8px;"></i></button>
@@ -294,68 +298,42 @@
                     <p class="disclaimer-small">The amount of tax refunds will differ depending on your tax situation
                         each year. Amounts shown are estimates only.</p>
                 </div>
-
-                <!-- CHART: DEDUCTIBLE INTEREST -->
-                <div class="chart-section" style="margin-bottom:0;">
-                    <h3>Deductible Interest Growth</h3>
-                    <p class="sub">Annual tax-deductible interest on investment loan vs. estimated tax savings</p>
-                    <div class="chart-container" style="height:350px;">
-                        <canvas id="chartDeductible"></canvas>
-                    </div>
-                </div>
-
-                <!-- CHART: BREAKEVEN -->
-                <div class="chart-section" style="margin-bottom:0;">
-                    <h3>Net Debt Position: MFP vs. Traditional Mortgage</h3>
-                    <p class="sub">When your investment portfolio exceeds remaining debt, net position turns positive
-                    </p>
-                    <div class="chart-container" style="height:350px;">
-                        <canvas id="chartBreakeven"></canvas>
-                    </div>
-                </div>
             </div>
 
-        </div>
         </div>
     </section>
 
     <!-- FAQ SECTION -->
     <div class="wrap">
-        <div class="rvb-faq-section" style="max-width: 860px; margin: 4rem auto;">
-            <h3 class="rvb-faq-title"
-                style="text-align:center; font-family: var(--font-display); font-size: 2rem; color: var(--maroon); margin-bottom: 2rem;">
-                Frequently Asked Questions</h3>
-            <div class="rvb-faq-container" style="display: flex; flex-direction: column; gap: 1rem;">
-                <details class="rvb-faq-item">
-                    <summary style="font-weight:700; cursor:pointer;" class="rvb-faq-summary">Isn't borrowing to invest
-                        risky?</summary>
-                    <p style="padding-top:10px;">Yes, leveraged investing amplifies both gains and losses. If the
+        <div class="mfp-faq-section">
+            <h3 class="mfp-faq-title">Frequently Asked Questions</h3>
+            <div class="mfp-faq-container">
+                <details class="mfp-faq-item">
+                    <summary>Isn't borrowing to invest risky?</summary>
+                    <p>Yes, leveraged investing amplifies both gains and losses. If the
                         investment portfolio declines in value, you still owe the borrowed amount. The Mortgage Freedom
                         Program mitigates risk by focusing on long-term time horizons (10-25 years), ensuring positive
                         cash flow, and typically utilizing conservative, well-diversified portfolios rather than
                         speculative assets.</p>
                 </details>
-                <details class="rvb-faq-item">
-                    <summary style="font-weight:700; cursor:pointer;" class="rvb-faq-summary">What if interest rates
-                        rise significantly?</summary>
-                    <p style="padding-top:10px;">The program is designed with buffer room in the client's cash flow. If
+                <details class="mfp-faq-item">
+                    <summary>What if interest rates rise significantly?</summary>
+                    <p>The program is designed with buffer room in the client's cash flow. If
                         borrowing rates rise, the tax-deductibility of the interest lessens the blow (e.g., a 6%
                         borrowing rate is effectively 3.6% after tax at a 40% margin). Regardless, stress-testing
                         interest rates is a mandatory part of the setup process.</p>
                 </details>
-                <details class="rvb-faq-item">
-                    <summary style="font-weight:700; cursor:pointer;" class="rvb-faq-summary">Are the tax refunds
-                        guaranteed?</summary>
-                    <p style="padding-top:10px;">The Canada Revenue Agency (CRA) allows you to deduct interest paid on
+                <details class="mfp-faq-item">
+                    <summary>Are the tax refunds guaranteed?</summary>
+                    <p>The Canada Revenue Agency (CRA) allows you to deduct interest paid on
                         money borrowed to earn investment income. As long as the loan structure is maintained strictly
                         separate from personal debt, and the funds are invested in income-producing assets, the interest
                         remains deductible. However, individual tax rates and situations change, so the exact refund
                         amount will vary.</p>
                 </details>
-                <details class="rvb-faq-item">
-                    <summary style="font-weight:700; cursor:pointer;" class="rvb-faq-summary">Do I need to change my
-                        spending habits?</summary>
-                    <p style="padding-top:10px;">No. One of the core principles of the Mortgage Freedom Program is that
+                <details class="mfp-faq-item">
+                    <summary>Do I need to change my spending habits?</summary>
+                    <p>No. One of the core principles of the Mortgage Freedom Program is that
                         it redirects your existing cash flow (regular income) through your readvanceable mortgage to
                         accelerate principal paydown. You do not need to cut back on your lifestyle to make the strategy
                         work, although saving more always speeds up the timeline.</p>
@@ -364,23 +342,7 @@
         </div>
     </div>
 
-    <!-- FOOTER DISCLAIMER -->
-    <div class="wrap">
-        <div class="mfp-footer-disclaimer">
-            <strong>Iberian Pacific Financial Services</strong> — 1090 West Georgia Street, Suite 1160, Vancouver,
-            BC<br><br>
-            This illustration is for educational purposes only. Investment values are not guaranteed and may fluctuate
-            with market conditions. Past performance is not indicative of future results. Leveraged investing involves
-            additional risk including the possibility that investment returns may not exceed borrowing costs, investment
-            losses may occur while loan obligations remain, and rising interest rates may increase borrowing costs.
-            Clients must continue servicing debt regardless of market performance. Interest deductibility depends on
-            proper loan structuring and use of borrowed funds for income-producing investments. Tax treatment is subject
-            to current CRA interpretation and may change. Consult a qualified professional.
-            <br><br>
-            &copy; 2026 Iberian Pacific Financial Services. All rights reserved.
-        </div>
-    </div>
-
+    <!-- FOOTER DISCLAIMER REMOVED -->
     <div style="height: 60px;"></div>
 
     <!-- STANDARD MOUNT FOOTER -->
