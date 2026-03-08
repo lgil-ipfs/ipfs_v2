@@ -364,6 +364,39 @@
     text-align: center;
 }
 
+.rvb-contextual-tip {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    background: #fffbec;
+    border: 1.5px solid var(--gold);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.4rem;
+    font-size: 0.95rem;
+    color: #5a4000;
+    line-height: 1.6;
+    animation: fadeIn 0.4s ease;
+}
+
+.rvb-contextual-tip__icon {
+    color: var(--gold);
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    padding-top: 0.1rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* RESULTS HEADER */
 .rvb-results-header {
     display: flex;

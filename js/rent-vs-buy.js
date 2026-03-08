@@ -171,6 +171,10 @@ document.addEventListener('DOMContentLoaded', () => {
         elLabelMortgagePmt.textContent = fmt(monthlyPayment);
         elLabelRentIncrease.textContent = num('rentIncrease') + '%';
 
+        // Show contextual tip when net buy cost is negative
+        const callout = document.getElementById('buy-negative-callout');
+        callout.style.display = netCostBuy < 0 ? 'flex' : 'none';
+
         elBuyCashOut.textContent = fmt(totalCashPaidBuy);
         elRentCashOut.textContent = fmt(totalRentPaid);
         elBuyEntryCosts.textContent = fmt(closingEntryCosts);
