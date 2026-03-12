@@ -426,6 +426,25 @@
     margin-top: 2px;
 }
 
+.compliance-disclaimer {
+    margin-top: 24px;
+    font-size: 11px;
+    color: #888;
+    line-height: 1.5;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    padding-top: 16px;
+}
+
+.us-citizen-alert {
+    background: #ffecb3;
+    color: #856404;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-top: 10px;
+    border: 1px solid #ffeeba;
+}
+
 @media (max-width: 600px) {
     .inv-results {
         padding: 24px 16px;

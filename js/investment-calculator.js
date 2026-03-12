@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // UI Elements
     const elIncome = document.getElementById('income');
     const elProvince = document.getElementById('province');
+    const elUSCitizen = document.getElementById('us-citizen');
     const elInitDep = document.getElementById('initial-dep');
     const elMonthDep = document.getElementById('monthly-dep');
     const elYears = document.getElementById('years');
@@ -55,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function calculateProjections() {
         const inc = parseFloat(elIncome.value) || 0;
         const prov = elProvince.value;
+        const isUSCitizen = elUSCitizen ? elUSCitizen.checked : false;
         const init = parseFloat(elInitDep.value) || 0;
         const monthly = parseFloat(elMonthDep.value) || 0;
         const years = parseInt(elYears.value, 10) || 1;
@@ -76,46 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const deferredRate = totalGrowthRate * (1 - yieldPercent);
 
         let results = [];
-
-        // 2. TFSA (Tax-Free)
-        // FV = P(1+r)^t + C[ ((1+r)^t - 1) / r ]
-        let tfsaVal = calcFV(init, annualContrib, totalGrowthRate, years);
-        results.push({
-            id: 'tfsa',
-            name: 'TFSA',
-            refund: 0,
-            gross: tfsaVal,
-            taxOnSale: 0,
-            net: tfsaVal
-        });
-
-        // 3. FHSA (Tax-Free Growth + Tax-Deductible Contributions)
-        // Assume qualified home purchase -> fully tax free withdrawal
-        let fhsaVal = calcFV(init, annualContrib, totalGrowthRate, years);
-        let fhsaRefund = totalContrib * mtr; // Note: simplified, assumes entirely deducted at current MTR
-        results.push({
-            id: 'fhsa',
-            name: 'FHSA',
-            refund: fhsaRefund,
-            gross: fhsaVal,
-            taxOnSale: 0,
-            net: fhsaVal
-        });
-
-        // 4. RRSP (Tax-Deferred Growth + Deductible + Taxed on Withdrawal)
-        let rrspVal = calcFV(init, annualContrib, totalGrowthRate, years);
-        let rrspRefund = totalContrib * mtr;
-        // Taxed at full marginal rate on withdrawal
-        let rrspTax = rrspVal * mtr;
-        let rrspNet = rrspVal - rrspTax;
-        results.push({
-            id: 'rrsp',
-            name: 'RRSP',
-            refund: rrspRefund,
-            gross: rrspVal,
-            taxOnSale: rrspTax,
-            net: rrspNet
-        });
 
         // 5. Non-Registered Space (Tax Drag Annually + Cap Gains at End)
         // Each year, yield is taxed at MTR.
@@ -141,6 +103,60 @@ document.addEventListener('DOMContentLoaded', () => {
         let nrTaxOnSale = capGains * 0.5 * mtr;
         let nrNet = nonRegVal - nrTaxOnSale;
 
+        // TFSA and FHSA logic adjusted for US Citizens
+        // For US Citizens, TFSA and FHSA are essentially treated as Non-Registered accounts from a US tax perspective.
+        // We will simulate this by replacing their net values with the Non-Registered net value, 
+        // minus the Canadian tax benefits they would have received. To keep it simple and illustrative:
+        // We wipe the tax-free status on growth and apply the equivalent nrTaxOnSale/tax drag.
+
+        let tfsaNetFinal = tfsaVal;
+        let fhsaNetFinal = fhsaVal;
+        let tfsaTaxOnSale = 0;
+        let fhsaTaxOnSale = 0;
+
+        let usCitizenWarning = false;
+
+        if (isUSCitizen) {
+            usCitizenWarning = true;
+            // From a U.S. standpoint, TFSA and FHSA lose their tax-free shelter status.
+            // They are subject to annual tax drag + capital gains (like the Non-Reg account).
+            tfsaNetFinal = nrNet;
+            tfsaTaxOnSale = nrTaxOnSale;
+
+            fhsaNetFinal = nrNet;
+            fhsaTaxOnSale = nrTaxOnSale;
+            // FHSA still potentially grants the Canadian deduction, but growth isn't tax free
+        }
+
+        results.push({
+            id: 'tfsa',
+            name: 'TFSA' + (isUSCitizen ? '*' : ''),
+            refund: 0,
+            gross: isUSCitizen ? nonRegVal : tfsaVal,
+            taxOnSale: tfsaTaxOnSale,
+            net: tfsaNetFinal,
+            warning: isUSCitizen
+        });
+
+        results.push({
+            id: 'fhsa',
+            name: 'FHSA' + (isUSCitizen ? '*' : ''),
+            refund: fhsaRefund,
+            gross: isUSCitizen ? nonRegVal : fhsaVal,
+            taxOnSale: fhsaTaxOnSale,
+            net: fhsaNetFinal,
+            warning: isUSCitizen
+        });
+
+        results.push({
+            id: 'rrsp',
+            name: 'RRSP',
+            refund: rrspRefund,
+            gross: rrspVal,
+            taxOnSale: rrspTax,
+            net: rrspNet
+        });
+
         results.push({
             id: 'nonreg',
             name: 'Non-Registered',
@@ -150,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
             net: nrNet
         });
 
-        renderResults(results, totalContrib);
+        renderResults(results, totalContrib, usCitizenWarning);
     }
 
     function calcFV(pv, pmt, r, n) {
@@ -159,12 +175,20 @@ document.addEventListener('DOMContentLoaded', () => {
         return pv * Math.pow(1 + r, n) + pmt * ((Math.pow(1 + r, n) - 1) / r);
     }
 
-    function renderResults(res, totalContrib) {
+    function renderResults(res, totalContrib, usCitizenWarning) {
         grid.innerHTML = '';
         chartBars.innerHTML = '';
 
         // Find max Gross for chart scaling
         let maxGross = Math.max(...res.map(r => r.gross));
+
+        if (usCitizenWarning) {
+            let warnEl = document.createElement('div');
+            warnEl.className = 'us-citizen-alert';
+            warnEl.style.gridColumn = '1 / -1';
+            warnEl.innerHTML = `<strong><i class="fa-solid fa-triangle-exclamation"></i> U.S. Person Warning:</strong> Since you marked yourself as a U.S. person, the TFSA and FHSA are treated as taxable trusts in the U.S. Because the IRS does not recognize their tax-free status, the math below models them similarly to a Non-Registered account. You must consult a cross-border CPA.`;
+            grid.appendChild(warnEl);
+        }
 
         res.forEach(r => {
             // Build Card
