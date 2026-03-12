@@ -508,6 +508,10 @@ section {
 }
 
 @media (max-width: 600px) {
+  #header-mount {
+    top: 0;
+  }
+
   .ip-header .topbar {
     display: none;
     /* Hide entire topbar on very small screens to save space */
