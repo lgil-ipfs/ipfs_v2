@@ -375,9 +375,7 @@
 }
 
 #flowDiagram {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 40px;
+    display: block;
     max-width: 1100px;
     margin: 0 auto;
 }
@@ -815,17 +813,9 @@
         grid-template-columns: 1fr 1fr;
     }
 
-    .exact-flow {
-        display: none;
-    }
+    
 
-    .flow-diagram-section::after {
-        content: "Flow illustration requires a larger screen.";
-        display: block;
-        text-align: center;
-        padding: 40px;
-        color: #888;
-    }
+    
 
     .chart-grid {
         grid-template-columns: 1fr;
@@ -846,4 +836,233 @@
     .mfp-hero h1 {
         font-size: 2rem;
     }
+}
+@media (max-width: 767px) {
+    .flow-diagram-section {
+        display: none !important;
+    }
+}
+
+
+/* SLICK FLOW DIAGRAM REDESIGN */
+.slick-flow {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    min-height: 550px;
+    font-family: 'Jost', sans-serif;
+    color: #444;
+}
+.slick-flow *, .slick-flow *::before, .slick-flow *::after {
+    box-sizing: border-box;
+}
+
+.sf-col {
+    position: absolute;
+    width: 150px;
+    text-align: center;
+}
+.sf-left { left: 40px; bottom: 40px; }
+.sf-right { right: 40px; bottom: 40px; }
+
+.sf-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #555;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.sf-bar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    position: relative;
+}
+
+.sf-dashed-top {
+    border: 2px dashed #000;
+    border-bottom: none;
+    color: #000;
+}
+.sf-dashed-mid {
+    border: 2px dashed #000;
+    border-top: 1px dashed #000;
+    border-bottom: none;
+    color: #000;
+}
+.sf-dashed-bot {
+    border-left: 2px dashed #000;
+    border-right: 2px dashed #000;
+    color: #000;
+}
+
+.sf-dashed-limit {
+    position: absolute;
+    top: -10px;
+    background: #fdfbf7;
+    padding: 0 5px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.sf-lbl-75 {
+    position: absolute;
+    left: -40px;
+    bottom: -10px;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.sf-green {
+    background: #6bcc68;
+    color: #fff;
+    border-radius: 4px 4px 0 0;
+}
+.sf-red {
+    background: #ff5e5e;
+    color: #fff;
+    border-radius: 0 0 4px 4px;
+}
+.sf-light-green {
+    background: #6bcc68;
+    color: #fff;
+    border-radius: 4px;
+}
+.sf-dashed-invest {
+    border: 2px dashed #000;
+    border-bottom: 2px dashed #000;
+}
+
+.sf-bar-title {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+.sf-bar-val {
+    font-size: 1.15rem;
+}
+
+.sf-bank-account {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    color: #444;
+}
+
+/* Center elements */
+.sf-tax-refund {
+    position: absolute;
+    left: 50%; transform: translateX(-50%);
+    background: #e6b3ff; /* exact pink/purple */
+    color: #fff;
+    padding: 6px 14px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+.sf-tax-refund b { font-size: 1.1rem; }
+
+.sf-inv-contrib {
+    position: absolute;
+    background: #ffd54f;
+    color: #333;
+    padding: 4px 12px;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.sf-interest-group {
+    position: absolute;
+    left: 50%; transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.sf-interest-box {
+    display: flex;
+    width: 140px;
+    overflow: hidden;
+    font-weight: 700;
+    color: #fff;
+    font-size: 0.9rem;
+}
+.sf-int-green { background: #6bcc68; padding: 4px 0; width: 50%; }
+.sf-int-red { background: #ff5e5e; padding: 4px 0; width: 50%; }
+.sf-interest-label {
+    font-size: 0.9rem; font-weight: 600; text-align: left;
+    color: #000;
+}
+.sf-interest-label b { font-size: 1.1rem; }
+
+.sf-blue-box {
+    position: absolute;
+    left: 50%; transform: translateX(-50%);
+    background: #4ab7f7;
+    color: #000;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 6px 20px;
+}
+.sf-blue-label {
+    position: absolute;
+    left: 50%; transform: translateX(-50%);
+    font-weight: 700; font-size: 1.05rem; color: #000;
+}
+
+.sf-income-bucket {
+    left: 50%; transform: translateX(-50%);
+}
+.sf-bucket-body {
+    background: #757575;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.4rem;
+    padding: 24px 30px 10px;
+    border-radius: 4px 4px 20px 20px;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+    width: 140px;
+}
+
+/* Arrows over the flow */
+.sf-arrows {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* Slanted Labels */
+.sf-slanted-red {
+    position: absolute;
+    background: #ff5e5e;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 4px 10px;
+    transform: rotate(-15deg);
+    z-index: 10;
+}
+.sf-slanted-yellow {
+    position: absolute;
+    background: #ffd54f;
+    color: #000;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 2px 8px;
+    transform: rotate(-65deg);
+    z-index: 10;
+}
+.sf-float-val {
+    position: absolute;
+    font-weight: 700;
+    font-size: 1.0rem;
+    color: #333;
+    z-index: 10;
 }
