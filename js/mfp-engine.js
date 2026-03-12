@@ -864,53 +864,48 @@
                 ${debtFreeMsg}
                 <!-- TAX REFUND -->
                 ${!isStart ? `
-                <div class="sf-tax-refund" style="top: 0px;">
-                    Estimated Tax Refund<br><b>${fmt(refund_disp)}</b>
+                <div class="sf-tax-refund" style="top: -20px;">
+                    Estimated Tax Refund: <b>${fmt(refund_disp)}</b>
                 </div>
                 ` : ''}
 
                 <!-- YELLOW CONTRIBUTION BOX -->
-                <div class="sf-inv-contrib" style="top: 85px; left: 580px;">
+                <div class="sf-inv-contrib" style="top: 60px; right: 40px; transform:none; left:auto;">
                     ${fmt(monthlyInv * 12)} to Investment Account
                 </div>
 
                 <!-- INTEREST GROUP -->
-                <div class="sf-interest-group" style="top: 170px;">
-                    <div class="sf-interest-box">
-                        <div class="sf-int-green" style="text-align:center;">${fmt(fd.goodInterest * 12)}</div>
-                        <div class="sf-int-red" style="text-align:center;">${fmt(fd.badInterest * 12)}</div>
+                <div class="sf-interest-group" style="top: 140px;">
+                    <div class="sf-interest-box" style="width: 180px;">
+                        <div class="sf-int-green" style="text-align:center; padding: 6px 4px;">${fmt(fd.goodInterest * 12)}</div>
+                        <div class="sf-int-red" style="text-align:center; padding: 6px 4px;">${fmt(fd.badInterest * 12)}</div>
                     </div>
                     <div class="sf-interest-label">Total Interest:<br><b>${fmt(totalInt * 12)}</b></div>
                 </div>
 
                 <!-- BLUE DEBT PAYMENT BOX -->
-                <div class="sf-blue-box" style="top: 290px;">
+                <div class="sf-blue-box" style="top: 310px;">
                     ${fmt(totalPmt)}
                 </div>
-                <div class="sf-blue-label" style="top: 335px;">
+                <div class="sf-blue-label" style="top: 355px;">
                     ${fmt(totalPmt - swpInc)}
                 </div>
 
                 <!-- INCOME SWP (from investment) green label -->
                 ${!isStart && swpInc > 0 ? `
-                <div class="sf-float-val" style="top: 300px; right: 280px; font-size: 1.1rem; color: #333;">
-                    ${fmt(swpInc)}
+                <div class="sf-float-val" style="top: 380px; right: 240px; font-size: 1.1rem; color: #2e7d32;">
+                    +${fmt(swpInc)} from SWP
                 </div>
                 ` : ''}
 
                 <!-- SLANTED RED BOX (Principal) -->
-                <div class="sf-slanted-red" style="top: 350px; left: 240px;">
+                <div class="sf-slanted-red" style="top: 410px; left: 230px; transform: rotate(-8deg);">
                     ${fmt(bd_disp > 0 ? (fd.principalToBadDebt * 12) : (fd.principalToGoodDebt * 12))} to Principal
                 </div>
 
-                <!-- SLANTED YELLOW BOX (Interest flow) -->
-                <div class="sf-slanted-yellow" style="top: 240px; left: 470px;">
-                    ${fmt(totalInt * 12)}
-                </div>
-
                 <!-- INCOME BUCKET -->
-                <div class="sf-income-bucket" style="position:absolute; bottom:20px;">
-                    <div class="sf-bucket-body" style="margin:0 auto;">Income</div>
+                <div class="sf-income-bucket" style="position:absolute; bottom:5px; left:50%; transform:translateX(-50%);">
+                    <div class="sf-bucket-body" style="margin:0 auto; padding: 15px 25px 5px;">Income</div>
                 </div>
 
                 <!-- LEFT COL: REAL ESTATE -->
@@ -944,7 +939,7 @@
 
                 <!-- RIGHT COL: INVESTMENT -->
                 <div class="sf-col sf-right" style="bottom:20px; width: 150px;">
-                    <h3 class="sf-title">Investment</h3>
+                    <h3 class="sf-title" style="margin-bottom: 25px;">Investment</h3>
                     <div style="position:relative; width:100%; height:${ht_total}px; display:flex; flex-direction:column; justify-content:flex-end;">
                         <div class="sf-bar sf-dashed-top sf-dashed-invest" style="height:${p_inv_room}px; border-bottom:0px dashed #000;">
                         </div>
@@ -955,44 +950,44 @@
                 </div>
 
                 <!-- SVG ARROWS -->
-                <svg class="sf-arrows" viewBox="0 0 900 550" preserveAspectRatio="none">
+                <svg class="sf-arrows" viewBox="0 0 900 600" preserveAspectRatio="none">
                     <defs>
-                        <marker id="mhGrey" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
-                            <path d="M0,0 L0,6 L9,3 z" fill="#888" />
+                        <marker id="mhGrey" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                            <path d="M0,0 L0,8 L8,4 z" fill="#888" />
                         </marker>
-                        <marker id="mhGreen" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
-                            <path d="M0,0 L0,6 L9,3 z" fill="#6bcc68" />
+                        <marker id="mhGreen" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                            <path d="M0,0 L0,8 L8,4 z" fill="#6bcc68" />
                         </marker>
-                        <marker id="mhRed" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
-                            <path d="M0,0 L0,6 L9,3 z" fill="#ff5e5e" />
+                        <marker id="mhRed" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                            <path d="M0,0 L0,8 L8,4 z" fill="#ff5e5e" />
                         </marker>
                     </defs>
 
                     <!-- Income bucket UP to Blue Box -->
-                    <line x1="450" y1="465" x2="450" y2="340" stroke="#888" stroke-width="6" marker-end="url(#mhGrey)" />
+                    <path d="M 450,560 Q 450,480 450,390" fill="none" stroke="#888" stroke-width="5" marker-end="url(#mhGrey)" />
 
                     <!-- From Real Estate Red Box UP to Red Interest -->
                     ${bd_disp > 0 ? `
-                    <line x1="190" y1="330" x2="380" y2="200" stroke="#ff5e5e" stroke-width="4" marker-end="url(#mhRed)" />
+                    <path d="M 190,460 C 250,420 300,340 380,180" fill="none" stroke="#ff5e5e" stroke-width="3" marker-end="url(#mhRed)" />
                     ` : ''}
 
                     <!-- From Real Estate Green Box UP to Green Interest -->
                     ${gd_disp > 0 ? `
-                    <line x1="190" y1="260" x2="380" y2="185" stroke="#6bcc68" stroke-width="4" marker-end="url(#mhGreen)" />
+                    <path d="M 190,300 C 250,280 300,220 380,165" fill="none" stroke="#6bcc68" stroke-width="3" marker-end="url(#mhGreen)" />
                     ` : ''}
 
-                    <!-- Blue Box UP-RIGHT to Interest Box area (slanted yellow label overlaps this) -->
-                    <line x1="465" y1="290" x2="520" y2="210" stroke="#888" stroke-width="4" marker-end="url(#mhGrey)" />
+                    <!-- Blue Box UP to Interest Box area (Principal to Interest) -->
+                    <path d="M 450,310 Q 450,250 450,200" fill="none" stroke="#888" stroke-width="3" marker-end="url(#mhGrey)" />
 
-                    <!-- Blue Box LEFT-DOWN to Bad Debt -->
-                    <line x1="400" y1="310" x2="200" y2="385" stroke="#888" stroke-width="5" marker-end="url(#mhGrey)" />
+                    <!-- Blue Box LEFT to Real Estate (Principal) -->
+                    <path d="M 400,340 Q 300,350 210,420" fill="none" stroke="#888" stroke-width="5" marker-end="url(#mhGrey)" />
 
-                    <!-- Total Interest (Right side of Interest block) DOWN-RIGHT to Investment (Green Arrow) -->
-                    <line x1="560" y1="200" x2="710" y2="310" stroke="#6bcc68" stroke-width="4" marker-end="url(#mhGreen)" />
+                    <!-- Total Interest DOWN-RIGHT to Investment -->
+                    <path d="M 560,170 Q 700,200 785,280" fill="none" stroke="#6bcc68" stroke-width="4" marker-end="url(#mhGreen)" />
 
-                    <!-- From Investment Box LEFT-UP to Blue Box -->
+                    <!-- From Investment Box LEFT to Blue Box (SWP) -->
                     ${!isStart && swpInc > 0 ? `
-                    <line x1="710" y1="330" x2="530" y2="305" stroke="#6bcc68" stroke-width="4" marker-end="url(#mhGreen)" />
+                    <path d="M 785,360 Q 700,420 540,360" fill="none" stroke="#6bcc68" stroke-width="4" marker-end="url(#mhGreen)" />
                     ` : ''}
                 </svg>
             </div>
