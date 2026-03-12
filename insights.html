@@ -65,47 +65,25 @@
         </div>
     </div>
 
-    <!-- 3. ARTICLE FEED -->
+
+    <!-- 3. ARTICLE FEED / EMPTY STATE -->
     <section class="insights-feed">
         <div class="wrap">
             <div class="insights-grid" id="insights-grid">
+                <!-- Articles will be populated here in the future -->
+            </div>
 
-                <!-- FEATURED ARTICLE -->
-                <article class="article-card featured" data-category="corporate">
-                    <div class="card-image">
-                        <img src="https://images.pexels.com/photos/3182811/pexels-photo-3182811.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                            alt="Corporate Strategy" />
-                    </div>
-                    <div class="card-content">
-                        <span class="card-tag">Corporate Strategy</span>
-                        <h2>The Unseen Risks of Idle Corporate Capital</h2>
-                        <p>Learn how retained earnings sitting in traditional accounts might be exposing you to the
-                            "Passive Income Tax Trap" and what to do about it.</p>
-                        <div class="card-footer">
-                            <span>March 2026</span>
-                            <a href="#" class="read-more">Read Insight <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Article 2 -->
-                <article class="article-card" data-category="tax">
-                    <div class="card-image">
-                        <img src="https://images.pexels.com/photos/6863251/pexels-photo-6863251.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            alt="Tax Planning" />
-                    </div>
-                    <div class="card-content">
-                        <span class="card-tag">Tax Planning</span>
-                        <h3>CDA: The Business Owner's Secret Weapon</h3>
-                        <p>A deep dive into the Capital Dividend Account and how specialized insurance can facilitate
-                            tax-free wealth extraction.</p>
-                        <div class="card-footer">
-                            <span>February 2026</span>
-                            <a href="#" class="read-more">Read Insight <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </article>
-
+            <!-- Empty State Message -->
+            <div id="no-articles-msg"
+                style="text-align: center; padding: 80px 20px; color: #666; background: #FFF; border-radius: 16px; border: 1px dashed rgba(0,0,0,0.1); margin-top: 40px;">
+                <i class="fa-solid fa-folder-open"
+                    style="font-size: 40px; color: var(--gold); margin-bottom: 20px;"></i>
+                <h3
+                    style="font-family: var(--font-display); font-size: 28px; color: var(--maroon); margin-bottom: 12px;">
+                    Insights Coming Soon</h3>
+                <p style="font-size: 16px; max-width: 500px; margin: 0 auto;">We are currently curating our latest
+                    strategic perspectives on corporate architecture, tax efficiency, and wealth design. Please check
+                    back shortly.</p>
             </div>
         </div>
     </section>
