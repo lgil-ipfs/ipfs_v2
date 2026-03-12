@@ -1,0 +1,452 @@
+/* ══════════════════════════════════════════════════════════
+   INVESTMENT ACCOUNT CALCULATOR
+   Custom styling for FHSA/TFSA/RRSP/Non-Reg comparison
+   ══════════════════════════════════════════════════════════ */
+
+.tool-section {
+    padding: 80px 0;
+    background: var(--cream);
+    position: relative;
+    z-index: 5;
+}
+
+.xl-wrap {
+    max-width: 1400px;
+}
+
+.inv-calc-layout {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+@media (max-width: 991px) {
+    .inv-calc-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Sidebar */
+.inv-sidebar {
+    background: #FFFFFF;
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 100px;
+    /* offset from sticky nav */
+}
+
+.inv-sidebar .sidebar-title {
+    font-size: 22px;
+    color: var(--maroon);
+    margin-bottom: 8px;
+    font-family: var(--font-display);
+    font-weight: 700;
+}
+
+.inv-sidebar .sidebar-desc {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.calc-divider {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.08);
+    margin: 32px 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+}
+
+.form-group small {
+    font-weight: 400;
+    color: #777;
+    font-size: 12px;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    background: #FDFBF7;
+    border: 1px solid #D1CAC3;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color var(--ease-fast);
+}
+
+.input-wrapper:focus-within {
+    border-color: var(--gold);
+}
+
+.input-wrapper .prefix,
+.input-wrapper .suffix {
+    padding: 0 14px;
+    color: #555;
+    font-weight: 500;
+    font-size: 15px;
+    background: #f0eadd;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: 12px;
+    font-size: 16px;
+    font-family: inherit;
+    color: var(--charcoal);
+    font-weight: 500;
+    outline: none;
+}
+
+.form-group select,
+.form-group>input[type="number"] {
+    width: 100%;
+    border: 1px solid #D1CAC3;
+    border-radius: 8px;
+    background: #FDFBF7;
+    padding: 12px;
+    font-size: 15px;
+    font-family: inherit;
+    color: var(--charcoal);
+    font-weight: 500;
+    outline: none;
+    transition: border-color var(--ease-fast);
+}
+
+.form-group select:focus,
+.form-group>input[type="number"]:focus {
+    border-color: var(--gold);
+}
+
+.slider-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 10px;
+}
+
+.slider-wrapper input[type="range"] {
+    flex: 1;
+    cursor: pointer;
+    accent-color: var(--gold);
+}
+
+.slider-wrapper span {
+    font-weight: 700;
+    color: var(--maroon);
+    width: 44px;
+    text-align: right;
+}
+
+.calculate-btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 24px;
+    padding: 16px;
+    font-size: 16px;
+}
+
+.tax-rate-display {
+    margin-top: 32px;
+    background: var(--cream);
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.tax-rate-display h4 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin-bottom: 12px;
+    font-family: var(--font-body) !important;
+}
+
+.tax-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #555;
+    align-items: center;
+}
+
+.tax-row:last-child {
+    margin-bottom: 0;
+}
+
+.tax-row strong {
+    color: var(--charcoal);
+    font-size: 16px;
+}
+
+/* Main Area */
+.inv-results {
+    background: #FFFFFF;
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.inv-results h2 {
+    color: var(--maroon);
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.inv-results p {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 32px;
+}
+
+/* Simple CSS Bar Chart */
+.chart-container {
+    margin-bottom: 48px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.bars-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.bar-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 120px;
+    gap: 16px;
+    align-items: center;
+}
+
+.bar-label {
+    font-weight: 700;
+    color: var(--charcoal);
+    font-size: 15px;
+    text-align: right;
+}
+
+.bar-track {
+    background: #F0EADD;
+    height: 24px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+}
+
+.bar-fill-net {
+    height: 100%;
+    transition: width 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.bar-fill-tax {
+    height: 100%;
+    transition: width 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.bar-val {
+    font-weight: 700;
+    color: var(--maroon);
+    font-size: 16px;
+    text-align: left;
+}
+
+/* Match the accounts grid to the colors of the bars */
+.acc-fhsa .bar-fill-net {
+    background: #3a8a6e;
+}
+
+.acc-tfsa .bar-fill-net {
+    background: #2E5C5C;
+}
+
+.acc-rrsp .bar-fill-net {
+    background: #5a7b8f;
+}
+
+.acc-nonreg .bar-fill-net {
+    background: #8f6c5a;
+}
+
+.acc-rrsp .bar-fill-tax,
+.acc-nonreg .bar-fill-tax {
+    background: #d84545;
+    /* Red for tax */
+}
+
+/* Account Cards */
+.accounts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.account-card {
+    background: #FDFBF7;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 24px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.account-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.account-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.account-card-header .icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    font-size: 18px;
+}
+
+.acc-fhsa .icon {
+    background: #3a8a6e;
+}
+
+.acc-tfsa .icon {
+    background: #2E5C5C;
+}
+
+.acc-rrsp .icon {
+    background: #5a7b8f;
+}
+
+.acc-nonreg .icon {
+    background: #8f6c5a;
+}
+
+.account-card-header h3 {
+    font-size: 20px;
+    margin: 0;
+    color: var(--charcoal);
+    font-family: var(--font-body);
+}
+
+.ac-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: #666;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.08);
+}
+
+.ac-row:last-of-type {
+    border-bottom: none;
+    margin-bottom: 16px;
+}
+
+.ac-row span.val {
+    font-weight: 600;
+    color: var(--charcoal);
+}
+
+.ac-row span.val.negative {
+    color: #d84545;
+}
+
+.ac-row span.val.positive {
+    color: #3a8a6e;
+}
+
+.ac-total {
+    background: rgba(0, 0, 0, 0.03);
+    padding: 16px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.ac-total span {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #666;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.ac-total strong {
+    font-size: 24px;
+    color: var(--maroon);
+    font-family: var(--font-display);
+}
+
+.tax-note {
+    background: #fdf6f7;
+    border-left: 4px solid var(--maroon);
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    display: flex;
+    gap: 16px;
+    font-size: 14px;
+    color: #444;
+}
+
+.tax-note i {
+    color: var(--maroon);
+    font-size: 20px;
+    margin-top: 2px;
+}
+
+@media (max-width: 600px) {
+    .inv-results {
+        padding: 24px 16px;
+    }
+
+    .bar-row {
+        grid-template-columns: 80px 1fr;
+        grid-template-rows: auto auto;
+        gap: 8px;
+    }
+
+    .bar-label {
+        text-align: left;
+    }
+
+    .bar-val {
+        grid-column: 2 / 3;
+        font-size: 14px;
+    }
+
+    .inv-sidebar {
+        padding: 24px 16px;
+    }
+}
