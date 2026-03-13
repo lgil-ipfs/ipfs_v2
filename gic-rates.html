@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" data-wf-domain="www.iberianpacific.ca">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Live GIC Rates | Iberian Pacific Financial Services</title>
+    <meta name="description"
+        content="View live Guaranteed Investment Certificate (GIC) rates across Canada. Compare TFSA, RRSP, LIF, and Corporate GIC rates from over 40 financial institutions." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://iberianpacific.ca/gic-rates" rel="canonical" />
+    <link
+        href="https://cdn.prod.website-files.com/68ed2588f300fc2737bceebf/691e028abea330bc2c1d8358_IPFS-Logo-c%20(1).png"
+        rel="shortcut icon" type="image/x-icon" />
+    <link
+        href="https://cdn.prod.website-files.com/68ed2588f300fc2737bceebf/691e02b24f21bb5821d5f887_IPFS-Logo-c%20(1).png"
+        rel="apple-touch-icon" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/services.css" rel="stylesheet" /> <!-- Reusing some service styles for consistency -->
+    <style>
+        :root {
+            --gic-bg: #fdfbf7;
+            --gic-card-bg: #ffffff;
+            --gic-accent: #b4995f; /* Gold */
+            --gic-border: #e8e8e8;
+        }
+
+        .rates-container {
+            padding: 80px 0;
+            background: var(--gic-bg);
+        }
+
+        .rates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .rate-card {
+            background: var(--gic-card-bg);
+            border: 1px solid var(--gic-border);
+            border-radius: 12px;
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .rate-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gic-accent);
+        }
+
+        .rate-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--maroon);
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+        }
+
+        .rate-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .rate-item:last-child {
+            border-bottom: none;
+        }
+
+        .term-label {
+            font-size: 0.95rem;
+            color: var(--charcoal);
+            font-weight: 500;
+        }
+
+        .rate-value {
+            font-size: 1.25rem;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .rate-value small {
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .updated-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #e8f5e9;
+            color: #2e7d32;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .compliance-box {
+            margin-top: 60px;
+            padding: 40px;
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid var(--gic-border);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .compliance-box h4 {
+            color: var(--charcoal);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .compliance-box p {
+            margin-bottom: 10px;
+        }
+
+        .compliance-list {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .compliance-list li {
+            margin-bottom: 8px;
+            list-style-type: disc;
+        }
+
+        .btn-check-rates {
+            margin-top: auto;
+            align-self: flex-start;
+            text-decoration: none;
+            color: var(--gic-accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-top: 20px;
+        }
+
+        .btn-check-rates:hover {
+            color: var(--maroon);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .rates-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="header-mount"></div>
+    <script>
+        fetch('components/header.html')
+            .then(r => r.text())
+            .then(h => { document.getElementById('header-mount').innerHTML = h; });
+    </script>
+
+    <!-- HERO -->
+    <section class="ip-hero v4 cinemactc" aria-label="GIC Rates hero">
+        <div class="wrap" style="padding-top:120px; padding-bottom:60px; text-align:center;">
+            <div class="kicker">Market Watch</div>
+            <h1 style="color:var(--maroon);">Current GIC Rates</h1>
+            <p class="sub" style="max-width:800px; margin:20px auto; color:var(--charcoal);">
+                We scan the market daily across 40+ financial institutions to bring you the highest guaranteed yields in Canada. 
+                Whether you're investing for your family, your business, or your retirement.
+            </p>
+        </div>
+    </section>
+
+    <!-- RATES DASHBOARD -->
+    <section class="rates-container">
+        <div class="wrap xl-wrap">
+            <div id="last-updated-container">
+                <span class="updated-badge"><i class="fa-solid fa-clock-rotate-left"></i> Rates updated as of <span id="current-date"></span></span>
+            </div>
+
+            <div class="rates-grid" id="rates-app-mount">
+                <!-- Loading placeholder or initial state -->
+                <p>Fetching latest rates from API...</p>
+            </div>
+
+            <!-- COMPLIANCE SECTION -->
+            <div class="compliance-box">
+                <h4><i class="fa-solid fa-shield-halved"></i> Compliance & Legal Disclaimers</h4>
+                <p>Iberian Pacific Financial Services provides access to Guaranteed Investment Certificates (GICs) through our partnership with <strong>Monarch Wealth GIC Services Inc. (operating as GICdirect)</strong>, a registered member of the Registered Deposit Broker Association (RDBA).</p>
+                
+                <ul class="compliance-list">
+                    <li><strong>Rate Guarantee:</strong> GIC interest rates are subject to change without notice. The rates displayed are for informational purposes and may vary depending on the actual time of application and minimum investment amounts.</li>
+                    <li><strong>Deposit Insurance:</strong> All GIC deposits are insured by the <strong>Canada Deposit Insurance Corporation (CDIC)</strong>, the <strong>Credit Union Deposit Insurance Corporation (CUDIC)</strong>, or other provincial deposit insurance corporations, up to applicable limits and subject to the eligibility of the member institution.</li>
+                    <li><strong>Investment Minimums:</strong> Minimum investment amounts vary by financial institution, typically ranging from $1,000 to $5,000, although some institutions may offer lower thresholds for registered accounts.</li>
+                    <li><strong>Tax Advice:</strong> The information provided here is not intended as tax or legal advice. Please consult with a qualified tax professional regarding the tax implications of these investments for your specific situation.</li>
+                    <li><strong>Independent Brokerage:</strong> Iberian Pacific operates as an independent brokerage. We receive commissions from the financial institutions for the placement of GIC deposits, at no additional cost to you.</li>
+                </ul>
+
+                <p>By using this website and viewing these rates, you acknowledge that you have read and understood these disclaimers.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section aria-labelledby="cta-title" class="ip-cta v4">
+        <div class="wrap">
+            <span class="kicker">Next Step</span>
+            <h2 id="cta-title">Ready to lock in these rates?</h2>
+            <div class="card" data-ip-animate="">
+                <h3>Secure your guaranteed return today.</h3>
+                <p>Our process is simple: we handle the paperwork and coordinate with the financial institutions to ensure your investment is placed correctly and tax-efficiently.</p>
+                <div class="actions">
+                    <a class="btn btn-primary" href="https://cal.com/iberian-pacific" target="_blank">Book a Call</a>
+                    <a class="btn btn-secondary" href="contact.html">Request a Quote</a>
+                </div>
+                <div class="chips">
+                    <span class="chip">No Fees</span>
+                    <span class="chip">Member CDIC</span>
+                    <span class="chip">Member RDBA</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-mount"></div>
+    <script>
+        fetch('components/footer.html')
+            .then(r => r.text())
+            .then(h => document.getElementById('footer-mount').innerHTML = h);
+    </script>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Inline JS for the rates logic to keep it closely tied to the layout for now
+        document.addEventListener('DOMContentLoaded', () => {
+            const dateEl = document.getElementById('current-date');
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            dateEl.textContent = new Date().toLocaleDateString('en-CA', options);
+
+            const mount = document.getElementById('rates-app-mount');
+
+            // Mocked API Response reflecting high-priority accounts
+            const ratesData = [
+                {
+                    title: "Tax-Free Savings Account (TFSA)",
+                    priority: 1,
+                    rates: [
+                        { term: "1 Year", value: "4.85" },
+                        { term: "2 Year", value: "4.70" },
+                        { term: "3 Year", value: "4.60" },
+                        { term: "5 Year", value: "4.50" }
+                    ]
+                },
+                {
+                    title: "Life Income Fund (LIF / RRIF)",
+                    priority: 2,
+                    rates: [
+                        { term: "1 Year", value: "4.80" },
+                        { term: "2 Year", value: "4.65" },
+                        { term: "3 Year", value: "4.55" },
+                        { term: "5 Year", value: "4.45" }
+                    ]
+                },
+                {
+                    title: "Registered Retirement Savings Plan (RRSP)",
+                    priority: 3,
+                    rates: [
+                        { term: "1 Year", value: "4.85" },
+                        { term: "2 Year", value: "4.70" },
+                        { term: "3 Year", value: "4.60" },
+                        { term: "5 Year", value: "4.50" }
+                    ]
+                },
+                {
+                    title: "Corporate Accounts (CORP)",
+                    priority: 4,
+                    rates: [
+                        { term: "1 Year", value: "4.75" },
+                        { term: "2 Year", value: "4.60" },
+                        { term: "3 Year", value: "4.50" },
+                        { term: "5 Year", value: "4.40" }
+                    ]
+                },
+                {
+                    title: "Non-Registered (Personal/Joint)",
+                    priority: 5,
+                    rates: [
+                        { term: "1 Year", value: "4.75" },
+                        { term: "2 Year", value: "4.60" },
+                        { term: "3 Year", value: "4.50" },
+                        { term: "5 Year", value: "4.40" }
+                    ]
+                }
+            ];
+
+            function renderRates() {
+                mount.innerHTML = '';
+                ratesData.sort((a, b) => a.priority - b.priority).forEach(cat => {
+                    const card = document.createElement('div');
+                    card.className = 'rate-card';
+                    
+                    let ratesHtml = cat.rates.map(r => `
+                        <div class="rate-item">
+                            <span class="term-label">${r.term}</span>
+                            <span class="rate-value">${r.value}<small>%</small></span>
+                        </div>
+                    `).join('');
+
+                    card.innerHTML = `
+                        <h3>${cat.title}</h3>
+                        <div class="rates-list">
+                            ${ratesHtml}
+                        </div>
+                        <a href="contact.html?type=${cat.title.split(' ')[0]}" class="btn-check-rates">
+                            Get Quote <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    `;
+                    mount.appendChild(card);
+                });
+            }
+
+            // Simulate API delay
+            setTimeout(renderRates, 600);
+        });
+    </script>
+</body>
+
+</html>
