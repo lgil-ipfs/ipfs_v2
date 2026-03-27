@@ -49,6 +49,7 @@
         const currencyFields = [
             "houseValue", "mortgageOutstanding", "consumerDebts",
             "leveragedAmount", "monthlyIncome", "mortgagePayment", "debtPayment",
+            "qualHouseValue", "qualMortgage", "qualConsumerDebt", "qualIncome"
         ];
         currencyFields.forEach((id) => {
             const el = $(id);
@@ -998,6 +999,40 @@
     //  MAIN
     // ═══════════════════════════════════════════════════════════════════════
 
+    function checkQualification() {
+        const qualHouseValue = parseCurrency($("qualHouseValue").value);
+        const qualMortgage = parseCurrency($("qualMortgage").value);
+        const qualConsumerDebt = parseCurrency($("qualConsumerDebt").value);
+        const qualIncome = parseCurrency($("qualIncome").value);
+        const qualHabits = $("qualHabits").value;
+        const errorBox = $("qualErrorBox");
+
+        const totalDebt = qualMortgage + qualConsumerDebt;
+        const equity = (qualHouseValue - totalDebt) / qualHouseValue;
+
+        if (equity < 0.50 || qualIncome < 120000 || qualHabits !== 'yes') {
+            // Did not qualify
+            $("qualForm").style.display = "none";
+            errorBox.style.display = "block";
+        } else {
+            // Qualified! Map values to main form
+            $("houseValue").value = qualHouseValue.toLocaleString("en-CA");
+            $("mortgageOutstanding").value = qualMortgage.toLocaleString("en-CA");
+            $("consumerDebts").value = qualConsumerDebt.toLocaleString("en-CA");
+            $("monthlyIncome").value = (qualIncome / 12).toLocaleString("en-CA", { maximumFractionDigits: 0 });
+
+            // Hide qual section, show main section
+            $("qualificationSection").style.display = "none";
+            $("mainInputsSection").style.display = "block";
+            // Do not show results immediately; results stay hidden until they calculate
+            // "If they do qualify, expose the remainder of the site with the calculations."
+
+            updateComputedFields();
+            // Scroll to the calculator
+            $("mainInputsSection").scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }
+
     function runAndRender() {
         const inp = gatherInputs();
         const errorBox = $("mfpErrorBox");
@@ -1037,6 +1072,7 @@
             errorBox.innerHTML = errors.join("<br><br>");
             errorBox.style.display = "block";
             $("results").classList.remove("visible");
+            $("results").style.display = "none";
             return;
         } else {
             errorBox.style.display = "none";
@@ -1046,6 +1082,7 @@
 
         // Show results
         $("results").classList.add("visible");
+        $("results").style.display = "block"; // Make sure to show it!
 
         // Render
         renderKPIs(data);
@@ -1063,9 +1100,7 @@
     document.addEventListener("DOMContentLoaded", () => {
         setupInputFormatting();
         updateComputedFields();
+        $("btnQualify").addEventListener("click", checkQualification);
         $("btnCalculate").addEventListener("click", runAndRender);
-
-        // Auto-calculate on load for demo
-        setTimeout(runAndRender, 300);
     });
 })();

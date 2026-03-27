@@ -105,9 +105,59 @@
         </div>
     </section>
 
-    <!-- 2. INPUT PANEL -->
-    <section class="mfp-inputs" data-ip-animate="">
+    <!-- 1.5. QUALIFICATION PANEL -->
+    <section class="mfp-qualification" id="qualificationSection" data-ip-animate="">
         <div class="wrap">
+            <h2 class="mfp-section-title" style="margin-top:0;">See If You Qualify</h2>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto 30px;">The Mortgage Freedom Program requires a minimum level of home equity, strong household income, and good financial habits to be effective. Check your eligibility below.</p>
+            
+            <form id="qualForm" onsubmit="event.preventDefault();" style="max-width: 600px; margin: 0 auto;">
+                <div class="mfp-inputs-grid" style="grid-template-columns: 1fr;">
+                    <div class="input-group">
+                        <div class="field-row">
+                            <label for="qualHouseValue">Estimated Home Value</label>
+                            <input type="text" id="qualHouseValue" value="950,000" />
+                        </div>
+                        <div class="field-row">
+                            <label for="qualMortgage">Current Mortgage Balance</label>
+                            <input type="text" id="qualMortgage" value="400,000" />
+                        </div>
+                        <div class="field-row">
+                            <label for="qualConsumerDebt">Additional Consumer Debt (e.g. credit cards, line of credit)</label>
+                            <input type="text" id="qualConsumerDebt" value="15,000" />
+                        </div>
+                        <div class="field-row">
+                            <label for="qualIncome">Annual Household Income</label>
+                            <input type="text" id="qualIncome" value="150,000" />
+                        </div>
+                        <div class="field-row">
+                            <label for="qualHabits">Do you have generally good spending habits?</label>
+                            <select id="qualHabits">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-calculate-wrap" style="text-align:center;">
+                    <button type="button" class="btn btn-primary btn-xl" id="btnQualify">Check Qualification <i class="fa-solid fa-arrow-right" style="margin-left:8px;"></i></button>
+                </div>
+            </form>
+
+            <div id="qualErrorBox" style="display:none; text-align:center; color:#c0392b; background:#fdf2f2; border:1px solid #c0392b; padding:25px; border-radius:8px; margin-top: 30px; font-weight:600;">
+                <p>Based on the details provided, the Mortgage Freedom Program may not be the optimal fit for your current situation right now. However, we have many other strategies to help you build wealth and eliminate debt.</p>
+                <div style="margin-top: 20px;">
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='mailto:info@iberianpacific.ca';">Contact Us to see how we can help</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. INPUT PANEL (Hidden initially) -->
+    <section class="mfp-inputs" data-ip-animate="" id="mainInputsSection" style="display: none;">
+        <div class="wrap">
+            <h2 class="mfp-section-title" style="margin-top: 0; padding-top: 2rem;">Mortgage Freedom Calculator</h2>
             <form id="mfpForm" onsubmit="event.preventDefault();">
                 <div class="mfp-inputs-grid">
 
@@ -212,8 +262,8 @@
         </div>
     </section>
 
-    <!-- 3. RESULTS AREA -->
-    <section id="results">
+    <!-- 3. RESULTS AREA (Hidden initially) -->
+    <section id="results" style="display: none;">
         <div class="wrap">
 
             <!-- KPI SUMMARY STRIP -->
