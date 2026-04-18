@@ -1,0 +1,226 @@
+/* article base styles */
+body {
+    background-color: #ffffff;
+}
+
+.article-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #1A1A1A;
+    font-size: 18px;
+    line-height: 1.75;
+}
+
+.article-header {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 80px 20px 40px;
+    text-align: center;
+}
+
+.article-author-date {
+    font-size: 12px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.article-header h1 {
+    font-family: Georgia, serif;
+    color: #0F2A44;
+    font-size: 42px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.article-subheadline {
+    font-size: 20px;
+    color: #555;
+    font-style: italic;
+}
+
+.article-section {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+}
+
+.article-section h2 {
+    font-family: Georgia, serif;
+    color: #0F2A44;
+    font-size: 26px;
+    border-bottom: 2px solid #3F5E7A;
+    padding-bottom: 8px;
+    margin-top: 48px;
+    margin-bottom: 24px;
+}
+
+.article-section p {
+    margin-bottom: 1.5em;
+}
+
+/* Modeler section */
+.modeler-section {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background-color: #F5F5F5;
+    padding: 60px 20px;
+    box-sizing: border-box;
+}
+
+.modeler-section h2 {
+    font-family: Georgia, serif;
+    color: #0F2A44;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.modeler-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+}
+
+.modeler-inputs {
+    flex: 0 0 340px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-card {
+    background: #ffffff;
+    border: 1px solid #E8ECF0;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.input-card h3 {
+    font-size: 16px;
+    color: #0F2A44;
+    margin-top: 0;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #E8ECF0;
+    padding-bottom: 8px;
+}
+
+.input-group {
+    margin-bottom: 12px;
+}
+
+.input-group:last-child {
+    margin-bottom: 0;
+}
+
+.input-group label {
+    display: block;
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.modeler-output {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.chart-container {
+    background: #ffffff;
+    border: 1px solid #E8ECF0;
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+    min-height: 420px;
+}
+
+/* Summary Table */
+.summary-container {
+    background: #ffffff;
+    border: 1px solid #E8ECF0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.summary-table th, .summary-table td {
+    padding: 12px 16px;
+    text-align: right;
+    border-bottom: 1px solid #E8ECF0;
+}
+
+.summary-table th:first-child, .summary-table td:first-child {
+    text-align: left;
+}
+
+.summary-table th {
+    background-color: #0F2A44;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.summary-table tr:nth-child(even) {
+    background-color: #FAFAFA;
+}
+
+.summary-table tr:last-child td {
+    border-bottom: none;
+}
+
+.val-favourable {
+    color: #27AE60;
+    font-weight: 600;
+}
+
+.val-unfavourable {
+    color: #C0392B;
+    font-weight: 600;
+}
+
+/* Footer */
+.article-footer {
+    max-width: 740px;
+    margin: 60px auto 40px;
+    padding: 20px;
+    border-top: 1px solid #E8ECF0;
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    font-style: italic;
+}
+
+@media (max-width: 900px) {
+    .modeler-container {
+        flex-direction: column;
+    }
+    
+    .modeler-inputs {
+        flex: auto;
+        width: 100%;
+    }
+}

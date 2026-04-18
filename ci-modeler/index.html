@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Critical Illness Financial Impact Modeler | Iberian Pacific</title>
+    <!-- Global styles -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <!-- Local modeler styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@2.1.0/dist/chartjs-plugin-annotation.min.js" defer></script>
+</head>
+<body>
+    <main class="article-container">
+        <header class="article-header">
+            <p class="article-author-date">BY IBERIAN PACIFIC FINANCIAL SERVICES &nbsp;|&nbsp; PUBLISHED JAN 2026</p>
+            <h1>The Financial Case for Critical Illness Insurance</h1>
+            <p class="article-subheadline">Protecting your wealth from the unexpected costs of recovery.</p>
+        </header>
+
+        <div id="article-section-1" class="article-section"></div>
+        <div id="article-section-2" class="article-section"></div>
+        <div id="article-section-3" class="article-section"></div>
+
+        <!-- INTERACTIVE MODELER EMBEDDED HERE -->
+        <section class="modeler-section">
+            <h2>See the Numbers for Yourself</h2>
+            <div class="modeler-container">
+                <div class="modeler-inputs">
+                    <div class="input-card">
+                        <h3>Current Financials</h3>
+                        <div class="input-group">
+                            <label for="annualIncome">Annual Income ($)</label>
+                            <input type="number" id="annualIncome" value="120000">
+                        </div>
+                        <div class="input-group">
+                            <label for="annualExpenses">Annual Expenses ($)</label>
+                            <input type="number" id="annualExpenses" value="72000">
+                        </div>
+                        <div class="input-group">
+                            <label for="currentSavings">Current Savings ($)</label>
+                            <input type="number" id="currentSavings" value="150000">
+                        </div>
+                        <div class="input-group">
+                            <label for="currentAge">Current Age</label>
+                            <input type="number" id="currentAge" value="40">
+                        </div>
+                    </div>
+
+                    <div class="input-card">
+                        <h3>Growth Assumptions</h3>
+                        <div class="input-group">
+                            <label for="nominalReturn">Expected Nominal Return (%)</label>
+                            <input type="number" id="nominalReturn" step="0.1" value="6.0">
+                        </div>
+                        <div class="input-group">
+                            <label for="inflationRate">Inflation Rate (%)</label>
+                            <input type="number" id="inflationRate" step="0.1" value="2.5">
+                        </div>
+                    </div>
+
+                    <div class="input-card">
+                        <h3>Illness Scenario</h3>
+                        <div class="input-group">
+                            <label for="diagnosisYearOffset">Diagnosis in (Years from now)</label>
+                            <input type="number" id="diagnosisYearOffset" value="5">
+                        </div>
+                        <div class="input-group">
+                            <label for="incomeDisruptionMonths">Income Disruption (Months)</label>
+                            <input type="number" id="incomeDisruptionMonths" value="18">
+                        </div>
+                        <div class="input-group">
+                            <label for="incomeReplacementPct">Income Replaced During Disruption (%)</label>
+                            <input type="number" id="incomeReplacementPct" value="30">
+                        </div>
+                        <div class="input-group">
+                            <label for="recoveryPeriodMonths">Recovery Period (Months)</label>
+                            <input type="number" id="recoveryPeriodMonths" value="24">
+                        </div>
+                        <div class="input-group">
+                            <label for="illnessExpensesPerYear">Extra Illness Expenses per Year ($)</label>
+                            <input type="number" id="illnessExpensesPerYear" value="24000">
+                        </div>
+                        <div class="input-group">
+                            <label for="oneTimeIllnessCost">One-Time Illness Costs ($)</label>
+                            <input type="number" id="oneTimeIllnessCost" value="50000">
+                        </div>
+                    </div>
+
+                    <div class="input-card">
+                        <h3>Insurance Coverage</h3>
+                        <div class="input-group">
+                            <label for="ciBenefit">Proposed CI Benefit ($)</label>
+                            <input type="number" id="ciBenefit" value="300000">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modeler-output">
+                    <div class="chart-container">
+                        <canvas id="ci-chart"></canvas>
+                        <div id="annotations-container" class="annotations-container"></div>
+                    </div>
+                    <div class="summary-container" id="summary-table">
+                        <!-- Summary table injected here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="article-section-4" class="article-section"></div>
+        <div id="article-section-5" class="article-section"></div>
+
+        <footer class="article-footer">
+            <p>Disclaimer: This modeler is provided for educational and illustrative purposes only. It is not financial advice. Actual returns, inflation rates, and the financial impact of a serious illness will vary. Please consult with a licensed financial advisor to understand the specific products and coverages suitable for your circumstances.</p>
+        </footer>
+    </main>
+
+    <script src="js/inputs.js" defer></script>
+    <script src="js/calculator.js" defer></script>
+    <script src="js/chart.js" defer></script>
+    <script src="js/annotations.js" defer></script>
+    <script src="js/summary.js" defer></script>
+    <script src="js/main.js" defer></script>
+</body>
+</html>

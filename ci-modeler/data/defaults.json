@@ -1,0 +1,15 @@
+{
+  "annualIncome": 120000,
+  "annualExpenses": 72000,
+  "currentSavings": 150000,
+  "currentAge": 40,
+  "nominalReturn": 6,
+  "inflationRate": 2.5,
+  "ciBenefit": 300000,
+  "diagnosisYearOffset": 5,
+  "incomeDisruptionMonths": 18,
+  "incomeReplacementPct": 30,
+  "recoveryPeriodMonths": 24,
+  "illnessExpensesPerYear": 24000,
+  "oneTimeIllnessCost": 50000
+}
