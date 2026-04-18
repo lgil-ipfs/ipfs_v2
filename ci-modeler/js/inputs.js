@@ -36,7 +36,9 @@ const InputState = {
             incomeReplacementPct: parseFloat(document.getElementById('incomeReplacementPct').value) || 0,
             recoveryPeriodMonths: parseInt(document.getElementById('recoveryPeriodMonths').value) || 0,
             illnessExpensesPerYear: parseFloat(document.getElementById('illnessExpensesPerYear').value) || 0,
-            oneTimeIllnessCost: parseFloat(document.getElementById('oneTimeIllnessCost').value) || 0
+            oneTimeIllnessCost: parseFloat(document.getElementById('oneTimeIllnessCost').value) || 0,
+            ciAnnualPremium: parseFloat(document.getElementById('ciAnnualPremium').value) || 0,
+            ropAge: parseInt(document.getElementById('ropAge').value) || 0
         };
     }
 };

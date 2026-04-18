@@ -93,7 +93,7 @@ const ChartManager = {
                 pointHoverRadius: 5
             },
             {
-                label: 'CI — Insured',
+                label: 'CI — Insured (With Illness)',
                 data: results.insured,
                 borderColor: '#27AE60',
                 backgroundColor: 'rgba(39, 174, 96, 0.1)',
@@ -102,6 +102,16 @@ const ChartManager = {
                 tension: 0.4,
                 pointRadius: 1,
                 pointHoverRadius: 5
+            },
+            {
+                label: 'CI — Insured (ROP, No Illness)',
+                data: results.insuredRop,
+                borderColor: '#E67E22', // Orange for ROP line
+                borderWidth: 2,
+                borderDash: [5, 5],
+                fill: false,
+                tension: 0.4,
+                pointRadius: 0
             }
         ];
 

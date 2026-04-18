@@ -11,5 +11,7 @@
   "incomeReplacementPct": 30,
   "recoveryPeriodMonths": 24,
   "illnessExpensesPerYear": 24000,
-  "oneTimeIllnessCost": 50000
+  "oneTimeIllnessCost": 50000,
+  "ciAnnualPremium": 2000,
+  "ropAge": 65
 }
