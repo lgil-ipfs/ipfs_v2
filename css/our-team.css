@@ -146,7 +146,30 @@
     line-height: 1.65;
     color: #4A4A4A;
     margin: 0 0 24px;
-    flex-grow: 1;
+}
+
+.card-content .actions {
+    margin-top: auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card-content .actions .btn-secondary {
+    padding: 8px 16px;
+    font-size: 14px;
+    text-decoration: none;
+    border: 1px solid var(--charcoal);
+    border-radius: 6px;
+    color: var(--charcoal);
+    transition: all 0.2s;
+    font-weight: 600;
+}
+
+.card-content .actions .btn-secondary:hover {
+    background: var(--charcoal);
+    color: var(--white);
 }
 
 .linkedin-link {
@@ -287,6 +310,62 @@
 .team-footer-cta .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(45, 45, 45, 0.3);
+}
+
+/* 4. PROFILE PAGES */
+.profile-section {
+    padding: 100px 20px;
+    background: #FAF7F2;
+}
+.profile-section .wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+    align-items: start;
+}
+@media (max-width: 768px) {
+    .profile-section .wrap {
+        grid-template-columns: 1fr;
+    }
+}
+.profile-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+.profile-content h1 {
+    color: var(--maroon);
+    margin: 0 0 8px;
+}
+.profile-content .role {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin: 0 0 4px;
+}
+.profile-content .creds {
+    font-size: 14px;
+    font-weight: 600;
+    color: #7A7A7A;
+    margin-bottom: 24px;
+}
+.profile-content .bio p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #4A4A4A;
+    margin-bottom: 16px;
+}
+.profile-back {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: var(--charcoal);
+    text-decoration: none;
+}
+.profile-back:hover {
+    color: var(--maroon);
 }
 
 /* ==========================================================
