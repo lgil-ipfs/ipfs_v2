@@ -38,7 +38,8 @@
                 const script = document.createElement('script');
                 script.src = '/js/script.js';
                 document.body.appendChild(script);
-            });
+            })
+            .catch(err => console.error('Failed to load header:', err));
     </script>
 
     <header class="rvb-hero">
@@ -312,7 +313,8 @@
             .then(res => res.text())
             .then(html => {
                 document.getElementById('footer-mount').innerHTML = html;
-            });
+            })
+            .catch(err => console.error('Failed to load footer:', err));
     </script>
 
     <script src="/js/rent-vs-buy.js"></script>

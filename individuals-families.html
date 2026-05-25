@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <title>Individuals &amp; Families | Iberian Pacific Financial Services</title>
+  <meta content="Personalized financial planning for individuals and families — protection, retirement, and estate strategies tailored to your life." name="description" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <link href="https://iberianpacific.ca" rel="canonical" />
   <link
@@ -33,7 +34,8 @@
       .then(html => {
         document.getElementById('header-mount').innerHTML = html;
         if (window.Webflow && window.Webflow.ready) window.Webflow.ready();
-      });
+      })
+      .catch(err => console.error('Failed to load header:', err));
   </script>
   <!-- ═══════════════════════════════════════════════════════
      1. HERO
@@ -336,7 +338,8 @@
   <script>
     fetch('/components/footer.html')
       .then(res => res.text())
-      .then(html => document.getElementById('footer-mount').innerHTML = html);
+      .then(html => document.getElementById('footer-mount').innerHTML = html)
+      .catch(err => console.error('Failed to load footer:', err));
   </script>
   <!-- Scripts -->
   <script src="/js/script.js"></script>

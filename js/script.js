@@ -43,6 +43,13 @@ document.addEventListener('click', function (e) {
     return;
   }
 
+  /* Drawer close button */
+  var closeBtn = e.target.closest('#drawer-close-btn');
+  if (closeBtn) {
+    window.closeMenu();
+    return;
+  }
+
 });
 
 /* ── Escape key ── */

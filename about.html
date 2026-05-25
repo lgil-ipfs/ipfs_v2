@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 
 <!-- Last Published: Mon Jan 05 2026 22:58:02 GMT+0000 (Coordinated Universal Time) -->
-<html data-wf-domain="www.iberianpacific.ca" data-wf-page="68ed2589f300fc2737bceed9"
+<html lang="en" data-wf-domain="www.iberianpacific.ca" data-wf-page="68ed2589f300fc2737bceed9"
   data-wf-site="68ed2588f300fc2737bceebf">
 
 <head>
   <meta charset="utf-8" />
   <title>About | Iberian Pacific Financial Services</title>
+  <meta content="Learn about Iberian Pacific's independent, education-first approach to financial planning in Vancouver." name="description" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <link crossorigin="anonymous"
     href="https://cdn.prod.website-files.com/68ed2588f300fc2737bceebf/css/iberianpacific.webflow.shared.254e3923a.min.css"
@@ -45,11 +46,9 @@
       <script>
         fetch('/components/header.html')
           .then(res => res.text())
-          .then(html => document.getElementById('header-mount').innerHTML = html);
+          .then(html => document.getElementById('header-mount').innerHTML = html)
+          .catch(err => console.error('Failed to load header:', err));
       </script>
-
-      </aside>
-      </header>
     </div>
   </div>
   <section>
