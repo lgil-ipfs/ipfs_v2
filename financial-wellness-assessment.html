@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" data-wf-domain="www.iberianpacific.ca">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Financial Wellness Assessment | Iberian Pacific Financial Services</title>
+    <meta name="description"
+        content="A complimentary, CFP-aligned financial wellness assessment from Iberian Pacific. Discover your wellness score, investor profile, and a personalized action plan in under 7 minutes." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://iberianpacific.ca/financial-wellness-assessment" rel="canonical" />
+    <link
+        href="https://cdn.prod.website-files.com/68ed2588f300fc2737bceebf/691e028abea330bc2c1d8358_IPFS-Logo-c%20(1).png"
+        rel="shortcut icon" type="image/x-icon" />
+    <link
+        href="https://cdn.prod.website-files.com/68ed2588f300fc2737bceebf/691e02b24f21bb5821d5f887_IPFS-Logo-c%20(1).png"
+        rel="apple-touch-icon" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/financial-wellness-assessment.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="header-mount"></div>
+    <script>
+        fetch('components/header.html')
+            .then(r => r.text())
+            .then(h => { document.getElementById('header-mount').innerHTML = h; })
+            .catch(e => console.error('Error loading header:', e));
+    </script>
+
+    <!-- HERO -->
+    <section class="ip-hero v4" aria-label="Financial Wellness Assessment hero">
+        <div class="wrap" style="padding-top:120px; padding-bottom:40px; text-align:center;">
+            <div class="kicker" style="justify-content:center;">Interactive Tool</div>
+            <h1 style="color:var(--maroon);">Know Where You Stand.</h1>
+            <p class="sub" style="max-width:680px; margin:14px auto 26px; color:#4A4A4A;">
+                A complimentary assessment that evaluates your financial health across 5 key areas and gives you a
+                personalized action plan — grounded in the same CFP-aligned framework our advisors use with clients.
+            </p>
+            <div class="assessment-features">
+                <span class="assessment-feature-pill">5 Key Areas</span>
+                <span class="assessment-feature-pill">25 Questions</span>
+                <span class="assessment-feature-pill">Under 7 Minutes</span>
+                <span class="assessment-feature-pill">100% Private</span>
+                <span class="assessment-feature-pill">No Cost</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ASSESSMENT APP -->
+    <section class="tool-section" id="fwa-assessment">
+        <div class="wrap" id="assessment-anchor">
+
+            <!-- Section Progress Stepper -->
+            <div class="section-progress" id="section-progress">
+                <div class="step-item">
+                    <div class="step-circle" id="step-0">1</div>
+                    <div class="step-label" id="step-label-0">Cash Flow</div>
+                </div>
+                <div class="step-connector" id="connector-0"></div>
+                <div class="step-item">
+                    <div class="step-circle" id="step-1">2</div>
+                    <div class="step-label" id="step-label-1">Debt &amp; Credit</div>
+                </div>
+                <div class="step-connector" id="connector-1"></div>
+                <div class="step-item">
+                    <div class="step-circle" id="step-2">3</div>
+                    <div class="step-label" id="step-label-2">Savings</div>
+                </div>
+                <div class="step-connector" id="connector-2"></div>
+                <div class="step-item">
+                    <div class="step-circle" id="step-3">4</div>
+                    <div class="step-label" id="step-label-3">Goals</div>
+                </div>
+                <div class="step-connector" id="connector-3"></div>
+                <div class="step-item">
+                    <div class="step-circle" id="step-4">5</div>
+                    <div class="step-label" id="step-label-4">Mindset</div>
+                </div>
+            </div>
+
+            <!-- Screen: Intro -->
+            <div id="screen-intro" class="assessment-screen active">
+                <div class="intro-card">
+                    <h2>Your Financial Wellness Assessment</h2>
+                    <p>Answer 25 honest questions across 5 areas of your financial life. You'll receive your wellness
+                        score, investor profile, and a personalized action plan — all in under 7 minutes. No
+                        personal information required.</p>
+
+                    <div class="intro-modules">
+                        <div class="module-pill">
+                            <p>Cash Flow &amp; Budgeting</p>
+                        </div>
+                        <div class="module-pill">
+                            <p>Debt &amp; Credit Health</p>
+                        </div>
+                        <div class="module-pill">
+                            <p>Savings &amp; Investing</p>
+                        </div>
+                        <div class="module-pill">
+                            <p>Financial Goals</p>
+                        </div>
+                        <div class="module-pill">
+                            <p>Money Mindset &amp; Wellness</p>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" id="start-btn" style="font-size: 1.05rem; padding: 16px 40px;">Start
+                        the Assessment &rarr;</button>
+                    <p class="intro-meta">Results stay in your browser &middot; No account required</p>
+                </div>
+            </div>
+
+            <!-- Screen: Section Intro -->
+            <div id="screen-section-intro" class="assessment-screen">
+                <div class="section-intro-card">
+                    <div class="section-badge" id="si-badge">Section 1 of 5</div>
+                    <h2 id="si-title">Cash Flow &amp; Budgeting</h2>
+                    <p id="si-description">We'll start by looking at how you manage your day-to-day money — the
+                        foundation of all financial wellness.</p>
+                    <button class="btn btn-primary" id="begin-section-btn"
+                        style="font-size: 1rem; padding: 15px 36px;">Begin This Section &rarr;</button>
+                </div>
+            </div>
+
+            <!-- Screen: Question -->
+            <div id="screen-question" class="assessment-screen">
+                <div class="question-card">
+                    <div class="question-meta">
+                        <span class="question-section-badge" id="q-section-badge">Cash Flow &amp; Budgeting</span>
+                        <span class="question-counter" id="q-counter">Question 1 of 5</span>
+                    </div>
+                    <div class="question-progress-bar">
+                        <div class="question-progress-fill" id="q-progress-fill" style="width: 0%;"></div>
+                    </div>
+                    <p class="question-text" id="q-text">Loading question...</p>
+                    <div class="options-list" id="q-options"></div>
+                    <div class="question-nav">
+                        <button class="btn-nav btn-back" id="prev-btn">&larr; Back</button>
+                        <button class="btn-nav btn-next" id="next-btn">Continue &rarr;</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen: Results -->
+            <div id="screen-results" class="assessment-screen">
+
+                <div class="results-header">
+                    <div class="kicker" style="justify-content:center;">Your Results</div>
+                    <h2 id="results-headline">Your Financial Wellness Results</h2>
+                    <p>Based on your answers across all 5 areas of financial wellness.</p>
+                </div>
+
+                <!-- Score Ring -->
+                <div class="results-score-section">
+                    <div class="score-ring-container">
+                        <div class="score-ring">
+                            <svg viewBox="0 0 180 180" width="180" height="180">
+                                <circle class="score-ring-bg" cx="90" cy="90" r="80" />
+                                <circle class="score-ring-fill" id="score-ring-fill" cx="90" cy="90" r="80" />
+                            </svg>
+                            <div class="score-number" id="score-number">0</div>
+                        </div>
+                        <div class="wellness-badge" id="wellness-badge">Calculating...</div>
+                        <p style="font-size:0.88rem; color:#666; margin-top:8px;">out of 100</p>
+                    </div>
+                </div>
+
+                <!-- Investor Profile + Section Breakdown -->
+                <div class="results-grid">
+
+                    <div class="investor-profile-card">
+                        <div class="profile-tag">Your Investor Profile</div>
+                        <span class="investor-type-name" id="investor-type-name">Balanced</span>
+                        <p id="investor-description">Loading profile...</p>
+                        <div class="risk-meter">
+                            <div class="risk-meter-fill" id="risk-meter-fill"></div>
+                        </div>
+                        <div class="risk-labels">
+                            <span>Conservative</span>
+                            <span>Aggressive</span>
+                        </div>
+                        <p class="investor-edu-disclaimer" id="investor-edu-disclaimer"></p>
+                    </div>
+
+                    <div class="section-breakdown-card">
+                        <h3>Your Score by Area</h3>
+                        <div id="section-bars"></div>
+                    </div>
+
+                </div>
+
+                <!-- Money Mindset Card -->
+                <div class="mindset-wellbeing-card">
+                    <div class="mindset-level-badge" id="mindset-level-badge">Money Mindset</div>
+                    <h3>Your Money Mindset &amp; Wellness</h3>
+                    <div class="mindset-score-bar">
+                        <div class="mindset-score-fill" id="mindset-score-fill"></div>
+                    </div>
+                    <p id="mindset-description">Loading mindset analysis...</p>
+                </div>
+
+                <!-- Personalized Action Plan -->
+                <div class="action-plan-section">
+                    <h3>Your Personalized Action Plan</h3>
+                    <p>Based on your results, here are the highest-impact steps you can take right now:</p>
+                    <div class="tips-grid" id="tips-grid"></div>
+                </div>
+
+                <!-- Wellness Level Box -->
+                <div class="wellness-level-box">
+                    <h3 id="wellness-level-title">Financial Wellness Level</h3>
+                    <p id="wellness-description"></p>
+                </div>
+
+                <!-- CTA -->
+                <div class="results-cta">
+                    <h3>Ready to take the next step?</h3>
+                    <p>Bring your results to a complimentary conversation with an Iberian Pacific advisor — we'll walk
+                        through them together and build a plan around what matters to you.</p>
+                    <div class="results-cta-btns">
+                        <a href="https://cal.com/iberian-pacific" target="_blank" class="btn btn-secondary">Book a
+                            Complimentary Review</a>
+                        <a href="resources.html" class="btn-white-outline">Explore More Resources</a>
+                        <button class="btn-white-outline" id="retake-btn">Retake Assessment</button>
+                    </div>
+                </div>
+
+                <!-- How scores are calculated -->
+                <div class="score-methodology">
+                    <h4>How your score is calculated</h4>
+                    <p>This assessment covers <strong>5 areas of financial wellness</strong> with 5 questions each (25
+                        total). Every answer is scored from <strong>0 to 4</strong> based on indicators aligned with
+                        CFP (Certified Financial Planner) standards — 0 reflecting the least financially healthy
+                        response and 4 the most. Your section score is the sum of your 5 answers (max 20 per
+                        section). Your <strong>overall score out of 100</strong> is your total points expressed as a
+                        percentage of the maximum possible (100 points). Your <strong>investor profile</strong> is
+                        derived separately from 4 behavioural questions in the Savings &amp; Investing section, which
+                        measure your attitude toward risk, loss, and time horizon.</p>
+                </div>
+
+                <p class="assessment-disclaimer">This assessment is for educational purposes only and does not
+                    constitute financial, investment, or legal advice. Results are based on your self-reported
+                    answers and should not replace personalized guidance from a licensed financial professional.</p>
+
+            </div>
+            <!-- End Results Screen -->
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-mount"></div>
+    <script>
+        fetch('components/footer.html')
+            .then(r => r.text())
+            .then(h => document.getElementById('footer-mount').innerHTML = h)
+            .catch(e => console.error('Error loading footer:', e));
+    </script>
+
+    <script src="js/script.js"></script>
+    <script src="js/financial-wellness-assessment.js"></script>
+</body>
+
+</html>
