@@ -122,41 +122,153 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /* ══════════════════════════════════════════════════════════
-   Cal.com embed
+   Newsletter modal — shared across all pages (markup lives in
+   components/header.html, fetched into #header-mount)
    ══════════════════════════════════════════════════════════ */
-(function (C, A, L) {
-  var p = function (a, ar) { a.q.push(ar); };
-  var d = C.document;
-  C.Cal = C.Cal || function () {
-    var cal = C.Cal;
-    var ar  = arguments;
-    if (!cal.loaded) {
-      cal.ns = {};
-      cal.q  = cal.q || [];
-      d.head.appendChild(d.createElement('script')).src = A;
-      cal.loaded = true;
-    }
-    if (ar[0] === L) {
-      var api       = function () { p(api, arguments); };
-      var namespace = ar[1];
-      api.q = api.q || [];
-      if (typeof namespace === 'string') {
-        cal.ns[namespace] = cal.ns[namespace] || api;
-        p(cal.ns[namespace], ar);
-        p(cal, ['initNamespace', namespace]);
-      } else {
-        p(cal, ar);
-      }
+(function () {
+  var lastTrigger = null;
+
+  function getEls() {
+    return {
+      overlay: document.getElementById('newsletter-modal-overlay'),
+      modal: document.getElementById('newsletter-modal'),
+      form: document.getElementById('newsletter-form'),
+      body: document.querySelector('.newsletter-form-body'),
+      success: document.getElementById('newsletter-success'),
+      errorEl: document.getElementById('newsletter-form-error'),
+      submitBtn: document.getElementById('newsletter-submit-btn')
+    };
+  }
+
+  function getFocusable(container) {
+    return Array.prototype.slice.call(
+      container.querySelectorAll('a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])')
+    ).filter(function (el) { return el.offsetParent !== null; });
+  }
+
+  window.openNewsletterModal = function (sourceContext, triggerEl) {
+    var els = getEls();
+    if (!els.overlay) return;
+    lastTrigger = triggerEl || document.activeElement;
+
+    var pageInput = document.getElementById('nl-source-page');
+    var contextInput = document.getElementById('nl-source-context');
+    if (pageInput) pageInput.value = window.location.href;
+    if (contextInput) contextInput.value = sourceContext || 'modal';
+
+    els.overlay.hidden = false;
+    document.body.style.overflow = 'hidden';
+
+    var firstField = els.modal.querySelector('#nl-first-name');
+    if (firstField) firstField.focus();
+
+    document.addEventListener('keydown', trapHandler, true);
+  };
+
+  window.closeNewsletterModal = function () {
+    var els = getEls();
+    if (!els.overlay || els.overlay.hidden) return;
+    els.overlay.hidden = true;
+    document.body.style.overflow = '';
+    document.removeEventListener('keydown', trapHandler, true);
+    if (lastTrigger && typeof lastTrigger.focus === 'function') lastTrigger.focus();
+  };
+
+  function trapHandler(e) {
+    var els = getEls();
+    if (!els.overlay || els.overlay.hidden) return;
+
+    if (e.key === 'Escape') {
+      window.closeNewsletterModal();
       return;
     }
-    p(cal, ar);
-  };
-})(window, 'https://app.cal.com/embed/embed.js', 'init');
 
-Cal('init', 'let-s-connect', { origin: 'https://app.cal.com' });
-Cal.ns['let-s-connect']('inline', {
-  elementOrSelector: '#my-cal-inline-let-s-connect',
-  config: { layout: 'column_view' },
-  calLink: 'iberian-pacific/let-s-connect'
-});
-Cal.ns['let-s-connect']('ui', { hideEventTypeDetails: false, layout: 'column_view' });
+    if (e.key === 'Tab') {
+      var focusable = getFocusable(els.modal);
+      if (!focusable.length) return;
+      var first = focusable[0];
+      var last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  }
+
+  document.addEventListener('click', function (e) {
+    var trigger = e.target.closest('.js-newsletter-trigger');
+    if (trigger) {
+      e.preventDefault();
+      window.openNewsletterModal(trigger.getAttribute('data-source-context') || 'modal', trigger);
+      return;
+    }
+
+    var closeBtn = e.target.closest('#newsletter-modal-close');
+    if (closeBtn) {
+      window.closeNewsletterModal();
+      return;
+    }
+
+    var overlay = e.target.closest('#newsletter-modal-overlay');
+    if (overlay && e.target === overlay) {
+      window.closeNewsletterModal();
+    }
+  });
+
+  document.addEventListener('submit', function (e) {
+    if (e.target.id !== 'newsletter-form') return;
+    e.preventDefault();
+
+    var els = getEls();
+    var form = els.form;
+    var checkedPrefs = form.querySelectorAll('input[name="preferences[]"]:checked');
+    var consent = document.getElementById('nl-consent');
+
+    els.errorEl.hidden = true;
+
+    if (!checkedPrefs.length) {
+      els.errorEl.textContent = 'Please choose at least one topic you\'d like to hear about.';
+      els.errorEl.hidden = false;
+      return;
+    }
+    if (!consent || !consent.checked) {
+      els.errorEl.textContent = 'Please check the consent box to subscribe.';
+      els.errorEl.hidden = false;
+      return;
+    }
+
+    var timestampInput = document.getElementById('nl-consent-timestamp');
+    if (timestampInput) timestampInput.value = new Date().toISOString();
+
+    els.submitBtn.disabled = true;
+    els.submitBtn.classList.add('loading');
+    els.submitBtn.querySelector('.btn-label').textContent = 'Subscribing…';
+
+    var data = new FormData(form);
+
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function (response) {
+      if (response.ok) {
+        els.body.hidden = true;
+        els.success.hidden = false;
+        form.reset();
+      } else {
+        els.errorEl.textContent = 'Something went wrong sending your subscription. Please try again.';
+        els.errorEl.hidden = false;
+      }
+    }).catch(function () {
+      els.errorEl.textContent = 'Something went wrong sending your subscription. Please try again.';
+      els.errorEl.hidden = false;
+    }).finally(function () {
+      els.submitBtn.disabled = false;
+      els.submitBtn.classList.remove('loading');
+      els.submitBtn.querySelector('.btn-label').textContent = 'Subscribe';
+    });
+  });
+})();

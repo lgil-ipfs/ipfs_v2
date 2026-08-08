@@ -373,6 +373,20 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('next-btn').addEventListener('click', nextQuestion);
   document.getElementById('prev-btn').addEventListener('click', prevQuestion);
   document.getElementById('retake-btn').addEventListener('click', retakeAssessment);
+
+  const shareCheckbox = document.getElementById('results-share-category');
+  if (shareCheckbox) {
+    shareCheckbox.addEventListener('change', function () {
+      const field = document.getElementById('nl-assessment-result');
+      if (!field) return;
+      if (this.checked) {
+        const { overall } = calculateScores();
+        field.value = getWellnessLevel(overall).label;
+      } else {
+        field.value = '';
+      }
+    });
+  }
 });
 
 // ── Screen management ──────────────────────────────────────────────
@@ -621,6 +635,17 @@ function renderResults() {
   document.getElementById('risk-meter-fill').style.width = '0%';
   document.getElementById('investor-edu-disclaimer').textContent =
     'Any investment-related terms used here are for general educational awareness only and do not constitute investment advice. Please consult a licensed financial advisor or portfolio manager before making any investment decisions.';
+
+  // Strengths — highest-scoring area(s)
+  const strengthsList = document.getElementById('strengths-list');
+  if (strengthsList) {
+    strengthsList.innerHTML = '';
+    const bySc = [...sectionScores].sort((a, b) => b.percentage - a.percentage);
+    const strong = bySc.filter(s => s.percentage >= 60).slice(0, 3);
+    (strong.length ? strong : [bySc[0]]).forEach(s => {
+      strengthsList.insertAdjacentHTML('beforeend', `<span class="strength-pill">${s.title}</span>`);
+    });
+  }
 
   // Section bars
   const barsContainer = document.getElementById('section-bars');

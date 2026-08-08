@@ -13,12 +13,17 @@
 
     <header class="ip-header" id="ip-header">
       <div class="topbar">
-        <div class="container">
+        <div class="container util-row">
+          <a class="util-brand-link" href="https://studentfinancial.ca" target="_blank" rel="noopener noreferrer">
+            Student Financial <span aria-hidden="true">&rarr;</span>
+            <span class="util-brand-sub">Financial education for students and young adults</span>
+          </a>
           <ul class="topbar-right">
-
-            <li><a href="/resources.html">Resources</a></li>
-            <li><a href="https://www.monarchsystems.online/myportfolio/" target="_blank">Monarch Client Login</a></li>
-            <li><a href="/faq.html">FAQ</a></li>
+            <li><a href="/contact.html">Client Service</a></li>
+            <li><button type="button" class="topbar-link-btn js-newsletter-trigger"
+                data-source-context="utility_bar">Subscribe for Insights</button></li>
+            <li><a href="https://cal.com/iberian-pacific" target="_blank" rel="noopener noreferrer">Book a
+                Conversation</a></li>
           </ul>
         </div>
       </div>
@@ -99,12 +104,95 @@
         <a class="nav-link" href="/resources.html">Client Resources</a>
 
         <a class="nav-link" href="https://www.monarchsystems.online/myportfolio/">Monarch Login</a>
+        <a class="nav-link" href="https://studentfinancial.ca" target="_blank" rel="noopener noreferrer">Student
+          Financial &rarr;</a>
+        <button type="button" class="nav-link js-newsletter-trigger" data-source-context="utility_bar"
+          style="background:none; border:none; text-align:left; width:100%; cursor:pointer;">Subscribe for
+          Insights</button>
         <div style="margin-top: auto; display: grid; gap: 12px;">
-          <a class="cta-mobile" href="/quote">Get Instant Quote</a>
-          <a class="cta-mobile" href="https://cal.com/iberian-pacific" style="background:#f4f4f4; color:#333;">Let's
-            Connect</a>
+          <a class="cta-mobile" href="https://cal.com/iberian-pacific" target="_blank" rel="noopener noreferrer"
+            style="background:#f4f4f4; color:#333;">Book a Conversation</a>
         </div>
       </aside>
     </header>
+
+    <!-- Newsletter Modal (shared, injected sitewide via header component) -->
+    <div class="ip-modal-overlay" id="newsletter-modal-overlay" hidden>
+      <div class="ip-modal" role="dialog" aria-modal="true" aria-labelledby="newsletter-modal-title" id="newsletter-modal">
+        <button type="button" class="ip-modal-close" id="newsletter-modal-close" aria-label="Close">&times;</button>
+
+        <form id="newsletter-form" class="newsletter-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+          <div class="newsletter-form-body">
+            <h2 id="newsletter-modal-title">Stay informed. Stay focused.</h2>
+            <p class="newsletter-modal-copy">Receive occasional market insights and practical financial-planning
+              ideas tailored to the areas that matter most to you.</p>
+
+            <div class="form-row two-up">
+              <div class="form-field">
+                <label for="nl-first-name">First name <span class="optional-tag">(optional)</span></label>
+                <input type="text" id="nl-first-name" name="first_name" autocomplete="given-name" />
+              </div>
+              <div class="form-field">
+                <label for="nl-last-name">Last name <span class="optional-tag">(optional)</span></label>
+                <input type="text" id="nl-last-name" name="last_name" autocomplete="family-name" />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="nl-email">Email address <span class="required-tag">(required)</span></label>
+              <input type="email" id="nl-email" name="email" required autocomplete="email" />
+            </div>
+
+            <fieldset class="form-field preferences-field">
+              <legend>Preferences <span class="required-tag">(required — choose at least one)</span></legend>
+              <div class="preferences-grid">
+                <label class="pref-check"><input type="checkbox" name="preferences[]" value="Market insights and investment perspectives" /><span>Market insights and investment perspectives</span></label>
+                <label class="pref-check"><input type="checkbox" name="preferences[]" value="Financial planning and wealth-building tips" /><span>Financial planning and wealth-building tips</span></label>
+                <label class="pref-check"><input type="checkbox" name="preferences[]" value="Tax-aware planning" /><span>Tax-aware planning</span></label>
+                <label class="pref-check"><input type="checkbox" name="preferences[]" value="Insurance and financial protection" /><span>Insurance and financial protection</span></label>
+                <label class="pref-check"><input type="checkbox" name="preferences[]" value="Mortgage, debt, and home planning" /><span>Mortgage, debt, and home planning</span></label>
+                <label class="pref-check"><input type="checkbox" name="preferences[]" value="Business-owner planning" /><span>Business-owner planning</span></label>
+                <label class="pref-check"><input type="checkbox" name="preferences[]" value="Retirement planning" /><span>Retirement planning</span></label>
+                <label class="pref-check"><input type="checkbox" name="preferences[]" value="Estate and legacy planning" /><span>Estate and legacy planning</span></label>
+                <label class="pref-check"><input type="checkbox" name="preferences[]" value="Student and young-adult financial education" /><span>Student and young-adult financial education</span></label>
+                <label class="pref-check"><input type="checkbox" name="preferences[]" value="General Iberian Pacific updates" /><span>General Iberian Pacific updates</span></label>
+              </div>
+            </fieldset>
+
+            <label class="consent-check">
+              <input type="checkbox" id="nl-consent" name="express_consent" required />
+              <span>I consent to receive electronic messages from Iberian Pacific Financial Services, including
+                market insights, financial-planning information, and updates based on the preferences I selected.
+                I understand that I can unsubscribe at any time by emailing
+                <a href="mailto:lgil@iberianpacific.ca">lgil@iberianpacific.ca</a>.</span>
+            </label>
+
+            <p class="form-error" id="newsletter-form-error" role="alert" hidden></p>
+
+            <button type="submit" class="btn btn-primary newsletter-submit" id="newsletter-submit-btn">
+              <span class="btn-label">Subscribe</span>
+            </button>
+
+            <p class="casl-disclosure">Iberian Pacific Financial Services, 1090 West Georgia Street, Suite 1160,
+              Vancouver, BC V6E 3V7, 604-916-8819, <a href="mailto:lgil@iberianpacific.ca">lgil@iberianpacific.ca</a>.
+              You may withdraw your consent at any time by emailing
+              <a href="mailto:lgil@iberianpacific.ca">lgil@iberianpacific.ca</a>.</p>
+
+            <!-- Hidden compliance / tracking fields -->
+            <input type="hidden" name="form_type" value="newsletter_subscription" />
+            <input type="hidden" name="consent_text_version" value="2026-08-08" />
+            <input type="hidden" name="consent_timestamp" id="nl-consent-timestamp" value="" />
+            <input type="hidden" name="source_page" id="nl-source-page" value="" />
+            <input type="hidden" name="source_context" id="nl-source-context" value="" />
+            <input type="hidden" name="assessment_result" id="nl-assessment-result" value="" />
+          </div>
+
+          <div class="newsletter-success-state" id="newsletter-success" hidden>
+            <h2>Thank you&mdash;you&rsquo;re on the list.</h2>
+            <p>We&rsquo;ll send insights based on the topics you selected.</p>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>

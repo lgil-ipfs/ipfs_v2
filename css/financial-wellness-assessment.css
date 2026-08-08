@@ -561,6 +561,88 @@
     transition: width 1s ease 0.3s;
 }
 
+/* Strengths */
+.strengths-card {
+    background: #EEF5F1;
+    border: 1px solid rgba(79, 130, 103, 0.2);
+    border-radius: var(--radius);
+    padding: 32px 40px;
+    margin-bottom: 36px;
+}
+
+.strengths-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: #4F8267;
+    margin-bottom: 6px;
+}
+
+.strengths-card > p {
+    color: var(--charcoal);
+    opacity: 0.8;
+    margin-bottom: 16px;
+    font-size: 0.95rem;
+}
+
+.strengths-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.strength-pill {
+    background: #FFFFFF;
+    border: 1px solid rgba(79, 130, 103, 0.25);
+    color: #4F8267;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 8px 16px;
+    border-radius: 999px;
+}
+
+/* Newsletter opt-in */
+.results-newsletter-optin {
+    background: #FFFFFF;
+    border: 1px dashed rgba(107, 39, 55, 0.25);
+    border-radius: var(--radius);
+    padding: 32px 40px;
+    margin-bottom: 36px;
+    text-align: center;
+}
+
+.results-newsletter-optin h4 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--maroon);
+    margin-bottom: 6px;
+}
+
+.results-newsletter-optin > p {
+    color: var(--charcoal);
+    opacity: 0.8;
+    font-size: 0.92rem;
+    margin-bottom: 16px;
+}
+
+.results-optin-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    text-align: left;
+    max-width: 520px;
+    margin: 0 auto 18px;
+    font-size: 0.85rem;
+    color: var(--charcoal);
+    opacity: 0.85;
+    cursor: pointer;
+}
+
+.results-optin-check input {
+    margin-top: 3px;
+    accent-color: var(--maroon);
+    flex-shrink: 0;
+}
+
 /* Money Mindset Card */
 .mindset-wellbeing-card {
     background: linear-gradient(135deg, #F7F1F4 0%, #FBF3F7 100%);

@@ -89,9 +89,10 @@
             <div id="screen-intro" class="assessment-screen active">
                 <div class="intro-card">
                     <h2>Your Financial Wellness Assessment</h2>
-                    <p>Answer 25 honest questions across 5 areas of your financial life. You'll receive your wellness
-                        score, investor profile, and a personalized action plan — all in under 7 minutes. No
-                        personal information required.</p>
+                    <p>Answer 25 honest questions across 5 areas of your financial life — covering budgeting, saving,
+                        borrowing, investing, insurance, and planning ahead for tax, retirement, and estate goals.
+                        You'll receive your wellness score, investor profile, and a personalized action plan — all
+                        in under 7 minutes. No personal information required.</p>
 
                     <div class="intro-modules">
                         <div class="module-pill">
@@ -196,6 +197,13 @@
 
                 </div>
 
+                <!-- Strengths -->
+                <div class="strengths-card">
+                    <h3>Your Strengths</h3>
+                    <p>The areas where your habits are already working in your favour:</p>
+                    <div id="strengths-list" class="strengths-list"></div>
+                </div>
+
                 <!-- Money Mindset Card -->
                 <div class="mindset-wellbeing-card">
                     <div class="mindset-level-badge" id="mindset-level-badge">Money Mindset</div>
@@ -222,14 +230,29 @@
                 <!-- CTA -->
                 <div class="results-cta">
                     <h3>Ready to take the next step?</h3>
-                    <p>Bring your results to a complimentary conversation with an Iberian Pacific advisor — we'll walk
-                        through them together and build a plan around what matters to you.</p>
+                    <p>This is a starting point, not a verdict. Bring your results to a complimentary conversation
+                        with an Iberian Pacific advisor — we'll walk through them together and build a plan around
+                        what matters to you.</p>
                     <div class="results-cta-btns">
-                        <a href="https://cal.com/iberian-pacific" target="_blank" class="btn btn-secondary">Book a
-                            Complimentary Review</a>
+                        <a href="https://cal.com/iberian-pacific" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-secondary">Talk Through Your Results With Us</a>
                         <a href="resources.html" class="btn-white-outline">Explore More Resources</a>
                         <button class="btn-white-outline" id="retake-btn">Retake Assessment</button>
                     </div>
+                </div>
+
+                <!-- Newsletter opt-in -->
+                <div class="results-newsletter-optin">
+                    <h4>Want insights based on your results?</h4>
+                    <p>We can send you practical content tailored to the areas that matter most to you.</p>
+                    <label class="results-optin-check">
+                        <input type="checkbox" id="results-share-category" />
+                        <span>Include my financial wellness category so the insights I receive can be more
+                            relevant. This is optional — you can subscribe without sharing it.</span>
+                    </label>
+                    <button type="button" class="btn-white-outline js-newsletter-trigger"
+                        id="results-newsletter-trigger" data-source-context="assessment_results">Get insights for
+                        your next step</button>
                 </div>
 
                 <!-- How scores are calculated -->
@@ -245,9 +268,11 @@
                         measure your attitude toward risk, loss, and time horizon.</p>
                 </div>
 
-                <p class="assessment-disclaimer">This assessment is for educational purposes only and does not
-                    constitute financial, investment, or legal advice. Results are based on your self-reported
-                    answers and should not replace personalized guidance from a licensed financial professional.</p>
+                <p class="assessment-disclaimer">This assessment is for educational purposes only. It is not
+                    individualized financial, tax, legal, insurance, or investment advice, and does not take into
+                    account your complete personal or financial circumstances. Results are based on your
+                    self-reported answers and should not replace personalized guidance from a licensed financial
+                    professional.</p>
 
             </div>
             <!-- End Results Screen -->
