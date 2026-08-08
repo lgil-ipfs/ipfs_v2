@@ -2973,12 +2973,8 @@ summary:focus-visible,
 
 .ip-services-header {
   max-width: 700px;
-  margin: 0 auto 44px;
-  text-align: center;
-}
-
-.ip-services-header .kicker {
-  justify-content: center;
+  margin: 0 0 44px;
+  text-align: left;
 }
 
 .ip-services-grid {
