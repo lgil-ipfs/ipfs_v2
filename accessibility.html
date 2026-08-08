@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-wf-domain="www.iberianpacific.ca">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Accessibility | Iberian Pacific Financial Services</title>
+    <meta content="Iberian Pacific Financial Services' commitment to an accessible website for all visitors." name="description" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="https://iberianpacific.ca/accessibility" rel="canonical" />
+    <link
+        href="https://cdn.prod.website-files.com/68ed2588f300fc2737bceebf/691e028abea330bc2c1d8358_IPFS-Logo-c%20(1).png"
+        rel="shortcut icon" type="image/x-icon" />
+    <link
+        href="https://cdn.prod.website-files.com/68ed2588f300fc2737bceebf/691e02b24f21bb5821d5f887_IPFS-Logo-c%20(1).png"
+        rel="apple-touch-icon" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/legal.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Header Mount -->
+    <div id="header-mount"></div>
+    <script>
+        fetch('components/header.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('header-mount').innerHTML = html)
+            .catch(err => console.error('Failed to load header:', err));
+    </script>
+
+    <!-- HERO -->
+    <section class="legal-hero">
+        <div class="wrap">
+            <div class="kicker">Legal</div>
+            <h1>Accessibility</h1>
+            <p class="legal-updated">Last updated: August 8, 2026</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="legal-content">
+        <div class="wrap">
+
+            <h2>Our Commitment</h2>
+            <p>Iberian Pacific Financial Services is committed to making this website usable by as many people as
+                possible, including people who use assistive technology such as screen readers, voice control, or
+                keyboard-only navigation.</p>
+
+            <h2>What We Aim For</h2>
+            <p>We aim to design this site in line with the Web Content Accessibility Guidelines (WCAG), including:</p>
+            <ul>
+                <li>Semantic HTML and clear page structure</li>
+                <li>Visible keyboard focus states on interactive elements</li>
+                <li>Sufficient color contrast between text and background</li>
+                <li>Descriptive link text and alternative text for meaningful images</li>
+                <li>Respect for reduced-motion preferences set in your browser or operating system</li>
+                <li>Interactive components — including the Financial Wellness Assessment, the newsletter sign-up,
+                    and site navigation — that are operable by keyboard alone</li>
+            </ul>
+
+            <h2>Ongoing Work</h2>
+            <p>Accessibility is an ongoing effort. As we update and expand this website, we continue to review and
+                improve its usability. If a page or feature does not work as expected with your assistive
+                technology, we want to know.</p>
+
+            <h2>Feedback</h2>
+            <p>If you encounter an accessibility barrier on this website, please let us know so we can address it.
+                Contact us at <a href="mailto:info@iberianpacific.ca">info@iberianpacific.ca</a> or
+                604-916-8819, and we will do our best to respond promptly.</p>
+
+        </div>
+    </section>
+
+    <!-- Footer Mount -->
+    <div id="footer-mount"></div>
+    <script>
+        fetch('components/footer.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('footer-mount').innerHTML = html)
+            .catch(err => console.error('Failed to load footer:', err));
+    </script>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

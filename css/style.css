@@ -1009,9 +1009,32 @@ section {
   margin-top: 26px;
 }
 
+.ip-hero .btn-outline {
+  background: transparent !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid rgba(255, 255, 255, .55) !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+.ip-hero .btn-outline:hover {
+  background: rgba(255, 255, 255, .12) !important;
+  border-color: #FFFFFF !important;
+  transform: translateY(-2px);
+}
+
 @media (max-width: 760px) {
   .ip-hero h1 {
     font-size: 2.1rem;
+  }
+
+  .ip-hero .cta-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ip-hero .cta-row .btn {
+    text-align: center;
   }
 
   .ip-hero.cinematic {
@@ -2865,8 +2888,469 @@ li {
   margin-top: 2px;
 }
 
+.situations-disclaimer {
+  margin-top: 28px;
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+  line-height: 1.6;
+}
+
 @media (max-width: 600px) {
   .team-spoke-body {
     padding-left: 20px;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   ACCESSIBILITY — focus states & reduced motion
+   ══════════════════════════════════════════════════════════ */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2.5px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   HOMEPAGE — WHO WE ARE (bullet list + closing line)
+   ══════════════════════════════════════════════════════════ */
+.ip-who-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 22px 0 26px;
+}
+
+.ip-who-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4A4A4A;
+}
+
+.ip-who-list li i {
+  color: var(--gold);
+  font-size: 13px;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.ip-who-closing {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--maroon);
+  margin-bottom: 22px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   HOMEPAGE — SERVICES (image-led grid)
+   ══════════════════════════════════════════════════════════ */
+.ip-services {
+  background: var(--white);
+  padding: 80px 0;
+}
+
+.ip-services-header {
+  max-width: 700px;
+  margin: 0 auto 44px;
+  text-align: center;
+}
+
+.ip-services-header .kicker {
+  justify-content: center;
+}
+
+.ip-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.ip-service-card {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  border: 1px solid var(--cream-mid);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.ip-service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-sm);
+  border-color: rgba(107, 39, 55, .15);
+}
+
+.ip-service-media {
+  height: 180px;
+  overflow: hidden;
+}
+
+.ip-service-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+
+.ip-service-card:hover .ip-service-media img {
+  transform: scale(1.05);
+}
+
+.ip-service-body {
+  padding: 22px 24px 26px;
+}
+
+.ip-service-body h3 {
+  font-size: 1.05rem !important;
+  color: var(--maroon-deep);
+  margin-bottom: 8px;
+}
+
+.ip-service-body p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #5A5A5A;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .ip-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .ip-services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   HOMEPAGE — HOW WE WORK (circleflow, ported from Our Story)
+   Verbatim structural rules from css/our-story.css so the
+   component renders identically; color/theme overrides for
+   .circleflow-original already exist globally above (see
+   '18. ABOUT / MISC PAGES' and 'CircleFlow light overrides').
+   ══════════════════════════════════════════════════════════ */
+
+.circleflow-original {
+  --deep-maroon: #6B2737;
+  --bg1: #6B2737;
+  --bg2: #2D2D2D;
+  --gold: #D4AF37;
+  --ring: 560px;
+  /* bigger circle for breathing room */
+  --node: 210px;
+  /* card size around the ring */
+  --hair: rgba(255, 255, 255, .14);
+  background: linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 100%);
+  color: #fff;
+  padding: 120px 0 100px;
+  /* more top/bottom space */
+  border-top: 1px solid rgba(255, 255, 255, .10);
+  position: relative;
+  overflow: hidden;
+}
+
+.circleflow-original .wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px
+}
+
+/* Layout: text left, circle right (desktop); stacked on tablet/mobile */
+.circleflow-original .grid {
+  display: grid;
+  gap: 40px;
+  align-items: start;
+  grid-template-columns: 420px 1fr;
+}
+
+@media (max-width:1100px) {
+  .circleflow-original .grid {
+    grid-template-columns: 1fr
+  }
+}
+
+/* Left column */
+.circleflow-original .kicker {
+  font: 700 14px/1.2 "Open Sans";
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: #C9A84C;
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem
+}
+
+.circleflow-original .kicker::before {
+  content: "";
+  width: 34px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent)
+}
+
+.circleflow-original h2 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  margin: .75rem 0 1rem;
+  color: #fff;
+}
+
+.circleflow-original .intro {
+  color: #FAF7F2;
+  font: 400 16px/1.75 "Open Sans";
+  max-width: 40ch;
+}
+
+.circleflow-original .standards {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px
+}
+
+.circleflow-original .chip {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--hair);
+  background: rgba(255, 255, 255, .06);
+  font: 800 11px/1 "Open Sans";
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #f3f0ea;
+}
+
+/* Right column: the circular stage (desktop/tablet) */
+.circleflow-original .stage {
+  position: relative;
+  margin: 10px auto 0;
+  /* extra gap from top */
+  width: min(92vw, var(--ring));
+  height: min(92vw, var(--ring));
+}
+
+.circleflow-original .ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(99, 15, 15, .18) 0%, transparent 65%);
+  box-shadow: inset 0 0 120px rgba(0, 0, 0, .3);
+  border: 1px solid rgba(255, 255, 255, .10);
+}
+
+.circleflow-original .center {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  pointer-events: none;
+  padding: 0 28px;
+}
+
+.circleflow-original .center h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: #C9A84C;
+  margin: 0 0 6px
+}
+
+.circleflow-original .center p {
+  color: #FAF7F2;
+  font: 400 14px/1.65 "Open Sans";
+  margin: 0;
+  max-width: 34ch
+}
+
+.circleflow-original .nodes {
+  position: absolute;
+  inset: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0
+}
+
+.circleflow-original .node {
+  --i: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--node);
+  transform: translate(-50%, -50%)
+}
+
+.circleflow-original .node {
+  --deg: calc((360deg/6)*var(--i) - 90deg);
+  --r: calc((var(--ring)/2) - 20px);
+  transform:
+    rotate(var(--deg)) translateY(calc(-1 * var(--r))) rotate(calc(-1 * var(--deg))) translate(-50%, -50%);
+}
+
+/* Cards around the ring (original dark/translucent look) */
+.circleflow-original .card {
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid var(--hair);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .25);
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+  backdrop-filter: saturate(110%) blur(2px);
+}
+
+.circleflow-original .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .30);
+  border-color: rgba(212, 175, 55, .35);
+}
+
+.circleflow-original .thumb {
+  height: 92px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, .12)
+}
+
+.circleflow-original .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.03);
+  transition: transform .5s ease
+}
+
+.circleflow-original .card:hover .thumb img {
+  transform: scale(1.08)
+}
+
+.circleflow-original .pad {
+  padding: 14px
+}
+
+.circleflow-original .title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: #C9A84C;
+  margin: 0 0 6px
+}
+
+.circleflow-original .num {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: var(--gold);
+  color: #2b0b0b;
+  font: 800 12px/1 "Open Sans";
+  box-shadow: 0 4px 10px rgba(212, 175, 55, .35)
+}
+
+.circleflow-original .desc {
+  color: #FAF7F2;
+  font: 400 13px/1.6 "Open Sans";
+  margin: 0
+}
+
+/* ===== Mobile: card-by-card list (no ring) ===== */
+/* Default hidden so desktop unaffected */
+.circleflow-original .mobile-list {
+  display: none
+}
+
+@media (max-width:900px) {
+  .circleflow-original .stage {
+    display: none
+  }
+
+  /* hide circle on mobile */
+  .circleflow-original .mobile-list {
+    /* show stacked cards */
+    display: grid;
+    gap: 14px;
+    margin-top: 12px;
+  }
+
+  .circleflow-original .mcard {
+    background: rgba(255, 255, 255, .08);
+    border: 1px solid var(--hair);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, .25);
+  }
+
+  .circleflow-original .mcard .row {
+    display: grid;
+    grid-template-columns: 110px 1fr
+  }
+
+  .circleflow-original .mcard .thumb {
+    height: auto;
+    border-bottom: none;
+    border-right: 1px solid rgba(255, 255, 255, .12)
+  }
+
+  .circleflow-original .mcard .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block
+  }
+
+  .circleflow-original .mcard .pad {
+    padding: 14px
+  }
+
+  .circleflow-original .mcard .title {
+    font-size: 16px;
+    color: #C9A84C;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 6px
+  }
+
+  .circleflow-original .mcard .desc {
+    font-size: 13px;
+    color: #FAF7F2;
+    margin: 0
+  }
+
+  .circleflow-original .mcard .num {
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: var(--gold);
+    color: #2b0b0b;
+    font: 800 11px/1 "Open Sans";
   }
 }
