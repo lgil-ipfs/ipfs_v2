@@ -17,8 +17,8 @@
   --cream-mid: #EDE8DF;
   --white: #FDFCFA;
   --grad-hero: linear-gradient(180deg, #6B2737 0%, #2D2D2D 100%);
-  --font-display: "Cormorant Garamond", "Merriweather", Georgia, serif;
-  --font-body: "Jost", "Open Sans", system-ui, sans-serif;
+  --font-display: "Fraunces", "Merriweather", Georgia, serif;
+  --font-body: "DM Sans", "Open Sans", system-ui, sans-serif;
   --wrap: 1200px;
   --nav-h: 92px;
   --nav-top-h: 40px;
@@ -747,9 +747,9 @@ section {
 }
 
 .ip-header .cta {
-  padding: 10px 20px;
-  border-radius: 6px;
-  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-weight: 700;
   font-size: 13px;
   transition: all .25s ease;
   white-space: nowrap;
@@ -1003,6 +1003,191 @@ section {
 
   .ip-hero.cinematic {
     padding: 90px 0 72px;
+  }
+}
+
+/* ── 11.5 START HERE (Directory + Assessment) ────────────── */
+.ip-start-here {
+  background: var(--cream);
+  padding: 56px 0 60px;
+  border-bottom: 1px solid var(--cream-mid);
+}
+
+.ip-start-here .start-head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 32px;
+}
+
+.ip-start-here .kicker {
+  justify-content: center;
+}
+
+.ip-start-here h2 {
+  margin-bottom: 8px;
+}
+
+.ip-start-here .start-sub {
+  color: #4A4A4A;
+  font-size: 15.5px;
+}
+
+.start-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
+  margin-bottom: 40px;
+}
+
+.start-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  background: var(--white);
+  border: 1px solid var(--cream-mid);
+  border-radius: var(--radius-sm);
+  padding: 22px 20px;
+  transition: border-color .22s ease, box-shadow .22s ease, transform .22s ease;
+}
+
+.start-tile:hover {
+  border-color: var(--gold);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-3px);
+}
+
+.start-tile .start-tile-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold-pale);
+  color: var(--maroon);
+  font-size: 17px;
+  flex-shrink: 0;
+}
+
+.start-tile h3 {
+  font-size: 16px !important;
+  color: var(--maroon-deep);
+}
+
+.start-tile p {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #6A6A6A;
+}
+
+.start-tile .start-tile-link {
+  margin-top: auto;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.start-tile .start-tile-link i {
+  font-size: 11px;
+  transition: transform .2s ease;
+}
+
+.start-tile:hover .start-tile-link i {
+  transform: translateX(3px);
+}
+
+/* Featured assessment banner */
+.fwa-banner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 32px;
+  background: var(--grad-hero);
+  border-radius: 22px;
+  padding: 40px 44px;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.fwa-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(120% 120% at 100% 0%, rgba(201, 168, 76, .22) 0%, transparent 60%);
+}
+
+.fwa-banner .fwa-copy .kicker {
+  justify-content: flex-start;
+  color: var(--gold) !important;
+}
+
+.fwa-banner h3 {
+  color: #FFFFFF !important;
+  font-size: clamp(1.5rem, 3vw, 2rem) !important;
+  margin-bottom: 10px;
+}
+
+.fwa-banner p {
+  color: rgba(255, 255, 255, .88);
+  font-size: 15.5px;
+  line-height: 1.7;
+  max-width: 46ch;
+  margin-bottom: 20px;
+}
+
+.fwa-banner .fwa-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.fwa-banner .fwa-pill {
+  font-size: 12px;
+  font-weight: 600;
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, .1);
+  border: 1px solid rgba(255, 255, 255, .22);
+  border-radius: 999px;
+  padding: 6px 14px;
+}
+
+.fwa-banner .fwa-visual {
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+}
+
+.fwa-banner .fwa-score {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 3.4rem;
+  color: var(--gold-light);
+  line-height: 1;
+}
+
+.fwa-banner .fwa-score-label {
+  font-size: 13px;
+  color: rgba(255, 255, 255, .78);
+  margin-top: 8px;
+}
+
+@media (max-width: 860px) {
+  .fwa-banner {
+    grid-template-columns: 1fr;
+    padding: 32px 26px;
+  }
+
+  .fwa-banner .fwa-visual {
+    order: -1;
   }
 }
 
