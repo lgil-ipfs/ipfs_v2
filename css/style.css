@@ -437,7 +437,7 @@ section {
 }
 
 .ip-header .container {
-  max-width: 1280px;
+  max-width: 1340px;
   margin: 0 auto;
   padding: 0 24px;
   width: 100%;
@@ -555,7 +555,7 @@ section {
 
 @media (max-width: 1200px) {
   .ip-header .nav {
-    gap: 15px;
+    gap: 26px;
   }
 }
 
@@ -623,7 +623,7 @@ section {
 
 .ip-header .nav {
   display: flex;
-  gap: 28px;
+  gap: 42px;
   align-items: center;
   flex: 1;
   justify-content: center;
@@ -636,8 +636,8 @@ section {
 
 .ip-header .nav>li>a {
   color: rgba(255, 255, 255, .88);
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 15.5px;
+  font-weight: 600;
   display: flex;
   align-items: center;
   gap: 5px;
