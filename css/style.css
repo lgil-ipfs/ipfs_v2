@@ -1599,7 +1599,7 @@ section {
 }
 
 .ip-footer .brand img {
-  height: 30px;
+  height: 40px;
   width: auto;
 }
 
@@ -1624,6 +1624,11 @@ section {
   font-size: 15px;
   color: var(--maroon-deep);
   margin-bottom: 24px;
+}
+
+.ip-footer .footer-links ul {
+  padding: 0;
+  margin: 0;
 }
 
 .ip-footer .footer-links ul li {
@@ -1690,8 +1695,8 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 120px;
-  height: 30px;
+  width: 150px;
+  height: 40px;
   flex-shrink: 0;
 }
 
