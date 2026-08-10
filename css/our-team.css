@@ -778,6 +778,11 @@ a.charity-logo-box:focus-visible {
   border: 1.5px dashed rgba(0, 0, 0, .18);
 }
 
+.charity-logo-box.on-light {
+  background: #FFFFFF;
+  border: 1px solid var(--cream-mid);
+}
+
 .charity-placeholder-text {
   font-size: 11px;
   font-weight: 700;
