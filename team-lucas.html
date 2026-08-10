@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8" />
   <title>Lucas Gil | Iberian Pacific Financial Services</title>
-  <meta content="Lucas Gil — Founder &amp; Principal Advisor at Iberian Pacific, specializing in wealth management and financial planning in Vancouver." name="description" />
+  <meta content="Lucas Gil — Founder &amp; Principal Advisor at Iberian Pacific, specializing in wealth strategy, insurance, and portfolio construction in Vancouver." name="description" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <link crossorigin="anonymous"
     href="https://cdn.prod.website-files.com/68ed2588f300fc2737bceebf/css/iberianpacific.webflow.shared.254e3923a.min.css"
@@ -54,7 +54,7 @@
       <div class="profile-image">
         <a href="/our-team.html" class="profile-back">&larr; Back to Team</a>
         <img alt="Lucas Gil"
-          src="https://cdn.prod.website-files.com/68ed2588f300fc2737bceebf/68f01e726ddba4174d759ce1_Lucas%202.png" />
+          src="/Assets/Lucas%20Gil.jpg" />
       </div>
       <div class="profile-content">
         <h1>Lucas Gil</h1>
@@ -73,10 +73,16 @@
         <!-- 2. Professional Overview -->
         <div class="profile-section-block">
           <h2>Professional overview</h2>
-          <p>With a degree in Financial Mathematics and Economics, Lucas helps clients build wealth strategies that
-            serve their families, their businesses, and their legacies — because an informed client is always an
-            empowered one. He approaches every relationship the same way Iberian Pacific was built: independent,
-            education-first, and free of quotas or product bias.</p>
+          <p>Lucas is the founder of Iberian Pacific Financial Services in Vancouver, serving clients in BC and
+            Ontario on wealth strategy, insurance, and portfolio construction — his core specialization, developed
+            through his time working with Vancouver-based portfolio managers and his studies at the University of
+            Waterloo.</p>
+          <p>The Mortgage Freedom Program is a concept Lucas has been proactive in further developing, building new
+            educational resources to make sure everyone who's eligible can benefit from it.</p>
+          <p>Alongside his advisory work, Lucas has always made time for students, co-founding
+            <a href="https://studentfinancial.ca" target="_blank" rel="noopener noreferrer">studentfinancial.ca</a>
+            to offer free financial counselling to post-secondary students — something that's been a longtime
+            priority and a genuine source of enjoyment for him.</p>
           <a aria-label="Lucas Gil LinkedIn" class="linkedin-link" href="https://www.linkedin.com/in/lucasrgil/"
             target="_blank" rel="noopener noreferrer">
             <svg fill="currentColor" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
@@ -88,16 +94,19 @@
           </a>
         </div>
 
-        <!-- 3. Experience & Achievements -->
+        <!-- 3. Community & Causes -->
         <div class="profile-section-block">
-          <h2>Experience &amp; achievements</h2>
-          <ul class="profile-achievements">
-            <li><i class="fa-solid fa-check" aria-hidden="true"></i>Founder of Iberian Pacific Financial Services</li>
-            <li><i class="fa-solid fa-check" aria-hidden="true"></i>Degree in Financial Mathematics and Economics</li>
-            <li><i class="fa-solid fa-check" aria-hidden="true"></i>MFA-P credential holder</li>
-            <li><i class="fa-solid fa-check" aria-hidden="true"></i>Licensed to sell mutual funds through Monarch
-              Wealth Corporation, licensed in BC and ON</li>
-          </ul>
+          <h2>Community &amp; causes</h2>
+          <div class="charity-block">
+            <div class="charity-logo-box">
+              <img src="/Assets/charities/headsupguys-logo.png" alt="HeadsUpGuys logo" />
+            </div>
+            <div class="charity-copy">
+              <span class="charity-name">HeadsUpGuys</span>
+              <p>A men's mental health initiative Lucas is proud to support — providing free, practical resources
+                for men facing depression.</p>
+            </div>
+          </div>
         </div>
 
         <!-- 4. Areas of Focus -->
@@ -105,15 +114,15 @@
           <h2>Areas of focus</h2>
           <div class="profile-focus-tags">
             <span class="focus-tag">Wealth &amp; Investment Guidance</span>
-            <span class="focus-tag">Financial Planning</span>
+            <span class="focus-tag">Portfolio Construction</span>
             <span class="focus-tag">Business-Owner Planning</span>
             <span class="focus-tag">Estate &amp; Legacy Planning</span>
           </div>
         </div>
 
-        <!-- 5. Beyond the Bio Quiz -->
+        <!-- 5. Beyond the Bio -->
         <div class="profile-section-block">
-          <div id="team-quiz-lucas" class="team-quiz-section"></div>
+          <div id="team-facts-lucas" class="team-facts-section"></div>
         </div>
 
       </div>
@@ -156,9 +165,9 @@
 -->
   <script src="/js/script.js"></script>
   <script src="/js/team-quiz-data.js"></script>
-  <script src="/js/team-quiz.js"></script>
+  <script src="/js/team-facts.js"></script>
   <script>
-    new TeamQuiz('team-quiz-lucas', IP_TEAM_QUIZ_DATA.lucas);
+    renderTeamFacts('team-facts-lucas', IP_TEAM_QUIZ_DATA.lucas);
   </script>
 </body>
 

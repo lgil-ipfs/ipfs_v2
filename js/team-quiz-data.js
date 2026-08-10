@@ -9,45 +9,50 @@
 var IP_TEAM_QUIZ_DATA = {
 
   lucas: {
+    // Real, Lucas-approved answers. Two notes flagged inline below (⚠) are
+    // draft wording filled in on his behalf — worth a quick check before
+    // this is considered final.
     personName: 'Lucas Gil',
     firstName: 'Lucas',
     slug: 'lucas',
     questions: [
       {
-        question: "What is Lucas's favourite way to recharge after a busy week?",
-        options: ['A long run', 'Cooking a new recipe', 'Reading', 'Time outdoors'],
+        question: "What's Lucas's favourite way to recharge after a busy week?",
+        options: ['A long run', 'Cooking a new recipe', 'Reading', 'Getting outdoors'],
         correctIndex: 3,
-        explanation: "Placeholder — to be confirmed by Lucas before publishing."
+        // ⚠ specific trail names are a draft — swap in Lucas's actual favourites
+        explanation: "Time outdoors — a few go-to trails are Quarry Rock and Lynn Peak on the North Shore, and Mount Douglas and Mount Work over on Vancouver Island."
       },
       {
         question: 'If Lucas could travel anywhere for a year, where would he go?',
-        options: ['Portugal', 'Japan', 'New Zealand', 'Italy'],
-        correctIndex: 0,
-        explanation: "Placeholder — to be confirmed by Lucas before publishing."
+        options: ['Southeast Asia', 'Western Europe', 'South America', 'East Africa'],
+        correctIndex: 1,
+        // ⚠ closing clause was cut off in the original note — drafted a natural finish
+        explanation: "Western Europe. As a Portuguese citizen, Lucas has the privilege of exploring Europe freely — and he loves the mix of history, culture, and food that's just a short train ride apart."
       },
       {
-        question: "What's Lucas's go-to comfort meal?",
+        question: "What's Lucas's go-to comfort food?",
         options: ['Pizza', 'Ramen', 'Tacos', 'Sushi'],
-        correctIndex: 2,
-        explanation: "Placeholder — to be confirmed by Lucas before publishing."
+        correctIndex: 3,
+        explanation: "Sushi, every time."
       },
       {
-        question: 'What does Lucas consider his ideal weekend activity?',
-        options: ['Hiking', 'Watching sports', 'Exploring a new neighbourhood', 'Board games with friends'],
-        correctIndex: 2,
-        explanation: "Placeholder — to be confirmed by Lucas before publishing."
-      },
-      {
-        question: 'What genre of music does Lucas listen to most?',
-        options: ['Jazz', 'Latin', 'Indie rock', 'Electronic'],
+        question: "What's Lucas's ideal weekend?",
+        options: ['A packed social calendar', 'Exploring a new neighbourhood', 'Catching up on emails', 'Watching sports all day'],
         correctIndex: 1,
-        explanation: "Placeholder — to be confirmed by Lucas before publishing."
+        explanation: "Exploring a new neighbourhood and learning what makes it different from the rest of the city."
       },
       {
-        question: 'What does Lucas hope clients feel after a meeting with him?',
-        options: ['Relieved', 'Informed and in control', 'Excited', 'Motivated'],
-        correctIndex: 1,
-        explanation: "Placeholder — to be confirmed by Lucas before publishing."
+        question: "What's on heavy rotation on Lucas's playlist?",
+        options: ['Hip hop', 'Electronic', 'Rock', 'Country'],
+        correctIndex: 2,
+        explanation: "Rock — Rush and The Tragically Hip are two of his favourite bands."
+      },
+      {
+        question: 'What does Lucas hope clients feel after working with him?',
+        options: ['Relieved', 'Informed and confident', 'Genuinely cared for', 'All of the above'],
+        correctIndex: 3,
+        explanation: "All of the above — that's the goal every time."
       }
     ]
   },
