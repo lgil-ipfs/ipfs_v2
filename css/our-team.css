@@ -759,6 +759,13 @@
   background: var(--charcoal);
   border-radius: 8px;
   padding: 8px 14px;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+a.charity-logo-box:hover,
+a.charity-logo-box:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
 }
 
 .charity-logo-box img {
