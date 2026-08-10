@@ -224,11 +224,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var els = getEls();
     var form = els.form;
+    var firstName = document.getElementById('nl-first-name');
     var checkedPrefs = form.querySelectorAll('input[name="preferences[]"]:checked');
     var consent = document.getElementById('nl-consent');
 
     els.errorEl.hidden = true;
 
+    if (!firstName || !firstName.value.trim()) {
+      els.errorEl.textContent = 'Please enter your first name.';
+      els.errorEl.hidden = false;
+      return;
+    }
     if (!checkedPrefs.length) {
       els.errorEl.textContent = 'Please choose at least one topic you\'d like to hear about.';
       els.errorEl.hidden = false;
