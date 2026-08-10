@@ -1,10 +1,9 @@
 /* ============================================================
    IBERIAN PACIFIC — "Beyond the Bio" quiz data
-   *** SAMPLE / PLACEHOLDER CONTENT ***
-   None of the answers below are confirmed facts about the named
-   team member. Every question must be reviewed, answered, and
-   approved by the team member before this goes live — replace
-   this file's contents with their real, approved answers first.
+   Lucas's and Richard's entries are real, approved answers.
+   Leigh's entry below is still *** SAMPLE / PLACEHOLDER CONTENT ***
+   and must be reviewed, answered, and approved by Leigh before
+   this goes live.
    ============================================================ */
 var IP_TEAM_QUIZ_DATA = {
 
@@ -58,6 +57,7 @@ var IP_TEAM_QUIZ_DATA = {
   },
 
   richard: {
+    // Real, Richard-approved answers.
     personName: 'Richard Chiu, QAFP',
     firstName: 'Richard',
     slug: 'richard',
@@ -65,38 +65,38 @@ var IP_TEAM_QUIZ_DATA = {
       {
         question: "What is Richard's favourite food?",
         options: ['Sushi', 'Tacos', 'Ramen', 'Pizza'],
-        correctIndex: 2,
-        explanation: "Placeholder — to be confirmed by Richard before publishing."
+        correctIndex: 3,
+        explanation: "Pizza, hands down."
       },
       {
         question: "What's Richard's favourite way to spend a weekend?",
         options: ['Watching hockey', 'Trying new restaurants', 'Hiking local trails', 'Gaming'],
-        correctIndex: 0,
-        explanation: "Placeholder — to be confirmed by Richard before publishing."
+        correctIndex: 1,
+        explanation: "Trying new restaurants — always up for discovering somewhere new."
       },
       {
         question: 'What is a skill Richard is currently learning or working on?',
         options: ['Playing guitar', 'Golf', 'Photography', 'A new language'],
         correctIndex: 1,
-        explanation: "Placeholder — to be confirmed by Richard before publishing."
+        explanation: "Golf — he's working on his game."
       },
       {
         question: "What's on Richard's travel wish list?",
-        options: ['Japan', 'Iceland', 'Greece', 'Peru'],
+        options: ['Mongolia', 'Iceland', 'Greece', 'Peru'],
         correctIndex: 0,
-        explanation: "Placeholder — to be confirmed by Richard before publishing."
+        explanation: "Mongolia has been on his travel wish list for a while."
       },
       {
         question: 'What does Richard enjoy most about helping clients?',
         options: ['Solving complex problems', 'Building long-term trust', 'Explaining things clearly', 'Seeing plans come together'],
         correctIndex: 3,
-        explanation: "Placeholder — to be confirmed by Richard before publishing."
+        explanation: "Seeing plans come together — watching a strategy take shape for a client."
       },
       {
         question: 'What kind of movie or show is Richard most likely watching?',
-        options: ['A documentary', 'A comedy', 'A sports broadcast', 'A thriller'],
+        options: ['A documentary', 'A comedy', 'A biopic', 'A thriller'],
         correctIndex: 2,
-        explanation: "Placeholder — to be confirmed by Richard before publishing."
+        explanation: "A biopic — he's drawn to true stories."
       }
     ]
   },
