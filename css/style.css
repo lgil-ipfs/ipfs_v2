@@ -463,6 +463,11 @@ section {
   gap: 20px;
 }
 
+/* Keeps topbar-right flush right if util-brand-link is commented out */
+.ip-header .topbar .container.util-row .topbar-right:only-child {
+  margin-left: auto;
+}
+
 .util-brand-link {
   display: flex;
   align-items: baseline;
