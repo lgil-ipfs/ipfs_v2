@@ -1,9 +1,7 @@
 /* ============================================================
    IBERIAN PACIFIC — "Beyond the Bio" quiz data
-   Lucas's and Richard's entries are real, approved answers.
-   Leigh's entry below is still *** SAMPLE / PLACEHOLDER CONTENT ***
-   and must be reviewed, answered, and approved by Leigh before
-   this goes live.
+   Lucas's, Richard's, and Leigh's entries are real, approved
+   answers.
    ============================================================ */
 var IP_TEAM_QUIZ_DATA = {
 
@@ -102,45 +100,47 @@ var IP_TEAM_QUIZ_DATA = {
   },
 
   leigh: {
+    // Real, Leigh-approved answers. Where he gave multiple examples, one
+    // was chosen as the quiz answer and the rest folded into the explanation.
     personName: 'Leigh Grant',
     firstName: 'Leigh',
     slug: 'leigh',
     questions: [
       {
-        question: 'What instrument did Leigh play as a professional drummer?',
-        options: ['Drums', 'Bass guitar', 'Keyboard', 'Saxophone'],
-        correctIndex: 0,
-        explanation: "Placeholder — to be confirmed by Leigh before publishing, based on his time as a professional drummer."
-      },
-      {
         question: "What's Leigh's favourite way to unwind after a busy week?",
-        options: ['Playing music', 'Cooking for family', 'Watching live sports', 'A quiet walk'],
+        options: ['A bike ride', 'Cooking for family', 'Watching live sports', 'A quiet walk'],
         correctIndex: 0,
-        explanation: "Placeholder — to be confirmed by Leigh before publishing."
+        explanation: "A bike ride — though he's just as likely to spend downtime working out, washing the cars, or cleaning up the yard and garden."
       },
       {
         question: 'What does good service mean to Leigh?',
-        options: ['Being fast', 'Being thorough', 'Making people feel like family', 'Being available 24/7'],
+        options: ['Being fast', 'Being thorough', "Treating everyone how you'd want to be treated — and better", 'Being available 24/7'],
         correctIndex: 2,
-        explanation: "Placeholder — to be confirmed by Leigh before publishing, reflecting his focus on client relationships."
+        explanation: "Treating everybody exactly how you'd expect to be treated — and usually better."
       },
       {
-        question: "What's Leigh's favourite local restaurant or comfort meal?",
-        options: ['Burgers', 'BBQ', 'Pho', 'Pasta'],
-        correctIndex: 1,
-        explanation: "Placeholder — to be confirmed by Leigh before publishing."
+        question: "What's Leigh's favourite comfort food?",
+        options: ['Burgers', 'BBQ', 'Chow mein', 'Pasta'],
+        correctIndex: 2,
+        explanation: "Chow mein, hands down."
       },
       {
-        question: 'What community activity or cause is Leigh involved in?',
-        options: ['Youth music mentorship', 'Local food bank', 'Coaching a sports team', 'Neighbourhood cleanup events'],
+        question: "What's Leigh's favourite way to give back?",
+        options: ['Donating time and clothes to the Salvation Army', 'Coaching a sports team', 'Organizing neighbourhood cleanups', 'Serving at a local food bank'],
         correctIndex: 0,
-        explanation: "Placeholder — to be confirmed by Leigh before publishing."
+        explanation: "He donates time and clothes to the Salvation Army, and volunteers wherever he can to support youth in music, sports, and fun."
       },
       {
-        question: 'What does Leigh hope a client feels after working with the team?',
-        options: ['Relieved', 'Cared for', 'Impressed', 'Confident'],
+        question: 'What does Leigh hope a client feels after working with him?',
+        options: ['Relieved', 'Cared for', 'Impressed', 'Confident and excited about their goals'],
+        correctIndex: 3,
+        explanation: "Comfort, security, and well-being — relieved, focused, and excited to meet financial goals they didn't think they could achieve."
+      },
+      {
+        question: "What's Leigh's favourite cause to support?",
+        options: ['Music in schools', 'Habitat for Humanity', 'Local food bank', 'Animal shelters'],
         correctIndex: 1,
-        explanation: "Placeholder — to be confirmed by Leigh before publishing."
+        explanation: "Habitat for Humanity — he's also passionate about supporting music in schools."
       }
     ]
   }
