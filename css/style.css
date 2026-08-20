@@ -6,19 +6,19 @@
 
 /* ── 1. DESIGN TOKENS ───────────────────────────────────── */
 :root {
-  --maroon: #6B2737;
-  --maroon-deep: #4A1A24;
-  --maroon-mid: #2D0810;
-  --charcoal: #2D2D2D;
-  --gold: #C9A84C;
-  --gold-light: #E2C880;
-  --gold-pale: #F5EDD4;
-  --cream: #FDFBF7;
-  --cream-mid: #EDE8DF;
-  --white: #FDFCFA;
-  --grad-hero: linear-gradient(180deg, #6B2737 0%, #2D2D2D 100%);
-  --font-display: "Cormorant Garamond", "Merriweather", Georgia, serif;
-  --font-body: "Jost", "Open Sans", system-ui, sans-serif;
+  --maroon: #6B0F11;
+  --maroon-deep: #130000;
+  --maroon-mid: #130000;
+  --charcoal: #130000;
+  --gold: #DEAA31;
+  --gold-light: #EBCB80;
+  --gold-pale: #F9EFD8;
+  --cream: #F8F7F7;
+  --cream-mid: #DFD9D9;
+  --white: #F8F7F7;
+  --grad-hero: linear-gradient(180deg, #6B0F11 0%, #130000 100%);
+  --font-display: "Crimson Pro", Georgia, serif;
+  --font-body: "Nunito Sans", system-ui, sans-serif;
   --wrap: 1200px;
   --nav-h: 92px;
   --nav-top-h: 40px;
@@ -80,7 +80,7 @@ h2,
 h3,
 h4 {
   font-family: var(--font-display) !important;
-  font-weight: 900;
+  font-weight: 600;
   line-height: 1.1;
   text-shadow: none;
 }
@@ -136,7 +136,7 @@ section {
 .ip-why-kicker {
   font-family: var(--font-body);
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 300;
   letter-spacing: .22em;
   text-transform: uppercase;
   color: var(--gold);
@@ -215,10 +215,10 @@ section {
 .ip-btn-white,
 .ip-what .link,
 .ip-what .card .link {
-  background: linear-gradient(90deg, #DCAE47 0%, #C9A84C 100%) !important;
+  background: linear-gradient(90deg, #E5BC5D 0%, #DEAA31 100%) !important;
   color: #FFFFFF !important;
-  border: 1.5px solid #C9A84C !important;
-  box-shadow: 0 4px 16px rgba(201, 168, 76, .35) !important;
+  border: 1.5px solid #DEAA31 !important;
+  box-shadow: 0 4px 16px rgba(222, 170, 49, .35) !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, .15) !important;
 }
 
@@ -232,9 +232,9 @@ section {
 .ip-btn-white:hover,
 .ip-what .link:hover,
 .ip-what .card .link:hover {
-  background: linear-gradient(90deg, #E2C880 0%, #DCAE47 100%) !important;
+  background: linear-gradient(90deg, #EBCB80 0%, #E5BC5D 100%) !important;
   color: #FFFFFF !important;
-  box-shadow: 0 8px 24px rgba(201, 168, 76, .55) !important;
+  box-shadow: 0 8px 24px rgba(222, 170, 49, .55) !important;
   transform: translateY(-2px) !important;
 }
 
@@ -245,7 +245,7 @@ section {
 .ip-cta .btn-secondary {
   background: #FFFFFF !important;
   color: var(--maroon) !important;
-  border: 1.5px solid rgba(107, 39, 55, .3) !important;
+  border: 1.5px solid rgba(107, 15, 17, .3) !important;
   box-shadow: 0 2px 10px rgba(0, 0, 0, .06) !important;
   text-shadow: none !important;
 }
@@ -257,23 +257,23 @@ section {
   background: var(--cream) !important;
   color: var(--maroon) !important;
   border-color: var(--maroon) !important;
-  box-shadow: 0 6px 18px rgba(107, 39, 55, .12) !important;
+  box-shadow: 0 6px 18px rgba(107, 15, 17, .12) !important;
   transform: translateY(-2px) !important;
 }
 
 /* Header "Get Coverage Now" — gold fill */
 .header-actions .cta:first-child {
-  background: linear-gradient(90deg, #DCAE47 0%, #C9A84C 100%) !important;
+  background: linear-gradient(90deg, #E5BC5D 0%, #DEAA31 100%) !important;
   color: #FFFFFF !important;
-  border: 1px solid #C9A84C !important;
-  box-shadow: 0 4px 14px rgba(201, 168, 76, .35) !important;
+  border: 1px solid #DEAA31 !important;
+  box-shadow: 0 4px 14px rgba(222, 170, 49, .35) !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, .15) !important;
 }
 
 .header-actions .cta:first-child:hover {
-  background: linear-gradient(90deg, #E2C880 0%, #DCAE47 100%) !important;
+  background: linear-gradient(90deg, #EBCB80 0%, #E5BC5D 100%) !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 8px 20px rgba(201, 168, 76, .55) !important;
+  box-shadow: 0 8px 20px rgba(222, 170, 49, .55) !important;
 }
 
 /* Header "Book Consultation" — white on dark nav */
@@ -314,8 +314,8 @@ section {
 .vcard:hover,
 .team-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(107, 39, 55, .08) !important;
-  border-color: rgba(107, 39, 55, .15) !important;
+  box-shadow: 0 16px 40px rgba(107, 15, 17, .08) !important;
+  border-color: rgba(107, 15, 17, .15) !important;
 }
 
 .ip-card h3,
@@ -979,7 +979,7 @@ section {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: linear-gradient(110deg, rgba(0, 0, 0, .84) 0%, rgba(107, 39, 55, .52) 100%), radial-gradient(120% 80% at 20% 0%, rgba(201, 168, 76, .14) 0%, transparent 68%);
+  background: linear-gradient(110deg, rgba(0, 0, 0, .84) 0%, rgba(107, 15, 17, .52) 100%), radial-gradient(120% 80% at 20% 0%, rgba(222, 170, 49, .14) 0%, transparent 68%);
 }
 
 .ip-hero .ring {
@@ -988,7 +988,7 @@ section {
   width: 520px;
   height: 520px;
   border-radius: 50%;
-  border: 1px solid rgba(201, 168, 76, .3);
+  border: 1px solid rgba(222, 170, 49, .3);
   filter: blur(.5px);
   transform: rotate(8deg);
   z-index: 1;
@@ -1065,7 +1065,7 @@ section {
 .ip-heading {
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 3vw, 2.4rem);
-  font-weight: 900;
+  font-weight: 600;
   margin: 0 0 1rem;
   color: var(--maroon);
 }
@@ -1112,7 +1112,7 @@ section {
   bottom: 18px;
   left: 18px;
   background: #fff;
-  color: #2b0b0b;
+  color: #130000;
   border-radius: 10px;
   padding: 11px 18px;
   box-shadow: var(--shadow-md);
@@ -1148,7 +1148,7 @@ section {
 .ip-why-title {
   font-family: var(--font-display);
   font-size: clamp(1.7rem, 3vw, 2.3rem);
-  font-weight: 900;
+  font-weight: 600;
   margin: 12px 0 16px;
   color: var(--maroon);
 }
@@ -1190,7 +1190,7 @@ section {
 .ip-card-title {
   font-family: var(--font-display);
   font-size: 1.15rem;
-  font-weight: 900;
+  font-weight: 600;
   margin: 0 0 9px;
 }
 
@@ -1257,7 +1257,7 @@ section {
 .ip-serve h3 {
   font-family: var(--font-display);
   font-size: 1.2rem;
-  font-weight: 900;
+  font-weight: 600;
   margin: 0 0 9px;
 }
 
@@ -1343,7 +1343,7 @@ section {
 .ip-what h3 {
   font-family: var(--font-display);
   font-size: 1.1rem;
-  font-weight: 900;
+  font-weight: 600;
   margin: 0 0 8px;
 }
 
@@ -1500,7 +1500,7 @@ section {
 .ip-cta h2 {
   font-family: var(--font-display);
   font-size: clamp(1.9rem, 4.5vw, 3rem);
-  font-weight: 900;
+  font-weight: 600;
   margin: .2rem 0 1rem;
   color: #FFFFFF;
   text-shadow: 0 1px 2px rgba(0, 0, 0, .3);
@@ -1527,7 +1527,7 @@ section {
 .ip-cta .card h3 {
   font-family: var(--font-display);
   font-size: clamp(1.2rem, 2.4vw, 1.6rem);
-  font-weight: 900;
+  font-weight: 600;
   color: var(--maroon) !important;
   margin: 0;
   text-shadow: none;
@@ -1564,7 +1564,7 @@ section {
   text-transform: uppercase;
   color: var(--maroon);
   background: #fff;
-  border: 1px dashed rgba(107, 39, 55, .28);
+  border: 1px dashed rgba(107, 15, 17, .28);
   border-radius: 999px;
   padding: 6px 12px;
 }
@@ -1633,7 +1633,7 @@ section {
 
 .ip-footer .brand .name {
   font-family: var(--font-display);
-  font-weight: 900;
+  font-weight: 600;
   font-size: 19px;
   color: var(--maroon-deep);
 }
@@ -1941,29 +1941,29 @@ section {
 }
 
 .mainbar.scrolled .nav>li>a {
-  color: #2D2D2D !important;
+  color: #130000 !important;
 }
 
 .mainbar.scrolled .brand span {
-  color: #6B2737 !important;
+  color: #6B0F11 !important;
 }
 
 .mainbar.scrolled .hamburger span.text {
-  color: #2D2D2D !important;
+  color: #130000 !important;
 }
 
 .mainbar.scrolled .burger-icon span {
-  background: #2D2D2D !important;
+  background: #130000 !important;
 }
 
 /* ── Header CTA buttons (inline-style-safe fallbacks) ──────
    The live header uses inline styles which always win.
    These rules back them up for any page without inline styles. */
 .header-actions .cta:first-child {
-  background: linear-gradient(90deg, #DCAE47 0%, #C9A84C 100%) !important;
-  border: 1px solid #C9A84C !important;
+  background: linear-gradient(90deg, #E5BC5D 0%, #DEAA31 100%) !important;
+  border: 1px solid #DEAA31 !important;
   color: #FFFFFF !important;
-  box-shadow: 0 4px 14px rgba(201, 168, 76, .35) !important;
+  box-shadow: 0 4px 14px rgba(222, 170, 49, .35) !important;
   border-radius: 6px;
   font-weight: 600;
   font-size: 13px;
@@ -1972,15 +1972,15 @@ section {
 }
 
 .header-actions .cta:first-child:hover {
-  background: linear-gradient(90deg, #E2C880 0%, #DCAE47 100%) !important;
+  background: linear-gradient(90deg, #EBCB80 0%, #E5BC5D 100%) !important;
   color: #FFFFFF !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 8px 20px rgba(201, 168, 76, .55) !important;
+  box-shadow: 0 8px 20px rgba(222, 170, 49, .55) !important;
 }
 
 .header-actions .cta:last-child {
   background: #FFFFFF !important;
-  color: #2D2D2D !important;
+  color: #130000 !important;
   border: 1.5px solid transparent !important;
   box-shadow: none !important;
   border-radius: 6px;
@@ -1991,8 +1991,8 @@ section {
 }
 
 .header-actions .cta:last-child:hover {
-  background: #F5EDD4 !important;
-  color: #2D2D2D !important;
+  background: #F9EFD8 !important;
+  color: #130000 !important;
 }
 
 /* ── Global button master rule ───────────────────────────── */
@@ -2003,10 +2003,10 @@ section {
 .ip-cta .btn-primary,
 .team-footer-cta .btn-primary,
 .about-links .btn {
-  background: linear-gradient(90deg, #DCAE47 0%, #C9A84C 100%) !important;
+  background: linear-gradient(90deg, #E5BC5D 0%, #DEAA31 100%) !important;
   color: #FFFFFF !important;
-  border: 1px solid #C9A84C !important;
-  box-shadow: 0 4px 14px rgba(201, 168, 76, 0.35) !important;
+  border: 1px solid #DEAA31 !important;
+  box-shadow: 0 4px 14px rgba(222, 170, 49, 0.35) !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15) !important;
   font-weight: 700 !important;
 }
@@ -2018,9 +2018,9 @@ section {
 .ip-cta .btn-primary:hover,
 .team-footer-cta .btn-primary:hover,
 .about-links .btn:hover {
-  background: linear-gradient(90deg, #E2C880 0%, #DCAE47 100%) !important;
+  background: linear-gradient(90deg, #EBCB80 0%, #E5BC5D 100%) !important;
   color: #FFFFFF !important;
-  box-shadow: 0 6px 20px rgba(201, 168, 76, 0.5) !important;
+  box-shadow: 0 6px 20px rgba(222, 170, 49, 0.5) !important;
   transform: translateY(-2px) !important;
 }
 
@@ -2028,8 +2028,8 @@ section {
 .btn-secondary,
 .btn-ghost {
   background: #FFFFFF !important;
-  color: #6B2737 !important;
-  border: 1px solid rgba(107, 39, 55, 0.2) !important;
+  color: #6B0F11 !important;
+  border: 1px solid rgba(107, 15, 17, 0.2) !important;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05) !important;
   text-shadow: none !important;
 }
@@ -2037,8 +2037,8 @@ section {
 .btn-secondary:hover,
 .btn-ghost:hover {
   background: #FFFFFF !important;
-  color: #6B2737 !important;
-  border-color: #6B2737 !important;
+  color: #6B0F11 !important;
+  border-color: #6B0F11 !important;
   transform: translateY(-2px) !important;
 }
 
@@ -2089,7 +2089,7 @@ section {
 .values h2,
 .circleflow-original h2,
 .timeline h2 {
-  color: #6B2737 !important;
+  color: #6B0F11 !important;
   text-shadow: none !important;
 }
 
@@ -2127,7 +2127,7 @@ section {
 .panel h2,
 .mcard .title,
 .team-card h3 {
-  color: #6B2737 !important;
+  color: #6B0F11 !important;
 }
 
 .ip-card p,
@@ -2142,11 +2142,11 @@ section {
 
 /* ── CTA section stays dark ─────────────────────────────── */
 .ip-cta {
-  background: linear-gradient(180deg, #6B2737 0%, #2D2D2D 100%) !important;
+  background: linear-gradient(180deg, #6B0F11 0%, #130000 100%) !important;
 }
 
 .ip-cta .kicker {
-  color: #C9A84C !important;
+  color: #DEAA31 !important;
 }
 
 .ip-cta h2#cta-title {
@@ -2158,7 +2158,7 @@ section {
 }
 
 .ip-cta .card h3 {
-  color: #6B2737 !important;
+  color: #6B0F11 !important;
 }
 
 .ip-cta .card p {
@@ -2167,7 +2167,7 @@ section {
 
 .ip-cta .chip {
   background: #FFFFFF !important;
-  color: #6B2737 !important;
+  color: #6B0F11 !important;
 }
 
 .ip-cta .btn-primary {
@@ -2176,7 +2176,7 @@ section {
 
 /* ── CircleFlow light overrides ─────────────────────────── */
 .circleflow-original .center h3 {
-  color: #6B2737 !important;
+  color: #6B0F11 !important;
 }
 
 .circleflow-original .center p {
@@ -2184,7 +2184,7 @@ section {
 }
 
 .circleflow-original .kicker {
-  color: #C9A84C !important;
+  color: #DEAA31 !important;
 }
 
 .circleflow-original .ring {
@@ -2194,7 +2194,7 @@ section {
 
 .circleflow-original .chip {
   border-color: rgba(0, 0, 0, 0.1) !important;
-  color: #2D2D2D !important;
+  color: #130000 !important;
 }
 
 .circleflow-original .node .card {
@@ -2204,7 +2204,7 @@ section {
 
 .circleflow-original .node .card h3,
 .circleflow-original .node .card .title {
-  color: #6B2737 !important;
+  color: #6B0F11 !important;
 }
 
 .circleflow-original .node .card p,
@@ -2230,10 +2230,10 @@ section {
   align-self: stretch !important;
   text-align: center !important;
   display: flex !important;
-  background: linear-gradient(90deg, #DCAE47 0%, #C9A84C 100%) !important;
+  background: linear-gradient(90deg, #E5BC5D 0%, #DEAA31 100%) !important;
   color: #FFFFFF !important;
-  border: 1px solid #C9A84C !important;
-  box-shadow: 0 4px 14px rgba(201, 168, 76, 0.35) !important;
+  border: 1px solid #DEAA31 !important;
+  box-shadow: 0 4px 14px rgba(222, 170, 49, 0.35) !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15) !important;
   font-weight: 700 !important;
   border-radius: 999px !important;
@@ -2245,25 +2245,25 @@ section {
 
 .ip-what .link:hover,
 .ip-what .card .link:hover {
-  background: linear-gradient(90deg, #E2C880 0%, #DCAE47 100%) !important;
+  background: linear-gradient(90deg, #EBCB80 0%, #E5BC5D 100%) !important;
   color: #FFFFFF !important;
-  box-shadow: 0 8px 20px rgba(201, 168, 76, 0.55) !important;
+  box-shadow: 0 8px 20px rgba(222, 170, 49, 0.55) !important;
   transform: translateY(-2px) !important;
 }
 
 /* ── ip-btn-white (Our Approach "Our Story") — gold ─────── */
 .ip-btn-white {
-  background: linear-gradient(90deg, #DCAE47 0%, #C9A84C 100%) !important;
+  background: linear-gradient(90deg, #E5BC5D 0%, #DEAA31 100%) !important;
   color: #FFFFFF !important;
-  border: 1px solid #C9A84C !important;
-  box-shadow: 0 4px 14px rgba(201, 168, 76, 0.35) !important;
+  border: 1px solid #DEAA31 !important;
+  box-shadow: 0 4px 14px rgba(222, 170, 49, 0.35) !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15) !important;
 }
 
 .ip-btn-white:hover {
-  background: linear-gradient(90deg, #E2C880 0%, #DCAE47 100%) !important;
+  background: linear-gradient(90deg, #EBCB80 0%, #E5BC5D 100%) !important;
   color: #FFFFFF !important;
-  box-shadow: 0 8px 20px rgba(201, 168, 76, 0.55) !important;
+  box-shadow: 0 8px 20px rgba(222, 170, 49, 0.55) !important;
   transform: translateY(-2px) !important;
 }
 
@@ -2275,7 +2275,7 @@ section {
 
 .ip-hero .kicker,
 .hero .kicker {
-  color: #C9A84C !important;
+  color: #DEAA31 !important;
 }
 
 .ip-hero .sub,
@@ -2421,7 +2421,7 @@ li {
   outline: none;
   border-color: var(--maroon);
   background: #FFFFFF;
-  box-shadow: 0 0 0 4px rgba(107, 39, 55, .07);
+  box-shadow: 0 0 0 4px rgba(107, 15, 17, .07);
 }
 
 .preferences-field {
@@ -2648,7 +2648,7 @@ li {
 .fwa-teaser-score-num {
   font-family: var(--font-display);
   font-size: 1.5rem;
-  font-weight: 900;
+  font-weight: 600;
   line-height: 1;
 }
 
@@ -2730,7 +2730,7 @@ li {
 .team-hub strong {
   display: block;
   font-family: var(--font-display);
-  font-weight: 900;
+  font-weight: 600;
   font-size: 1.3rem;
   color: #FFFFFF;
 }
@@ -3001,7 +3001,7 @@ summary:focus-visible,
 .ip-service-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-sm);
-  border-color: rgba(107, 39, 55, .15);
+  border-color: rgba(107, 15, 17, .15);
 }
 
 .ip-service-media {
@@ -3058,10 +3058,10 @@ summary:focus-visible,
    ══════════════════════════════════════════════════════════ */
 
 .circleflow-original {
-  --deep-maroon: #6B2737;
-  --bg1: #6B2737;
-  --bg2: #2D2D2D;
-  --gold: #D4AF37;
+  --deep-maroon: #6B0F11;
+  --bg1: #6B0F11;
+  --bg2: #130000;
+  --gold: #DEAA31;
   --ring: 560px;
   /* bigger circle for breathing room */
   --node: 210px;
@@ -3098,10 +3098,10 @@ summary:focus-visible,
 
 /* Left column */
 .circleflow-original .kicker {
-  font: 700 14px/1.2 "Open Sans";
+  font: 300 14px/1.2 "Nunito Sans";
   letter-spacing: .22em;
   text-transform: uppercase;
-  color: #C9A84C;
+  color: #DEAA31;
   display: inline-flex;
   align-items: center;
   gap: .6rem
@@ -3117,14 +3117,14 @@ summary:focus-visible,
 
 .circleflow-original h2 {
   font-family: var(--font-display);
-  font-weight: 900;
+  font-weight: 600;
   margin: .75rem 0 1rem;
   color: #fff;
 }
 
 .circleflow-original .intro {
-  color: #FAF7F2;
-  font: 400 16px/1.75 "Open Sans";
+  color: #F8F7F7;
+  font: 400 16px/1.75 "Nunito Sans";
   max-width: 40ch;
 }
 
@@ -3140,7 +3140,7 @@ summary:focus-visible,
   border-radius: 10px;
   border: 1px solid var(--hair);
   background: rgba(255, 255, 255, .06);
-  font: 800 11px/1 "Open Sans";
+  font: 800 11px/1 "Nunito Sans";
   letter-spacing: .08em;
   text-transform: uppercase;
   color: #f3f0ea;
@@ -3177,13 +3177,13 @@ summary:focus-visible,
 .circleflow-original .center h3 {
   font-family: var(--font-display);
   font-weight: 800;
-  color: #C9A84C;
+  color: #DEAA31;
   margin: 0 0 6px
 }
 
 .circleflow-original .center p {
-  color: #FAF7F2;
-  font: 400 14px/1.65 "Open Sans";
+  color: #F8F7F7;
+  font: 400 14px/1.65 "Nunito Sans";
   margin: 0;
   max-width: 34ch
 }
@@ -3226,7 +3226,7 @@ summary:focus-visible,
 .circleflow-original .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 24px 60px rgba(0, 0, 0, .30);
-  border-color: rgba(212, 175, 55, .35);
+  border-color: rgba(222, 170, 49, .35);
 }
 
 .circleflow-original .thumb {
@@ -3258,7 +3258,7 @@ summary:focus-visible,
   gap: 8px;
   font-family: var(--font-display);
   font-weight: 800;
-  color: #C9A84C;
+  color: #DEAA31;
   margin: 0 0 6px
 }
 
@@ -3269,14 +3269,14 @@ summary:focus-visible,
   display: grid;
   place-items: center;
   background: var(--gold);
-  color: #2b0b0b;
-  font: 800 12px/1 "Open Sans";
-  box-shadow: 0 4px 10px rgba(212, 175, 55, .35)
+  color: #130000;
+  font: 800 12px/1 "Nunito Sans";
+  box-shadow: 0 4px 10px rgba(222, 170, 49, .35)
 }
 
 .circleflow-original .desc {
-  color: #FAF7F2;
-  font: 400 13px/1.6 "Open Sans";
+  color: #F8F7F7;
+  font: 400 13px/1.6 "Nunito Sans";
   margin: 0
 }
 
@@ -3331,7 +3331,7 @@ summary:focus-visible,
 
   .circleflow-original .mcard .title {
     font-size: 16px;
-    color: #C9A84C;
+    color: #DEAA31;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -3340,7 +3340,7 @@ summary:focus-visible,
 
   .circleflow-original .mcard .desc {
     font-size: 13px;
-    color: #FAF7F2;
+    color: #F8F7F7;
     margin: 0
   }
 
@@ -3351,7 +3351,7 @@ summary:focus-visible,
     display: grid;
     place-items: center;
     background: var(--gold);
-    color: #2b0b0b;
-    font: 800 11px/1 "Open Sans";
+    color: #130000;
+    font: 800 11px/1 "Nunito Sans";
   }
 }

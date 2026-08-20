@@ -57,7 +57,7 @@
     border-radius: 50px;
     font-size: 18px;
     font-family: var(--font-body);
-    background: #FDFCFA;
+    background: #F8F7F7;
     transition: all 0.3s ease;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
 }
@@ -66,7 +66,7 @@
     outline: none;
     border-color: var(--maroon);
     background: #FFF;
-    box-shadow: 0 15px 40px rgba(107, 39, 55, 0.08);
+    box-shadow: 0 15px 40px rgba(107, 15, 17, 0.08);
 }
 
 .search-wrap i {
@@ -80,7 +80,7 @@
 
 /* 3. FAQ SECTION */
 .faq-content {
-    background: #FDFBF7;
+    background: #F8F7F7;
     padding: 100px 0;
 }
 

@@ -1,14 +1,14 @@
 .ip-hero.story {
-  --deep: #6B2737;
-  --burg: #823F3F;
-  --gold: #D4AF37;
-  --ink: #FAF7F2;
+  --deep: #6B0F11;
+  --burg: #6B0F11;
+  --gold: #DEAA31;
+  --ink: #F8F7F7;
   --wrap: 1200px;
   position: relative;
   isolation: isolate;
   color: #fff;
   overflow: hidden;
-  background: linear-gradient(180deg, #6B2737 0%, #2D2D2D 100%);
+  background: linear-gradient(180deg, #6B0F11 0%, #130000 100%);
   /* fallback behind video */
   border-top: 1px solid rgba(255, 255, 255, .12);
 }
@@ -41,7 +41,7 @@
     /* angled darkening sweep for legibility */
     linear-gradient(110deg, rgba(0, 0, 0, .85) 0%, rgba(0, 0, 0, .55) 35%, rgba(91, 16, 16, .65) 100%),
     /* soft gold glow from top-left */
-    radial-gradient(130% 90% at 18% 0%, rgba(212, 175, 55, .18) 0%, transparent 60%),
+    radial-gradient(130% 90% at 18% 0%, rgba(222, 170, 49, .18) 0%, transparent 60%),
     /* vertical depth */
     linear-gradient(180deg, rgba(0, 0, 0, .25) 0%, rgba(0, 0, 0, .55) 100%);
 }
@@ -63,10 +63,10 @@
 
 /* KICKER */
 .ip-hero.story .kicker {
-  font: 800 13px/1 "Open Sans", system-ui;
+  font: 800 13px/1 "Nunito Sans", system-ui;
   letter-spacing: .22em;
   text-transform: uppercase;
-  color: #C9A84C;
+  color: #DEAA31;
   display: inline-flex;
   align-items: center;
   gap: .6rem;
@@ -84,7 +84,7 @@
 /* HEADLINE + SUB */
 .ip-hero.story h1 {
   font-family: var(--font-display);
-  font-weight: 900;
+  font-weight: 600;
   letter-spacing: .2px;
   max-width: 800px;
   line-height: 1.06;
@@ -107,7 +107,7 @@
   color: var(--ink);
   max-width: 78ch;
   margin: 22px 0 28px;
-  font: 400 18px/1.7 "Open Sans", system-ui;
+  font: 400 18px/1.7 "Nunito Sans", system-ui;
   text-shadow: 0 1px 0 rgba(0, 0, 0, .25);
 }
 
@@ -140,7 +140,7 @@
 
 
 .milestones {
-  background: linear-gradient(180deg, #6B2737 0%, #2D2D2D 100%);
+  background: linear-gradient(180deg, #6B0F11 0%, #130000 100%);
   padding: 84px 0;
   border-top: 1px solid rgba(255, 255, 255, .08);
   color: #fff
@@ -155,10 +155,10 @@
 }
 
 .milestones .kicker {
-  font: 800 14px/2.5 "Open Sans";
+  font: 800 14px/2.5 "Nunito Sans";
   text-transform: uppercase;
   letter-spacing: .22em;
-  color: #C9A84C;
+  color: #DEAA31;
   display: inline-flex;
   align-items: center;
   gap: .5rem
@@ -168,13 +168,13 @@
   content: "";
   width: 34px;
   height: 2px;
-  background: linear-gradient(90deg, #D4AF37, transparent);
+  background: linear-gradient(90deg, #DEAA31, transparent);
   border-radius: 2px
 }
 
 .milestones h2 {
   font-family: var(--font-display);
-  font-weight: 900;
+  font-weight: 600;
   margin: .4rem 0 1.2rem;
   color: #fff
 }
@@ -207,15 +207,15 @@
 }
 
 .timeline-copy h3 {
-  color: #C9A84C;
+  color: #DEAA31;
   font-family: var(--font-display);
   font-weight: 800;
   margin: 0 0 .6rem;
 }
 
 .timeline-copy p {
-  color: #FAF7F2;
-  font: 400 16px/1.8 "Open Sans";
+  color: #F8F7F7;
+  font: 400 16px/1.8 "Nunito Sans";
   margin: 0
 }
 
@@ -231,10 +231,10 @@
 
 
 .circleflow-original {
-  --deep-maroon: #6B2737;
-  --bg1: #6B2737;
-  --bg2: #2D2D2D;
-  --gold: #D4AF37;
+  --deep-maroon: #6B0F11;
+  --bg1: #6B0F11;
+  --bg2: #130000;
+  --gold: #DEAA31;
   --ring: 560px;
   /* bigger circle for breathing room */
   --node: 210px;
@@ -271,10 +271,10 @@
 
 /* Left column */
 .circleflow-original .kicker {
-  font: 700 14px/1.2 "Open Sans";
+  font: 300 14px/1.2 "Nunito Sans";
   letter-spacing: .22em;
   text-transform: uppercase;
-  color: #C9A84C;
+  color: #DEAA31;
   display: inline-flex;
   align-items: center;
   gap: .6rem
@@ -290,14 +290,14 @@
 
 .circleflow-original h2 {
   font-family: var(--font-display);
-  font-weight: 900;
+  font-weight: 600;
   margin: .75rem 0 1rem;
   color: #fff;
 }
 
 .circleflow-original .intro {
-  color: #FAF7F2;
-  font: 400 16px/1.75 "Open Sans";
+  color: #F8F7F7;
+  font: 400 16px/1.75 "Nunito Sans";
   max-width: 40ch;
 }
 
@@ -313,7 +313,7 @@
   border-radius: 10px;
   border: 1px solid var(--hair);
   background: rgba(255, 255, 255, .06);
-  font: 800 11px/1 "Open Sans";
+  font: 800 11px/1 "Nunito Sans";
   letter-spacing: .08em;
   text-transform: uppercase;
   color: #f3f0ea;
@@ -350,13 +350,13 @@
 .circleflow-original .center h3 {
   font-family: var(--font-display);
   font-weight: 800;
-  color: #C9A84C;
+  color: #DEAA31;
   margin: 0 0 6px
 }
 
 .circleflow-original .center p {
-  color: #FAF7F2;
-  font: 400 14px/1.65 "Open Sans";
+  color: #F8F7F7;
+  font: 400 14px/1.65 "Nunito Sans";
   margin: 0;
   max-width: 34ch
 }
@@ -399,7 +399,7 @@
 .circleflow-original .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 24px 60px rgba(0, 0, 0, .30);
-  border-color: rgba(212, 175, 55, .35);
+  border-color: rgba(222, 170, 49, .35);
 }
 
 .circleflow-original .thumb {
@@ -431,7 +431,7 @@
   gap: 8px;
   font-family: var(--font-display);
   font-weight: 800;
-  color: #C9A84C;
+  color: #DEAA31;
   margin: 0 0 6px
 }
 
@@ -442,14 +442,14 @@
   display: grid;
   place-items: center;
   background: var(--gold);
-  color: #2b0b0b;
-  font: 800 12px/1 "Open Sans";
-  box-shadow: 0 4px 10px rgba(212, 175, 55, .35)
+  color: #130000;
+  font: 800 12px/1 "Nunito Sans";
+  box-shadow: 0 4px 10px rgba(222, 170, 49, .35)
 }
 
 .circleflow-original .desc {
-  color: #FAF7F2;
-  font: 400 13px/1.6 "Open Sans";
+  color: #F8F7F7;
+  font: 400 13px/1.6 "Nunito Sans";
   margin: 0
 }
 
@@ -504,7 +504,7 @@
 
   .circleflow-original .mcard .title {
     font-size: 16px;
-    color: #C9A84C;
+    color: #DEAA31;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -513,7 +513,7 @@
 
   .circleflow-original .mcard .desc {
     font-size: 13px;
-    color: #FAF7F2;
+    color: #F8F7F7;
     margin: 0
   }
 
@@ -524,21 +524,21 @@
     display: grid;
     place-items: center;
     background: var(--gold);
-    color: #2b0b0b;
-    font: 800 11px/1 "Open Sans";
+    color: #130000;
+    font: 800 11px/1 "Nunito Sans";
   }
 }
 
 
 .ip-cta {
-  --deep-maroon: #6B2737;
-  --burgundy: #823F3F;
-  --gold: #D4AF37;
+  --deep-maroon: #6B0F11;
+  --burgundy: #6B0F11;
+  --gold: #DEAA31;
   --wrap: 1200px;
   --radius: 22px;
 
   color: #fff;
-  background: linear-gradient(180deg, #6B2737 0%, #2D2D2D 100%);
+  background: linear-gradient(180deg, #6B0F11 0%, #130000 100%);
   padding: 72px 0 60px;
   position: relative;
 }
@@ -553,10 +553,10 @@
 
 /* Kicker */
 .ip-cta .kicker {
-  font: 700 16px/3 "Open Sans", system-ui;
+  font: 700 16px/3 "Nunito Sans", system-ui;
   letter-spacing: .22em;
   text-transform: uppercase;
-  color: #C9A84C;
+  color: #DEAA31;
   display: inline-flex;
   align-items: center;
   gap: .6rem
@@ -573,7 +573,7 @@
 /* Title */
 .ip-cta h2#cta-title {
   font-family: var(--font-display);
-  font-weight: 900;
+  font-weight: 600;
   line-height: 1.15;
   margin: .2rem 0 1rem;
   text-shadow: 0 1px 0 rgba(0, 0, 0, .25)
@@ -582,7 +582,7 @@
 /* Card */
 .ip-cta .card {
   background: #fff;
-  color: #2D2D2D;
+  color: #130000;
   border-radius: var(--radius);
   padding: clamp(24px, 3vw, 36px);
   box-shadow: 0 18px 44px rgba(0, 0, 0, .25);
@@ -604,7 +604,7 @@
 .ip-cta .card p {
   margin: 0;
   color: #333;
-  font: 400 16px/1.7 "Open Sans", system-ui;
+  font: 400 16px/1.7 "Nunito Sans", system-ui;
   max-width: 720px
 }
 
@@ -631,15 +631,15 @@
 }
 
 .ip-cta .btn-primary {
-  color: #2b0b0b;
+  color: #130000;
   background: linear-gradient(90deg, var(--gold), #f5d878);
-  border: 1px solid #DCAE47;
-  box-shadow: 0 8px 18px rgba(212, 175, 55, .4)
+  border: 1px solid #E5BC5D;
+  box-shadow: 0 8px 18px rgba(222, 170, 49, .4)
 }
 
 .ip-cta .btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 12px 26px rgba(212, 175, 55, .46)
+  box-shadow: 0 12px 26px rgba(222, 170, 49, .46)
 }
 
 .ip-cta .btn-secondary {
@@ -650,7 +650,7 @@
 
 .ip-cta .btn-secondary:hover {
   background: rgba(99, 15, 15, .06);
-  color: #2D2D2D !important;
+  color: #130000 !important;
 }
 
 /* Chips */
@@ -662,7 +662,7 @@
 }
 
 .ip-cta .chip {
-  font: 700 11px/1 "Open Sans", system-ui;
+  font: 700 11px/1 "Nunito Sans", system-ui;
   letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--charcoal);
@@ -740,11 +740,11 @@
 
 
 :root {
-  --deep-maroon: #6B2737;
-  --burgundy: #823F3F;
-  --gold: #D4AF37;
+  --deep-maroon: #6B0F11;
+  --burgundy: #6B0F11;
+  --gold: #DEAA31;
   --ivory: #F7F3EA;
-  --ink: #2D2D2D;
+  --ink: #130000;
   --wrap: 1200px;
   --radius: 18px;
   --hair: rgba(255, 255, 255, .12);
@@ -756,7 +756,7 @@
 
 body {
   margin: 0;
-  font-family: 'Open Sans', system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Nunito Sans', system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   color: #fff;
   background: #0b0b0b
 }
@@ -772,7 +772,7 @@ body {
   font: 700 13px/1.2 var(--font-body), system-ui;
   letter-spacing: .22em;
   text-transform: uppercase;
-  color: #C9A84C;
+  color: #DEAA31;
   display: inline-flex;
   align-items: center;
   gap: .6rem;
@@ -796,8 +796,8 @@ h3 {
 }
 
 .lead {
-  color: #FAF7F2;
-  font: 400 18px/1.7 "Open Sans", system-ui;
+  color: #F8F7F7;
+  font: 400 18px/1.7 "Nunito Sans", system-ui;
   max-width: 75ch
 }
 
@@ -814,19 +814,19 @@ a.btn {
 
 .btn-primary {
   background: linear-gradient(90deg, var(--gold), #f5d878);
-  color: #2b0b0b;
-  border: 1px solid #DCAE47;
-  box-shadow: 0 10px 24px rgba(212, 175, 55, .38)
+  color: #130000;
+  border: 1px solid #E5BC5D;
+  box-shadow: 0 10px 24px rgba(222, 170, 49, .38)
 }
 
 .btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 16px 30px rgba(212, 175, 55, .46)
+  box-shadow: 0 16px 30px rgba(222, 170, 49, .46)
 }
 
 .btn-light {
   background: #fff;
-  color: #2b0b0b;
+  color: #130000;
   border: 1px solid rgba(99, 15, 15, .2)
 }
 
@@ -854,7 +854,7 @@ a.btn {
 }
 
 .card {
-  background: linear-gradient(180deg, #6B2737, #2D2D2D);
+  background: linear-gradient(180deg, #6B0F11, #130000);
   border: 1px solid rgba(255, 255, 255, .1);
   border-radius: var(--radius);
   box-shadow: 0 18px 44px rgba(0, 0, 0, .25);
@@ -863,7 +863,7 @@ a.btn {
 
 .card.white {
   background: #fff;
-  color: #2b0b0b;
+  color: #130000;
   border-color: rgba(255, 255, 255, .08)
 }
 
@@ -880,12 +880,12 @@ a.btn {
 
 /* Sections */
 section.story-hero {
-  background: linear-gradient(180deg, #6B2737 0%, #2D2D2D 100%);
+  background: linear-gradient(180deg, #6B0F11 0%, #130000 100%);
   padding: 84px 0 64px
 }
 
 section.story-hero h1 {
-  font-weight: 900;
+  font-weight: 600;
   line-height: 1.1;
   margin: .4rem 0 1rem;
   text-shadow: 0 1px 0 rgba(0, 0, 0, .25)
@@ -899,7 +899,7 @@ section.story-hero .actions {
 }
 
 section.origin {
-  background: linear-gradient(180deg, #6B2737 0%, #2D2D2D 100%);
+  background: linear-gradient(180deg, #6B0F11 0%, #130000 100%);
   padding: 60px 0
 }
 
@@ -921,7 +921,7 @@ section.origin {
 
 .origin .quote {
   font-style: italic;
-  color: #C9A84C;
+  color: #DEAA31;
   margin-top: 20px
 }
 
@@ -938,11 +938,11 @@ section.origin {
   align-items: center;
   gap: 8px;
   background: #fff;
-  color: #2b0b0b;
+  color: #130000;
   border: 1px solid var(--hair);
   border-radius: 999px;
   padding: 8px 12px;
-  font: 800 12px/1 "Open Sans", system-ui;
+  font: 800 12px/1 "Nunito Sans", system-ui;
   letter-spacing: .06em;
   text-transform: uppercase
 }
@@ -953,12 +953,12 @@ section.origin {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: rgba(212, 175, 55, .18);
-  outline: 1px solid rgba(212, 175, 55, .6)
+  background: rgba(222, 170, 49, .18);
+  outline: 1px solid rgba(222, 170, 49, .6)
 }
 
 section.values {
-  background: linear-gradient(180deg, #6B2737 0%, #2D2D2D 100%);
+  background: linear-gradient(180deg, #6B0F11 0%, #130000 100%);
   padding: 64px 0
 }
 
@@ -978,7 +978,7 @@ section.values {
 }
 
 .values p {
-  color: #FAF7F2;
+  color: #F8F7F7;
   font-size: 15px;
   line-height: 1.6;
   margin: 0
@@ -986,12 +986,12 @@ section.values {
 
 .values .icon {
   font-size: 18px;
-  color: #C9A84C;
+  color: #DEAA31;
   margin-bottom: 8px
 }
 
 section.timeline {
-  background: linear-gradient(180deg, #6B2737 0%, #2D2D2D 100%);
+  background: linear-gradient(180deg, #6B0F11 0%, #130000 100%);
   padding: 64px 0
 }
 
@@ -1024,23 +1024,23 @@ section.timeline {
   height: 14px;
   border-radius: 50%;
   background: var(--gold);
-  box-shadow: 0 0 0 4px rgba(212, 175, 55, .18)
+  box-shadow: 0 0 0 4px rgba(222, 170, 49, .18)
 }
 
 .tli h4 {
   font-family: var(--font-display);
-  color: #C9A84C;
+  color: #DEAA31;
   font-weight: 800;
   margin: 0 0 6px
 }
 
 .tli p {
   margin: 0;
-  color: #FAF7F2
+  color: #F8F7F7
 }
 
 section.approach {
-  background: linear-gradient(180deg, #6B2737 0%, #2D2D2D 100%);
+  background: linear-gradient(180deg, #6B0F11 0%, #130000 100%);
   padding: 64px 0
 }
 
@@ -1060,7 +1060,7 @@ section.approach {
   display: grid;
   place-items: center;
   background: var(--gold);
-  color: #2b0b0b;
+  color: #130000;
   font-weight: 800;
   font-size: 13px
 }
@@ -1103,7 +1103,7 @@ section.affil {
 }
 
 section.cta {
-  background: linear-gradient(180deg, #6B2737 0%, #2D2D2D 100%);
+  background: linear-gradient(180deg, #6B0F11 0%, #130000 100%);
   padding: 60px 0
 }
 
@@ -1123,7 +1123,7 @@ section.cta {
 }
 
 .chip {
-  font: 700 11px/1 "Open Sans";
+  font: 700 11px/1 "Nunito Sans";
   letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--charcoal);
@@ -1141,8 +1141,8 @@ html {
    GLOBAL LIGHT THEME OVERRIDE INTEGRATION
    ========================================================== */
 body {
-  background: var(--cream, #FAF7F2);
-  color: var(--charcoal, #2D2D2D);
+  background: var(--cream, #F8F7F7);
+  color: var(--charcoal, #130000);
 }
 
 /* Remove universal text-shadows from dark mode */
@@ -1167,11 +1167,11 @@ h4 {
 }
 
 .mainbar.scrolled .nav>li>a {
-  color: var(--charcoal, #2D2D2D) !important;
+  color: var(--charcoal, #130000) !important;
 }
 
 .mainbar.scrolled .brand span {
-  color: var(--maroon, #6B2737) !important;
+  color: var(--maroon, #6B0F11) !important;
 }
 
 .mainbar.scrolled .hamburger span.text {
@@ -1184,12 +1184,12 @@ h4 {
 
 /* Our Approach / Who We Are */
 .ip-who-dynamic {
-  background: var(--cream, #FAF7F2) !important;
+  background: var(--cream, #F8F7F7) !important;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .ip-who-dynamic .ip-heading {
-  color: var(--maroon, #6B2737) !important;
+  color: var(--maroon, #6B0F11) !important;
 }
 
 .ip-who-dynamic .ip-lead {
@@ -1240,8 +1240,8 @@ h4 {
 .card:hover,
 .vcard:hover,
 .node .card:hover {
-  box-shadow: 0 16px 40px rgba(107, 39, 55, 0.08) !important;
-  border-color: rgba(107, 39, 55, 0.15) !important;
+  box-shadow: 0 16px 40px rgba(107, 15, 17, 0.08) !important;
+  border-color: rgba(107, 15, 17, 0.15) !important;
   transform: translateY(-4px);
 }
 
@@ -1275,12 +1275,12 @@ h4 {
 }
 
 .milestones {
-  background: #FAF7F2 !important;
+  background: #F8F7F7 !important;
   border-top: none !important;
 }
 
 .circleflow-original {
-  background: #FAF7F2 !important;
+  background: #F8F7F7 !important;
 }
 
 .origin h2,
@@ -1325,7 +1325,7 @@ h4 {
 
 .circleflow-original .ring {
   border-color: rgba(0, 0, 0, 0.05) !important;
-  background: radial-gradient(circle at center, rgba(107, 39, 55, .05) 0%, transparent 65%) !important;
+  background: radial-gradient(circle at center, rgba(107, 15, 17, .05) 0%, transparent 65%) !important;
   box-shadow: none !important;
 }
 

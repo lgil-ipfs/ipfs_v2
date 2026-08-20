@@ -58,7 +58,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(201, 168, 76, 0.1);
+    background: rgba(222, 170, 49, 0.1);
     color: var(--gold);
     font-family: var(--font-body);
     font-size: 10px;
@@ -131,7 +131,7 @@
 
 /* 2. CONCERNS SECTION */
 .concerns {
-    background: #FDFBF7;
+    background: #F8F7F7;
     padding: 100px 0;
     border-top: 1px solid rgba(0, 0, 0, 0.03);
     border-bottom: 1px solid rgba(0, 0, 0, 0.03);
@@ -174,7 +174,7 @@
 .concern-icon {
     width: 50px;
     height: 50px;
-    background: rgba(107, 39, 55, 0.05);
+    background: rgba(107, 15, 17, 0.05);
     color: var(--maroon);
     border-radius: 12px;
     display: flex;
@@ -186,7 +186,7 @@
 
 .concern-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 30px 60px rgba(107, 39, 55, 0.08);
+    box-shadow: 0 30px 60px rgba(107, 15, 17, 0.08);
 }
 
 .concern-card h3 {
@@ -211,7 +211,7 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--gold);
-    background: rgba(201, 168, 76, 0.1);
+    background: rgba(222, 170, 49, 0.1);
     padding: 4px 12px;
     border-radius: 4px;
     align-self: flex-start;
@@ -376,8 +376,8 @@
     right: -10px;
     font-family: var(--font-display);
     font-size: 160px;
-    font-weight: 900;
-    color: rgba(107, 39, 55, 0.03);
+    font-weight: 600;
+    color: rgba(107, 15, 17, 0.03);
     line-height: 1;
     pointer-events: none;
 }
@@ -501,7 +501,7 @@
 /* 5. IPFS DIFFERENCE SECTION */
 .ipfs-difference {
     padding: 120px 0;
-    background: #FDFBF7;
+    background: #F8F7F7;
 }
 
 .diff-container {

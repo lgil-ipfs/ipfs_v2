@@ -88,7 +88,7 @@
 }
 
 .pill {
-    background: #fdfbf7;
+    background: #F8F7F7;
     border: 1px solid rgba(0, 0, 0, 0.08);
     color: var(--maroon);
     padding: 10px 20px;
@@ -99,7 +99,7 @@
 
 /* PROCESS STEPS (Shared from core-services, adding top margin) */
 .process-section {
-    background: #fdfbf7;
+    background: #F8F7F7;
 }
 
 /* PARTNER CALLOUT */
@@ -201,7 +201,7 @@
 }
 
 .panel {
-    background: #fdfbf7;
+    background: #F8F7F7;
     padding: 30px;
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, 0.06);

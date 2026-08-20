@@ -61,7 +61,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(201, 168, 76, 0.1);
+    background: rgba(222, 170, 49, 0.1);
     color: var(--gold);
     font-family: var(--font-body);
     font-size: 10px;
@@ -154,7 +154,7 @@
 
 /* 2. CONCERNS SECTION */
 .concerns {
-    background: #FDFBF7;
+    background: #F8F7F7;
     /* Soft, modern contrast cream */
     padding: 100px 0;
     border-top: 1px solid rgba(0, 0, 0, 0.03);
@@ -199,7 +199,7 @@
 
 .concern-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 30px 60px rgba(107, 39, 55, 0.08);
+    box-shadow: 0 30px 60px rgba(107, 15, 17, 0.08);
 }
 
 .concern-card h3 {
@@ -225,7 +225,7 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--gold);
-    background: rgba(201, 168, 76, 0.1);
+    background: rgba(222, 170, 49, 0.1);
     padding: 4px 12px;
     border-radius: 4px;
     align-self: flex-start;
@@ -403,7 +403,7 @@
     left: 10%;
     right: 10%;
     height: 1px;
-    background: rgba(107, 39, 55, 0.1);
+    background: rgba(107, 15, 17, 0.1);
     z-index: 0;
 }
 
@@ -535,7 +535,7 @@
     background: var(--maroon) !important;
     color: #FFFFFF !important;
     border-color: var(--maroon) !important;
-    box-shadow: 0 10px 30px rgba(107, 39, 55, 0.2) !important;
+    box-shadow: 0 10px 30px rgba(107, 15, 17, 0.2) !important;
 }
 
 .service-card h3 {

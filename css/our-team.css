@@ -1,6 +1,6 @@
 /* TEAM PAGE ARCHITECTURE */
 .team-wrapper {
-    background: #FAF7F2;
+    background: #F8F7F7;
     /* Soft ivory background for the whole page */
     color: var(--charcoal);
     font-family: var(--font-body);
@@ -40,7 +40,7 @@
 }
 
 .team-intro h1 {
-    font-weight: 900;
+    font-weight: 600;
     line-height: 1.2;
     margin: 0 0 20px;
 }
@@ -56,7 +56,7 @@
 /* 2. TEAM GRID */
 .team-grid-section {
     padding: 80px 20px;
-    background: #FAF7F2;
+    background: #F8F7F7;
 }
 
 .team-grid-section .wrap {
@@ -97,7 +97,7 @@
 
 .team-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 15px 40px rgba(107, 39, 55, 0.08);
+    box-shadow: 0 15px 40px rgba(107, 15, 17, 0.08);
 }
 
 .card-img-wrap {
@@ -281,7 +281,7 @@
 /* 3C. TEAM FOOTER CTA */
 .team-footer-cta {
     padding: 80px 20px;
-    background: linear-gradient(135deg, var(--gold) 0%, #DCAE47 100%);
+    background: linear-gradient(135deg, var(--gold) 0%, #E5BC5D 100%);
     text-align: center;
     color: var(--charcoal);
 }
@@ -315,13 +315,13 @@
 
 .team-footer-cta .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(45, 45, 45, 0.3);
+    box-shadow: 0 10px 20px rgba(19, 0, 0, 0.3);
 }
 
 /* 4. PROFILE PAGES */
 .profile-section {
     padding: 100px 20px;
-    background: #FAF7F2;
+    background: #F8F7F7;
 }
 .profile-section .wrap {
     max-width: 1000px;

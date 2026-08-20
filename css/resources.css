@@ -109,7 +109,7 @@
 }
 
 .res-card-icon.gold {
-    background: rgba(201, 168, 76, 0.12);
+    background: rgba(222, 170, 49, 0.12);
     color: var(--gold);
 }
 
@@ -218,7 +218,7 @@
 .wellness-tool {
     max-width: 780px;
     margin: 0 auto;
-    background: #FDFBF7;
+    background: #F8F7F7;
     border-radius: 24px;
     padding: 50px 60px;
     border: 1px solid rgba(0, 0, 0, 0.06);
@@ -247,7 +247,7 @@
     content: '';
     width: 100px;
     height: 100px;
-    background: #FDFBF7;
+    background: #F8F7F7;
     border-radius: 50%;
     position: absolute;
 }
@@ -255,7 +255,7 @@
 .score-number {
     font-family: var(--font-display);
     font-size: 2.8rem;
-    font-weight: 900;
+    font-weight: 600;
     color: var(--maroon);
     position: relative;
     z-index: 1;
@@ -318,7 +318,7 @@
 
 .tool-radio-group input[type="radio"]:checked+label {
     border-color: var(--gold);
-    background: rgba(201, 168, 76, 0.1);
+    background: rgba(222, 170, 49, 0.1);
     color: var(--maroon);
 }
 
@@ -377,7 +377,7 @@
 .result-message {
     margin-top: 24px;
     padding: 20px 24px;
-    background: rgba(201, 168, 76, 0.08);
+    background: rgba(222, 170, 49, 0.08);
     border-left: 4px solid var(--gold);
     border-radius: 0 8px 8px 0;
     font-size: 14px;
@@ -389,7 +389,7 @@
 .cashflow-tool {
     max-width: 780px;
     margin: 0 auto;
-    background: #FDFBF7;
+    background: #F8F7F7;
     border-radius: 24px;
     padding: 50px 60px;
     border: 1px solid rgba(0, 0, 0, 0.06);
@@ -414,7 +414,7 @@
 .cf-summary-card .cf-amount {
     font-family: var(--font-display);
     font-size: 1.8rem;
-    font-weight: 900;
+    font-weight: 600;
     color: var(--maroon);
 }
 

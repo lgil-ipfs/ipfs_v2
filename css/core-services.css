@@ -24,7 +24,7 @@
 
 /* ── WHO THIS IS FOR ──────────────────────────────── */
 .who-section {
-    background: #FDFBF7;
+    background: #F8F7F7;
     padding: 100px 0;
     border-top: 1px solid rgba(0, 0, 0, 0.04);
 }
@@ -104,7 +104,7 @@
 }
 
 .coverage-item {
-    background: #FDFBF7;
+    background: #F8F7F7;
     border-radius: 14px;
     padding: 32px 36px;
     border-left: 4px solid var(--gold);
@@ -194,7 +194,7 @@
 
 /* ── PHILOSOPHY (light variant) ──────────────────── */
 .philosophy-section.philosophy-light {
-    background: #FDFBF7;
+    background: #F8F7F7;
     border-top: 1px solid rgba(0, 0, 0, 0.04);
 }
 
@@ -221,7 +221,7 @@
 
 /* ── VEHICLE / PRODUCT CARDS ─────────────────────── */
 .vehicles-section {
-    background: #FDFBF7;
+    background: #F8F7F7;
     padding: 100px 0;
     border-top: 1px solid rgba(0, 0, 0, 0.04);
 }
@@ -296,7 +296,7 @@
     left: calc(12.5% + 14px);
     right: calc(12.5% + 14px);
     height: 2px;
-    background: linear-gradient(90deg, var(--gold), rgba(201, 168, 76, 0.2));
+    background: linear-gradient(90deg, var(--gold), rgba(222, 170, 49, 0.2));
 }
 
 .p-step {
@@ -315,11 +315,11 @@
     justify-content: center;
     font-family: var(--font-display);
     font-size: 1.3rem;
-    font-weight: 900;
+    font-weight: 600;
     margin: 0 auto 28px;
     position: relative;
     z-index: 2;
-    box-shadow: 0 4px 16px rgba(201, 168, 76, 0.4);
+    box-shadow: 0 4px 16px rgba(222, 170, 49, 0.4);
 }
 
 .p-step h3 {
@@ -337,7 +337,7 @@
 
 /* ── FAQ TEASER ──────────────────────────────────── */
 .faq-teaser {
-    background: #FDFBF7;
+    background: #F8F7F7;
     padding: 100px 0;
     border-top: 1px solid rgba(0, 0, 0, 0.04);
 }
@@ -501,13 +501,13 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: rgba(201, 168, 76, 0.12);
+    background: rgba(222, 170, 49, 0.12);
     color: var(--gold);
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: var(--font-display);
-    font-weight: 900;
+    font-weight: 600;
     font-size: 1rem;
     flex-shrink: 0;
 }
@@ -534,7 +534,7 @@
 }
 
 .outcome-card {
-    background: #FDFBF7;
+    background: #F8F7F7;
     border-radius: 14px;
     padding: 28px 32px;
     display: flex;
@@ -547,13 +547,13 @@
     content: '✓';
     width: 32px;
     height: 32px;
-    background: rgba(201, 168, 76, 0.12);
+    background: rgba(222, 170, 49, 0.12);
     color: var(--gold);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 900;
+    font-weight: 600;
     font-size: 14px;
     flex-shrink: 0;
 }
@@ -583,7 +583,7 @@
 }
 
 .approach-section.dark .step-num {
-    background: rgba(201, 168, 76, 0.2);
+    background: rgba(222, 170, 49, 0.2);
 }
 
 .approach-section.dark .outcome-card {

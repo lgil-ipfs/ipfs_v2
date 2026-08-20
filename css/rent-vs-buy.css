@@ -66,7 +66,7 @@
     padding: 2.5rem;
     background: #fff;
     border-radius: var(--radius);
-    border: 1px solid rgba(107, 39, 55, 0.08);
+    border: 1px solid rgba(107, 15, 17, 0.08);
     box-shadow: var(--shadow-sm);
 }
 
@@ -83,7 +83,7 @@
 .rvb-accordion {
     background: #fff;
     border-radius: var(--radius);
-    border: 1px solid rgba(107, 39, 55, 0.08);
+    border: 1px solid rgba(107, 15, 17, 0.08);
     box-shadow: var(--shadow-sm);
     overflow: hidden;
     transition: all 0.3s ease;
@@ -320,7 +320,7 @@
 }
 
 .rvb-comparison-card--buy {
-    border-left: 6px solid #6B2737;
+    border-left: 6px solid #6B0F11;
 }
 
 .rvb-comparison-card--rent {
@@ -566,7 +566,7 @@
 .rvb-faq-item summary:after {
     content: '\f078';
     font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
+    font-weight: 600;
     font-size: 0.8rem;
     transition: transform 0.2s;
 }

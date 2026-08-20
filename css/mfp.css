@@ -98,12 +98,12 @@
 
 .mfp-limit-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 16px 40px rgba(107, 39, 55, 0.08);
-    border-color: rgba(107, 39, 55, 0.15);
+    box-shadow: 0 16px 40px rgba(107, 15, 17, 0.08);
+    border-color: rgba(107, 15, 17, 0.15);
 }
 
 .mfp-limit-number {
-    background: linear-gradient(90deg, #DCAE47 0%, #C9A84C 100%);
+    background: linear-gradient(90deg, #E5BC5D 0%, #DEAA31 100%);
     color: var(--white);
     width: 38px;
     height: 38px;
@@ -116,7 +116,7 @@
     top: -19px;
     left: 50%;
     transform: translateX(-50%);
-    box-shadow: 0 4px 10px rgba(201, 168, 76, 0.35);
+    box-shadow: 0 4px 10px rgba(222, 170, 49, 0.35);
 }
 
 .mfp-limit-card h4 {
@@ -137,7 +137,7 @@
 
 /* Input Panel */
 .mfp-inputs {
-    background: #fdfbf7;
+    background: #F8F7F7;
     padding: 60px 0;
 }
 
@@ -234,7 +234,7 @@
 .kpi-card {
     padding: 30px 20px;
     border-radius: 8px;
-    background: #fdfbf7;
+    background: #F8F7F7;
     border: 1px solid #eee;
     text-align: center;
 }
@@ -347,7 +347,7 @@
 
 /* Flow Diagram Section */
 .flow-diagram-section {
-    background: #fdfbf7;
+    background: #F8F7F7;
     padding: 80px 0;
     margin: 60px 0;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
@@ -803,7 +803,7 @@
 .mfp-faq-item summary:after {
     content: '\\f078';
     font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
+    font-weight: 600;
     font-size: 0.8rem;
     transition: transform 0.2s;
 }
@@ -866,7 +866,7 @@
     max-width: 900px;
     margin: 0 auto;
     min-height: 550px;
-    font-family: 'Jost', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     color: #444;
 }
 .slick-flow *, .slick-flow *::before, .slick-flow *::after {
@@ -920,7 +920,7 @@
 .sf-dashed-limit {
     position: absolute;
     top: -10px;
-    background: #fdfbf7;
+    background: #F8F7F7;
     padding: 0 5px;
     font-size: 0.85rem;
     font-weight: 700;
@@ -1051,7 +1051,7 @@
     max-width: 900px;
     margin: 50px auto 0;
     min-height: 650px;
-    font-family: 'Jost', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     color: #444;
 }
 .slick-flow *, .slick-flow *::before, .slick-flow *::after {
@@ -1092,7 +1092,7 @@
 .sf-dashed-limit {
     position: absolute;
     top: -10px;
-    background: #fdfbf7;
+    background: #F8F7F7;
     padding: 0 5px;
     font-size: 0.85rem;
     font-weight: 700;

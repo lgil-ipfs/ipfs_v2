@@ -2,7 +2,7 @@
 
 /* Hero Section */
 .wws-hero {
-    background: linear-gradient(180deg, #6B2737 0%, #2D2D2D 100%) !important;
+    background: linear-gradient(180deg, #6B0F11 0%, #130000 100%) !important;
     padding: 130px 0 110px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: #fff !important;
@@ -10,7 +10,7 @@
 }
 
 .wws-hero h1 {
-    font-weight: 900;
+    font-weight: 600;
     margin: 0 0 16px;
     color: #fff !important;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
@@ -27,7 +27,7 @@
 
 /* Philosophy Intro */
 .wws-intro {
-    background: #FAF7F2;
+    background: #F8F7F7;
     padding: 80px 0 40px;
     text-align: left;
 }
@@ -38,7 +38,7 @@
 }
 
 .wws-intro h2 {
-    font-weight: 900;
+    font-weight: 600;
     color: var(--maroon);
     margin: 12px 0 18px;
 }
@@ -51,7 +51,7 @@
 
 /* Tiled Grid */
 .wws-tiles {
-    background: #FAF7F2;
+    background: #F8F7F7;
     padding: 20px 0 100px;
 }
 
@@ -76,8 +76,8 @@
 
 .wws-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(107, 39, 55, 0.08) !important;
-    border-color: rgba(107, 39, 55, 0.15) !important;
+    box-shadow: 0 20px 40px rgba(107, 15, 17, 0.08) !important;
+    border-color: rgba(107, 15, 17, 0.15) !important;
 }
 
 .card-img-link {
@@ -130,17 +130,17 @@
     border-radius: 999px !important;
     text-decoration: none !important;
     display: inline-flex !important;
-    background: linear-gradient(90deg, #DCAE47 0%, #C9A84C 100%) !important;
+    background: linear-gradient(90deg, #E5BC5D 0%, #DEAA31 100%) !important;
     color: #FFFFFF !important;
-    border: 1px solid #C9A84C !important;
-    box-shadow: 0 4px 14px rgba(201, 168, 76, 0.35) !important;
+    border: 1px solid #DEAA31 !important;
+    box-shadow: 0 4px 14px rgba(222, 170, 49, 0.35) !important;
     transition: transform 0.2s ease, box-shadow 0.2s ease !important;
 }
 
 .wws-link:hover {
-    background: linear-gradient(90deg, #E2C880 0%, #DCAE47 100%) !important;
+    background: linear-gradient(90deg, #EBCB80 0%, #E5BC5D 100%) !important;
     transform: translateY(-2px) !important;
-    box-shadow: 0 8px 20px rgba(201, 168, 76, 0.55) !important;
+    box-shadow: 0 8px 20px rgba(222, 170, 49, 0.55) !important;
 }
 
 /* Mobile Responsive */

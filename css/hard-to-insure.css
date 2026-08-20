@@ -24,7 +24,7 @@
 /* 3. CHECKLIST SECTION */
 .checklist-section {
     padding: 120px 0;
-    background: #FDFCFA;
+    background: #F8F7F7;
 }
 
 .section-header {
@@ -76,7 +76,7 @@
 .medical-cat ul li::before {
     content: '\f00c';
     font-family: "Font Awesome 6 Free";
-    font-weight: 900;
+    font-weight: 600;
     position: absolute;
     left: 0;
     color: #A3D9B1;
@@ -121,7 +121,7 @@
 /* 5. OPTIONS SECTION (REVIEW FORM) */
 .options-section {
     padding: 120px 0;
-    background: #FDFBF7;
+    background: #F8F7F7;
 }
 
 .options-content {
@@ -165,7 +165,7 @@
     border-radius: 12px;
     font-family: var(--font-body);
     font-size: 15px;
-    background: #FDFCFA;
+    background: #F8F7F7;
     transition: all 0.3s ease;
     cursor: pointer;
     appearance: none;
@@ -178,7 +178,7 @@
     outline: none;
     border-color: var(--maroon);
     background-color: #FFF;
-    box-shadow: 0 0 0 4px rgba(107, 39, 55, 0.05);
+    box-shadow: 0 0 0 4px rgba(107, 15, 17, 0.05);
 }
 
 .checklist-grid {
@@ -220,7 +220,7 @@
     border-radius: 12px;
     font-family: var(--font-body);
     font-size: 15px;
-    background: #FDFCFA;
+    background: #F8F7F7;
     transition: all 0.3s ease;
 }
 
@@ -229,7 +229,7 @@
     outline: none;
     border-color: var(--maroon);
     background: #FFF;
-    box-shadow: 0 0 0 4px rgba(107, 39, 55, 0.05);
+    box-shadow: 0 0 0 4px rgba(107, 15, 17, 0.05);
 }
 
 .review-form button {

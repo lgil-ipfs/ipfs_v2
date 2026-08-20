@@ -74,7 +74,7 @@
 .search-bar input:focus {
     outline: none;
     border-color: var(--maroon);
-    box-shadow: 0 0 0 4px rgba(107, 39, 55, 0.05);
+    box-shadow: 0 0 0 4px rgba(107, 15, 17, 0.05);
 }
 
 .category-filters {
