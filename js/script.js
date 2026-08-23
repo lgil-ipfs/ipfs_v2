@@ -99,6 +99,21 @@ document.addEventListener('DOMContentLoaded', function () {
     whyObserver.observe(whySection);
   }
 
+  /* Intersection observer: pause hero video off-screen, resume in view */
+  var heroVideo = document.querySelector('.bg-video video');
+  if (heroVideo) {
+    var heroVideoObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          heroVideo.play();
+        } else {
+          heroVideo.pause();
+        }
+      });
+    }, { threshold: 0 });
+    heroVideoObserver.observe(heroVideo);
+  }
+
   /* Parallax: Who We Are image */
   var parallaxImg     = document.querySelector('.parallax-img');
   var parallaxSection = document.querySelector('.ip-who-dynamic');
