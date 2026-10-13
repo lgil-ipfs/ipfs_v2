@@ -604,6 +604,19 @@
   text-align: center;
 }
 
+.tf-kicker {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: var(--gold-pale);
+  color: #7A5A12;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
 .tf-header h2 {
   color: var(--maroon);
   margin-bottom: 8px;
@@ -635,6 +648,23 @@
   font-size: 1.15rem;
   color: var(--charcoal);
   margin-bottom: 16px;
+}
+
+.tf-guess-tag {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--maroon);
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  position: relative;
+  top: -2px;
 }
 
 .tf-options {
@@ -685,8 +715,10 @@
 }
 
 .tf-option.is-correct {
-  border-color: #4F8267;
-  background: #EEF5F1;
+  border: 2px solid #4F8267;
+  background: #E4F1E9;
+  font-weight: 700;
+  box-shadow: 0 0 0 3px rgba(79, 130, 103, .18);
 }
 
 .tf-option.is-correct .tf-option-letter {
@@ -695,15 +727,16 @@
   color: #FFFFFF;
 }
 
-.tf-option.is-incorrect {
-  border-color: #A8562F;
-  background: #FBF1EC;
+/* A wrong guess is yellow, never red: it's a guessing game */
+.tf-option.is-guess {
+  border-color: var(--gold);
+  background: #FDF6E3;
 }
 
-.tf-option.is-incorrect .tf-option-letter {
-  background: #A8562F;
-  border-color: #A8562F;
-  color: #FFFFFF;
+.tf-option.is-guess .tf-option-letter {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #3A2A05;
 }
 
 .tf-reveal {
@@ -726,9 +759,9 @@
   color: #2E5C43;
 }
 
-.tf-reveal.is-incorrect {
-  background: #FBF1EC;
-  color: #7A3B1E;
+.tf-reveal.is-guess {
+  background: #FDF6E3;
+  color: #5E4510;
 }
 
 .tf-reveal-icon {
@@ -813,4 +846,25 @@ a.charity-logo-box:focus-visible {
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+/* Jump link from the bio hero down to the "Take a guess" game */
+.profile-guess-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 18px;
+  font-weight: 700;
+  font-size: 14.5px;
+  color: var(--maroon);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.profile-guess-link:hover { color: #8A1A1D; }
+
+.team-facts-section { scroll-margin-top: 140px; }
+
+@media (max-width: 640px) {
+  .profile-guess-link { margin: 14px 0 0; display: flex; }
 }

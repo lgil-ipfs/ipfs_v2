@@ -1,8 +1,9 @@
 /* ============================================================
    IBERIAN PACIFIC — "Beyond the Bio" fact list
-   Replaces the step-through quiz format: every question is listed
-   at once, and clicking any option reveals the right answer inline
-   (no progress bar, no scoring, no results screen).
+   A light guessing game: every question is listed at once, framed
+   up front as a guess about the person. Picking an option reveals
+   the answer inline. A wrong guess turns yellow (not red) and the
+   right answer is highlighted in green. No scoring or results screen.
    ============================================================ */
 (function () {
   'use strict';
@@ -23,7 +24,7 @@
 
       return (
         '<div class="tf-item" data-qindex="' + qi + '">' +
-          '<div class="tf-question">' + (qi + 1) + '. ' + q.question + '</div>' +
+          '<div class="tf-question"><span class="tf-guess-tag">Guess ' + (qi + 1) + '</span>' + q.question + '</div>' +
           '<div class="tf-options" role="group" aria-label="Guess ' + (qi + 1) + '">' + optionsHtml + '</div>' +
           '<div class="tf-reveal" id="tf-reveal-' + containerId + '-' + qi + '"></div>' +
         '</div>'
@@ -32,8 +33,10 @@
 
     container.innerHTML =
       '<div class="tf-header">' +
-        '<h2>How well do you know ' + firstName + '?</h2>' +
-        '<p>Beyond the professional bio — take a guess at each one below. The answer reveals itself as soon as you pick.</p>' +
+        '<span class="tf-kicker">Beyond the Bio &middot; Take a Guess</span>' +
+        '<h2>Take a guess: what is ' + firstName + ' all about?</h2>' +
+        '<p>This is just for fun, not a test. Each question is a guess about ' + firstName + '\'s life outside the office. ' +
+        'Pick your best guess and the real answer appears right away.</p>' +
       '</div>' +
       '<div id="tf-live-' + containerId + '" class="sr-only" aria-live="polite"></div>' +
       '<div class="tf-list">' + itemsHtml + '</div>';
@@ -58,12 +61,12 @@
             var i = parseInt(b.getAttribute('data-index'), 10);
             b.disabled = true;
             if (i === q.correctIndex) b.classList.add('is-correct');
-            if (i === selected && !isCorrect) b.classList.add('is-incorrect');
+            if (i === selected && !isCorrect) b.classList.add('is-guess');
           });
 
-          var label = isCorrect ? 'Correct!' : 'Not quite!';
-          var icon = isCorrect ? '✓' : '✗';
-          reveal.className = 'tf-reveal show ' + (isCorrect ? 'is-correct' : 'is-incorrect');
+          var label = isCorrect ? 'You got it!' : 'Good guess! Here\'s the answer:';
+          var icon = isCorrect ? '✓' : '→';
+          reveal.className = 'tf-reveal show ' + (isCorrect ? 'is-correct' : 'is-guess');
           reveal.innerHTML = '<span class="tf-reveal-icon" aria-hidden="true">' + icon + '</span>' +
             '<span><strong>' + label + '</strong> ' + q.explanation + '</span>';
 
