@@ -1,4 +1,4 @@
-// resources.js — Cash Flow Planner + Financial Wellness Assessment
+// resources.js: Resources page filter tabs (plus legacy inline tools if present)
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -6,15 +6,15 @@ document.addEventListener('DOMContentLoaded', () => {
        1. CATEGORY FILTER TABS
     ───────────────────────────────────────────────────── */
     const filterBtns = document.querySelectorAll('.filter-btn');
-    const resSections = document.querySelectorAll('.resources-section[data-cat]');
+    const resCards = document.querySelectorAll('.res-card[data-cat]');
 
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             const cat = btn.dataset.cat;
-            resSections.forEach(sec => {
-                sec.style.display = (cat === 'all' || sec.dataset.cat === cat) ? '' : 'none';
+            resCards.forEach(card => {
+                card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
             });
         });
     });

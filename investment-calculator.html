@@ -3,19 +3,15 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Investment Account Calculator | Iberian Pacific Financial Services</title>
+    <title>Account Comparison Tool: TFSA vs RRSP vs FHSA | Iberian Pacific Financial Services</title>
     <meta name="description"
-        content="Compare investing in an FHSA, TFSA, RRSP, and Non-Registered Accounts. See the long-term impact of taxes on an annual basis and upon sale." />
+        content="Compare what your investments are worth before and after tax in a TFSA, RRSP, FHSA, and non-registered account. Assumes an 8% return net of fees, which you can change." />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://iberianpacific.ca/investment-calculator" rel="canonical" />
-    <link
-        href="/Assets/Logo-IPFS-colour.png"
-        rel="shortcut icon" type="image/x-icon" />
-    <link
-        href="/Assets/Logo-IPFS-colour.png"
-        rel="apple-touch-icon" />
-    <link href="css/style.css" rel="stylesheet" />
-    <link href="css/investment-calculator.css" rel="stylesheet" />
+    <link href="/Assets/Logo-IPFS-colour.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="/Assets/Logo-IPFS-colour.png" rel="apple-touch-icon" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <link href="/css/investment-calculator.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link
@@ -28,159 +24,156 @@
     <!-- Header -->
     <div id="header-mount"></div>
     <script>
-        fetch('components/header.html')
+        fetch('/components/header.html')
             .then(r => r.text())
-            .then(h => { document.getElementById('header-mount').innerHTML = h; })
-            .catch(e => console.error('Error loading header:', e));
+            .then(h => { document.getElementById('header-mount').innerHTML = h; });
     </script>
 
-    <!-- HERO -->
-    <section class="ip-hero v4 cinemactc" aria-label="Investment Calculator hero">
-        <div class="wrap" style="padding-top:120px; padding-bottom:60px; text-align:center;">
+    <!-- 1. HERO -->
+    <section class="ip-hero cinematic" aria-label="Account comparison hero" data-ip-animate="">
+        <div class="bg-video" aria-hidden="true">
+            <video autoplay loop muted playsinline preload="auto">
+                <source src="https://www.pexels.com/download/video/3129957/" type="video/mp4" />
+            </video>
+        </div>
+        <div class="ring" aria-hidden="true"></div>
+        <div class="wrap">
             <div class="kicker">Interactive Tool</div>
-            <h1 style="color:var(--maroon);">Account Comparison Calculator</h1>
-            <p class="sub" style="max-width:800px; margin:20px auto; color:var(--charcoal);">
-                Discover the real impact of taxes on your investments. Compare the long-term growth and tax implications
-                of an FHSA, TFSA, RRSP, and Non-Registered Account, based on your province and income.
-            </p>
+            <h1>Account Comparison Tool</h1>
+            <p class="sub">See what the same savings could be worth before and after tax in a TFSA, RRSP, FHSA, or
+                non-registered account. We assume an 8% annual return net of fees, and you can change it.</p>
+            <div class="cta-row">
+                <a class="btn btn-primary" href="#ac-tool">Compare My Accounts</a>
+            </div>
         </div>
     </section>
 
-    <!-- CALCULATOR APP -->
-    <section class="tool-section" id="inv-calculator">
-        <div class="wrap xl-wrap">
-            <div class="inv-calc-layout">
+    <!-- 2. TOOL -->
+    <section class="ac-section" id="ac-tool" aria-label="Account comparison tool">
+        <div class="ac-wrap">
+            <!-- Inputs -->
+            <aside class="ac-card ac-inputs" aria-labelledby="ac-inputs-title">
+                <div class="kicker">Your Details</div>
+                <h2 id="ac-inputs-title">Set your scenario</h2>
 
-                <!-- Sidebar: Inputs -->
-                <aside class="inv-sidebar">
-                    <h3 class="sidebar-title">Your Details</h3>
-                    <p class="sidebar-desc">Enter your information to project your marginal tax rate and investment
-                        growth.</p>
+                <div class="ac-field">
+                    <label for="ac-income">Annual income (before tax)</label>
+                    <div class="ac-input"><span>$</span><input type="number" id="ac-income" value="95000" min="0"
+                            step="1000" inputmode="decimal" /></div>
+                </div>
+                <div class="ac-field">
+                    <label for="ac-province">Province</label>
+                    <select id="ac-province">
+                        <option value="AB">Alberta</option>
+                        <option value="BC" selected>British Columbia</option>
+                        <option value="MB">Manitoba</option>
+                        <option value="NB">New Brunswick</option>
+                        <option value="NL">Newfoundland &amp; Labrador</option>
+                        <option value="NS">Nova Scotia</option>
+                        <option value="ON">Ontario</option>
+                        <option value="PE">Prince Edward Island</option>
+                        <option value="QC">Quebec</option>
+                        <option value="SK">Saskatchewan</option>
+                    </select>
+                </div>
+                <div class="ac-field">
+                    <label for="ac-withdraw-rate">Your tax rate when you withdraw <span class="ac-hint">(often lower in
+                            retirement)</span></label>
+                    <div class="ac-input"><input type="number" id="ac-withdraw-rate" value="30" min="0" max="60"
+                            step="0.5" inputmode="decimal" /><span>%</span></div>
+                </div>
 
-                    <div class="form-group">
-                        <label for="income">Annual Income (Before Tax)</label>
-                        <div class="input-wrapper">
-                            <span class="prefix">$</span>
-                            <input type="number" id="income" value="95000" min="0" />
-                        </div>
+                <div class="ac-divider"></div>
+
+                <div class="ac-field">
+                    <label for="ac-initial">Starting amount</label>
+                    <div class="ac-input"><span>$</span><input type="number" id="ac-initial" value="10000" min="0"
+                            step="500" inputmode="decimal" /></div>
+                </div>
+                <div class="ac-field">
+                    <label for="ac-monthly">Monthly contribution</label>
+                    <div class="ac-input"><span>$</span><input type="number" id="ac-monthly" value="500" min="0"
+                            step="50" inputmode="decimal" /></div>
+                </div>
+                <div class="ac-field">
+                    <label for="ac-years">Years invested</label>
+                    <div class="ac-input"><input type="number" id="ac-years" value="20" min="1" max="50"
+                            inputmode="numeric" /><span>yrs</span></div>
+                </div>
+                <div class="ac-field">
+                    <label for="ac-return">Expected annual return, net of fees</label>
+                    <div class="ac-input"><input type="number" id="ac-return" value="8" min="0" max="20" step="0.25"
+                            inputmode="decimal" /><span>%</span></div>
+                </div>
+                <div class="ac-field">
+                    <label for="ac-yield">Share of return paid as interest or dividends <span class="ac-hint">(taxed
+                            each year in a non-registered account)</span></label>
+                    <div class="ac-range"><input type="range" id="ac-yield" value="30" min="0" max="100"
+                            step="5" /><output id="ac-yield-out">30%</output></div>
+                </div>
+                <label class="ac-check"><input type="checkbox" id="ac-us" /> I'm a U.S. citizen, resident, or green card
+                    holder</label>
+
+                <div class="ac-profile">
+                    <div><span>Estimated tax rate today</span><strong id="ac-mtr">0%</strong></div>
+                    <div><span>Tax rate at withdrawal</span><strong id="ac-wr">0%</strong></div>
+                </div>
+            </aside>
+
+            <!-- Results -->
+            <div class="ac-results">
+                <div class="ac-card">
+                    <div class="kicker">Results</div>
+                    <h2>After <span id="ac-years-out">20</span> years at <span id="ac-return-out">8</span>% net of fees
+                    </h2>
+                    <p class="ac-lede">You contribute <strong id="ac-total-contrib">$0</strong> in total. Here's what
+                        each account could be worth before and after tax.</p>
+                    <div id="ac-us-warning" class="ac-warning" hidden></div>
+                    <div class="ac-chart" id="ac-chart" role="img" aria-label="Before-tax and after-tax values by account"></div>
+                    <div class="ac-legend">
+                        <span><i class="ac-dot before"></i>Before tax</span>
+                        <span><i class="ac-dot after"></i>After tax (what you keep)</span>
                     </div>
+                </div>
+                <div class="ac-grid" id="ac-grid"></div>
+                <div class="ac-card ac-notes">
+                    <h3>How the comparison works</h3>
+                    <ul>
+                        <li><strong>Same out-of-pocket savings in every account.</strong> RRSP and FHSA contributions
+                            are tax-deductible, so we assume each year's tax refund is reinvested tax-free (for example
+                            in a TFSA) and include it in the after-tax value.</li>
+                        <li><strong>TFSA:</strong> growth and withdrawals are tax-free, so before and after tax are the
+                            same.</li>
+                        <li><strong>RRSP:</strong> grows tax-deferred; withdrawals are taxed at your withdrawal tax
+                            rate.</li>
+                        <li><strong>FHSA:</strong> deductible like an RRSP and tax-free like a TFSA when used for a
+                            qualifying first home purchase. Contributions are capped at $8,000 a year and $40,000 in
+                            total, and the account can stay open for up to 15 years.</li>
+                        <li><strong>Non-registered:</strong> interest and dividends are taxed each year at today's rate,
+                            and half of the capital gain is taxed at your withdrawal rate when sold.</li>
+                    </ul>
+                    <p class="ac-disclaimer">For illustration only. Tax rates are approximate combined federal and
+                        provincial marginal rates and do not reflect every credit, surtax, dividend tax credit, or
+                        contribution limit (TFSA and RRSP room depend on your own history). Returns are not
+                        guaranteed. Speak with an advisor and a tax professional before making decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <div class="form-group">
-                        <label for="province">Province of Residence</label>
-                        <select id="province">
-                            <option value="AB">Alberta</option>
-                            <option value="BC">British Columbia</option>
-                            <option value="MB">Manitoba</option>
-                            <option value="NB">New Brunswick</option>
-                            <option value="NL">Newfoundland & Labrador</option>
-                            <option value="NS">Nova Scotia</option>
-                            <option value="ON" selected>Ontario</option>
-                            <option value="PE">Prince Edward Island</option>
-                            <option value="QC">Quebec</option>
-                            <option value="SK">Saskatchewan</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group" style="display: flex; align-items: center; gap: 8px; margin-top: 16px;">
-                        <input type="checkbox" id="us-citizen" style="width: 18px; height: 18px; cursor: pointer;" />
-                        <label for="us-citizen" style="margin-bottom: 0; cursor: pointer;">Are you a U.S. Citizen,
-                            Resident, or Green Card Holder?</label>
-                    </div>
-
-                    <div class="calc-divider"></div>
-
-                    <h3 class="sidebar-title">Investment Scenario</h3>
-
-                    <div class="form-group">
-                        <label for="initial-dep">Initial One-Time Contribution</label>
-                        <div class="input-wrapper">
-                            <span class="prefix">$</span>
-                            <input type="number" id="initial-dep" value="10000" min="0" />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="monthly-dep">Periodic Monthly Contribution</label>
-                        <div class="input-wrapper">
-                            <span class="prefix">$</span>
-                            <input type="number" id="monthly-dep" value="500" min="0" />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="years">Investment Horizon (Years)</label>
-                        <input type="number" id="years" value="20" min="1" max="60" />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="growth-rate">Desired Expected Growth Rate (%/yr)</label>
-                        <div class="input-wrapper">
-                            <input type="number" id="growth-rate" value="6.0" step="0.1" min="0" />
-                            <span class="suffix">%</span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="yield-rate">
-                            Dividend/Interest Yield (% of total growth) <br>
-                            <small>Taxed annually in Non-Registered</small>
-                        </label>
-                        <div class="slider-wrapper">
-                            <input type="range" id="yield-rate" value="30" min="0" max="100" />
-                            <span id="yield-display">30%</span>
-                        </div>
-                    </div>
-
-                    <button class="btn btn-primary calculate-btn" id="run-calc">Calculate Projection</button>
-
-                    <div class="tax-rate-display">
-                        <h4>Your Projected Tax Profile</h4>
-                        <div class="tax-row">
-                            <span>Marginal Tax Rate</span>
-                            <strong id="display-mtr">31.48%</strong>
-                        </div>
-                        <div class="tax-row">
-                            <span>Capital Gains Inclusion</span>
-                            <strong>50%</strong>
-                        </div>
-                    </div>
-                </aside>
-
-                <!-- Main: Results -->
-                <main class="inv-results">
-                    <h2>Growth Comparison at Year <span id="display-years">20</span></h2>
-                    <p>Assuming a <span id="display-growth">6.0</span>% annual return and a <span
-                            id="display-mtr-calc">31.48</span>% marginal tax rate.</p>
-
-                    <div class="chart-container">
-                        <!-- We will use custom CSS bars for the chart instead of heavy libraries -->
-                        <div class="bars-wrapper" id="chart-bars">
-                            <!-- Bars generated by JS -->
-                        </div>
-                    </div>
-
-                    <div class="accounts-grid" id="accounts-grid">
-                        <!-- Account cards generated by JS -->
-                    </div>
-
-                    <div class="tax-note" style="margin-bottom: 24px;">
-                        <i class="fa-solid fa-circle-info"></i>
-                        <p><strong>How tax is analyzed:</strong> In an FHSA and TFSA, investments grow tax-free. An RRSP
-                            provides a tax deduction today (assumed reinvested or saved), but withdrawals are fully
-                            taxed at your marginal rate. A Non-Registered account suffers "tax drag" annually on
-                            dividends/interest, and capital gains tax on the remainder when sold. *Assumes marginal tax
-                            rate remains consistent.</p>
-                    </div>
-
-                    <div class="compliance-disclaimer">
-                        <strong>Disclaimer:</strong> This calculator is for illustrative purposes only and should not be
-                        relied upon as factual or formal tax advice. The marginal tax rates and projections are
-                        estimations and do not account for all potential tax scenarios, surtaxes, or specific
-                        exemptions. You should consult a qualified accountant or tax professional regarding your
-                        individual tax situation before making any investment decisions.
-                    </div>
-                </main>
-
+    <!-- 3. CTA -->
+    <section aria-labelledby="cta-title" class="ip-cta v4">
+        <div class="wrap">
+            <span class="kicker">Next Step</span>
+            <h2 id="cta-title">Choose the right account for every dollar.</h2>
+            <div class="card" data-ip-animate="">
+                <h3>Talk it through with an advisor.</h3>
+                <p>We'll look at your income, goals, and timeline and help you decide where each dollar works hardest.</p>
+                <div class="actions">
+                    <a class="btn btn-primary" href="https://cal.com/iberian-pacific" target="_blank"
+                        rel="noopener noreferrer">Book a Conversation</a>
+                    <a class="btn btn-secondary" href="/resources.html">More Tools</a>
+                </div>
             </div>
         </div>
     </section>
@@ -188,14 +181,12 @@
     <!-- Footer -->
     <div id="footer-mount"></div>
     <script>
-        fetch('components/footer.html')
+        fetch('/components/footer.html')
             .then(r => r.text())
-            .then(h => document.getElementById('footer-mount').innerHTML = h)
-            .catch(e => console.error('Error loading footer:', e));
+            .then(h => document.getElementById('footer-mount').innerHTML = h);
     </script>
-
-    <script src="js/script.js"></script>
-    <script src="js/investment-calculator.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/investment-calculator.js"></script>
 </body>
 
 </html>

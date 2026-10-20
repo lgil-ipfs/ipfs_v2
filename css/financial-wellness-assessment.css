@@ -8,12 +8,12 @@
    so override the sitewide .ip-hero .sub white-text rule which
    assumes a dark backdrop. */
 .ip-hero .sub {
-  color: #4A4A4A !important;
+  color: rgba(255, 255, 255, .95) !important;
 }
 
 .assessment-features {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 12px;
     flex-wrap: wrap;
     margin-top: 8px;

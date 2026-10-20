@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" data-wf-domain="www.iberianpacific.ca">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Insurance Needs Analysis | Iberian Pacific Financial Services</title>
+    <meta name="description"
+        content="Estimate how much life, disability, and critical illness insurance your family needs. A free, private needs analysis that works from your mortgage and debts down to income replacement and legacy goals." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://iberianpacific.ca/insurance-needs-analysis" rel="canonical" />
+    <link href="/Assets/Logo-IPFS-colour.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="/Assets/Logo-IPFS-colour.png" rel="apple-touch-icon" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <link href="/css/insurance-needs-analysis.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Crimson+Pro:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="header-mount"></div>
+    <script>
+        fetch('/components/header.html')
+            .then(r => r.text())
+            .then(h => { document.getElementById('header-mount').innerHTML = h; });
+    </script>
+
+    <!-- 1. HERO -->
+    <section class="ip-hero cinematic" aria-label="Insurance needs analysis hero" data-ip-animate="">
+        <div class="bg-video" aria-hidden="true">
+            <video autoplay loop muted playsinline preload="auto">
+                <source src="https://www.pexels.com/download/video/3129957/" type="video/mp4" />
+            </video>
+        </div>
+        <div class="ring" aria-hidden="true"></div>
+        <div class="wrap">
+            <div class="kicker">Interactive Tool</div>
+            <h1>How much protection does your family need?</h1>
+            <p class="sub">A free, private needs analysis for life, disability, and critical illness insurance. We start
+                with the biggest obligations, your mortgage and debts, and work down to income replacement and the
+                legacy you want to leave.</p>
+            <div class="ina-pills">
+                <span>3 Types of Coverage</span><span>5 Short Steps</span><span>About 5 Minutes</span><span>100%
+                    Private</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. ANALYSIS -->
+    <section class="ina-section" aria-label="Insurance needs analysis">
+        <div class="ina-wrap" id="ina-anchor">
+
+            <!-- Stepper -->
+            <ol class="ina-stepper" id="ina-stepper" hidden>
+                <li data-step="1"><span>1</span><em>About You</em></li>
+                <li data-step="2"><span>2</span><em>Mortgage &amp; Debt</em></li>
+                <li data-step="3"><span>3</span><em>Income</em></li>
+                <li data-step="4"><span>4</span><em>Disability &amp; Illness</em></li>
+                <li data-step="5"><span>5</span><em>Family Property</em></li>
+            </ol>
+
+            <!-- Screen: intro -->
+            <div class="ina-screen active" id="ina-intro">
+                <div class="ina-card ina-intro">
+                    <div class="kicker">Start Here</div>
+                    <h2>Three needs every protection plan should cover</h2>
+                    <p>Insurance is really about one thing: making sure the plans you've made still happen if something
+                        unexpected happens to you. Most families have three distinct needs.</p>
+                    <div class="ina-needs">
+                        <article class="ina-need">
+                            <div class="ina-need-icon"><i class="fa-solid fa-briefcase-medical" aria-hidden="true"></i>
+                            </div>
+                            <h3>Disability insurance</h3>
+                            <p><strong>The need:</strong> replacing your income if an illness or injury keeps you from
+                                working.</p>
+                            <p class="ina-example">Your paycheque pays the mortgage, groceries, and savings. Disability
+                                coverage keeps a portion of it coming while you recover.</p>
+                        </article>
+                        <article class="ina-need">
+                            <div class="ina-need-icon"><i class="fa-solid fa-heart-pulse" aria-hidden="true"></i></div>
+                            <h3>Critical illness insurance</h3>
+                            <p><strong>The need:</strong> protecting your savings through a prolonged absence from work
+                                due to a serious illness.</p>
+                            <p class="ina-example">A tax-free lump sum after a diagnosis like cancer, a heart attack, or a
+                                stroke, so treatment, travel, and time off don't drain your RRSP or emergency fund.</p>
+                        </article>
+                        <article class="ina-need">
+                            <div class="ina-need-icon"><i class="fa-solid fa-people-roof" aria-hidden="true"></i></div>
+                            <h3>Life insurance</h3>
+                            <p><strong>The need:</strong> protecting your family's standard of living if you pass away.
+                            </p>
+                            <p class="ina-example">It can pay off the mortgage and debts, replace your income for the
+                                years your family depends on it, and cover taxes so family property stays in the family.
+                            </p>
+                        </article>
+                    </div>
+                    <button type="button" class="btn btn-primary ina-start" id="ina-start">Start the Analysis
+                        &rarr;</button>
+                    <p class="ina-meta">Nothing you enter leaves your browser &middot; No account required</p>
+                </div>
+            </div>
+
+            <!-- Step 1: About you -->
+            <div class="ina-screen" id="ina-step-1" data-step="1">
+                <div class="ina-card">
+                    <div class="ina-badge">Step 1 of 5</div>
+                    <h2>About you</h2>
+                    <p class="ina-lead">A few basics so we can size each need to your situation.</p>
+                    <div class="ina-fields">
+                        <div class="ina-field"><label for="f-age">Your age</label><div class="ina-input"><input type="number" id="f-age" value="40" min="18" max="75" inputmode="numeric" /><span>yrs</span></div></div>
+                        <div class="ina-field"><label for="f-income">Your annual income (before tax)</label><div class="ina-input"><span>$</span><input type="number" id="f-income" value="110000" min="0" step="1000" inputmode="decimal" /></div></div>
+                        <div class="ina-field"><label for="f-kids">Number of children who depend on you</label><div class="ina-input"><input type="number" id="f-kids" value="2" min="0" max="10" inputmode="numeric" /></div></div>
+                        <div class="ina-field"><label for="f-youngest">Years until your youngest is independent</label><div class="ina-input"><input type="number" id="f-youngest" value="18" min="0" max="30" inputmode="numeric" /><span>yrs</span></div></div>
+                    </div>
+                    <label class="ina-check"><input type="checkbox" id="f-partner" checked /> A spouse or partner relies on my income</label>
+                </div>
+            </div>
+
+            <!-- Step 2: Mortgage & debt -->
+            <div class="ina-screen" id="ina-step-2" data-step="2">
+                <div class="ina-card">
+                    <div class="ina-badge">Step 2 of 5</div>
+                    <h2>Your biggest obligations: mortgage and debt</h2>
+                    <p class="ina-lead">These are usually the largest needs. Most families want them paid off so no one
+                        has to sell the home or take on payments alone.</p>
+                    <div class="ina-fields">
+                        <div class="ina-field"><label for="f-mortgage">Mortgage balance</label><div class="ina-input"><span>$</span><input type="number" id="f-mortgage" value="550000" min="0" step="1000" inputmode="decimal" /></div></div>
+                        <div class="ina-field"><label for="f-debts">Other debts <span class="ina-hint">(car, line of credit, cards)</span></label><div class="ina-input"><span>$</span><input type="number" id="f-debts" value="35000" min="0" step="500" inputmode="decimal" /></div></div>
+                        <div class="ina-field"><label for="f-final">Final expenses <span class="ina-hint">(funeral, estate costs)</span></label><div class="ina-input"><span>$</span><input type="number" id="f-final" value="25000" min="0" step="500" inputmode="decimal" /></div></div>
+                        <div class="ina-field"><label for="f-education">Education fund for your children <span class="ina-hint">(total)</span></label><div class="ina-input"><span>$</span><input type="number" id="f-education" value="80000" min="0" step="1000" inputmode="decimal" /></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Income replacement -->
+            <div class="ina-screen" id="ina-step-3" data-step="3">
+                <div class="ina-card">
+                    <div class="ina-badge">Step 3 of 5</div>
+                    <h2>Replacing your income</h2>
+                    <p class="ina-lead">With the mortgage and debts handled, how much of your income would your family
+                        need each year to keep their standard of living, and for how long?</p>
+                    <div class="ina-fields">
+                        <div class="ina-field"><label for="f-replace">Share of your income your family would need</label><div class="ina-range"><input type="range" id="f-replace" value="60" min="0" max="100" step="5" /><output id="f-replace-out">60%</output></div><p class="ina-help">With no mortgage payment, 50% to 70% is common.</p></div>
+                        <div class="ina-field"><label for="f-years">Years of support needed</label><div class="ina-input"><input type="number" id="f-years" value="18" min="0" max="40" inputmode="numeric" /><span>yrs</span></div><p class="ina-help">Often until your youngest is independent or your partner retires.</p></div>
+                        <div class="ina-field"><label for="f-savings">Savings and investments your family could use</label><div class="ina-input"><span>$</span><input type="number" id="f-savings" value="60000" min="0" step="1000" inputmode="decimal" /></div></div>
+                        <div class="ina-field"><label for="f-life">Life insurance you already have <span class="ina-hint">(personal and through work)</span></label><div class="ina-input"><span>$</span><input type="number" id="f-life" value="200000" min="0" step="5000" inputmode="decimal" /></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Disability & critical illness -->
+            <div class="ina-screen" id="ina-step-4" data-step="4">
+                <div class="ina-card">
+                    <div class="ina-badge">Step 4 of 5</div>
+                    <h2>If you couldn't work for a while</h2>
+                    <p class="ina-lead">Disability coverage replaces income month to month. Critical illness coverage
+                        pays a lump sum so a long recovery doesn't drain your savings.</p>
+                    <div class="ina-fields">
+                        <div class="ina-field"><label for="f-expenses">Monthly household expenses</label><div class="ina-input"><span>$</span><input type="number" id="f-expenses" value="6500" min="0" step="100" inputmode="decimal" /></div></div>
+                        <div class="ina-field"><label for="f-di">Monthly disability benefit you already have</label><div class="ina-input"><span>$</span><input type="number" id="f-di" value="2500" min="0" step="100" inputmode="decimal" /></div></div>
+                        <div class="ina-field"><label for="f-recovery">Months of expenses to cover during a serious illness</label><div class="ina-input"><input type="number" id="f-recovery" value="12" min="0" max="60" inputmode="numeric" /><span>mos</span></div></div>
+                        <div class="ina-field"><label for="f-ci">Critical illness coverage you already have</label><div class="ina-input"><span>$</span><input type="number" id="f-ci" value="0" min="0" step="5000" inputmode="decimal" /></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5: Family property & legacy -->
+            <div class="ina-screen" id="ina-step-5" data-step="5">
+                <div class="ina-card">
+                    <div class="ina-badge">Step 5 of 5</div>
+                    <h2>Family property and legacy</h2>
+                    <p class="ina-lead">Check anything that applies. These needs are easy to miss, and they're often the
+                        ones families feel most.</p>
+
+                    <label class="ina-option"><input type="checkbox" id="f-cottage" /> <span><strong>I own a vacation
+                                home or cottage I want to keep in the family</strong></span></label>
+                    <div class="ina-story" id="ina-cottage" hidden>
+                        <h3>Why this matters: the cottage tax bill</h3>
+                        <p>Picture a family cottage bought years ago for $200,000 that's now worth $1,000,000. When the
+                            owner passes away, the Canada Revenue Agency treats the cottage as if it were sold at
+                            today's value. Half of the $800,000 gain is taxable, which can mean a tax bill of roughly
+                            $200,000 on the final tax return.</p>
+                        <p>That bill has to be paid before the estate can be settled. With no insurance or cash set
+                            aside, the family often has only one option: <strong>sell the cottage to pay the tax.</strong>
+                            The place where summers were spent leaves the family for good. A life insurance policy sized
+                            to the tax bill lets the next generation keep it.</p>
+                        <p class="ina-help">A surviving spouse can usually inherit without tax, which delays the bill
+                            until the second death.</p>
+                        <div class="ina-fields">
+                            <div class="ina-field"><label for="f-cottage-value">What it's worth today</label><div class="ina-input"><span>$</span><input type="number" id="f-cottage-value" value="1000000" min="0" step="10000" inputmode="decimal" /></div></div>
+                            <div class="ina-field"><label for="f-cottage-cost">What you paid <span class="ina-hint">(plus major improvements)</span></label><div class="ina-input"><span>$</span><input type="number" id="f-cottage-cost" value="200000" min="0" step="10000" inputmode="decimal" /></div></div>
+                            <div class="ina-field"><label for="f-cottage-rate">Estimated tax rate on the final return</label><div class="ina-input"><input type="number" id="f-cottage-rate" value="50" min="0" max="60" step="0.5" inputmode="decimal" /><span>%</span></div><p class="ina-help">Large gains are usually taxed near the top rate (about 50% in most provinces).</p></div>
+                        </div>
+                    </div>
+
+                    <label class="ina-option"><input type="checkbox" id="f-legacy" /> <span><strong>I want to leave a
+                                gift to family or a charity</strong></span></label>
+                    <div class="ina-story" id="ina-legacy" hidden>
+                        <div class="ina-fields">
+                            <div class="ina-field"><label for="f-legacy-amt">Amount you'd like to leave</label><div class="ina-input"><span>$</span><input type="number" id="f-legacy-amt" value="50000" min="0" step="5000" inputmode="decimal" /></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="ina-nav" id="ina-nav" hidden>
+                <button type="button" class="ina-btn ina-back" id="ina-back">&larr; Back</button>
+                <button type="button" class="ina-btn ina-next" id="ina-next">Continue &rarr;</button>
+            </div>
+
+            <!-- Results -->
+            <div class="ina-screen" id="ina-results">
+                <div class="ina-results-head">
+                    <div class="kicker">Your Results</div>
+                    <h2>Your estimated protection needs</h2>
+                    <p>Based on what you shared, here's a starting point for each type of coverage, after the coverage
+                        and savings you already have.</p>
+                </div>
+                <div class="ina-summary" id="ina-summary"></div>
+                <div class="ina-card ina-breakdown">
+                    <h3>How we worked out your life insurance need</h3>
+                    <p class="ina-help">From the biggest obligations down.</p>
+                    <div id="ina-life-table"></div>
+                </div>
+                <div class="ina-card ina-breakdown" id="ina-cottage-result" hidden></div>
+                <div class="ina-results-actions">
+                    <a class="btn btn-primary" href="https://cal.com/iberian-pacific" target="_blank"
+                        rel="noopener noreferrer">Review My Results With an Advisor</a>
+                    <button type="button" class="ina-btn ina-back" id="ina-restart">Start Over</button>
+                </div>
+                <p class="ina-disclaimer">This analysis is a simplified estimate for educational purposes only. Income
+                    replacement assumes the money is invested to earn 2% a year after inflation. Disability coverage is
+                    typically limited to about two-thirds of your income. It is not a recommendation to buy a
+                    particular product, and actual coverage depends on underwriting, your health, and the policy's
+                    terms. Speak with a licensed advisor before making decisions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. CTA -->
+    <section aria-labelledby="cta-title" class="ip-cta v4">
+        <div class="wrap">
+            <span class="kicker">Next Step</span>
+            <h2 id="cta-title">Turn your numbers into a protection plan.</h2>
+            <div class="card" data-ip-animate="">
+                <h3>Bring your results to a complimentary review.</h3>
+                <p>We'll compare options across insurers, including for people with health histories, and design
+                    coverage that fits your family and budget.</p>
+                <div class="actions">
+                    <a class="btn btn-primary" href="https://cal.com/iberian-pacific" target="_blank"
+                        rel="noopener noreferrer">Book a Conversation</a>
+                    <a class="btn btn-secondary" href="/insurance-benefits.html">Insurance &amp; Benefits</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-mount"></div>
+    <script>
+        fetch('/components/footer.html')
+            .then(r => r.text())
+            .then(h => document.getElementById('footer-mount').innerHTML = h);
+    </script>
+    <script src="/js/script.js"></script>
+    <script src="/js/insurance-needs-analysis.js"></script>
+</body>
+
+</html>

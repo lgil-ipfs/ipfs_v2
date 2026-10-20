@@ -21,7 +21,6 @@
         rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
     <!-- Chart.js for the RDSP Illustrator -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -258,99 +257,6 @@
         </div>
     </section>
 
-    <!-- SECTION 9 - RDSP GROWTH ILLUSTRATOR -->
-    <section class="illustrator-section" data-ip-animate="">
-        <div class="wrap">
-            <div class="section-intro">
-                <h2>See what your RDSP could look like.</h2>
-                <p>Adjust the inputs below to project your plan's growth based on your contributions, government
-                    support, and time horizon.</p>
-            </div>
-
-            <div class="calc-container">
-                <!-- Input Panel -->
-                <div class="calc-inputs panel">
-                    <div class="input-group">
-                        <label for="rdsp-age">Beneficiary's current age</label>
-                        <div class="range-wrap">
-                            <input type="range" id="rdsp-age" min="0" max="49" value="25" />
-                            <span class="range-val" id="age-val">25</span>
-                        </div>
-                        <small>Grants and bonds are only paid until the end of the year the beneficiary turns
-                            49.</small>
-                    </div>
-
-                    <div class="input-group">
-                        <label for="rdsp-income">Household net income</label>
-                        <div class="prefix-input">
-                            <span>$</span>
-                            <input type="number" id="rdsp-income" value="65000" min="0" />
-                        </div>
-                        <div id="income-badge" class="badge">Checking eligibility...</div>
-                    </div>
-
-                    <div class="input-group">
-                        <label>Annual Contribution Strategy</label>
-                        <div class="toggle-group">
-                            <button class="toggle-btn active" id="strat-max" type="button">Max for Grants</button>
-                            <button class="toggle-btn" id="strat-custom" type="button">Specified Amount</button>
-                        </div>
-                        <div class="prefix-input hidden" id="custom-contrib-wrap"
-                            style="display: none; margin-top: 10px;">
-                            <span>$</span>
-                            <input type="number" id="custom-contrib" value="1500" min="0" />
-                        </div>
-                    </div>
-
-                    <div class="input-group">
-                        <label for="rdsp-growth">Assumed annual growth rate</label>
-                        <div class="range-wrap">
-                            <input type="range" id="rdsp-growth" min="2" max="8" step="0.5" value="5" />
-                            <span class="range-val" id="growth-val">5%</span>
-                        </div>
-                    </div>
-
-                    <div class="input-group">
-                        <label for="rdsp-period">Projection to age</label>
-                        <div class="range-wrap">
-                            <input type="range" id="rdsp-period" min="10" max="60" value="60" />
-                            <span class="range-val" id="period-val">60</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Output Panel -->
-                <div class="calc-outputs panel">
-                    <div class="chart-wrap">
-                        <canvas id="rdsp-chart"></canvas>
-                    </div>
-                    <div class="summary-boxes">
-                        <div class="s-box">
-                            <span class="s-label">Total You Contributed</span>
-                            <span class="s-value" id="out-contrib">$0</span>
-                        </div>
-                        <div class="s-box">
-                            <span class="s-label">Total Grants Received</span>
-                            <span class="s-value" id="out-grants">$0</span>
-                        </div>
-                        <div class="s-box">
-                            <span class="s-label">Total Bonds Received</span>
-                            <span class="s-value" id="out-bonds">$0</span>
-                        </div>
-                        <div class="s-box highlight">
-                            <span class="s-label">Projected Plan Value</span>
-                            <span class="s-value" id="out-total">$0</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <p class="italics-note mt-2"><em>This illustrator is for educational purposes only and uses simplified
-                    assumptions. Actual grant and bond amounts depend on CRA assessment of net family income.
-                    Carry-forward room and catch-up grants are not included in this simplified projection. Speak with us
-                    before making contribution decisions.</em></p>
-        </div>
-    </section>
-
     <!-- SECTION 10 - WHO SHOULD OPEN AN RDSP -->
     <section class="who-section" data-ip-animate="">
         <div class="wrap">
@@ -495,7 +401,6 @@
     <script>fetch('components/footer.html').then(r => r.text()).then(h => document.getElementById('footer-mount').innerHTML = h);</script>
     <script src="js/script.js"></script>
     <script src="js/core-services.js"></script>
-    <script src="js/rdsp.js"></script>
 </body>
 
 </html>
