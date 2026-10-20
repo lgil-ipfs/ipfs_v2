@@ -895,3 +895,65 @@ a.charity-logo-box:focus-visible {
   color: var(--maroon);
   font-weight: 700;
 }
+
+/* ==========================================================
+   PROFILE HEADER SPACING + CONNECT ROW
+   ========================================================== */
+.profile-content h1 {
+  font-size: clamp(2.2rem, 4vw, 2.9rem) !important;
+  line-height: 1.1;
+  margin: 0 0 10px;
+}
+
+.profile-content .role { margin: 0 0 6px; }
+.profile-content .creds { margin-bottom: 4px; }
+
+.profile-content .licensed {
+  font-size: 14px;
+  font-weight: 600;
+  color: #4A4A4A;
+  margin-bottom: 18px;
+}
+
+.profile-content .bio p { margin-bottom: 0; }
+
+.profile-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  margin: 24px 0 36px;
+}
+
+.profile-guess-link { margin-left: 0; }
+
+.profile-connect {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 0 0 32px;
+  margin-bottom: 36px;
+  border-bottom: 1px solid var(--cream-mid);
+}
+
+.profile-connect .charity-block { width: 100%; }
+
+.profile-connect-label {
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #7A7A7A;
+}
+
+.profile-section-block { padding: 0 0 36px; }
+
+@media (max-width: 640px) {
+  .profile-guess-link { margin: 0; }
+}
+
+.profile-section-block h2 { margin-top: 0 !important; }
+.profile-section-block > p:last-child,
+.profile-section-block > ul:last-child { margin-bottom: 0; }
