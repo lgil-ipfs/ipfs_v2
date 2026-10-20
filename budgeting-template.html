@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" data-wf-domain="www.iberianpacific.ca">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Free Budgeting Template | Iberian Pacific Financial Services</title>
+    <meta name="description"
+        content="A free Google Sheets budgeting template from Iberian Pacific: monthly spending plan, financial snapshot, goals tracker, and tax savings tabs. View instantly, no sign-up needed." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://iberianpacific.ca/budgeting-template" rel="canonical" />
+    <link href="/Assets/Logo-IPFS-colour.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="/Assets/Logo-IPFS-colour.png" rel="apple-touch-icon" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Crimson+Pro:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        .bt-section {
+            background: var(--cream);
+            padding: clamp(56px, 8vw, 96px) 20px;
+        }
+
+        .bt-wrap {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        @media (max-width: 900px) {
+            .bt-wrap { grid-template-columns: 1fr; }
+        }
+
+        .bt-card {
+            background: #FFFFFF;
+            border: 1px solid var(--cream-mid);
+            border-top: 5px solid var(--maroon);
+            border-radius: 18px;
+            padding: clamp(28px, 4vw, 44px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, .06);
+        }
+
+        .bt-card h2 {
+            color: var(--maroon);
+            margin: 6px 0 12px;
+            font-size: clamp(1.7rem, 3vw, 2.2rem) !important;
+        }
+
+        .bt-card > p {
+            color: #4A4A4A;
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 22px;
+        }
+
+        .bt-tabs {
+            list-style: none;
+            margin: 0 0 28px;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 20px;
+        }
+
+        @media (max-width: 520px) {
+            .bt-tabs { grid-template-columns: 1fr; }
+        }
+
+        .bt-tabs li {
+            position: relative;
+            padding-left: 26px;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        .bt-tabs li::before {
+            content: "\2713";
+            position: absolute;
+            left: 0;
+            color: var(--maroon);
+            font-weight: 800;
+        }
+
+        .bt-open {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 16px 24px;
+            border-radius: 10px;
+            background: var(--maroon);
+            color: #FFFFFF !important;
+            font-weight: 800;
+            font-size: 16px;
+            text-decoration: none;
+            transition: background .2s ease;
+        }
+
+        .bt-open:hover { background: #4E0A0C; }
+
+        .bt-note {
+            margin-top: 18px;
+            padding: 16px 18px;
+            border-left: 4px solid var(--gold);
+            background: var(--gold-pale);
+            border-radius: 0 10px 10px 0;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #4A3A12;
+        }
+
+        .bt-steps h2 {
+            color: var(--maroon);
+            font-size: clamp(1.5rem, 2.6vw, 1.9rem) !important;
+            margin: 6px 0 18px;
+        }
+
+        .bt-steps ol {
+            list-style: none;
+            counter-reset: step;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 14px;
+        }
+
+        .bt-steps li {
+            counter-increment: step;
+            position: relative;
+            background: #FFFFFF;
+            border: 1px solid var(--cream-mid);
+            border-radius: 12px;
+            padding: 16px 18px 16px 62px;
+            color: #4A4A4A;
+            line-height: 1.6;
+        }
+
+        .bt-steps li::before {
+            content: counter(step);
+            position: absolute;
+            left: 18px;
+            top: 16px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--maroon);
+            color: #FFFFFF;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bt-steps li strong { color: var(--charcoal); }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div id="header-mount"></div>
+    <script>
+        fetch('/components/header.html')
+            .then(r => r.text())
+            .then(h => { document.getElementById('header-mount').innerHTML = h; });
+    </script>
+
+    <!-- 1. HERO -->
+    <section class="ip-hero cinematic" aria-label="Budgeting template hero" data-ip-animate="">
+        <div class="bg-video" aria-hidden="true">
+            <video autoplay loop muted playsinline preload="auto">
+                <source src="https://www.pexels.com/download/video/3129957/" type="video/mp4" />
+            </video>
+        </div>
+        <div class="ring" aria-hidden="true"></div>
+        <div class="wrap">
+            <div class="kicker">Free Template</div>
+            <h1>Your money. Your plan. Your budget.</h1>
+            <p class="sub">A free, all-in-one Google Sheet to map every paycheque: what covers essentials, what reduces
+                debt, and what grows wealth. View it instantly, with no account or sign-up needed here.</p>
+            <div class="cta-row">
+                <a class="btn btn-primary"
+                    href="https://docs.google.com/spreadsheets/d/17zQUAbBdKj6JEYIH6UAY_od7iSDD0XhGBIOnqNKUn90/edit?usp=sharing"
+                    target="_blank" rel="noopener noreferrer">Open the Budgeting Template</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. TEMPLATE + HOW TO USE -->
+    <section class="bt-section" aria-label="Budgeting template">
+        <div class="bt-wrap">
+            <article class="bt-card">
+                <div class="kicker">Google Sheets</div>
+                <h2>Budgeting Template</h2>
+                <p>One comprehensive spending plan that covers everything from your monthly budget to your long-term
+                    goals. It includes:</p>
+                <ul class="bt-tabs">
+                    <li>Monthly Spending Plan</li>
+                    <li>Personal Financial Snapshot</li>
+                    <li>Dashboard</li>
+                    <li>Goals Tracker</li>
+                    <li>Accounts</li>
+                    <li>Tax Savings</li>
+                    <li>Budget Link</li>
+                </ul>
+                <a class="bt-open"
+                    href="https://docs.google.com/spreadsheets/d/17zQUAbBdKj6JEYIH6UAY_od7iSDD0XhGBIOnqNKUn90/edit?usp=sharing"
+                    target="_blank" rel="noopener noreferrer">View Template <span aria-hidden="true">&rarr;</span></a>
+                <p class="bt-note"><strong>Good to know:</strong> the template is shared as view-only, so anyone can look
+                    through it without signing in. To get your own editable copy, request edit access directly in
+                    Google Sheets. Requesting access shares your name and the email address tied to your Google account
+                    with the file's owner.</p>
+            </article>
+
+            <div class="bt-steps">
+                <div class="kicker">How to Use It</div>
+                <h2>Build your budget in five steps</h2>
+                <ol>
+                    <li><strong>Open the template.</strong> No sign-in is needed to look around.</li>
+                    <li><strong>Start with the Monthly Spending Plan.</strong> Enter your take-home pay, then list your
+                        needs, wants, and savings.</li>
+                    <li><strong>Fill in your Personal Financial Snapshot.</strong> List what you own and what you owe to
+                        see your net worth.</li>
+                    <li><strong>Set goals in the Goals Tracker.</strong> Add a target amount and date for each goal, like
+                        an emergency fund or a down payment.</li>
+                    <li><strong>Review once a month.</strong> A short monthly check-in is usually enough to stay on
+                        track.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. CTA -->
+    <section aria-labelledby="cta-title" class="ip-cta v4">
+        <div class="wrap">
+            <span class="kicker">Next Step</span>
+            <h2 id="cta-title">Turn your budget into a plan.</h2>
+            <div class="card" data-ip-animate="">
+                <h3>Bring your numbers to a complimentary conversation.</h3>
+                <p>We'll help you make sense of what your budget shows and build a plan around what matters most to
+                    you.</p>
+                <div class="actions">
+                    <a class="btn btn-primary" href="https://cal.com/iberian-pacific" target="_blank"
+                        rel="noopener noreferrer">Book a Conversation</a>
+                    <a class="btn btn-secondary" href="/financial-wellness-assessment.html">Take the Assessment</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-mount"></div>
+    <script>
+        fetch('/components/footer.html')
+            .then(r => r.text())
+            .then(h => document.getElementById('footer-mount').innerHTML = h);
+    </script>
+
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

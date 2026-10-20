@@ -1286,3 +1286,15 @@ h4 {
 }
 
 /* ==========================================================
+/* Team cards: equal height, one "Read bio" button aligned along the bottom */
+.ip-team .grid { align-items: stretch; }
+.ip-team .media > a { display: block; width: 100%; height: 100%; }
+.ip-team .name a { color: inherit; text-decoration: none; }
+.ip-team .name a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.ip-team .team-disclosure {
+  font-size: 0.75rem;
+  color: #888;
+  font-style: italic;
+  margin: 2px 0 0;
+}

@@ -3375,3 +3375,253 @@ summary:focus-visible,
     font: 800 11px/1 "Nunito Sans";
   }
 }
+
+/* ============================================================
+   SITE-WIDE STANDARDS (October 2026 review)
+   ============================================================ */
+
+/* Section headers ("kickers"): the "About Iberian Pacific" style is the
+   standard everywhere. Bold brand body font; maroon on light backgrounds,
+   gold only on dark backgrounds where it stays readable. */
+.kicker,
+.ip-kicker,
+.ip-why-kicker {
+  font-family: var(--font-body) !important;
+  font-size: 13.5px !important;
+  font-weight: 800 !important;
+  letter-spacing: .2em !important;
+  line-height: 1.2 !important;
+  text-transform: uppercase !important;
+  color: var(--maroon) !important;
+}
+
+.kicker::before,
+.ip-kicker::before,
+.ip-why-kicker::before {
+  background: linear-gradient(90deg, var(--maroon), transparent) !important;
+}
+
+.ip-hero .kicker,
+.hero .kicker,
+.fwa-feature .kicker,
+.is-dark .kicker {
+  color: var(--gold) !important;
+}
+
+.ip-hero .kicker::before,
+.hero .kicker::before,
+.fwa-feature .kicker::before,
+.is-dark .kicker::before {
+  background: linear-gradient(90deg, var(--gold), transparent) !important;
+}
+
+/* Hero copy follows the About page hero everywhere */
+.ip-hero h1 {
+  font-family: var(--font-display) !important;
+  font-weight: 600 !important;
+  line-height: 1.06 !important;
+  letter-spacing: .2px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, .35);
+}
+
+.ip-hero .sub {
+  font: 400 18px/1.7 var(--font-body) !important;
+  max-width: 780px;
+}
+
+/* Main navigation and dropdowns in the brand serif, matching the wordmark */
+.ip-header .nav > li > a {
+  font-family: var(--font-display) !important;
+  font-size: 17.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: .01em;
+}
+
+.ip-header .dropdown a {
+  font-family: var(--font-display) !important;
+  font-size: 16.5px !important;
+  font-weight: 600 !important;
+  color: var(--maroon) !important;
+}
+
+.ip-header .dropdown a:hover { color: var(--maroon-deep) !important; }
+
+.ip-header .dropdown-group-label {
+  font-size: 11px !important;
+  color: #8A6A1C !important;
+}
+
+.ip-drawer a.nav-link {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* Utility bar: Monarch client login in bold */
+.ip-header .topbar a.topbar-login {
+  font-weight: 800 !important;
+  color: #FFFFFF !important;
+}
+
+/* ------------------------------------------------------------
+   Call to action, redesigned (inspired by ZLC Wealth, in brand)
+   ------------------------------------------------------------ */
+section.ip-cta.v4 {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #FBF7EF 0%, #F5ECD9 100%) !important;
+  padding: clamp(72px, 9vw, 112px) 20px !important;
+  text-align: center !important;
+  border-top: 1px solid rgba(107, 15, 17, .08);
+}
+
+section.ip-cta.v4::before,
+section.ip-cta.v4::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 440px;
+  height: 440px;
+  background: url("/Assets/Logo-IPFS-colour.png") center / contain no-repeat;
+  opacity: .07;
+  pointer-events: none;
+  z-index: 0;
+}
+
+section.ip-cta.v4::after { right: -90px; transform: translateY(-50%); }
+section.ip-cta.v4::before { left: -150px; transform: translateY(-50%) scale(.7); opacity: .04; }
+
+section.ip-cta.v4 .wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 780px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  display: block !important;
+}
+
+section.ip-cta.v4 .kicker {
+  justify-content: center;
+  letter-spacing: .3em !important;
+  margin: 0 auto 10px !important;
+}
+
+section.ip-cta.v4 .kicker::before { display: none !important; }
+
+section.ip-cta.v4 h2 {
+  font-family: var(--font-display) !important;
+  font-weight: 700 !important;
+  color: var(--maroon) !important;
+  font-size: clamp(2rem, 4.2vw, 3rem) !important;
+  line-height: 1.12 !important;
+  max-width: 700px;
+  margin: 0 auto 18px !important;
+  text-align: center !important;
+}
+
+section.ip-cta.v4 .card {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  max-width: 640px;
+  margin: 0 auto !important;
+  text-align: center !important;
+}
+
+section.ip-cta.v4 .card h3 {
+  font-family: var(--font-body) !important;
+  font-weight: 700 !important;
+  font-size: 1.12rem !important;
+  color: var(--charcoal) !important;
+  margin: 0 0 6px !important;
+}
+
+section.ip-cta.v4 .card p {
+  font-size: 16.5px !important;
+  line-height: 1.75 !important;
+  color: #4A4A4A !important;
+  margin: 0 auto !important;
+}
+
+section.ip-cta.v4 .actions {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center !important;
+  gap: 12px !important;
+  margin: 28px 0 0 !important;
+}
+
+section.ip-cta.v4 .btn,
+section.ip-cta.v4 .btn-primary,
+section.ip-cta.v4 .btn-secondary {
+  border-radius: 8px !important;
+  padding: 14px 28px !important;
+  font-weight: 700 !important;
+  font-size: 15.5px !important;
+  box-shadow: none !important;
+  transform: none;
+}
+
+section.ip-cta.v4 .btn-primary {
+  background: var(--maroon) !important;
+  border: 1.5px solid var(--maroon) !important;
+  color: #FFFFFF !important;
+}
+
+section.ip-cta.v4 .btn-primary:hover {
+  background: #4E0A0C !important;
+  border-color: #4E0A0C !important;
+}
+
+section.ip-cta.v4 .btn-secondary {
+  background: transparent !important;
+  border: 1.5px solid rgba(107, 15, 17, .55) !important;
+  color: var(--maroon) !important;
+}
+
+section.ip-cta.v4 .btn-secondary:hover {
+  background: rgba(107, 15, 17, .06) !important;
+  border-color: var(--maroon) !important;
+}
+
+section.ip-cta.v4 .cta-secondary-link {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--maroon) !important;
+}
+
+@media (max-width: 720px) {
+  section.ip-cta.v4::before,
+  section.ip-cta.v4::after { display: none; }
+}
+
+/* Older rules target #cta-title by ID; match that specificity */
+section.ip-cta.v4 h2#cta-title {
+  color: var(--maroon) !important;
+  font-family: var(--font-display) !important;
+  font-weight: 700 !important;
+  font-size: clamp(2rem, 4.2vw, 3rem) !important;
+  text-align: center !important;
+  margin: 0 auto 18px !important;
+}
+
+/* Light sections that older rules forced to gold */
+.circleflow-original .kicker,
+.ip-cta .kicker,
+section.ip-cta.v4 .kicker {
+  color: var(--maroon) !important;
+}
+
+.circleflow-original .kicker::before {
+  background: linear-gradient(90deg, var(--maroon), transparent) !important;
+}
+section.ip-cta.v4 h2,
+section.ip-cta.v4 h2#cta-title,
+section.ip-cta.v4 h3 { text-shadow: none !important; }
+
+/* About page sections on light backgrounds */
+.about-links .kicker,
+.ip-values.pro .kicker { color: var(--maroon) !important; }
+.about-links .kicker::before,
+.ip-values.pro .kicker::before { background: linear-gradient(90deg, var(--maroon), transparent) !important; }
