@@ -868,3 +868,30 @@ a.charity-logo-box:focus-visible {
 @media (max-width: 640px) {
   .profile-guess-link { margin: 14px 0 0; display: flex; }
 }
+
+/* Core areas of expertise list on bio pages */
+.bio-expertise {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bio-expertise li {
+  position: relative;
+  padding: 14px 18px 14px 22px;
+  background: var(--cream);
+  border: 1px solid var(--cream-mid);
+  border-left: 4px solid var(--gold);
+  border-radius: 10px;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: #4A4A4A;
+}
+
+.bio-expertise strong {
+  color: var(--maroon);
+  font-weight: 700;
+}
