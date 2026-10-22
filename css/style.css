@@ -3441,10 +3441,10 @@ summary:focus-visible,
   font-family: var(--font-display) !important;
   font-size: 16.5px !important;
   font-weight: 600 !important;
-  color: var(--maroon) !important;
+  color: #000000 !important;
 }
 
-.ip-header .dropdown a:hover { color: var(--maroon-deep) !important; }
+.ip-header .dropdown a:hover { color: #000000 !important; }
 
 .ip-header .dropdown-group-label {
   font-size: 11px !important;
