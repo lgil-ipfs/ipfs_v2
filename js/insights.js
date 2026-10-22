@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const searchTerm = searchInput.value.toLowerCase();
         const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
 
+        let visible = 0;
         articles.forEach(article => {
             const titleElement = article.querySelector('h3, h2');
             const descElement = article.querySelector('p');
@@ -23,10 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (matchesSearch && matchesFilter) {
                 article.style.display = 'flex';
+                visible++;
             } else {
                 article.style.display = 'none';
             }
         });
+
+        const emptyMsg = document.getElementById('no-articles-msg');
+        if (emptyMsg) emptyMsg.hidden = visible > 0;
     }
 
     if (searchInput) {

@@ -1,0 +1,214 @@
+/* ============================================================
+   IBERIAN PACIFIC: Insights article pages
+   ============================================================ */
+
+.article-hero {
+  background: #FFFFFF;
+  padding: clamp(110px, 12vw, 150px) 20px 36px;
+}
+
+.article-hero .wrap,
+.article-body,
+.article-figure {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.article-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 22px;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--maroon);
+  text-decoration: none;
+}
+
+.article-back:hover { text-decoration: underline; }
+
+.article-hero h1 {
+  font-size: clamp(2.1rem, 5vw, 3.3rem) !important;
+  line-height: 1.12;
+  color: var(--maroon);
+  margin: 4px 0 16px;
+}
+
+.article-dek {
+  font-size: 19px;
+  line-height: 1.6;
+  color: #4A4A4A;
+  margin: 0 0 22px;
+}
+
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  font-size: 14px;
+  color: #6A6A6A;
+  border-top: 1px solid var(--cream-mid);
+  padding-top: 16px;
+}
+
+.article-meta strong { color: var(--charcoal); }
+
+.article-figure { padding: 0 20px; }
+
+.article-figure img {
+  width: 100%;
+  height: clamp(240px, 42vw, 440px);
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+}
+
+.article-figure figcaption { font-size: 12.5px; color: #8A8A8A; margin-top: 8px; }
+
+.article-section {
+  background: #FFFFFF;
+  padding: 36px 20px clamp(64px, 8vw, 96px);
+}
+
+.article-body { font-size: 17.5px; line-height: 1.8; color: #2F2F2F; }
+.article-body p { margin: 0 0 20px; }
+
+.article-body h2 {
+  color: var(--maroon);
+  font-size: clamp(1.5rem, 3vw, 1.9rem) !important;
+  line-height: 1.25;
+  margin: 40px 0 14px;
+}
+
+.article-body h3 { color: var(--charcoal); font-size: 1.2rem !important; margin: 28px 0 10px; }
+
+.article-body ul,
+.article-body ol { margin: 0 0 22px; padding-left: 24px; }
+.article-body li { margin-bottom: 10px; }
+.article-body strong { color: var(--charcoal); }
+
+.article-body a { color: var(--maroon); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+
+.article-takeaways {
+  background: var(--cream);
+  border: 1px solid var(--cream-mid);
+  border-left: 5px solid var(--gold);
+  border-radius: 0 14px 14px 0;
+  padding: 22px 26px 8px;
+  margin: 0 0 32px;
+}
+
+.article-takeaways h2 {
+  margin: 0 0 12px !important;
+  font-family: var(--font-body) !important;
+  font-size: 13.5px !important;
+  font-weight: 800;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--maroon);
+}
+
+.article-takeaways ul { padding-left: 20px; }
+
+.article-example {
+  background: #FDF9EF;
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin: 0 0 24px;
+  font-size: 16px;
+}
+
+.article-example p:last-child { margin-bottom: 0; }
+
+.article-example-title {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #8A6A1C;
+  margin-bottom: 8px;
+}
+
+.article-tool {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  background: var(--maroon);
+  color: #FFFFFF;
+  border-radius: 16px;
+  padding: 24px 28px;
+  margin: 36px 0;
+}
+
+.article-tool strong { display: block; color: #FFFFFF; font-family: var(--font-display); font-size: 1.35rem; margin-bottom: 4px; }
+.article-tool p { margin: 0; color: rgba(255, 255, 255, .85); font-size: 15.5px; line-height: 1.55; }
+
+.article-body .article-tool a {
+  flex-shrink: 0;
+  background: var(--gold);
+  color: #2A1A00;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 12px 22px;
+  font-weight: 800;
+  font-size: 15px;
+}
+
+.article-body .article-tool a:hover { background: #E8BC52; }
+
+.article-disclaimer {
+  margin-top: 40px;
+  padding-top: 18px;
+  border-top: 1px solid var(--cream-mid);
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: #7A7A7A;
+}
+
+.article-related {
+  background: var(--cream);
+  padding: clamp(56px, 7vw, 80px) 20px;
+}
+
+.article-related .wrap { max-width: 1100px; margin: 0 auto; }
+.article-related h2 { color: var(--maroon); margin: 6px 0 24px; }
+
+.article-related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+@media (max-width: 860px) {
+  .article-related-grid { grid-template-columns: 1fr; }
+}
+
+.related-card {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  border: 1px solid var(--cream-mid);
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.related-card:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(0, 0, 0, .08); }
+.related-card img { width: 100%; height: 160px; object-fit: cover; display: block; }
+.related-card div { padding: 18px 20px 22px; }
+
+.related-card span {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #8A6A1C;
+}
+
+.related-card h3 { color: var(--charcoal); font-size: 1.15rem !important; line-height: 1.3; margin: 8px 0 0; }
+
+.article-back { display: flex; width: max-content; }

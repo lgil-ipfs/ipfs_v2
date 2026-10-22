@@ -291,3 +291,11 @@
         grid-column: span 1;
     }
 }
+/* Article cards link to each post */
+a.card-image { display: block; }
+.article-card.featured a.card-image { height: auto; min-height: 320px; }
+.card-content h2 a,
+.card-content h3 a { color: inherit; text-decoration: none; }
+.card-content h2 a:hover,
+.card-content h3 a:hover { color: var(--maroon); }
+#no-articles-msg[hidden] { display: none !important; }
